@@ -8,7 +8,7 @@ $response = $kernel->handle(
 );
 $response->send();
 $kernel->terminate($request, $response);
-*/
+*/?>
 <html>
  <head>
   <title>PHP Test</title>
