@@ -26,10 +26,41 @@
     margin-top: -50px;
     margin-left: -100px;
     color: white;
-    font-size: 3em;
+    font-size: 4em;
     background-image: none;
     background-color: rgba(0,0,0,0);
     text-align: center;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: white;
+}
+
+::-ms-input-placeholder {
+    color: white;
+}
+
+.searchbox{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -18%;
+    font-size: 1em;
+    background-image: none;
+    background-color: rgba(0,0,0,0);
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    width: 40%;
+    height: 40px;
 }
 
 .titletext{
