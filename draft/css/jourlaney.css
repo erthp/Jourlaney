@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+
+.clearbg{
+    background-image: none;
+    background-color: rgba(0,0,0,0);
+}
+
 .homepic {
     position: relative;
     width: 100%;
@@ -12,13 +19,19 @@
     }
 
 .hometext {
-    position: relative;
-    float: left;
-    display: inline-block;
+    font-family: 'Patrick Hand', cursive;
+    position: fixed;
     top: 30%;
     left: 50%;
-    text-align: center;
-    font-size: 3em;
+    margin-top: -50px;
+    margin-left: -100px;
     color: white;
-    transform: translateY(-50%); 
+    font-size: 3em;
+    background-image: none;
+    background-color: rgba(0,0,0,0);
+}
+
+.titletext{
+    font-family: 'Patrick Hand', cursive;
+    color: white;
 }
