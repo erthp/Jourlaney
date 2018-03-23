@@ -1,8 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
+body{
+    font-family: 'Kanit', sans-serif;
+}
 
 .clearbg{
     background-image: none;
     background-color: rgba(0,0,0,0);
+}
+
+.homemenu{
+    background-color: #513819;
+}
+
+.homemenu-icon{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.homemenu-text{
+    color: #ffc844;
 }
 
 .homepic {
