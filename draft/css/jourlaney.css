@@ -63,6 +63,14 @@ body{
     color: white;
 }
 
+.register-bg{
+    background-color: #d4f0fb;
+}
+
+.register-label{
+    color: #513819;
+}
+
 .searchbox{
     position: fixed;
     top: 40%;
