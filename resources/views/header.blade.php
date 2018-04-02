@@ -46,3 +46,8 @@
             </div>
         </div>
     </div>
+    @yield('page')
+    </div>
+</body>
+
+</html>

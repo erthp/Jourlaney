@@ -1,4 +1,5 @@
 @extends('header')
+@section('page')
         <div class="container homemenu">
             <div class="row">
                 <div class="col-4">
@@ -21,7 +22,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</body>
-
-</html>
+@endsection
