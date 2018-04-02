@@ -67,6 +67,12 @@ body{
     background-color: #d4f0fb;
 }
 
+.register-header{
+    color: #513819;
+    margin-top: 10px;
+    padding-top: 10px;
+}
+
 .register-label{
     color: #513819;
 }
