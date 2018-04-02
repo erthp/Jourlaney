@@ -27,7 +27,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <div class="btn-nav">
-                            <a class="btn btn-outline-light btn-small navbar-btn clearbg" href="">Sign up</a>
+                            <a class="btn btn-outline-light btn-small navbar-btn clearbg" href="guideregister">Sign up</a>
                             <a class="btn btn-outline-light btn-small navbar-btn clearbg" href="">Log in</a>
                         </div>
                     </li>
