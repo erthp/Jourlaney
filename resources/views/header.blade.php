@@ -37,3 +37,12 @@
                 <h1 class="hometext">Let's tour
                     <br/>THAILAND</h1>
             </div>
+            <div class="row clearbg">
+                <div class="col-lg">
+                    <div class="clearbg">
+                        <input type="text" class="searchbox" name="search" placeholder="Where to go?">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
