@@ -92,10 +92,10 @@ input[type="file"]{
 }
 
 .searchbox{
-    position: fixed;
+    position: absolute;
     top: 40%;
     left: 50%;
-    margin-top: -50px;
+    margin-top: 220px;
     margin-left: -18%;
     font-size: 1em;
     background-image: none;
