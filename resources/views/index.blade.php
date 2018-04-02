@@ -1,3 +1,4 @@
+<?php
 @extends('header')
 @section('page')
         <div class="container homemenu">
@@ -23,3 +24,4 @@
             </div>
         </div>
 @endsection
+?>
