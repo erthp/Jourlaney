@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 @import url('https://fonts.googleapis.com/css?family=Kanit');
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,700');
 
 body{
     font-family: 'Kanit', sans-serif;
@@ -49,6 +50,18 @@ body{
     background-image: none;
     background-color: rgba(0,0,0,0);
     text-align: center;
+}
+
+input[type="file"]{
+    position:absolute;
+    z-index:2;
+    top:0;
+    left:0;
+    filter: alpha(opacity=0);
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    opacity:0;
+    background-color:transparent;
+    color:transparent;
 }
 
 ::placeholder {
