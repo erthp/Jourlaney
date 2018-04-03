@@ -22,3 +22,7 @@ Route::get('index',function(){
 Route::get('guideregister',function(){
     return view('guideregister');
 });
+
+Route::get('header',function(){
+    return view('header');
+});
