@@ -29,11 +29,38 @@
                     <li>
                         <div class="btn-nav">
                             <a class="btn btn-outline-light btn-small navbar-btn clearbg" href="guideregister">Sign up</a>
-                            <a class="btn btn-outline-light btn-small navbar-btn clearbg" href="">Log in</a>
+                            <a class="btn btn-outline-light btn-small navbar-btn clearbg" data-toggle="modal" data-target="#login-popup">Log in</a>
                         </div>
                     </li>
                 </ul>
             </nav>
+            <div id="login-popup" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 align="center">Log in</h4>
+                    </div>
+                    <div class="container">
+                    <div class="col-12">
+                    <form method="POST" name="register-form">
+                        <div class="form-group">
+                    <label class="register-label" for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label class="register-label" for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Password">
+                </div>
+               </div>
+               </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" data-dismiss="modal">Log in</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                    </div>
+                    </form>
+                </div>
+                </div>
             <div>
                 <h1 class="hometext">Let's tour
                     <br/>THAILAND</h1>
