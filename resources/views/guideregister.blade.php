@@ -4,7 +4,7 @@
 <div class="col-12 register-bg">
                 <h3 class="text-center register-header">Sign up to guide</h3>
 
-                <form method="POST" name="register-form"></form>
+                <form method="POST" name="register-form">
                 <div class="form-group">
                     <label class="register-label" for="username">Username</label>
                     <input type="text" class="form-control" id="username" placeholder="Username">
