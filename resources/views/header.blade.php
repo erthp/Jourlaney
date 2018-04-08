@@ -28,7 +28,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li>
                         <div class="btn-nav">
-                            <a class="btn btn-outline-light btn-small navbar-btn clearbg" href="guideregister">Sign up</a>
+                            <a class="btn btn-outline-light btn-small navbar-btn clearbg" data-toggle="modal" data-target="#register-popup">Sign up</a>
                             <a class="btn btn-outline-light btn-small navbar-btn clearbg" data-toggle="modal" data-target="#login-popup">Log in</a>
                         </div>
                     </li>
@@ -62,6 +62,24 @@
                 </div>
                 </div>
             <div>
+            <div id="register-popup" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <div class="row">
+                                    <div class="col-md-12 text-center">
+                                      <h4>I am ...</h4>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                  <a href="guideregister" ><img src = "../images/guide.png"></a>
+                                  <a href="touristregister" ><img src = "../images/tourist.png"></a>
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
                 <h1 class="hometext">Let's tour
                     <br/>THAILAND</h1>
             </div>
