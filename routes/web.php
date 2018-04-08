@@ -23,6 +23,10 @@ Route::get('guideregister',function(){
     return view('guideregister');
 });
 
+Route::get('touristregister',function(){
+    return view('touristregister');
+});
+
 Route::get('header',function(){
     return view('header');
 });
