@@ -23,4 +23,4 @@ Route::get('header',function(){
     return view('header');
 });
 
-Route::post('/guideregis',"GuideRegister@guideregis");
+Route::post('/guideregis',"GuideRegisterController@guideregis");

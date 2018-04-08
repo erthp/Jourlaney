@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 class GuideRegisterController extends Controller
 {
     public function guideregis(Request $request){
-        $result = DB::insert("insert into ");
+        $queryUser = DB::insert("insert into Users(username,userPassword,userDOB) values(?,?,?)",[$request->input('username'),$request->input('password'),$request->input('birthdate')]);
+        $queryGuide = DB::insert("insert into Guide(guideLicenseNumber) value(?)",[$request->input('guidelicense')]);
+        echo $queryUser, $queryGuide;
     }
 }
