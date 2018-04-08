@@ -14,19 +14,19 @@
                     <input type="password" class="form-control" id="password" placeholder="Password">
                 </div>
                 <div class="form-group">
-                    <label class="register-label" for="password">Re-password</label>
+                    <label class="register-label" for="repassword">Re-password</label>
                     <input type="repassword" class="form-control" id="repassword" placeholder="Re-password">
                 </div>
                 <div class="form-group">
-                    <label class="register-label" for="password">Email</label>
+                    <label class="register-label" for="email">Email</label>
                     <input type="email" class="form-control" id="email" placeholder="Email">
                 </div>
                 <div class="form-group">
-                    <label class="register-label" for="password">Birthdate</label>
+                    <label class="register-label" for="birthdate">Birthdate</label>
                     <input type="date" class="form-control" id="birthdate" placeholder="Birthday">
                 </div>
                 <div class="form-group">
-                    <label class="register-label" for="password">ID card number</label>
+                    <label class="register-label" for="idcard">ID card number</label>
                     <input type="number" class="form-control" id="idcard" placeholder="ID card number">
                 </div>
                 <div class="form-group">
