@@ -80,8 +80,8 @@
                                 </div>
                             </div>
                         </div>
-                <h1 class="hometext">Let's tour
-                    <br/>THAILAND</h1>
+                <!--<h1 class="hometext">Let's tour
+                    <br/>THAILAND</h1>-->
             </div>
             <div class="row clearbg">
                 <div class="col-lg">
