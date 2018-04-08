@@ -79,8 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    @yield('content')
-                    
+                    Laravel    
                 </div>
 
                 <div class="links">
