@@ -32,7 +32,7 @@ body{
     max-height: 100%;
     margin: auto;
     display: block;
-    background-image: url("../images/homepic.jpeg");
+    background-image: url("../images/thailand_header.jpg");
     object-fit: contain;
     background-size: cover;
     }
