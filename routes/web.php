@@ -27,4 +27,5 @@ Route::get('header',function(){
     return view('header');
 });
 
-Route::post('/guideregis',"GuideRegisterController@guideregis");
+Route::post('/guideregis1',"GuideRegisterController@guideregis1");
+Route::post('/guideregis2',"GuideRegisterController@guideregis2");

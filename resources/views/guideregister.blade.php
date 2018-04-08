@@ -4,7 +4,7 @@
 <div class="col-12 register-bg">
                 <h3 class="text-center register-header">Sign up to guide</h3>
 
-                <form method="POST" name="register-form" action="{{URL::to('/guideregis')}}">
+                <form method="POST" name="register-form" action="{{URL::to('/guideregis1')}}">
                 <div class="form-group">
                     <label class="register-label" for="username">Username</label>
                     <input type="text" class="form-control" name="username" placeholder="Username">
@@ -30,17 +30,19 @@
                     <input type="email" class="form-control" name="email" placeholder="Email">
                 </div>
                 <label class="register-label" for="gender">Gender</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Male">
-                    <label class="form-check-label" for="male">Male</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
-                    <label class="form-check-label" for="female">Female</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="gender" value="Undefined">
-                    <label class="form-check-label" for="undefined">Undefined</label>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="Male">
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="Undefined">
+                        <label class="form-check-label" for="undefined">Undefined</label>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="birthdate">Birthdate</label>
@@ -62,8 +64,9 @@
                         <input type="file" name="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
                     </a>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
+                <form method="POST" name="register-form" action="{{URL::to('/guideregis2')}}">
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
 </div>
 @endsection
