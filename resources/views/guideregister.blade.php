@@ -7,7 +7,8 @@
                 <form method="POST" name="register-form" action="{{URL::to('/guideregis')}}">
                 <div class="form-group">
                     <label class="register-label" for="username">Username</label>
-                    <input type="text" class="form-control" name="username" placeholder="Username">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username">
+                    <input type="text" class="form-control" name="cpusername" id="cpusername" placeholder="Username">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="password">Password</label>
