@@ -4,7 +4,7 @@
 <div class="col-12 register-bg">
                 <h3 class="text-center register-header">Sign up to guide</h3>
 
-                <form method="POST" name="register-form" action="{{URL::to('/guideregis1')}}">
+                <form method="POST" name="register-form" action="{{URL::to('/guideregis')}}">
                 <div class="form-group">
                     <label class="register-label" for="username">Username</label>
                     <input type="text" class="form-control" name="username" placeholder="Username">
@@ -64,9 +64,8 @@
                         <input type="file" name="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
                     </a>
                 </div>
-                </form>
-                <form method="POST" name="register-form" action="{{URL::to('/guideregis2')}}">
                 <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
             </div>
 </div>
 @endsection
