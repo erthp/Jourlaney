@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('index',function(){
+Route::get('/',function(){
     return view('index');
 });
 
@@ -30,3 +26,5 @@ Route::get('touristregister',function(){
 Route::get('header',function(){
     return view('header');
 });
+
+Route::post('/guideregis',"GuideRegisterController@guideregis");
