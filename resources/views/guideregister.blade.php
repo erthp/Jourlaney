@@ -46,15 +46,15 @@
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="birthdate">Birthdate</label>
-                    <input type="date" class="form-control" name="birthdate" placeholder="Birthday">
+                    <input type="date" class="form-control" name="birthdate" placeholder="Birthday" validateDate>
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="idcard">ID card number</label>
-                    <input type="number" class="form-control" name="idcard" placeholder="ID card number">
+                    <input type="text" class="form-control" id="idcard "name="idcard" placeholder="ID card number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[11, 11]">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="guidelicense">Guide license number</label>
-                    <input type="number" class="form-control" name="guidelicense" placeholder="Guide license number">
+                    <input type="text" class="form-control" name="guidelicense" placeholder="Guide license number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[7, 7]">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                 </div>
                 <div class="form-group">
@@ -69,6 +69,10 @@
             </div>
 </div>
 <script>
-  $('#register-form').parsley();
+    $('#register-form').parsley();
+    $(document).ready(function(){
+        $('#idcard').mask('0-0000-00000-0');
+        $('.guidelicense').mask('00-00000');
+    });
 </script>
 @endsection
