@@ -4,31 +4,30 @@
 <div class="col-12 register-bg">
                 <h3 class="text-center register-header">Sign up to guide</h3>
 
-                <form method="POST" name="register-form" action="{{URL::to('/guideregis')}}">
+                <form method="POST" id="register-form" name="register-form" action="{{URL::to('/guideregis')}}">
                 <div class="form-group">
                     <label class="register-label" for="username">Username</label>
-                    <input type="text" class="form-control" name="username" id="username" placeholder="Username">
-                    <input type="text" class="form-control" name="cpusername" id="cpusername" placeholder="Username">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 20]">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="password">Password</label>
-                    <input type="password" class="form-control" name="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[8, 40]">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="repassword">Re-password</label>
-                    <input type="password" class="form-control" name="repassword" placeholder="Re-password">
+                    <input type="password" class="form-control" name="repassword" placeholder="Re-password" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[8, 40]" data-parsley-equalto="#password">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="firstname">First name</label>
-                    <input type="text" class="form-control" name="firstname" placeholder="First name">
+                    <input type="text" class="form-control" name="firstname" placeholder="First name" data-parsley-required="true" data-parsley-type="alphanum">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="lastname">Last name</label>
-                    <input type="text" class="form-control" name="lastname" placeholder="Last name">
+                    <input type="text" class="form-control" name="lastname" placeholder="Last name" data-parsley-required="true" data-parsley-type="alphanum">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="email">Email</label>
-                    <input type="email" class="form-control" name="email" placeholder="Email">
+                    <input type="email" class="form-control" name="email" placeholder="Email" data-parsley-required="true" data-parsley-type="email">
                 </div>
                 <label class="register-label" for="gender">Gender</label>
                 <div class="form-group">
@@ -41,7 +40,7 @@
                         <label class="form-check-label" for="female">Female</label>
                     </div>
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="gender" id="gender" value="Undefined">
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="Undefined" checked>
                         <label class="form-check-label" for="undefined">Undefined</label>
                     </div>
                 </div>
@@ -69,4 +68,7 @@
                 </form>
             </div>
 </div>
+<script>
+  $('#register-form').parsley();
+</script>
 @endsection
