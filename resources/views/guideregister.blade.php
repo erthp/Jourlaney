@@ -11,11 +11,11 @@
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="password">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[8, 40]">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[8, 40]" data-equalto="#repassword">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="repassword">Re-password</label>
-                    <input type="password" class="form-control" name="repassword" placeholder="Re-password" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[8, 40]" data-parsley-equalto="#password">
+                    <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Re-password" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[8, 40]" data-equalto="#password">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="firstname">First name</label>
