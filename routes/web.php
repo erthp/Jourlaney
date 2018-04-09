@@ -28,3 +28,4 @@ Route::get('header',function(){
 });
 
 Route::post('/guideregis',"GuideRegisterController@guideregis");
+Route::post('/touristregis',"TouristRegisterController@touristregis");
