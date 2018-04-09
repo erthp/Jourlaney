@@ -4,30 +4,53 @@
 <div class="col-12 register-bg">
                 <h3 class="text-center register-header">Sign up to tourist</h3>
 
-                <form method="POST" name="register-form" action="{{URL::to('/guideregis')}}">
+                <form method="POST" name="register-form" action="{{URL::to('/touristregis')}}">
                 <div class="form-group">
                     <label class="register-label" for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 20]">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[8, 40]" data-equalto="#repassword">
                 </div>
                 <div class="form-group">
-                    <label class="register-label" for="password">Re-password</label>
-                    <input type="repassword" class="form-control" id="repassword" placeholder="Re-password">
+                    <label class="register-label" for="repassword">Re-password</label>
+                    <input type="password" class="form-control" id="repassword" name="repassword" placeholder="Re-password" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[8, 40]" data-equalto="#password">
                 </div>
                 <div class="form-group">
-                    <label class="register-label" for="password">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <label class="register-label" for="firstname">First name</label>
+                    <input type="text" class="form-control" name="firstname" placeholder="First name" data-parsley-required="true" data-parsley-type="alphanum">
                 </div>
                 <div class="form-group">
-                    <label class="register-label" for="password">Birthdate</label>
-                    <input type="date" class="form-control" id="birthdate" placeholder="Birthday">
+                    <label class="register-label" for="lastname">Last name</label>
+                    <input type="text" class="form-control" name="lastname" placeholder="Last name" data-parsley-required="true" data-parsley-type="alphanum">
                 </div>
                 <div class="form-group">
-                    <label class="register-label" for="password">ID card number</label>
-                    <input type="number" class="form-control" id="idcard" placeholder="ID card number">
+                    <label class="register-label" for="email">Email</label>
+                    <input type="email" class="form-control" name="email" placeholder="Email" data-parsley-required="true" data-parsley-type="email">
+                </div>
+                <label class="register-label" for="gender">Gender</label>
+                <div class="form-group">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="Male">
+                        <label class="form-check-label" for="male">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
+                        <label class="form-check-label" for="female">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="gender" value="Undefined" checked>
+                        <label class="form-check-label" for="undefined">Undefined</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="register-label" for="birthdate">Birthdate</label>
+                    <input type="date" class="form-control" name="birthdate" placeholder="Birthday" validateDate>
+                </div>
+                <div class="form-group">
+                    <label class="register-label" for="idcard">ID card number</label>
+                    <input type="text" class="form-control" id="idcard "name="idcard" placeholder="ID card number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[11, 11]">
                 </div>
                 <div class="form-group">
                     <label class="register-label" for="guidelicensepic">ID card picture</label>
@@ -40,4 +63,11 @@
                 </form>
             </div>
 </div>
+<script>
+    $('#register-form').parsley();
+    $(document).ready(function(){
+        $('#idcard').mask('0-0000-00000-0');
+        $('.guidelicense').mask('00-00000');
+    });
+</script>
 @endsection
