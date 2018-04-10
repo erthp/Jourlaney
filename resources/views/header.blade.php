@@ -75,8 +75,10 @@
                                     </div>
                                 </div>
                                 <div class="row">
+                                <center>
                                   <a href="guideregister" ><img src = "../images/guide.png"></a>
                                   <a href="touristregister" ><img src = "../images/tourist.png"></a>
+                                </center>
                                 </div>
                                 </div>
                                 </div>

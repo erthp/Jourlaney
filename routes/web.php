@@ -27,5 +27,9 @@ Route::get('header',function(){
     return view('header');
 });
 
+Route::get('profile',function(){
+    return view('profile');
+});
+
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
