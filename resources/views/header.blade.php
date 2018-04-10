@@ -44,7 +44,7 @@
                     </div>
                     <div class="container">
                     <div class="col-12">
-                    <form method="POST" name="register-form">
+                    <form method="POST" name="register-form" action="{{URL::to('/login')}">
                         <div class="form-group">
                     <label class="register-label" for="username">Username</label>
                     <input type="text" class="form-control" id="username" placeholder="Username">
