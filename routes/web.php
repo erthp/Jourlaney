@@ -28,7 +28,11 @@ Route::get('header',function(){
 });
 
 Route::get('profile',function(){
-    return view('profile');
+    return view('trips');
+});
+
+Route::get('freeday',function(){
+    return view('freeday');
 });
 
 Route::post('/guideregis',"GuideRegisterController@guideregis");
