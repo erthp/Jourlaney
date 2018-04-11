@@ -21,7 +21,7 @@
 
 <body>
     <div class="container">
-        <div class="homepic">
+        <div class="homepic2">
             <nav class="navbar navbar-light clearbg">
                 <a class="navbar-brand clearbg titletext" href="#">
                     <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
