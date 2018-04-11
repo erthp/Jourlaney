@@ -21,7 +21,7 @@
 
 <body>
     <div class="container">
-        <div class="homepic2">
+        <div class="homepic">
             <nav class="navbar navbar-light clearbg">
                 <a class="navbar-brand clearbg titletext" href="#">
                     <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
@@ -160,9 +160,54 @@
                 </div>
                 </nav>
             </nav>
-            
-            
         </div>
+<div class = "profile-pic">
+    <center><img src ="../icon/user2.png" style="margin:-100px" height="180px" width="180px"></center>
+</div>
+<br>
+<br>
+<div class="container profilemenu">
+    <div class="row">
+        <div class ="col-12 text-center">
+            <br><br>
+            <h1 style="text-align:center">Parntawan</h1>
+            <h5>Chiangmai Local Guide</h5>
+            <center>
+                <table>
+                    <td><img src = "../icon/star.png" height="36px" width = "36px"></td>
+                    <td><img src = "../icon/star.png" height="36px" width = "36px"></td>
+                    <td><img src = "../icon/star.png" height="36px" width = "36px"></td>
+                    <td><img src = "../icon/star.png" height="36px" width = "36px"></td>
+                </table>
+            </center>
+            <center>
+                <table style="margin-top:10px;"</style>
+                    <td><img src = "../icon/verify.png" height="30px" width = "30px"></td>
+                    <td><h3 style="margin:5px;color:#78DE2F">Verified</h3></td>
+                </table>
+            </center>
+        </div>
+        <div class ="col-12 text-center">
+            <br>
+            <br>
+        </div>
+        <div class="col-4">
+            <div align="center">
+                <a href="trips"><p class="h3">Trips</p></a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div align="center">
+                <a href="freeday"><p class="h3">Free Day</p></a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div align="center">
+                <a href="rate&review"><p class="h3">Rate & Review</p></a>
+            </div>
+        </div>
+    </div>
+</div>
     </div>
     @yield('page')
     </div>
