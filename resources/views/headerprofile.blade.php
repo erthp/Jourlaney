@@ -23,7 +23,7 @@
     <div class="container">
         <div class="homepic">
             <nav class="navbar navbar-light clearbg">
-                <a class="navbar-brand clearbg titletext" href="#">
+                <a class="navbar-brand clearbg titletext" href="/">
                     <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
                     <span class="titletext">Jourlaney</span>
                 </a>
