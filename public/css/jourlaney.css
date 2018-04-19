@@ -1,15 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 @import url('https://fonts.googleapis.com/css?family=Kanit');
-@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,800');
 
 body{
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #d4f0fb;
+    font-weight: 400;
 }
 
-.clearbg{
-    background-image: none;
-    background-color: rgba(0,0,0,0);
+a{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+h3{
+    font-weight: 800;
+}
+
+.btn{
+    color: #FFFFFF;
 }
 
 .homemenu{
@@ -45,6 +55,13 @@ body{
     background-image: none;
     background-color: rgba(0,0,0,0);
     text-align: center;
+}
+
+input{
+    border: none;
+    outline: 0;
+    background: transparent;
+    border-bottom:1px solid #757575;
 }
 
 input[type="file"]{
@@ -151,8 +168,7 @@ input[type="file"]{
   
   #jourlaNav {
     position: absolute;
-    border-bottom: 1px solid #e9ecef;
-    background-color: white;
+    background-color: rgba(0, 0, 0, 0.1);
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
   
@@ -166,10 +182,10 @@ input[type="file"]{
     font-weight: 800;
     padding: 13px;
     text-transform: uppercase;
-    color: #343a40;
+    color: #FFFFFF;
   }
   
-  #jourlaNav .navbar-nav > li.nav-item > a {
+  #jourlaNav .navbar-nav > div.btn-nav > a {
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 1px;
@@ -188,12 +204,12 @@ input[type="file"]{
     #jourlaNav .navbar-brand:focus, #jourlaNav .navbar-brand:hover {
       color: rgba(255, 255, 255, 0.8);
     }
-    #jourlaNav .navbar-nav > li.nav-item > a {
+    #jourlaNav .navbar-nav > div.btn-nav > a {
       padding: 10px 20px;
       color: #fff;
     }
-    #jourlaNav .navbar-nav > li.nav-item > a:focus, #jourlaNav .navbar-nav > li.nav-item > a:hover {
-      color: rgba(255, 255, 255, 0.8);
+    #jourlaNav .navbar-nav > div.btn-nav > a:focus, #jourlaNav .navbar-nav > div.btn-nav > a:hover {
+      color: #36D7B7;
     }
   }
   
@@ -226,10 +242,10 @@ input[type="file"]{
     #jourlaNav.is-fixed .navbar-brand:focus, #jourlaNav.is-fixed .navbar-brand:hover {
       color: #0085A1;
     }
-    #jourlaNav.is-fixed .navbar-nav > li.nav-item > a {
-      color: #212529;
+    #jourlaNav.is-fixed .navbar-nav > div.btn-nav > a {
+      color: rgba(255, 255, 255, 0.356);
     }
-    #jourlaNav.is-fixed .navbar-nav > li.nav-item > a:focus, #jourlaNav.is-fixed .navbar-nav > li.nav-item > a:hover {
+    #jourlaNav.is-fixed .navbar-nav > div.btn-nav > a:focus, #jourlaNav.is-fixed .navbar-nav > div.btn-nav > a:hover {
       color: #0085A1;
     }
     #jourlaNav.is-visible {
@@ -462,30 +478,4 @@ input[type="file"]{
     font-size: 14px;
     margin-bottom: 0;
     text-align: center;
-  }
-  
-  .btn {
-    font-size: 14px;
-    font-weight: 800;
-    padding: 15px 25px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    border-radius: 0;
-    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  }
-  
-  .btn-primary {
-    background-color: #0085A1;
-    border-color: #0085A1;
-  }
-  
-  .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-    color: #fff;
-    background-color: #00657b !important;
-    border-color: #00657b !important;
-  }
-  
-  .btn-lg {
-    font-size: 16px;
-    padding: 25px 35px;
   }
