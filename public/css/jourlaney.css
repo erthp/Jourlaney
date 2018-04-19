@@ -98,8 +98,11 @@ input[type="file"]{
 
 .searchbox{
     position: absolute;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
     top: 40%;
-    left: 50%;
+    left: 40%;
     margin-top: 150px;
     margin-left: -18%;
     font-size: 1em;
@@ -108,10 +111,17 @@ input[type="file"]{
     text-align: center;
     border: 1px solid white;
     border-radius: 4px;
-    background-color: rgba(255, 255, 255, 0.5);
-    color: white;
-    width: 40%;
+    background-color: rgba(255, 255, 255);
+    color: #36D7B7;
+    width: 60%;
     height: 40px;
+}
+
+.searchbox::placeholder{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: #888888;
+    text-transform: uppercase;
 }
 
 .titletext{
