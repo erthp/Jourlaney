@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class ShowProfileUser extends Model
     {
        public $timestamps = false;
-       protected $table = 'User';
+       protected $table = 'Users'; //เลือกตาราง Users ให้แล้วนะจ๊ะ
     }
     
