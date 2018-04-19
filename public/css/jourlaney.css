@@ -117,6 +117,8 @@ input[type="file"]{
 .titletext{
     font-family: 'Patrick Hand', cursive;
     color: white;
+    padding-left: 1%;
+    font-size: 18px;
 }
 
 /* Header */
