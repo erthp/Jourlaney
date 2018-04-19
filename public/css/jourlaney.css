@@ -100,7 +100,6 @@ input[type="file"]{
     position: absolute;
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
-    text-transform: uppercase;
     top: 40%;
     left: 40%;
     margin-top: 150px;
@@ -129,6 +128,11 @@ input[type="file"]{
     color: white;
     padding-left: 1%;
     font-size: 18px;
+}
+
+.titletext:hover{
+    text-decoration: none;
+    color: #36D7B7;
 }
 
 /* Header */
