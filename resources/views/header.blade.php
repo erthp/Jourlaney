@@ -45,24 +45,24 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 align="center">Log in</h4>
+                            <h3>Log in</h3>
                         </div>
                         <div class="container">
                             <div class="col-12">
                                 <form method="POST" name="register-form" action="{{URL::to('/login')}">
                                     <div class="form-group">
-                                        <label class="register-label" for="username">Username</label>
+                                        <label class="login-label" for="username">Username</label>
                                         <input type="text" class="form-control" id="username" placeholder="Username">
                                     </div>
                                     <div class="form-group">
-                                        <label class="register-label" for="password">Password</label>
+                                        <label class="login-label" for="password">Password</label>
                                         <input type="password" class="form-control" id="password" placeholder="Password">
                                     </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" data-dismiss="modal">Log in</button>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary login-button" data-dismiss="modal">Log in</button>
+                            <button type="button" class="btn btn-default login-button" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                     </form>
@@ -74,15 +74,19 @@
                         <div class="modal-body">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <div class="row">
-                                    <div class="col-md-12 text-center">
-                                        <h4>I am ...</h4>
+                                    <div class="col-lg-12 text-center">
+                                        <h3>I am ...</h3>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <center>
-                                        <a href="guideregister" ><img src = "../images/guide.png"></a>
-                                        <a href="touristregister" ><img src = "../images/tourist.png"></a>
-                                    </center>
+                                <div class="row text-center mt-2">
+                                    <div class="col-lg-6 col-6">
+                                        <a href="guideregister"><img src = "../images/guide.png" style="height:150px"></a>
+                                        <h4 class="register-popup">Guide</h4>
+                                    </div>
+                                    <div class="col-lg-6 col-6">
+                                        <a href="touristregister"><img src = "../images/tourist.png" style="height:150px"></a>
+                                        <h4 class="register-popup">Tourist</h4>
+                                    </div>
                                 </div>
                             </div>
                         </div>
