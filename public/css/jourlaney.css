@@ -57,13 +57,6 @@ h3{
     text-align: center;
 }
 
-input{
-    border: none;
-    outline: 0;
-    background: transparent;
-    border-bottom:1px solid #757575;
-}
-
 input[type="file"]{
     position:absolute;
     z-index:2;
