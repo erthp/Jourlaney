@@ -66,7 +66,7 @@
             </div>
 </div>-->
 <div class="container">
-    <h3 class="text-center register-header">Sign up to guide</h3>
+    <h3 class="text-center register-header">Sign up to tourist</h3>
         <form method="POST" id="register-form" name="register-form" action="{{URL::to('/guideregis')}}">
             <div class="row mt-5">
                 <div class="col-lg-2">
