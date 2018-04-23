@@ -39,5 +39,9 @@ Route::get('registercompleted',function(){
     return view('registercompleted');
 });
 
+Route::get('createtrip',function(){
+    return view('createtrip');
+});
+
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
