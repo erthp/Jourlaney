@@ -35,5 +35,9 @@ Route::get('freeday',function(){
     return view('freeday');
 });
 
+Route::get('registercompleted',function(){
+    return view('registercompleted');
+});
+
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
