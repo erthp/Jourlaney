@@ -34,10 +34,10 @@
           <ul class="navbar-nav ml-auto">
           <div class="btn-nav">
                 <?php if(isset($_SESSION['id'])): ?>
-                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#">Log out</a>
+                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#">Logout</a>
                 <?php else: ?>
                     <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
-                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Log in</a>
+                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
                 <?php endif; ?>
             </div>
           </ul>
