@@ -118,3 +118,8 @@ input[type="file"]{
     font-family: 'Patrick Hand', cursive;
     color: white;
 }
+textarea{
+    overflow-y: scroll;
+    height: 100px;
+    resize: none;
+}
