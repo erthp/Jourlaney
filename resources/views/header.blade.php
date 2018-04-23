@@ -33,8 +33,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           <div class="btn-nav">
-                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
-                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Log in</a>
+                <?php if(isset($_SESSION['id'])): ?>
+                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#">Log out</a>
+                <?php else: ?>
+                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
+                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Log in</a>
+                <?php endif; ?>
             </div>
           </ul>
         </div>
