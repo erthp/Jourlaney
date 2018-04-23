@@ -37,10 +37,8 @@ body{
     margin: auto;
     display: block;
     background-image: url("../images/thailand_header.jpg");
-    object-fit: contain;
     background-size: cover;
     }
-
 
 .hometext {
     font-family: 'Patrick Hand', cursive;
