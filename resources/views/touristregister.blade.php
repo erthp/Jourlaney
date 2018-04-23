@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-lg-10">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="idcard "name="idcard" placeholder="ID card number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[11, 11]">
+                        <input type="text" class="form-control" id="idcard "name="idcard" placeholder="ID card number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[13, 13]">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                     </div>
                 </div>
