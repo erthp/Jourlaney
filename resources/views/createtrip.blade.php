@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="location"  data-parsley-required="true" data-parsley-type="alphanum">
+                        <input type="text" class="form-control" name="location" id="location" data-parsley-required="true" data-parsley-type="alphanum">
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="date" data-parsley-required="true" data-parsley-type="alphanum">
+                        <input type="date" class="form-control" name="date" id="date" data-parsley-required="true" data-parsley-type="alphanum">
                     </div>
                 </div>
                 <lable>-</lable>
@@ -70,7 +70,7 @@
                     <div class="form-group">
                         <a class='btn btn-primary' href='javascript:;'>
                             Choose File...
-                            <input type="file" name="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+                            <input type="file" name="file_source" id="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
                         </a>
                     </div>
                 </div>
@@ -97,11 +97,11 @@
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                    <label class="trip-label" for="max-traveller">Max traveller</label>
+                    <label class="trip-label" for="max-traveller" >Max traveller</label>
                 </div>
                 <div class="col-lg-5">
                     <div class="form-group">
-                        <input type="number" class="form-control" name="max-traveller"  data-parsley-required="true">
+                        <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true">
                     </div>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="trip-conditions"  data-parsley-required="true" data-parsley-type="alphanum">
+                        <input type="text" class="form-control" name="trip-conditions" id="trip-conditions" data-parsley-required="true" data-parsley-type="alphanum">
                     </div>
                 </div>
             </div>
@@ -136,7 +136,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="form-group">
-                        <textarea cols="20" rows="10" class="form-control" name="trip-details"  data-parsley-required="true" data-parsley-type="alphanum">
+                        <textarea cols="20" rows="10" class="form-control" name="trip-details" id="trip-details" data-parsley-required="true" data-parsley-type="alphanum">
                         </textarea>
                     </div>
                 </div>
