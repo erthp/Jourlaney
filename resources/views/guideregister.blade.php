@@ -128,7 +128,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row text-center">
+            <div class="row text-center mb-4">
                 <div class="col-lg-2">
                 </div>
                 <div class="col-lg-10">
