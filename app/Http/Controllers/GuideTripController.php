@@ -12,8 +12,8 @@ class GuideTripController extends Controller
 {
     public function guidetrip(Request $request){
         //$username = $request->input('username');
-        $queryUser = DB::insert("insert into Users(username,userPassword,userFirstName,userLastName,userEmail,userGender,userDOB,userIdcard) values(?,?,?,?,?,?,?,?)",[$username,$request->input('password'),$request->input('firstname'),$request->input('lastname'),$request->input('email'),$request->input('gender'),$request->input('birthdate'),$request->input('idcard')]);
-        $queryTourist = DB::insert("insert into Tourist(username) value(?)",[$request->input('username')]);
-        return view('registercompleted');
+        $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripLocation,tripDetails,guideId) values(?,?,?,?,?)",[$request->input('tripname'),$request->input('location'),$request->input('date'),$request->input('file_source'),$request->input('transportation'),$request->input('max-traveller'),$request->input('language'),$request->input('trip-conditions'),$request->input('trip-details')]);
+        echo "Create Trip Complete";
+        //return view('registercompleted');
     }
 }
