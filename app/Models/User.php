@@ -10,5 +10,5 @@ class User extends Model
     protected $table = "Users";
     protected $primarykey = "username";
 
-    protected $fill = ['username','userPassword']
+    protected $fill = ['username','userPassword'];
 }
