@@ -45,3 +45,4 @@ Route::get('createtrip',function(){
 
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
+Route::post('/login',"LoginController@login");
