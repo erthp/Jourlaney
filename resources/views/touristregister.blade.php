@@ -118,6 +118,13 @@
                     </div>
                 </div>
             </div>
+            <div class="row text-center">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-10">
+                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                </div>
+            </div>
         </form>
 
     </div>

@@ -20,152 +20,160 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="homepic">
+    <!--header -->
+    <header class="masthead" style="background-image: url('./images/thailand_header.jpg')">
+        <div class="overlay"></div>
+        <div class="container">
             <nav class="navbar navbar-light clearbg">
                 <a class="navbar-brand clearbg titletext" href="#">
                     <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
-                    <span class="titletext">Jourlaney</span>
+                    <span class="titletext">Jourlaney</span><br>
                 </a>
-
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                <ul class="nav navbar-top-links navbar-right">
-                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <img src="../icon/bell.png" >
-                    </a>
-                    <ul class="dropdown-menu dropdown-alerts">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-alerts -->
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <img src="../icon/chat.png">
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <img src="../icon/user.png"height="24px" width="24px" >
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="profileReceiver.html"><img src="./pic/user.png" height="16px" width="16px"> User Profile</a>
-                        </li>
-                        <li><a href="#"><img src="./pic/settings.png" height="16px" width="16px"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="./login/index.html"><img src="./pic/logout.png" height="16px" width="16px"> Logout</a>
-                        </li>
-                    </ul>
-                </li>
-                </div>
+                    <div class="navbar-header">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li class="dropdown">
+                    		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        	    <img src="../icon/bell.png" >
+                                </a>
+                                <ul class="dropdown-menu dropdown-alerts">
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                                <span class="pull-right text-muted small">12 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a class="text-center" href="#">
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- dropdown-alerts -->
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <img src="../icon/chat.png">
+                                </a>
+                                <ul class="dropdown-menu dropdown-messages">
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <strong>John Smith</strong>
+                                                <span class="pull-right text-muted">
+                                                    <em>Yesterday</em>
+                                                </span>
+                                            </div>
+                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <strong>John Smith</strong>
+                                                <span class="pull-right text-muted">
+                                                    <em>Yesterday</em>
+                                                </span>
+                                            </div>
+                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <strong>John Smith</strong>
+                                                <span class="pull-right text-muted">
+                                                    <em>Yesterday</em>
+                                                </span>
+                                            </div>
+                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a class="text-center" href="#">
+                                            <strong>Read All Messages</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- dropdown-alerts -->
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <img src="../icon/user.png"height="24px" width="24px" >
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="profileReceiver.html"><img src="./pic/user.png" height="16px" width="16px"> User Profile</a>
+                                    </li>
+                                    <li><a href="#"><img src="./pic/settings.png" height="16px" width="16px"></i> Settings</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li><a href="./login/index.html"><img src="./pic/logout.png" height="16px" width="16px"> Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </nav>
             </nav>
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                    </div>
+                    <div class = "profile-pic">
+                        <center><img src ="../icon/user2.png" style="margin:-80px" height="180px" width="180px"></center>
+                    </div> 
+                </div>
+            </div>
         </div>
-<div class = "profile-pic">
-    <center><img src ="../icon/user2.png" style="margin:-100px" height="180px" width="180px"></center>
-</div>
-<br>
-<br>
+    </header>
+    <!--header -->  
 <div class="container profilemenu">
     <div class="row">
         <div class ="col-12 text-center">

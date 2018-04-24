@@ -37,10 +37,8 @@ body{
     margin: auto;
     display: block;
     background-image: url("../images/thailand_header.jpg");
-    object-fit: contain;
     background-size: cover;
     }
-
 
 .hometext {
     font-family: 'Patrick Hand', cursive;
@@ -117,4 +115,9 @@ input[type="file"]{
 .titletext{
     font-family: 'Patrick Hand', cursive;
     color: white;
+}
+textarea{
+    overflow-y: scroll;
+    height: 100px;
+    resize: none;
 }
