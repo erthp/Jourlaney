@@ -43,6 +43,7 @@ Route::get('createtrip',function(){
     return view('createtrip');
 });
 
+Route::post('/guidetrip',"GuideTripController@guidetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
 Route::post('/login',"LoginController@login");
