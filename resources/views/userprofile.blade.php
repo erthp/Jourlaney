@@ -1,6 +1,6 @@
 <html>  
 <head>
-<title>Jorlaney</title>
+<title>Jourlaney</title>
 </head>
 <body>
   Welcome to User Profile<br>
@@ -8,12 +8,16 @@
     <tbody>
       <tr>
         <td width="87"> &nbsp;Username</td>
-        <td width="197"><?php echo $queryTourist["userFirstName"];?>
+        <td width="197"><?php
+    session_start();
+    if (isset($_SESSION['username'])) {
+        echo Session::get('username');
+    }?>
         </td>
       </tr>
       <tr>
         <td> &nbsp;Lastname</td>
-        <td><?php echo $queryTourist["userLastName"];?>
+        <td>
         </td>
       </tr>
     </tbody>
