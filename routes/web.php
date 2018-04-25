@@ -47,7 +47,7 @@ Route::get('profile',function(){
     return view('userprofile');
 });
 
-Route::post('/gcreatetrip',"GuideTripController@guidetrip");
+Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
 Route::post('/login',"LoginController@login");
