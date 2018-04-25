@@ -151,11 +151,4 @@
         </form>
 
     </div>
-<script>
-    $('#register-form').parsley();
-    $(document).ready(function(){
-        $('#idcard').mask('0-0000-00000-0');
-        $('.guidelicense').mask('00-00000');
-    });
-</script>
 @endsection
