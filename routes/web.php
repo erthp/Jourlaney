@@ -39,15 +39,15 @@ Route::get('registercompleted',function(){
     return view('registercompleted');
 });
 
-Route::get('createtrip',function(){
-    return view('createtrip');
+Route::get('guidecreatetrip',function(){
+    return view('guidecreatetrip');
 });
 
 Route::get('profile',function(){
     return view('userprofile');
 });
 
-Route::post('/guidetrip',"GuideTripController@guidetrip");
+Route::post('/gcreatetrip',"GuideTripController@guidetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
 Route::post('/login',"LoginController@login");
