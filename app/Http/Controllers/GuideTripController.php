@@ -11,9 +11,7 @@ use App\Models\GuideTrip;
 class GuideTripController extends Controller
 {
     public function guidetrip(Request $request){
-        //$username = $request->input('username');
         $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripLocation,tripDetails,guideId) values(?,?,?,?,?)",[$request->input('tripname'),$request->input('location'),$request->input('date'),$request->input('file_source'),$request->input('transportation'),$request->input('max-traveller'),$request->input('language'),$request->input('trip-conditions'),$request->input('trip-details')]);
         echo "Create Trip Complete";
-        //return view('registercompleted');
     }
 }
