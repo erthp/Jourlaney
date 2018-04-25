@@ -25,7 +25,8 @@
 <br>
 <div class="container">
     <h3 class="text-center trip-header">Create your trip</h3>
-        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/guidecreatetrip')}}">
+        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetrip')}}">
+        {{ csrf_field() }} 
             <div class="row mt-5">
                 <div class="col-lg-2">
                     <label class="trip-label" for="tripname">Trip name</label>
@@ -138,6 +139,7 @@
                     <div class="form-group">
                         <textarea cols="20" rows="10" class="form-control" name="details" id="details" data-parsley-required="true" data-parsley-type="alphanum">
                         </textarea>
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
                     </div>
                 </div>
             </div>
