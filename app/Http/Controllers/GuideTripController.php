@@ -12,6 +12,6 @@ class GuideTripController extends Controller
 {
     public function gcreatetrip(Request $request){
         $queryGuideTrip = DB::insert("insert into GuideTrip(tripName,tripLocation,tripDetails,tripStart,tripEnd,tripTransportation,tripTravellers,tripCondition) values(?,?,?,?,?,?,?,?)",[$request->input('tripname'),$request->input('location'),$request->input('details'),$request->input('startdate'),$request->input('enddate'),$request->input('transportation'),$request->input('max-traveller'),$request->input('trip-conditions')]);
-        echo "Create Trip Complete";
+        return view('createtripcompleted');
     }
 }
