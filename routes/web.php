@@ -39,6 +39,10 @@ Route::get('registercompleted',function(){
     return view('registercompleted');
 });
 
+Route::get('createtripcompleted',function(){
+    return view('createtrip');
+});
+
 Route::get('guidecreatetrip',function(){
     return view('guidecreatetrip');
 });
