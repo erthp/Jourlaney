@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+
 <!doctype html>
 <html>
 
@@ -33,12 +37,12 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           <div class="btn-nav">
-                <?php if(isset($_SESSION['id'])): ?>
-                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#">Logout</a>
-                <?php else: ?>
-                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
-                    <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
-                <?php endif; ?>
+            <?php if(isset($_SESSION['username'])): ?>
+                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#">Logout</a>
+            <?php else: ?>
+                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
+                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
+            <?php endif; ?>
             </div>
           </ul>
         </div>
@@ -48,28 +52,29 @@
                 <div id="login-popup" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-header">
-                            <h3>Log in</h3>
-                        </div>
-                        <div class="container">
-                            <div class="col-12">
-                                <form method="POST" name="register-form" action="{{URL::to('/login')}">
+                        <form method="POST" name="register-form" action="{{ URL::to('/login') }}">      
+                            {{ csrf_field() }}                  
+                            <div class="modal-header">
+                                <h3>Log in</h3>
+                            </div>
+                            <div class="container">
+                                <div class="col-12">
                                     <div class="form-group">
                                         <label class="login-label" for="username">Username</label>
-                                        <input type="text" class="form-control" id="username" placeholder="Username">
+                                        <input type="text" class="form-control" name="username" placeholder="Username">
                                     </div>
                                     <div class="form-group">
                                         <label class="login-label" for="password">Password</label>
-                                        <input type="password" class="form-control" id="password" placeholder="Password">
+                                        <input type="password" class="form-control" name="password" placeholder="Password">
                                     </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary login-button" data-dismiss="modal">Log in</button>
-                            <button type="button" class="btn btn-default login-button" data-dismiss="modal">Close</button>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary login-button">Log in</button>
+                                <button type="button" class="btn btn-default login-button" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
             </div>
             <div id="register-popup" class="modal fade" role="dialog">
