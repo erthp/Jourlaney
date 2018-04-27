@@ -201,7 +201,7 @@
         </div>
         <div class="col-4">
             <div align="center">
-                <a href="trips"><p class="h3">Trips</p></a>
+                <a href="profile"><p class="h3">Trips</p></a>
             </div>
         </div>
         <div class="col-4">

@@ -28,7 +28,7 @@ Route::get('header',function(){
 });
 
 Route::get('profile',function(){
-    return view('trips');
+    return view('profile');
 });
 
 Route::get('freeday',function(){
@@ -45,10 +45,6 @@ Route::get('createtripcompleted',function(){
 
 Route::get('guidecreatetrip',function(){
     return view('guidecreatetrip');
-});
-
-Route::get('profile',function(){
-    return view('userprofile');
 });
 
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
