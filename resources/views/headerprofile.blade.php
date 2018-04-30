@@ -178,7 +178,7 @@
     <div class="row">
         <div class ="col-12 text-center">
             <br><br>
-            <h1 style="text-align:center">Parntawan</h1>
+            <h1 style="text-align:center">{{Session::get('firstname')}}</h1>
             <h5>Chiangmai Local Guide</h5>
             <center>
                 <table>
