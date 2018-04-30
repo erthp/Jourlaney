@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Session;
 
 class LoginController extends Controller
 {
@@ -16,8 +17,8 @@ class LoginController extends Controller
         if(count($check) >0){
             session_start();
             $req->session()->put('username', $username);
-            $firstname = DB::select('select userFirstName from Users where username = :username', ['username'=>$username]);
-            session()->put($firstname, $firstname);
+            $firstname = DB::table('Users')->select('userFirstName')->where('username',$username)->get();
+            Session::put('firstname', $firstname[0]->userFirstName);
             return redirect('/');
         }
         else{
