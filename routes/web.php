@@ -51,3 +51,4 @@ Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
 Route::post('/login',"LoginController@login");
+Route::post('/logout',"LoginController@logout");
