@@ -33,7 +33,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           <div class="btn-nav">
-            @if(isset($_SESSION['username']))
+            @if(!empty(Session::get('username')))
                 <a href="profile">{{Session::get('username')}}</a>
                 <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
                 {{ csrf_field() }} 

@@ -15,7 +15,7 @@ class LoginController extends Controller
 
         $check = DB::table('Users')->where(['username'=>$username,'userPassword'=>$hash])->get();
         if(count($check) >0){
-            session_start();
+            Session::start();
             $req->session()->put('username', $username);
             $firstname = DB::table('Users')->select('userFirstName')->where('username',$username)->get();
             Session::put('firstname', $firstname[0]->userFirstName);
