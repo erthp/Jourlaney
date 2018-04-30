@@ -34,9 +34,9 @@
           <ul class="navbar-nav ml-auto">
           <div class="btn-nav">
             <?php if(isset($_SESSION['username'])): ?>
-                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#">Logout</a>
+                {{Session::get('username')}}<a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#" href="logout">Logout</a>
             <?php else: ?>
-                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
+            {{Session::get('username')}}<a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
             <?php endif; ?>
             </div>
