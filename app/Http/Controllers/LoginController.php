@@ -12,13 +12,18 @@ class LoginController extends Controller
         $password = $req->get('password');
 
         $check = DB::table('Users')->where(['username'=>$username,'userPassword'=>$password])->get();
-        if(!is_null($check)){
+        if(count($check) >0){
             session_start();
             $req->session()->put('username', $username);
             return redirect('/');
         }
         else{
-            echo "login failed.";
+            echo ('Invalid Username or Password.');
         }
+    }
+
+    public function logout(Request $req){
+        $req->session()->flush();
+        return redirect('/');
     }
 }

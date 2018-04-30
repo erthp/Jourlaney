@@ -33,12 +33,17 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
           <div class="btn-nav">
-            <?php if(isset($_SESSION['username'])): ?>
-                {{Session::get('username')}}<a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#" href="logout">Logout</a>
-            <?php else: ?>
-            {{Session::get('username')}}<a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
+            <?php session_start(); ?>
+            @if(!empty($_SESSION['username']))
+                {{Session::get('username')}}
+                <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                {{ csrf_field() }} 
+                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" onclick="document.getElementById('logout-form').submit()">Logout</a>
+                </form>
+            @else
+                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
-            <?php endif; ?>
+            @endif
             </div>
           </ul>
         </div>
@@ -55,6 +60,7 @@
                             </div>
                             <div class="container">
                                 <div class="col-12">
+
                                     <div class="form-group">
                                         <label class="login-label" for="username">Username</label>
                                         <input type="text" class="form-control" name="username" placeholder="Username">
