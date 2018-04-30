@@ -25,7 +25,7 @@
         <div class="overlay"></div>
         <div class="container">
             <nav class="navbar navbar-light clearbg">
-                <a class="navbar-brand clearbg titletext" href="#">
+                <a class="navbar-brand clearbg titletext" href="/">
                     <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
                     <span class="titletext">Jourlaney</span><br>
                 </a>
@@ -37,7 +37,7 @@
                         <ul class="nav navbar-top-links navbar-right">
                             <li class="dropdown">
                     		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        	    <img src="../icon/bell.png" >
+                        	    <img src="../pic/bell.png" >
                                 </a>
                                 <ul class="dropdown-menu dropdown-alerts">
                                     <li>
@@ -96,7 +96,7 @@
                             <!-- dropdown-alerts -->
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../icon/chat.png">
+                                    <img src="../pic/chat.png">
                                 </a>
                                 <ul class="dropdown-menu dropdown-messages">
                                     <li>
@@ -146,7 +146,7 @@
                             <!-- dropdown-alerts -->
                             <li class="dropdown">
                                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../icon/user.png"height="24px" width="24px" >
+                                    <img src="../pic/user.png"height="24px" width="24px" >
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
                                     <li><a href="profileReceiver.html"><img src="./pic/user.png" height="16px" width="16px"> User Profile</a>
@@ -167,7 +167,7 @@
                     <div class="site-heading">
                     </div>
                     <div class = "profile-pic">
-                        <center><img src ="../icon/user2.png" style="margin:-80px" height="180px" width="180px"></center>
+                        <center><img src ="../pic/user2.png" style="margin:-80px" height="180px" width="180px"></center>
                     </div> 
                 </div>
             </div>
@@ -182,15 +182,15 @@
             <h5>Chiangmai Local Guide</h5>
             <center>
                 <table>
-                    <td><img src = "../icon/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../icon/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../icon/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../icon/star.png" height="36px" width = "36px"></td>
+                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                 </table>
             </center>
             <center>
                 <table style="margin-top:10px;"</style>
-                    <td><img src = "../icon/verify.png" height="30px" width = "30px"></td>
+                    <td><img src = "../pic/verify.png" height="30px" width = "30px"></td>
                     <td><h3 style="margin:5px;color:#78DE2F">Verified</h3></td>
                 </table>
             </center>
