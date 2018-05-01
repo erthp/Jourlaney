@@ -34,11 +34,147 @@
           <ul class="navbar-nav ml-auto">
           <div class="btn-nav">
             @if(!empty(Session::get('username')))
-                <a href="profile">{{Session::get('username')}}</a>
+            <div class="navbar-header">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <ul class="nav navbar-top-links navbar-right">
+                            <li class="dropdown">
+                    		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        	    <img src="../pic/bell.png" >
+                                </a>
+                                <ul class="dropdown-menu dropdown-alerts">
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                                <span class="pull-right text-muted small">12 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                                <span class="pull-right text-muted small">4 minutes ago</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a class="text-center" href="#">
+                                            <strong>See All Alerts</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- dropdown-alerts -->
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <img src="../pic/chat.png">
+                                </a>
+                                <ul class="dropdown-menu dropdown-messages">
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <strong>John Smith</strong>
+                                                <span class="pull-right text-muted">
+                                                    <em>Yesterday</em>
+                                                </span>
+                                            </div>
+                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <strong>John Smith</strong>
+                                                <span class="pull-right text-muted">
+                                                    <em>Yesterday</em>
+                                                </span>
+                                            </div>
+                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#">
+                                            <div>
+                                                <strong>John Smith</strong>
+                                                <span class="pull-right text-muted">
+                                                    <em>Yesterday</em>
+                                                </span>
+                                            </div>
+                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a class="text-center" href="#">
+                                            <strong>Read All Messages</strong>
+                                            <i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- dropdown-alerts -->
+                            <li class="dropdown">
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <img src="../pic/user.png" height="24px" width="24px" >
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="profile">{{Session::get('username')}}</a>
+                                    </li>
+                                    <li><a href="#"><img src="./pic/settings.png" height="16px" width="16px">Settings</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                        {{ csrf_field() }} 
+                                    <a onclick="document.getElementById('logout-form').submit()"><img src="./pic/logout.png" height="16px" width="16px"> Logout</a>
+                                    </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- <a href="profile">{{Session::get('username')}}</a>
                 <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
                 {{ csrf_field() }} 
                     <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" onclick="document.getElementById('logout-form').submit()">Logout</a>
-                </form>
+                </form> -->
             @else
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
