@@ -41,7 +41,7 @@
                         	    <img src="../pic/bell.png" >
                                 </a>
                                 <ul class="dropdown-menu dropdown-alerts">
-                                    <li>
+                                    <!-- <li>
                                         <a href="#">
                                             <div>
                                                 <i class="fa fa-comment fa-fw"></i> New Comment
@@ -91,7 +91,7 @@
                                             <strong>See All Alerts</strong>
                                             <i class="fa fa-angle-right"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                             <!-- dropdown-alerts -->
@@ -100,7 +100,7 @@
                                     <img src="../pic/chat.png">
                                 </a>
                                 <ul class="dropdown-menu dropdown-messages">
-                                    <li>
+                                    <!-- <li>
                                         <a href="#">
                                             <div>
                                                 <strong>John Smith</strong>
@@ -134,14 +134,14 @@
                                             </div>
                                             <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
                                         </a>
-                                    </li>
-                                    <li class="divider"></li>
+                                    </li> -->
+                                    <!-- <li class="divider"></li>
                                     <li>
                                         <a class="text-center" href="#">
                                             <strong>Read All Messages</strong>
                                             <i class="fa fa-angle-right"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                             <!-- dropdown-alerts -->

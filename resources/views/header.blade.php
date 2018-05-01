@@ -44,7 +44,7 @@
                         	    <img src="../pic/bell.png" >
                                 </a>
                                 <ul class="dropdown-menu dropdown-alerts">
-                                    <li>
+                                    <!-- <li>
                                         <a href="#">
                                             <div>
                                                 <i class="fa fa-comment fa-fw"></i> New Comment
@@ -94,7 +94,7 @@
                                             <strong>See All Alerts</strong>
                                             <i class="fa fa-angle-right"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                             <!-- dropdown-alerts -->
@@ -103,7 +103,7 @@
                                     <img src="../pic/chat.png">
                                 </a>
                                 <ul class="dropdown-menu dropdown-messages">
-                                    <li>
+                                    <!-- <li>
                                         <a href="#">
                                             <div>
                                                 <strong>John Smith</strong>
@@ -144,7 +144,7 @@
                                             <strong>Read All Messages</strong>
                                             <i class="fa fa-angle-right"></i>
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                             </li>
                             <!-- dropdown-alerts -->
@@ -155,13 +155,13 @@
                                 <ul class="dropdown-menu dropdown-user">
                                     <li><a href="profile">{{Session::get('username')}}</a>
                                     </li>
-                                    <li><a href="#"><img src="./pic/settings.png" height="16px" width="16px">Settings</a>
+                                    <li><a href="#">Settings</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
                                     <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
                                         {{ csrf_field() }} 
-                                    <a onclick="document.getElementById('logout-form').submit()"><img src="./pic/logout.png" height="16px" width="16px"> Logout</a>
+                                    <a onclick="document.getElementById('logout-form').submit()">Logout</a>
                                     </form>
                                     </li>
                                 </ul>
