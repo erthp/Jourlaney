@@ -44,7 +44,7 @@ Route::get('createtripcompleted',function(){
 });
 
 Route::get('guidecreatetrip',function(){
-    return view('guidecreatetrip');
+    return view('GuideCreateTrip');
 });
 
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
