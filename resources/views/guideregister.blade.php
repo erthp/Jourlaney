@@ -123,7 +123,7 @@
                     <div class="form-group">
                         <a class='btn btn-primary' href='javascript:;'>
                             Choose File...
-                            <input type="file" name="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+                            <input type="file" name="profilepic" size="40" onchange='$("#upload-file-info").html($(this).val());'>
                         </a>
                     </div>
                 </div>
