@@ -139,11 +139,12 @@
                     <div class="form-group">
                         <textarea cols="20" rows="10" class="form-control" name="details" id="details" data-parsley-required="true" data-parsley-type="alphanum">
                         </textarea>
+                        <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                     </div>
                 </div>
             </div>
-            <div class="row text-center">
+            <div class="row text-center mb-4">
                 <div class="col-lg-2">
                 </div>
                 <div class="col-lg-8">

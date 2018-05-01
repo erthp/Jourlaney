@@ -19,7 +19,12 @@ class LoginController extends Controller
             $req->session()->put('username', $username);
             $firstname = DB::table('Users')->select('userFirstName')->where('username',$username)->get();
             Session::put('firstname', $firstname[0]->userFirstName);
+            $lastname = DB::table('Users')->select('userLastName')->where('username',$username)->get();
+            Session::put('lastname', $lastname[0]->userLastName);
+            $guideid = DB::table('Users')->join('Guide', 'Users.username', '=', 'Guide.username')->select('Guide.guideId')->where('Guide.username',$username)->get();
+            Session::put('guideid', $guideid[0]->guideId);
             return redirect('/');
+
         }
         else{
             echo ('Invalid Username or Password.');
