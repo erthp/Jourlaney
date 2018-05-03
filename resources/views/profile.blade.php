@@ -5,7 +5,7 @@
     <div class="row">
         <div class ="col-12 text-left">
             <br>
-            <h4>Trip created by ...</h4>
+            <h4>Trip created by {{Session::get('firstname')}}</h4>
             <br>
         </div>
         <div class ="col-4 text-center">

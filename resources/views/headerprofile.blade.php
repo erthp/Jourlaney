@@ -254,7 +254,7 @@
         <div class ="col-12 text-center">
             <br><br>
             <h1 style="text-align:center">{{Session::get('firstname')}}</h1>
-            <h5>Chiangmai Local Guide</h5>
+            <h5>{{Session::get('guidelocation')}} Guide</h5>
             <center>
                 <table>
                     <td><img src = "../pic/star.png" height="36px" width = "36px"></td>

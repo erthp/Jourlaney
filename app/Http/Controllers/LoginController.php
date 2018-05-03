@@ -22,8 +22,10 @@ class LoginController extends Controller
             Session::put('firstname', $firstname[0]->userFirstName);
             $lastname = DB::table('Users')->select('userLastName')->where('username',$username)->get();
             Session::put('lastname', $lastname[0]->userLastName);
-            $guideid = DB::table('Users')->join('Guide', 'Users.username', '=', 'Guide.username')->select('Guide.guideId')->where('Guide.username',$username)->get();
+            $guideid = DB::table('Guide')->select('guideId')->where('username',$username)->get();
             Session::put('guideid', $guideid[0]->guideId);
+            $guidelocation = DB::table('Guide')->select('guideLocation')->where('username',$username)->get();
+            Session::put('guidelocation', $guidelocation[0]->guideLocation);
             return redirect('/');
 
         }
