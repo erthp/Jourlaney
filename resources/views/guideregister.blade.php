@@ -123,7 +123,7 @@
                     <div class="form-group">
                         <!-- <a class='btn btn-primary' href='javascript:;'>
                             Choose File... -->
-                            <input type="file" name="guidelicensepic" id="guidelicensepic">
+                            <input type="file" name="guidelicensepic" id="guidelicensepic" required>
                         </a>
                         <div id="filename"></div>
                     </div>
