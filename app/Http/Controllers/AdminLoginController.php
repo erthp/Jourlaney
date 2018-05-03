@@ -24,6 +24,9 @@ class AdminLoginController extends Controller
             Session::put('lastname', $lastname[0]->userLastName);
             return redirect('/admin/index');
         }
+        else{
+            echo ('Invalid Username or Password.');
+        }
     }
         else{
             echo ('Invalid Username or Password.');

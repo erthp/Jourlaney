@@ -11,11 +11,11 @@
 
     <title>Jourlaney Admin</title>
 
-    <link href="{{ URL::asset('css/Admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/Admin/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/Admin/dist/css/sb-admin-2.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/Admin/morrisjs/morris.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/Admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/dist/css/sb-admin-2.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/morrisjs/morris.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -898,6 +898,8 @@
     </div>
     <!-- /#wrapper -->
 
+
+    <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
 

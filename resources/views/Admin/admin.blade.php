@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <title>Jourlaney</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
-    <link href="{{ URL::asset('css/Admin/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/Admin/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/Admin/dist/css/sb-admin-2.css') }}" rel="stylesheet">
-    <link href="{{ URL::asset('css/Admin/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/metisMenu/metisMenu.min.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/dist/css/sb-admin-2.css') }}" rel="stylesheet">
+    <link href="{{ URL::asset('adminassets/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
 </head>
 
 <body>
