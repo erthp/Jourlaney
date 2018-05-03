@@ -49,7 +49,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                    <label class="trip-label" for="date">Date</label>
+                    <label class="trip-label" for="date">Trip start</label>
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
@@ -78,29 +78,19 @@
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                    <label class="trip-label">Trip details :</label>
+                    <label class="trip-label" for="transportation">Transportation</label>
+                </div>
+                <div class = "col-lg-8">
+                    <input type="checkbox" class="" name="transportation" id="transportation" value="private car" /> Private Car &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="transportation" id="transportation" value="public transportation" /> Public Transportation
                 </div>
             </div>
             <br>
             <div class="row">
                 <div class="col-lg-2">
-                    <label class="trip-label" for="transportation">Transportation</label>
-                </div>
-                <div class="col-lg-5">
-                    <div class="form-group">
-                        <select class="form-control" id="transportation "name="transportation"  data-parsley-type="integer" data-parsley-required="true">
-                            <option value="private car">Private car</option>
-                            <option value="private van">Private van</option>
-                            <option value="public transportation">Public transportation</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2">
                     <label class="trip-label" for="max-traveller" >Max traveller</label>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-2">
                     <div class="form-group">
                         <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true">
                     </div>
@@ -110,24 +100,41 @@
                 <div class="col-lg-2">
                     <label class="trip-label" for="language">Language</label>
                 </div>
-                <div class="col-lg-5">
-                    <div class="form-group">
-                        <select class="form-control" id="language" name="language"  data-parsley-type="alphanum" data-parsley-required="true">
-                            <option value="english">English</option>
-                            <option value="thai">Thai</option>
-                            <option value="chinese">Chianese</option>
-                            <option value="japanese">Japanese</option>
-                        </select>
-                    </div>
-                </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-lg-2">
                     <label class="trip-label" for="trip-conditions">Trip conditions</label>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-8">
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์no pets" /> No Pets &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์flexible plane" /> Flexible Plane &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์others" /> Others...
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label class="trip-label">Trip Cost</label>
+                </div>
+                <div class = "col-lg-8">
+                <input type="number" min="0.00" max="10000.00" step="0.01"> baht. / Person
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label>Itinerary</label>
+                </div>
+                <div class="col-lg-8">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="conditions" id="conditions" data-parsley-required="true" data-parsley-type="alphanum">
+                    Day 1 <img src="../pic/add.png" hight="16px" width="16px"><br><br>
+                        Time : <input type="time" class="" name="time" id="time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" class="" name="plan" id="plan"size="50">&nbsp;&nbsp;&nbsp;<img src="../pic/add.png" hight="16px" width="16px">
+                        <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
                     </div>
                 </div>
             </div>
@@ -136,9 +143,33 @@
                     <label>Itinerary</label>
                 </div>
                 <div class="col-lg-8">
-                    <div class="form-group">
-                        <textarea cols="20" rows="10" class="form-control" name="details" id="details" data-parsley-required="true" data-parsley-type="alphanum">
-                        </textarea>
+                <form id="form1" name="form1" method="post" action="">
+                    <table id="myTbl" width="650" border="0" cellspacing="0" cellpadding="0">
+                         <tr id="firstTr">
+                            <td width="119">
+                                <p name="data1[]" id="data1[]">
+                                   Day 1 <br><br>
+                                   Time : <input type="time" class="" name="time" id="time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="text" class="" name="plan" id="plan"size="50">
+                                </p>
+                            </td>                           
+                            <!--<td width="519">
+                                <p name="data2[]" id="data2[]">
+                                    Time : <input type="time" class="" name="time" id="time">
+                                </p>
+                            </td>-->
+                        </tr>
+                    </table>
+                    <br />
+                    <table width="500" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td>
+                                <button id="addRow" type="button">+</button>   
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <br>
                         <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                     </div>
@@ -154,4 +185,17 @@
         </form>
 
     </div>
+    <script language="javascript" src="js/jquery-1.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+        $("#addRow").click(function(){
+        $("#myTbl").append($("#firstTr").clone());
+        });
+        $("#removeRow").click(function(){
+        if($("#myTbl tr").size()>1){
+            $("#myTbl tr:last").remove();
+        }
+        });         
+    });
+    </script>
 @endsection
