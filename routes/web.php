@@ -51,8 +51,13 @@ Route::get('admin',function(){
     return view('/Admin/admin');
 });
 
+Route::get('admin/index',function(){
+    return view('/Admin/index');
+});
+
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
 Route::post('/login',"LoginController@login");
 Route::post('/logout',"LoginController@logout");
+Route::post('/adminLogin',"AdminLoginController@login");
