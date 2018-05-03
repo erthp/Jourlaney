@@ -47,6 +47,10 @@ Route::get('guidecreatetrip',function(){
     return view('GuideCreateTrip');
 });
 
+Route::get('admin',function(){
+    return view('admin');
+});
+
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
