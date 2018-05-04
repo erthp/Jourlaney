@@ -109,7 +109,7 @@
                 <div class="col-lg-8">
                     <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์no pets" /> No Pets &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์flexible plane" /> Flexible Plane &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์flexible plane" /> Flexible Plan &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์others" /> Others...
                 </div>
