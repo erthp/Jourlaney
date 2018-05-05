@@ -181,31 +181,16 @@
                     </div>
                 </div>
             </div>
+            <br>
             <div class="row">
                 <div class="col-lg-2">
                     <label class="trip-label" for="language">Language</label>
                 </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label class="trip-label" for="trip-conditions">Trip conditions</label>
-                </div>
-                <div class="col-lg-8">
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์no pets" /> No Pets &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์flexible plane" /> Flexible Plan &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์others" /> Others...
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label class="trip-label">Trip Cost</label>
-                </div>
                 <div class = "col-lg-8">
-                <input type="number" min="0.00" max="10000.00" step="0.01"> baht. / Person
+                    <input type="checkbox" class="" name="language" id="language" value="Thai" /> Thai &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="language" id="language" value="English" /> English &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="language" id="language" value="Chainese" /> Chainese &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="language" id="language" value="Japanese" /> Japanese
                 </div>
             </div>
             <br>

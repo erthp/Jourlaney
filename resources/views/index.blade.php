@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-4">
                     <div align="center">
-                        <a href = "newfeeds"><img src="../pic/medal.png" class="homemenu-icon" height="80" alt=""></a>
+                        <a href = "/"><img src="../pic/medal.png" class="homemenu-icon" height="80" alt=""></a>
                         <p class="homemenu-text">Recommend</p>
                     </div>
                 </div>
@@ -29,5 +29,23 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <br><br>
+        <dic class="row">
+        <div class ="col-4 text-center">
+            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+            <br>
+            <p class="h4">chiangmai </p>
+        </div>
+        <div class ="col-4 text-center">
+            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+            <br>
+            <p class="h4">chiangmai </p>
+        </div>
+        <div class ="col-4 text-center">
+            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+            <br>
+            <p class="h4">chiangmai </p>
+        </div>
         </div>
 @endsection
