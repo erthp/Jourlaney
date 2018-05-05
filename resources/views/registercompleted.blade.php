@@ -5,14 +5,15 @@
     <div class="row">
         <div class="col-lg-2"></div>
         <div class="col-lg-8">
-            <form method="POST" name="register-form" action="{{URL::to('/login')}">
+            <form method="POST" name="register-form" action="{{ URL::to('/login') }}">
+            {{ csrf_field() }}
                 <div class="form-group">
                     <label class="login-label" for="username">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <input type="text" class="form-control" name="username" placeholder="Username">
                 </div>
                 <div class="form-group">
                     <label class="login-label" for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password">
+                    <input type="password" class="form-control" name="password" placeholder="Password">
                 </div>
                 <button type="submit" class="btn btn-success btn-block">Log in</button>
             </form>
