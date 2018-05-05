@@ -28,7 +28,7 @@ Route::get('header',function(){
 });
 
 Route::get('profile',function(){
-    return view('profile');
+    return view('guideprofile');
 });
 
 Route::get('freeday',function(){
@@ -45,6 +45,10 @@ Route::get('createtripcompleted',function(){
 
 Route::get('guidecreatetrip',function(){
     return view('GuideCreateTrip');
+});
+
+Route::get('touristcreatetrip',function(){
+    return view('TouristCreateTrip');
 });
 
 Route::get('admin',function(){
