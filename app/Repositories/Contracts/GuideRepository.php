@@ -1,11 +1,8 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Contracts;
 
-use Illuminate\Database\Eloquent\Model;
-use app\Model\Guide;
-
-class GuideRepository extends BaseRepository
+interface GuideRepository
 {
     //
 }
