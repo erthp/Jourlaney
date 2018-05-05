@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Repositories\Eloquent\EloquentGuideRepository as guideRepo;
 
 class GuideRegisterController extends Controller
