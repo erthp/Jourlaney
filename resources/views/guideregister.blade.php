@@ -1,7 +1,7 @@
 @extends('header')
 @section('page')
 <div class="container">
-    <h3 class="text-center register-header">Sign up to guide</h3>
+    <h3 class="text-center register-header">Guide Registeration</h3>
         <form method="POST" id="register-form" name="register-form" action="{{URL::to('/guideregis')}}" enctype="multipart/form-data">
             <div class="row mt-5">
                 <div class="col-lg-2">
