@@ -28,6 +28,8 @@ class LoginController extends Controller
                 Session::put('guideid', $guideid[0]->guideId);
                 $guidelocation = DB::table('Guide')->select('guideLocation')->where('username',$username)->get();
                 Session::put('guidelocation', $guidelocation[0]->guideLocation);
+                $guideVerification = DB::table('Guide')->select('guideVerification')->where('username',$username)->get();
+                Session::put('guideVerification', $guideVerification[0]->guideVerification);
             }
             if(isset($touristid[0])){
                 Session::put('touristid', $touristid[0]->touristId);
