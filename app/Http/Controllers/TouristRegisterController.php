@@ -14,15 +14,30 @@ class TouristRegisterController extends Controller
         $username = $request->input('username');
         $password = $request->input('password');
         $hash = hash('sha512',$password);
+        $userEmail = $request->input('email');
         
-        $touristIdCardImage = $request->file('touristidcardpic');
-        $input['filename'] = time().'.'.$touristIdCardImage->getClientOriginalExtension();
-        $picturePath = public_path('/images/idcardpic');
-        $touristIdCardImage->move($picturePath, $input['filename']);
-        $toursitIdCardPicName = $input['filename'];
+        $checkUsername = DB::table('Users')->where(['username'=>$username])->get();
+        $checkEmail = DB::table('Users')->where(['userEmail'=>$userEmail])->get();
+        if(count($checkUsername) ==0){
+            if(count($checkEmail) ==0){
+                $touristIdCardImage = $request->file('touristidcardpic');
+                $input['filename'] = time().'.'.$touristIdCardImage->getClientOriginalExtension();
+                $picturePath = public_path('/images/idcardpic');
+                $touristIdCardImage->move($picturePath, $input['filename']);
+                $touristIdCardPicName = $input['filename'];
 
-        $queryUser = DB::insert("insert into Users(username,userPassword,userFirstName,userLastName,userEmail,userGender,userDOB,userIdcard) values(?,?,?,?,?,?,?,?)",[$username,$hash,$request->input('firstname'),$request->input('lastname'),$request->input('email'),$request->input('gender'),$request->input('birthdate'),$request->input('idcard')]);
-        $queryTourist = DB::insert("insert into Tourist(username,touristIdCardPic) value(?,?)",[$request->input('username'),$toursitIdCardPicName]);
-        return view('registercompleted');
+                $queryUser = DB::insert("insert into Users(username,userPassword,userFirstName,userLastName,userEmail,userGender,userDOB,userIdcard) values(?,?,?,?,?,?,?,?)",[$username,$hash,$request->input('firstname'),$request->input('lastname'),$request->input('email'),$request->input('gender'),$request->input('birthdate'),$request->input('idcard')]);
+                $queryTourist = DB::insert("insert into Tourist(username,touristIdCardPic) value(?,?)",[$request->input('username'),$touristIdCardPicName]);
+                return view('registercompleted');
+            }
+            else{
+                echo "<script>window.alert('Dublicate email! Please change.')</script>";
+                return view('guideregister');
+            }
+        }
+        else{
+            echo "<script>window.alert('Dublicate username! Please change.')</script>";
+            return view('touristregister');
+        }
     }
 }
