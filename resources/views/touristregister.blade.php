@@ -2,7 +2,7 @@
 @section('page')
 <div class="container">
     <h3 class="text-center register-header">Tourist Registeration</h3>
-        <form method="POST" id="register-form" name="register-form" action="{{URL::to('/guideregis')}}">
+        <form method="POST" id="register-form" name="register-form" action="{{URL::to('/touristregis')}}" enctype="multipart/form-data">
             <div class="row mt-5">
                 <div class="col-lg-2">
                     <label class="register-label" for="username">Username</label>
@@ -107,18 +107,16 @@
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                <label class="register-label" for="idcardpic">ID card picture</label>
+                    <label class="register-label" for="touristidcardpic">ID card picture</label>
                 </div>
                 <div class="col-lg-10">
                     <div class="form-group">
-                        <a class='btn btn-primary' href='javascript:;'>
-                            Choose File...
-                            <input type="file" name="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
-                        </a>
+                        <input type="file" name="touristidcardpic" id="touristidcardpic" required>
+                        <div id="filename"></div>
                     </div>
                 </div>
             </div>
-            <div class="row text-center">
+            <div class="row text-center mb-4">
                 <div class="col-lg-2">
                 </div>
                 <div class="col-lg-10">
