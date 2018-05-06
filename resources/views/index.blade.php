@@ -30,22 +30,23 @@
                 </div>
             </div>
         </div>
-        <br><br>
-        <dic class="row">
-        <div class ="col-4 text-center">
-            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
-            <br>
-            <p class="h4">chiangmai </p>
-        </div>
-        <div class ="col-4 text-center">
-            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
-            <br>
-            <p class="h4">chiangmai </p>
-        </div>
-        <div class ="col-4 text-center">
-            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
-            <br>
-            <p class="h4">chiangmai </p>
-        </div>
+        <div class="container">
+            <div class="row mt-4">
+                <div class ="col-4 text-center">
+                    <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+                    <br>
+                    <p class="h4">chiangmai </p>
+                </div>
+                <div class ="col-4 text-center">
+                    <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+                    <br>
+                    <p class="h4">chiangmai </p>
+                </div>
+                <div class ="col-4 text-center">
+                    <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+                    <br>
+                    <p class="h4">chiangmai </p>
+                </div>
+            </div>
         </div>
 @endsection
