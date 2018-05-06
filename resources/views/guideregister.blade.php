@@ -117,14 +117,11 @@
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                <label class="register-label" for="guidelicensepic">Guide license card picture</label>
+                    <label class="register-label" for="guidelicensepic">Guide license card picture</label>
                 </div>
                 <div class="col-lg-10">
                     <div class="form-group">
-                        <!-- <a class='btn btn-primary' href='javascript:;'>
-                            Choose File... -->
                             <input type="file" name="guidelicensepic" id="guidelicensepic" required>
-                        </a>
                         <div id="filename"></div>
                     </div>
                 </div>
