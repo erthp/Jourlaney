@@ -2,7 +2,7 @@
 @section('page')
 <div class="container">
     <h3 class="text-center register-header">Edit Profile</h3>
-        <form method="POST" id="register-form" name="register-form" action="{{URL::to('/guideregis')}}" enctype="multipart/form-data">
+        <form method="POST" id="register-form" name="register-form" action="{{URL::to('/geditprofile')}}" enctype="multipart/form-data">
             <div class="row mt-5">
                 <div class="col-lg-2">
                     <label class="register-label" for="username">Username</label>
