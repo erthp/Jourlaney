@@ -17,7 +17,7 @@
                         <a href = "touristcreatetrip"><img src="../pic/bag.png" class="homemenu-icon" height="80" alt=""></a>
                         <p class="homemenu-text">Create Trip</p>
                     @else
-                        <a href = "/"><img src="../pic/bag.png" class="homemenu-icon" height="80" alt=""></a>
+                        <a href = "/" onclick="alert('Please login first!')"><img src="../pic/bag.png" class="homemenu-icon" height="80" alt=""></a>
                         <p class="homemenu-text">Create Trip</p>
                     @endif
                     </div>
