@@ -63,6 +63,10 @@ Route::get('admin/index',function(){
     return view('/Admin/index');
 });
 
+Route::get('trip',function(){
+    return view('Trip');
+});
+
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
