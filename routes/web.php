@@ -66,6 +66,8 @@ Route::get('admin/index',function(){
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
+Route::post('/geditprofile',"ProfileEditController@geditprofile");
+Route::post('/teditprofile',"ProfileEditController@teditprofile");
 Route::post('/login',"LoginController@login");
 Route::post('/logout',"LoginController@logout");
 Route::post('/adminLogin',"AdminLoginController@login");
