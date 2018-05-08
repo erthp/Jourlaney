@@ -22,6 +22,14 @@ class LoginController extends Controller
             Session::put('firstname', $firstname[0]->userFirstName);
             $lastname = DB::table('Users')->select('userLastName')->where('username',$username)->get();
             Session::put('lastname', $lastname[0]->userLastName);
+            $email = DB::table('Users')->select('userEmail')->where('username',$username)->get();
+            Session::put('email', $email[0]->userEmail);
+            $gender = DB::table('Users')->select('userGender')->where('username',$username)->get();
+            Session::put('gender', $gender[0]->userGender);
+            $dob = DB::table('Users')->select('userDOB')->where('username', $username)->get();
+            Session::put('dob', $dob[0]->userDOB);
+            $idCard = DB::table('Users')->select('userIdcard')->where('username', $username)->get();
+            Session::put('idCard', $idCard[0]->userIdcard);
             $guideid = DB::table('Guide')->select('guideId')->where('username',$username)->get();
             $touristid = DB::table('Tourist')->select('touristId')->where('username',$username)->get();
             if(isset($guideid[0])){
