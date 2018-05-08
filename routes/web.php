@@ -51,6 +51,10 @@ Route::get('touristcreatetrip',function(){
     return view('TouristCreateTrip');
 });
 
+Route::get('GuideEditProfile',function(){
+    return view('GuideEditProfile');
+});
+
 Route::get('admin',function(){
     return view('/Admin/admin');
 });
