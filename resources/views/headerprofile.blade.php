@@ -21,12 +21,12 @@
 
 <body>
     <!--header -->
-    <header class="masthead" style="background-image: url('./images/thailand_header.jpg')">
+    <header class="masthead" style="background-image: url('../images/thailand_header.jpg')">
         <div class="overlay"></div>
         <div class="container">
             <nav class="navbar navbar-light clearbg">
                 <a class="navbar-brand clearbg titletext" href="/">
-                    <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
+                    <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
                     <span class="titletext">Jourlaney</span><br>
                 </a>
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -150,9 +150,9 @@
                                     <img src="../pic/user.png" height="24px" width="24px" >
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="profile"> {{Session::get('username')}}</a>
+                                    <li><a href="profile">{{Session::get('username')}}</a>
                                     </li>
-                                    <li><a href="editprofile">Settings</a>
+                                    <li><a href="editprofile">Edit Profile</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
@@ -253,13 +253,11 @@
     <div class="row">
         <div class ="col-12 text-center">
             <br><br>
-            <h1 style="text-align:center">{{Session::get('firstname')}}</h1>
-            @if(!empty(Session::get('guideid')))
-            <h5>{{Session::get('guidelocation')}} Guide</h5>
-            @elseif(!empty(Session::get('touristid')))
-            <h5>Tourist</h5>
+            <h1 style="text-align:center">{{ $user -> userFirstName}}</h1>
+            @if(!empty(Session::get('profileGuideLocation')))
+            <h5>{{Session::get('profileGuideLocation')}} Guide</h5>
             @else
-            <h5></h5>
+            <h5>Tourist</h5>
             @endif
             <center>
                 <table>
