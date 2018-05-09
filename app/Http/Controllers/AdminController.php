@@ -7,7 +7,7 @@ use App\Models\User;
 use DB;
 use Session;
 
-class AdminLoginController extends Controller
+class AdminController extends Controller
 {
     public function login(Request $req){
         $username = $req->get('username');
@@ -22,7 +22,7 @@ class AdminLoginController extends Controller
             Session::put('firstname', $firstname[0]->userFirstName);
             $lastname = DB::table('Users')->select('userLastName')->where('username',$username)->get();
             Session::put('lastname', $lastname[0]->userLastName);
-            return redirect('/admin/index');
+            return redirect('adminIndex');
         }
         else{
             echo ('Invalid Username or Password.');
@@ -36,5 +36,10 @@ class AdminLoginController extends Controller
     public function logout(Request $req){
         $req->session()->flush();
         return redirect('/');
+    }
+
+    public function getdata(){
+        $countUser = DB::table('Users')->count();
+        dd($countUser);
     }
 }
