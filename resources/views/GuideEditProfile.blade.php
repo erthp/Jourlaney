@@ -9,7 +9,7 @@
                 </div>
                 <div class="col-lg-10">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="username" id="username" placeholder="Username" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 20]" value="{{Session::get('username')}}">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Username" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 20]" value="{{Session::get('username')}}" disabled>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="col-lg-10">
                     <div class="form-group">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Male">
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" required>
                             <label class="form-check-label" for="male">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
