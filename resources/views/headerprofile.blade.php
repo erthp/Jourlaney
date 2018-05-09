@@ -152,7 +152,7 @@
                                 <ul class="dropdown-menu dropdown-user">
                                     <li><a href="profile"> {{Session::get('username')}}</a>
                                     </li>
-                                    <li><a href="#">Settings</a>
+                                    <li><a href="editprofile">Settings</a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>

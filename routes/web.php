@@ -28,7 +28,7 @@ Route::get('header',function(){
 });
 
 Route::get('profile',function(){
-    return view('guideprofile');
+    return view('profile');
 });
 
 Route::get('freeday',function(){
@@ -51,8 +51,8 @@ Route::get('touristcreatetrip',function(){
     return view('TouristCreateTrip');
 });
 
-Route::get('GuideEditProfile',function(){
-    return view('GuideEditProfile');
+Route::get('editprofile',function(){
+    return view('EditProfile');
 });
 
 Route::get('admin',function(){
@@ -70,8 +70,7 @@ Route::get('trip',function(){
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
-Route::post('/geditprofile',"ProfileEditController@geditprofile");
-Route::post('/teditprofile',"ProfileEditController@teditprofile");
+Route::post('/editprofile',"ProfileEditController@editprofile");
 Route::post('/login',"LoginController@login");
 Route::post('/logout',"LoginController@logout");
 Route::post('/adminLogin',"AdminLoginController@login");
