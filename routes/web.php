@@ -27,9 +27,7 @@ Route::get('header',function(){
     return view('header');
 });
 
-Route::get('profile',function(){
-    return view('profile');
-});
+Route::get('Profile/{username}', 'ProfileController@showProfile')->name('Profile.showProfile');
 
 Route::get('freeday',function(){
     return view('freeday');
