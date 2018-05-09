@@ -57,9 +57,11 @@ Route::get('admin',function(){
     return view('/Admin/admin');
 });
 
-Route::get('admin/index',function(){
+Route::get('adminIndex',function(){
     return view('/Admin/index');
 });
+
+Route::get('adminGetData', 'AdminController@getdata');
 
 Route::get('trip',function(){
     return view('Trip');
@@ -71,4 +73,4 @@ Route::post('/touristregis',"TouristRegisterController@touristregis");
 Route::post('/editprofile',"ProfileEditController@editprofile");
 Route::post('/login',"LoginController@login");
 Route::post('/logout',"LoginController@logout");
-Route::post('/adminLogin',"AdminLoginController@login");
+Route::post('/adminLogin',"AdminController@login");

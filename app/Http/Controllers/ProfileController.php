@@ -19,7 +19,7 @@ class ProfileController extends Controller
         }
 
         if($check){
-            return view('Profile')->withUser($check,$checkGuide,$checkTourist);;
+            return view('Profile')->withUser($check,$checkGuide,$checkTourist);
         }
     }
 }

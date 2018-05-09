@@ -22,7 +22,7 @@ class AdminController extends Controller
             Session::put('firstname', $firstname[0]->userFirstName);
             $lastname = DB::table('Users')->select('userLastName')->where('username',$username)->get();
             Session::put('lastname', $lastname[0]->userLastName);
-            return redirect('adminIndex');
+            return redirect('adminGetData');
         }
         else{
             echo ('Invalid Username or Password.');
@@ -39,7 +39,16 @@ class AdminController extends Controller
     }
 
     public function getdata(){
-        $countUser = DB::table('Users')->count();
-        dd($countUser);
+        $countGuide = DB::table('Guide')->count();
+        Session::put('countGuide', $countGuide);
+        $countTourist = DB::table('Tourist')->count();
+        Session::put('countTourist', $countTourist);
+        $countUser = $countGuide + $countTourist;
+        Session::put('countUser', $countUser);
+        $countGuideTrip = DB::table('GuideTrip')->count();
+        $countTouristTrip = DB::table('TouristTrip')->count();
+        $countTrip = $countGuideTrip + $countTouristTrip;
+        Session::put('countTrip', $countTrip);
+        return redirect('adminIndex');
     }
 }
