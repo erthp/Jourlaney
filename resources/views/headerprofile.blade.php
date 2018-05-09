@@ -150,7 +150,7 @@
                                     <img src="../pic/user.png" height="24px" width="24px" >
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="profile">{{Session::get('username')}}</a>
+                                    <li><a href="#">{{Session::get('username')}}</a>
                                     </li>
                                     <li><a href="editprofile">Edit Profile</a>
                                     </li>
