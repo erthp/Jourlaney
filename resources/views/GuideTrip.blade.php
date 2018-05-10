@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Jourlaney</title>
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link href="{{ URL::asset('css/jourlaney.css') }}" rel="stylesheet">
@@ -17,142 +17,46 @@
     <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
-
-<<<<<<< HEAD:resources/views/TripofGuide.blade.php
-<<<<<<< HEAD:resources/views/TripofGuide.blade.php
-<style>
-    body{
-        color : #513819;
-    }
-    h5{
-        font-weight: 600;
-    }
-    hr{
-        border : 0.5px solid 	#5cb5ec;
-    }
-    .masthead{
-        padding-bottom : 25%;
-    }
-    
-    * {box-sizing: border-box;}
-ul {list-style-type: none;}
-
-.container-content{
-    margin-left:22%;
-}
-
-.month {
-    padding: 60px 25px;
-    width: 100%;
-    background: #1abc9c;
-    text-align: center;
-}
-
-.month ul {
-    margin: 0;
-    padding: 0;
-}
-
-.month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.month .prev {
-    float: left;
-    padding-top: 10px;
-}
-
-.month .next {
-    float: right;
-    padding-top: 10px;
-}
-
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    padding-left: 30px;
-    background-color: #ddd;
-}
-
-.weekdays li {
-    display: inline-block;
-    width: 12%;
-    color: #666;
-    text-align: center;
-}
-
-.days {
-    padding: 10px 0;
-    padding-left: 30px;
-    background: #eee;
-    margin: 0;
-}
-
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 12%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color: #777;
-}
-
-.days li .active {
-    padding: 5px;
-    background: #1abc9c;
-    color: white !important
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-    .weekdays li, .days li {width: 13.1%;}
-}
-
-@media screen and (max-width: 420px) {
-    .weekdays li, .days li {width: 12.5%;}
-    .days li .active {padding: 2px;}
-}
-
-@media screen and (max-width: 290px) {
-    .weekdays li, .days li {width: 12.2%;}
-}
-</style>
-=======
->>>>>>> 11e5d8c8ecd5baac41af56136127455c46b4b111:resources/views/Trip.blade.php
-=======
->>>>>>> refs/remotes/origin/master:resources/views/Trip.blade.php
+    <style>
+        .masthead{
+            padding-bottom : 25%;
+        }
+    </style>
 </head>
 
 <body>
     <!--header -->
     @if(isset($trip -> tripPicture))
-    <header class="masthead" style="background-image: url('../images/trippic/{{ $trip -> tripPicture }}')">
+    <header class="masthead" style="background-image: url('/images/trippic/{{ $trip -> tripPicture }}')">
     @else
-    <header class="masthead" style="background-image: url('../images/thailand_header.jpg')">
+    <header class="masthead" style="background-image: url('/images/thailand_header.jpg')">
     @endif
         <div class="overlay"></div>
-        <div class="container">
-            <nav class="navbar navbar-light clearbg">
-                <a class="navbar-brand clearbg titletext" href="/">
-                    <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
-                    <span class="titletext">Jourlaney</span><br>
-                </a>
-                <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                @if(!empty(Session::get('username')))
-            <div class="navbar-header">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <ul class="nav navbar-top-links navbar-right">
-                            <li class="dropdown">
-                    		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        	    <img src="../pic/bell.png" >
-                                </a>
-                                <ul class="dropdown-menu dropdown-alerts">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="jourlaNav">
+            <div class="container">
+                <a href="/">
+                <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt=""></a>
+                <a href="/" class="titletext">Jourlaney</a>
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="btn-nav">
+                            @if(!empty(Session::get('username')))
+                            <div class="navbar-header">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <ul class="nav navbar-top-links navbar-right">
+                                    <li class="dropdown">
+                    		            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        	                <img src="../pic/bell.png" >
+                                        </a>
+                                    </li>
+                                    <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
                                         <a href="#">
                                             <div>
@@ -205,13 +109,12 @@ ul {list-style-type: none;}
                                         </a>
                                     </li> -->
                                 </ul>
-                            </li>
                             <!-- dropdown-alerts -->
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/chat.png">
-                                </a>
-                                <ul class="dropdown-menu dropdown-messages">
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <img src="../pic/chat.png">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
                                         <a href="#">
                                             <div>
@@ -246,35 +149,35 @@ ul {list-style-type: none;}
                                             </div>
                                             <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
                                         </a>
-                                    </li> -->
-                                    <!-- <li class="divider"></li>
+                                    </li>
+                                    <li class="divider"></li>
                                     <li>
                                         <a class="text-center" href="#">
                                             <strong>Read All Messages</strong>
                                             <i class="fa fa-angle-right"></i>
                                         </a>
                                     </li> -->
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
                             <!-- dropdown-alerts -->
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/user.png" height="24px" width="24px" >
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="profile"> {{Session::get('username')}}</a>
-                                    </li>
-                                    <li><a href="#">Settings</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                <li class="dropdown">
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <img src="../pic/user.png" height="24px" width="24px" >
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a href="Profile/{{Session::get('username')}}">{{Session::get('username')}}</a>
+                                        </li>
+                                        <li><a href="editprofile">Edit Profile</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                        <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
                                         {{ csrf_field() }} 
-                                    <a onclick="document.getElementById('logout-form').submit()">Logout</a>
-                                    </form>
-                                    </li>
-                                </ul>
-                            </li>
+                                            <a onclick="document.getElementById('logout-form').submit()">Logout</a>
+                                        </form>
+                                        </li>
+                                    </ul>
+                                </li>
                         </ul>
                     </div>
                 </nav>
@@ -348,11 +251,9 @@ ul {list-style-type: none;}
                     </div>
                 </div>
             </div>
-            </nav>
-        </div>
-    </header>
+        </header>
     <!--header -->
-    <div class="container-content">
+    <div class="container">
             <div class="row">
                 <div class="col-lg-2">
                     <h3>{{ $trip -> tripName }}</h3>
