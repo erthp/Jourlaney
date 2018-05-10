@@ -65,11 +65,11 @@ Route::get('adminIndex',function(){
 Route::get('adminGetData', 'AdminController@getdata');
 
 Route::get('tripguide',function(){
-    return view('TripofGuide');
+    return view('GuideTrip');
 });
 
 Route::get('triptourist',function(){
-    return view('TripofTourist');
+    return view('TourisTrip');
 });
 
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
