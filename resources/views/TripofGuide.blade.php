@@ -18,6 +18,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
 
+<<<<<<< HEAD:resources/views/TripofGuide.blade.php
 <style>
     body{
         color : #513819;
@@ -34,6 +35,10 @@
     
     * {box-sizing: border-box;}
 ul {list-style-type: none;}
+
+.container-content{
+    margin-left:22%;
+}
 
 .month {
     padding: 60px 25px;
@@ -115,16 +120,22 @@ ul {list-style-type: none;}
     .weekdays li, .days li {width: 12.2%;}
 }
 </style>
+=======
+>>>>>>> 11e5d8c8ecd5baac41af56136127455c46b4b111:resources/views/Trip.blade.php
 </head>
 
 <body>
     <!--header -->
-    <header class="masthead" style="background-image: url('{{Session::get('trippic')}}')">
+    @if(isset($trip -> tripPicture))
+    <header class="masthead" style="background-image: url('../images/trippic/{{ $trip -> tripPicture }}')">
+    @else
+    <header class="masthead" style="background-image: url('../images/thailand_header.jpg')">
+    @endif
         <div class="overlay"></div>
         <div class="container">
             <nav class="navbar navbar-light clearbg">
                 <a class="navbar-brand clearbg titletext" href="/">
-                    <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
+                    <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
                     <span class="titletext">Jourlaney</span><br>
                 </a>
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -338,10 +349,10 @@ ul {list-style-type: none;}
         </div>
     </header>
     <!--header -->
-    <div class="container">
+    <div class="container-content">
             <div class="row">
                 <div class="col-lg-2">
-                    <h3>Trip Name</h3>
+                    <h3>{{ $trip -> tripName }}</h3>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -352,18 +363,18 @@ ul {list-style-type: none;}
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <p><img src="../pic/location.png"> Location</p>
-                                    <img src="../pic/user2.png" width="64px" hight="64px">  {{Session::get('firstname')}}
+                                    <p><img src="../pic/location.png"> {{ $trip -> tripLocation }}</p>
+                                    <img src="../pic/user2.png" width="64px" hight="64px">  {{ $creatorName -> userFirstName}}
                                     <br><br><br>
                                     <h5>Trip Details</h5>
                                     <table style="width:100%" cellpadding="10">
                                       <tr>
                                         <td>Transportation :</td>
-                                        <td>{{Session::get('transportation')}}</td>
+                                        <td>{{ $trip -> tripTransportation }}</td>
                                       </tr>
                                       <tr>
-                                        <td>Max Traveller :</td>
-                                        <td>{{Session::get('max-traveller')}}</td>
+                                        <td>Max Travellers :</td>
+                                        <td>{{ $trip -> tripTravellers }}</td>
                                       </tr>
                                       <tr>
                                         <td>Language :</td>
@@ -371,7 +382,7 @@ ul {list-style-type: none;}
                                       </tr>
                                       <tr>
                                         <td>Trip Conditions :</td>
-                                        <td>{{Session::get('trip-conditions')}}</td>
+                                        <td></td>
                                       </tr>
                                     </table> 
                                     <br><br>
@@ -499,14 +510,13 @@ ul {list-style-type: none;}
                                         </div>
                                     </div>
                                     <br>
-                                    <div class="row">
-                                        <div class="col-lg-6">
+                                    <center>
                                         <a href=""><button type="submit" class="btn btn-warning">Booking Trip</button></a>
-                                        </div>
-                                        <div class="col-lg-6">
+                                    </center>
+                                    <br>
+                                    <center>
                                         <a href="chat"><button type="reset" class="btn btn-primary">Send a messege</button></a>
-                                        </div>
-                                    </div>
+                                    </center>
 
 
                                 </div>

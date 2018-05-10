@@ -4,12 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Guide extends Model
+class Trip extends Model
 {
-    protected $Trip = 'GuideTrip';
+    protected $guideTrip = 'GuideTrip';
+    protected $touristTrip = 'TouristTrip';
+    public $timestamps = false;
+    protected $table = "GuideTrip";
+    protected $primarykey = "tripId";
 
-    public function CreateTrip()
-    {
-        
-    }
 }
