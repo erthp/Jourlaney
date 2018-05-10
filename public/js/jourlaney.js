@@ -1,3 +1,7 @@
+function AddLocationField(){
+  document.getElementbyId("addLocation").innerHTML = 'location';
+}
+
 (function($) {
     "use strict";
   

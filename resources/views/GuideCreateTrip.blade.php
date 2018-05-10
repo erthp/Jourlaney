@@ -136,7 +136,8 @@
                         <option value="Yasothon">Yasothon</option>
                     </select>
                     &nbsp;&nbsp;
-                    <img src="../pic/add.png" hight="16px" width="16px">
+                    <p name="addLocation" id="addLocation"></p>
+                    <a onclick=AddLocationField()><img src="../pic/add.png" height="16px" width="16px"></a>
                     </div>
                 </div>
             </div>
@@ -193,12 +194,6 @@
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                    <label class="trip-label" for="language">Language</label>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-2">
                     <label class="trip-label" for="trip-conditions">Trip conditions</label>
                 </div>
                 <div class="col-lg-8">
@@ -245,7 +240,7 @@
                                 <p name="data1[]" id="data1[]">
                                    Day 1 <br><br>
                                    Time : <input type="time" class="" name="time" id="time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="text" class="" name="plan" id="plan"size="50">
+                                <input type="text" class="" name="plan" id="plan" size="50">
                                 </p>
                             </td>                           
                             <!--<td width="519">

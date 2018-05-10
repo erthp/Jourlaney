@@ -22,109 +22,22 @@
     body{
         color : #513819;
     }
-    h5{
-        font-weight: 600;
-    }
-    hr{
-        border : 0.5px solid 	#5cb5ec;
-    }
-    .masthead{
-        padding-bottom : 25%;
-    }
-    
-    * {box-sizing: border-box;}
-ul {list-style-type: none;}
 
-.month {
-    padding: 60px 25px;
-    width: 100%;
-    background: #1abc9c;
-    text-align: center;
-}
-
-.month ul {
-    margin: 0;
-    padding: 0;
-}
-
-.month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.month .prev {
-    float: left;
-    padding-top: 10px;
-}
-
-.month .next {
-    float: right;
-    padding-top: 10px;
-}
-
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    padding-left: 30px;
-    background-color: #ddd;
-}
-
-.weekdays li {
-    display: inline-block;
-    width: 12%;
-    color: #666;
-    text-align: center;
-}
-
-.days {
-    padding: 10px 0;
-    padding-left: 30px;
-    background: #eee;
-    margin: 0;
-}
-
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 12%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color: #777;
-}
-
-.days li .active {
-    padding: 5px;
-    background: #1abc9c;
-    color: white !important
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-    .weekdays li, .days li {width: 13.1%;}
-}
-
-@media screen and (max-width: 420px) {
-    .weekdays li, .days li {width: 12.5%;}
-    .days li .active {padding: 2px;}
-}
-
-@media screen and (max-width: 290px) {
-    .weekdays li, .days li {width: 12.2%;}
-}
 </style>
 </head>
 
 <body>
     <!--header -->
-    <header class="masthead" style="background-image: url('{{Session::get('trippic')}}')">
+    @if(isset($trip -> tripPicture))
+    <header class="masthead" style="background-image: url('../images/trippic/{{ $trip -> tripPicture }}')">
+    @else
+    <header class="masthead" style="background-image: url('../images/thailand_header.jpg')">
+    @endif
         <div class="overlay"></div>
         <div class="container">
             <nav class="navbar navbar-light clearbg">
                 <a class="navbar-brand clearbg titletext" href="/">
-                    <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
+                    <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
                     <span class="titletext">Jourlaney</span><br>
                 </a>
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -341,7 +254,7 @@ ul {list-style-type: none;}
     <div class="container">
             <div class="row">
                 <div class="col-lg-2">
-                    <h3>Trip Name</h3>
+                    <h3>{{ $trip -> tripName }}</h3>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -352,18 +265,18 @@ ul {list-style-type: none;}
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <p><img src="../pic/location.png"> Location</p>
+                                    <p><img src="../pic/location.png"> {{ $trip -> tripLocation }}</p>
                                     <img src="../pic/user2.png" width="64px" hight="64px">  {{Session::get('firstname')}}
                                     <br><br><br>
                                     <h5>Trip Details</h5>
                                     <table style="width:100%" cellpadding="10">
                                       <tr>
                                         <td>Transportation :</td>
-                                        <td>{{Session::get('transportation')}}</td>
+                                        <td>{{ $trip -> tripTransportation }}</td>
                                       </tr>
                                       <tr>
-                                        <td>Max Traveller :</td>
-                                        <td>{{Session::get('max-traveller')}}</td>
+                                        <td>Max Travellers :</td>
+                                        <td>{{ $trip -> tripTravellers }}</td>
                                       </tr>
                                       <tr>
                                         <td>Language :</td>
@@ -371,7 +284,7 @@ ul {list-style-type: none;}
                                       </tr>
                                       <tr>
                                         <td>Trip Conditions :</td>
-                                        <td>{{Session::get('trip-conditions')}}</td>
+                                        <td></td>
                                       </tr>
                                     </table> 
                                     <br><br>
