@@ -19,6 +19,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
 
 <<<<<<< HEAD:resources/views/TripofGuide.blade.php
+<<<<<<< HEAD:resources/views/TripofGuide.blade.php
 <style>
     body{
         color : #513819;
@@ -122,6 +123,8 @@ ul {list-style-type: none;}
 </style>
 =======
 >>>>>>> 11e5d8c8ecd5baac41af56136127455c46b4b111:resources/views/Trip.blade.php
+=======
+>>>>>>> refs/remotes/origin/master:resources/views/Trip.blade.php
 </head>
 
 <body>

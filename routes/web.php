@@ -65,6 +65,7 @@ Route::get('adminIndex',function(){
 Route::get('adminGetData', 'AdminController@getdata');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 Route::get('tripguide',function(){
     return view('TripofGuide');
 });
@@ -75,6 +76,8 @@ Route::get('triptourist',function(){
 
 =======
 >>>>>>> 11e5d8c8ecd5baac41af56136127455c46b4b111
+=======
+>>>>>>> refs/remotes/origin/master
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
