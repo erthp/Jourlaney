@@ -18,12 +18,6 @@
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
 
-<style>
-    body{
-        color : #513819;
-    }
-
-</style>
 </head>
 
 <body>
