@@ -29,6 +29,7 @@ Route::get('header',function(){
 
 Route::get('Profile/{username}', 'ProfileController@showProfile')->name('Profile.showProfile');
 Route::get('GuideTrip/{tripId}', 'TripController@showGuideTrip')->name('GuideTrip.ShowTrip');
+Route::get('TouristTrip/{tripId}', 'TripController@showTouristTrip')->name('TouristTrip.ShowTrip');
 
 Route::get('freeday',function(){
     return view('freeday');
@@ -63,14 +64,6 @@ Route::get('adminIndex',function(){
 });
 
 Route::get('adminGetData', 'AdminController@getdata');
-
-Route::get('tripguide',function(){
-    return view('GuideTrip');
-});
-
-Route::get('triptourist',function(){
-    return view('TourisTrip');
-});
 
 Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");

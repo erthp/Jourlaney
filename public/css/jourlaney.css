@@ -594,15 +594,11 @@ h3{
     .weekdays li, .days li {width: 12.2%;}
 }
 
-* {box-sizing: border-box;}
-ul {list-style-type: none;}
+/* ul {list-style-type: none;}
 
 h5{
   font-weight: 600;
 }
 hr{
   border : 0.5px solid 	#5cb5ec;
-}
-.masthead{
-  padding-bottom : 25%;
-}
+}*/
