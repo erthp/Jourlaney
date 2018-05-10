@@ -56,6 +56,9 @@ h3{
 #register-form{
   margin-left:30%;
 }
+#trip-form{
+  margin-left:15%;
+}
 /* input[type="file"]{
     position:absolute;
     z-index:2;
