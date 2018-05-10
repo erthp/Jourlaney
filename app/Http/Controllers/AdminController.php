@@ -49,6 +49,7 @@ class AdminController extends Controller
         $countTouristTrip = DB::table('TouristTrip')->count();
         $countTrip = $countGuideTrip + $countTouristTrip;
         Session::put('countTrip', $countTrip);
-        return redirect('adminIndex');
+        $queryGuide = DB::select('select Users.username, Users.userFirstName, Users.userLastName, Users.userEmail, Guide.guideLicensePic from Users join Guide on Guide.username=Users.username');
+        return redirect('adminIndex'. ['queryGuide'=>$queryGuide]);
     }
 }
