@@ -266,7 +266,7 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <p><img src="../pic/location.png"> {{ $trip -> tripLocation }}</p>
-                                    <img src="../pic/user2.png" width="64px" hight="64px">  {{Session::get('firstname')}}
+                                    <img src="../pic/user2.png" width="64px" hight="64px">  {{ $creatorName -> userFirstName}}
                                     <br><br><br>
                                     <h5>Trip Details</h5>
                                     <table style="width:100%" cellpadding="10">
