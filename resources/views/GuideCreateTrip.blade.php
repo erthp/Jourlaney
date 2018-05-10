@@ -214,46 +214,11 @@
                     <label>Itinerary</label>
                 </div>
                 <div class="col-lg-8">
-                    <div class="form-group">
-                    Day 1 <img src="../pic/add.png" hight="16px" width="16px"><br><br>
-                        Time : <input type="time" class="" name="time" id="time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" class="" name="detail" id="detail"size="50">&nbsp;&nbsp;&nbsp;<img src="../pic/add.png" hight="16px" width="16px">
-                        <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label>Itinerary</label>
-                </div>
-                <div class="col-lg-8">
-                <form id="form1" name="form1" method="post" action="">
-                    <table id="myTbl" width="650" border="0" cellspacing="0" cellpadding="0">
-                         <tr id="firstTr">
-                            <td width="119">
-                                <p name="data1[]" id="data1[]">
-                                   Day 1 <br><br>
-                                   Time : <input type="time" class="" name="time" id="time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="text" class="" name="plan" id="plan"size="50">
-                                </p>
-                            </td>                           
-                            <!--<td width="519">
-                                <p name="data2[]" id="data2[]">
-                                    Time : <input type="time" class="" name="time" id="time">
-                                </p>
-                            </td>-->
-                        </tr>
-                    </table>
-                    <br />
-                    <table width="500" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td>
-                                <button id="addRow" type="button">+</button>   
-                            </td>
-                        </tr>
-                    </table>
-                </form>
+                    <form method="post" action="">
+                        <div id="cover">
+                            <a id='btnAdd'><img src='../pic/add.png' hight='16px' width='16px'></a>
+                        </div>
+                    </form>
                 <br>
                     <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -283,4 +248,30 @@
         });         
     });
     </script>
+    <script>
+	$(document).ready(function(){
+		first();                   // เมื่อ page ถูกโหลดจะทำฟังก์ชัน first ก่อน
+		$('#btnAdd').click(first); // เมื่อ click จะสร้าง element ขึ้นมาใหม่(สร้าง input ใหม่)
+		$('#btnSend').click(send); //เมื่อคลิกจะทำฟังก์ชัน send
+	});
+	
+	function first(){
+		var id = $('#cover div').length+1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
+		var wrapper = $("<div id=\"field"+id+"\"><br>");  // สร้าง div
+		var parag   = $("<p>Day "+id+" <img src='../pic/add.png' hight='16px' width='16px'></p>");   // สร้าง p
+		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"tel"+id+"\" />"); // สร้าง input
+		var text2    = $("<span>&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"tel"+id+"\" size='50'/>")
+		wrapper.append(parag);   
+		wrapper.append(text);
+        wrapper.append(text2);
+		$('#cover').append(wrapper);
+	}
+	
+	function send(){  //นับ div ทั้งหมดก่อนส่ง
+		var id= $('#cover div').length;
+		var hiddens = $("<input type='hidden' name='hidden' value=\""+id+"\"/>");
+		$('form').append(hiddens);
+		$('form').submit(); 
+	}
+</script>
 @endsection

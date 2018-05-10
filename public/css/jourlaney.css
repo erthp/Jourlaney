@@ -52,7 +52,9 @@ h3{
     background-color: rgba(0,0,0,0);
     text-align: center;
 }
-
+#register-form{
+  margin-left:30%;
+}
 /* input[type="file"]{
     position:absolute;
     z-index:2;
