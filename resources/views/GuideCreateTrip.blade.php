@@ -42,7 +42,7 @@
                 <div class="col-lg-2">
                     <label class="trip-label" for="location">Location</label>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="form-group">
                     <select name="location" id="location">
                         <option value="" selected>Select city</option>
@@ -135,9 +135,8 @@
                         <option value="Yala">Yala</option>
                         <option value="Yasothon">Yasothon</option>
                     </select>
-                    &nbsp;&nbsp;
+                    &nbsp;&nbsp; <a onclick=AddLocationField()><img src="../pic/add.png" height="16px" width="16px"></a>
                     <p name="addLocation" id="addLocation"></p>
-                    <a onclick=AddLocationField()><img src="../pic/add.png" height="16px" width="16px"></a>
                     </div>
                 </div>
             </div>
@@ -219,54 +218,11 @@
                     <label>Itinerary</label>
                 </div>
                 <div class="col-lg-8">
-<<<<<<< HEAD
                     <form method="post" action="">
                         <div id="cover">
                             <a id='btnAdd'><img src='../pic/add.png' hight='16px' width='16px'></a>
                         </div>
                     </form>
-=======
-                    <div class="form-group">
-                    Day 1 <img src="../pic/add.png" hight="16px" width="16px"><br><br>
-                        Time : <input type="time" class="" name="time" id="time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="text" class="" name="detail" id="detail"size="50">&nbsp;&nbsp;&nbsp;<img src="../pic/add.png" hight="16px" width="16px">
-                        <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label>Itinerary</label>
-                </div>
-                <div class="col-lg-8">
-                <form id="form1" name="form1" method="post" action="">
-                    <table id="myTbl" width="650" border="0" cellspacing="0" cellpadding="0">
-                         <tr id="firstTr">
-                            <td width="119">
-                                <p name="data1[]" id="data1[]">
-                                   Day 1 <br><br>
-                                   Time : <input type="time" class="" name="time" id="time">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <input type="text" class="" name="plan" id="plan" size="50">
-                                </p>
-                            </td>                           
-                            <!--<td width="519">
-                                <p name="data2[]" id="data2[]">
-                                    Time : <input type="time" class="" name="time" id="time">
-                                </p>
-                            </td>-->
-                        </tr>
-                    </table>
-                    <br />
-                    <table width="500" border="0" cellspacing="0" cellpadding="0">
-                        <tr>
-                            <td>
-                                <button id="addRow" type="button">+</button>   
-                            </td>
-                        </tr>
-                    </table>
-                </form>
->>>>>>> 11e5d8c8ecd5baac41af56136127455c46b4b111
                 <br>
                     <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -308,7 +264,7 @@
 		var wrapper = $("<div id=\"field"+id+"\"><br>");  // สร้าง div
 		var parag   = $("<p>Day "+id+" <img src='../pic/add.png' hight='16px' width='16px'></p>");   // สร้าง p
 		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"tel"+id+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"tel"+id+"\" size='50'/>")
+		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"tel"+id+"\" size='50'/>")
 		wrapper.append(parag);   
 		wrapper.append(text);
         wrapper.append(text2);
