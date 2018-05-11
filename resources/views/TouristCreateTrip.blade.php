@@ -25,7 +25,7 @@
 <br>
 <div class="container">
     <h3 class="text-center trip-header">Create your trip</h3>
-        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetrip')}}">
+        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/tcratetrip')}}">
         {{ csrf_field() }} 
             <div class="row mt-5">
                 <div class="col-lg-2">
@@ -215,7 +215,7 @@
                         </div>
                     </form>
                     <br>
-                    <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
+                    <input type="hidden" name="touristid" id="touristid" value="{{Session::get('touristid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     </div>
                 </div>
