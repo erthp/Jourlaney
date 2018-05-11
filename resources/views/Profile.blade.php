@@ -8,21 +8,16 @@
             <h4>Trip created by {{ $user -> userFirstName}}</h4>
             <br>
         </div>
-        <div class ="col-4 text-center">
-            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
-            <br>
-            <p class="h4">chiangmai </p>
+        @foreach($guideTrip as $guideTrip)
+        <div class ="col-4 text-center mb-4">
+            <a href="../GuideTrip/{{ $guideTrip -> tripId }}">
+                <img src="../images/trippic/{{ $guideTrip -> tripPicture}}" class="img-responsive" height="150px">
+                <div class="mt-2">
+                    <h4>{{ $guideTrip -> tripName }}</h4>
+                </div>
+            </a>
         </div>
-        <div class ="col-4 text-center">
-            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
-            <br>
-            <p class="h4">chiangmai </p>
-        </div>
-        <div class ="col-4 text-center">
-            <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
-            <br>
-            <p class="h4">chiangmai </p>
-        </div>
+        @endforeach
     </div>
 </div>
 
