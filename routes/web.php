@@ -74,3 +74,5 @@ Route::post('/login',"LoginController@login");
 Route::post('/logout',"LoginController@logout");
 Route::post('/adminLogin',"AdminController@login");
 Route::post('/guideverify',"AdminController@guideverify");
+Route::post('/gdeletetrip',"TripController@gdeletetrip");
+Route::post('/tdeletetrip',"TripController@tdeletetrip");
