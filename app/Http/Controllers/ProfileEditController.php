@@ -31,7 +31,7 @@ class ProfileEditController extends Controller
             Session::put('idCard', $idCard[0]->userIdcard);
             $guideid = DB::table('Guide')->select('guideId')->where('username',$username)->get();
             echo "<script>window.alert('Update completed.')</script>";
-            return view('profile');
+            return view('profile/'.$username);
         }
         else{
             echo "<script>window.alert('Dublicate email! Please change.')</script>";
