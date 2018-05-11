@@ -16,7 +16,12 @@ a{
 
 h3{
   font-family: 'Kanit', sans-serif;
-    font-weight: 800;
+  font-weight: 800;
+}
+
+h4{
+  font-family: 'Kanit', sans-serif;
+  font-weight: 400;
 }
 
 .homemenu{
