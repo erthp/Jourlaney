@@ -111,7 +111,6 @@
                 <div class="col-lg-5">
                     <div class="form-group">
                             <input type="file" name="idcardpic" id="idcardpic" required>
-                            {{ csrf_field() }}
                         <div id="filename"></div>
                     </div>
                 </div>
@@ -119,6 +118,7 @@
             <br>
             <div class="row text-center mb-4">
                 <div class="col-lg-7">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <button type="submit" class="btn btn-success btn-block">Submit</button>
                 </div>
             </div>
