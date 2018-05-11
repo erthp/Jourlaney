@@ -2,7 +2,7 @@
 @section('page')
 <div class="container">
     <h3 class="text-center register-header">Tourist Registeration</h3>
-        <form method="POST" id="register-form" name="register-form" action="{{URL::to('/guideregis')}}" enctype="multipart/form-data">    
+        <form method="POST" id="register-form" name="register-form" action="{{URL::to('/touristregis')}}" enctype="multipart/form-data">    
             <div class="row mt-5">
                 <div class="col-lg-2">
                     <label class="register-label" for="username">Username</label>
@@ -106,11 +106,11 @@
             </div>
             <div class="row">
                 <div class="col-lg-2">
-                    <label class="register-label" for="guidelicensepic">ID card picture</label>
+                    <label class="register-label" for="idcardpic">ID card picture</label>
                 </div>
                 <div class="col-lg-5">
                     <div class="form-group">
-                            <input type="file" name="guidelicensepic" id="guidelicensepic" required>
+                            <input type="file" name="idcardpic" id="idcardpic" required>
                         <div id="filename"></div>
                     </div>
                 </div>
@@ -128,7 +128,6 @@
     $('#register-form').parsley();
     $(document).ready(function(){
         $('#idcard').mask('0-0000-00000-0');
-        $('.guidelicense').mask('00-00000');
     });
 </script>
 @endsection
