@@ -73,3 +73,4 @@ Route::post('/editprofile',"ProfileEditController@editprofile");
 Route::post('/login',"LoginController@login");
 Route::post('/logout',"LoginController@logout");
 Route::post('/adminLogin',"AdminController@login");
+Route::post('/guideverify',"AdminController@guideverify");
