@@ -32,7 +32,7 @@ class TouristRegisterController extends Controller
             }
             else{
                 echo "<script>window.alert('Dublicate email! Please change.')</script>";
-                return view('guideregister');
+                return view('touristregister');
             }
         }
         else{
