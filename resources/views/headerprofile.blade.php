@@ -31,16 +31,16 @@
                 </a>
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 @if(!empty(Session::get('username')))
-            <div class="navbar-header">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <ul class="nav navbar-top-links navbar-right">
-                            <li class="dropdown">
-                    		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <div class="navbar-header">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         	    <img src="../pic/bell.png" >
-                                </a>
-                                <ul class="dropdown-menu dropdown-alerts">
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
                                         <a href="#">
                                             <div>
@@ -92,14 +92,14 @@
                                             <i class="fa fa-angle-right"></i>
                                         </a>
                                     </li> -->
-                                </ul>
-                            </li>
+                            </ul>
+                        </li>
                             <!-- dropdown-alerts -->
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/chat.png">
-                                </a>
-                                <ul class="dropdown-menu dropdown-messages">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <img src="../pic/chat.png">
+                            </a>
+                            <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
                                         <a href="#">
                                             <div>
@@ -142,30 +142,30 @@
                                             <i class="fa fa-angle-right"></i>
                                         </a>
                                     </li> -->
-                                </ul>
-                            </li>
+                            </ul>
+                        </li>
                             <!-- dropdown-alerts -->
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/user.png" height="24px" width="24px" >
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="#">{{Session::get('username')}}</a>
-                                    </li>
-                                    <li><a href="editprofile">Edit Profile</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <img src="../pic/user.png" height="24px" width="24px" >
+                            </a>
+                            <ul class="dropdown-menu dropdown-user">
+                                <li><a href="#">{{Session::get('username')}}</a>
+                                </li>
+                                <li><a href="editprofile">Edit Profile</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
                                     <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
-                                        {{ csrf_field() }} 
-                                    <a onclick="document.getElementById('logout-form').submit()">Logout</a>
+                                            {{ csrf_field() }} 
+                                        <a onclick="document.getElementById('logout-form').submit()">Logout</a>
                                     </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
 
                 <!-- <a href="profile">{{Session::get('username')}}</a>
                 <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
@@ -173,14 +173,10 @@
                     <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" onclick="document.getElementById('logout-form').submit()">Logout</a>
                 </form> -->
             @else
-                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
-                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
+            <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
+            <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
             @endif
-            </div>
-          </ul>
         </div>
-      </div>
-    </nav>
 
                 <div id="login-popup" class="modal fade" role="dialog">
                 <div class="modal-dialog">
