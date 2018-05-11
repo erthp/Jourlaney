@@ -24,7 +24,7 @@
     <header class="masthead" style="background-image: url('../images/thailand_header.jpg')">
         <div class="overlay"></div>
         <div class="container">
-            <nav class="navbar navbar-light clearbg" id="jourlaNav">
+            <nav class="navbar navbar-light clearbg">
                 <a class="navbar-brand clearbg titletext" href="/">
                     <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
                     <span class="titletext">Jourlaney</span><br>
