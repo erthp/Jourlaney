@@ -16,10 +16,11 @@ class ProfileController extends Controller
         if(!empty($checkGuide)){
             $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
             Session::put('profileGuideLocation', $profileGuideLocation[0]->guideLocation);
+            $guideTrip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'"');
         }
 
         if($check){
-            return view('Profile')->withUser($check,$checkGuide,$checkTourist);
+            return view('Profile', ['guideTrip' => $guideTrip])->withUser($check,$checkGuide,$checkTourist);
         }
     }
 }
