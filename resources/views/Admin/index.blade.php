@@ -457,7 +457,7 @@
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Guide Verification Panel
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -497,10 +497,12 @@
                                             <tbody>
                                                 @foreach($queryGuide as $guidedata)
                                                 <tr>
-                                                    <td>3326</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:29 PM</td>
-                                                    <td>$321.33</td>
+                                                    <td>{{ $guidedata -> username }}</td>
+                                                    <td>{{ $guidedata -> userFirstName }}</td>
+                                                    <td>{{ $guidedata -> userLastName }}</td>
+                                                    <td>{{ $guidedata -> userEmail }}</td>
+                                                    <td><a href="../images/licensepic/{{ $guidedata -> guideLicensePic }}"><img src="../images/licensepic/{{ $guidedata -> guideLicensePic }}" height=100px></a></td>
+                                                    <td><form method="POST" id="verifyGuide" action="{{URL::to('/guideverify')}}">{{ csrf_field() }}<input type="hidden" name="username" value="{{ $guidedata -> username }}"><button type="submit" class="btn btn-success" id="verifyButton">Verify</button></form></td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
