@@ -268,7 +268,7 @@
 		timeid=1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
 		var wrapper = $("<div id=\"field"+id+"\"> <a id='btnAdd' onClick='day()'><img src='../pic/add.png' hight='16px' width='16px'></a>");  // สร้าง div
 		var parag   = $("<p>Day "+id+"</p>");   // สร้าง p
-		var text    = $("<div class='mt-1'><span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
 		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
 		wrapper.append(parag);
 		wrapper.append(text);
@@ -278,7 +278,7 @@
     
     function time(){
         timeid++;
-        var text    = $("<div class='mt-1'><span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+        var text    = $("<div><span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
 		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
         text.append(text2);
         $('#cover').append(text);
@@ -286,9 +286,9 @@
     
 	function addLocation(){
         loc=2;
-        var field = $("<select name=\"location"+loc+"\"> id=\"location"+loc+"\"> </select>");
-        $('#location option').clone().appendTo('#location2');
-        $('#location-form').append(field);
+        var locationForm = $("<select id=\"location"+loc+"\"></select> ");
+        var field = $("#location > option").clone();
+        $('#location2').append($field);
     }
 </script>
 @endsection
