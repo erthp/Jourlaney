@@ -20,7 +20,7 @@ class TouristRegisterController extends Controller
         $checkEmail = DB::table('Users')->where(['userEmail'=>$userEmail])->get();
         if(count($checkUsername) ==0){
             if(count($checkEmail) ==0){
-                $touristIdCardImage = $request->file('touristidcardpic');
+                $touristIdCardImage = $request->file('idcardpic');
                 $input['filename'] = time().'.'.$touristIdCardImage->getClientOriginalExtension();
                 $picturePath = public_path('/images/idcardpic');
                 $touristIdCardImage->move($picturePath, $input['filename']);
