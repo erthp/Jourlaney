@@ -118,6 +118,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <label class="register-label" for="guidelicensepic">Guide license card picture</label>
+                    {{ csrf_field() }}
                 </div>
                 <div class="col-lg-5">
                     <div class="form-group">

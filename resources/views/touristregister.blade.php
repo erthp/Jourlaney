@@ -111,6 +111,7 @@
                 <div class="col-lg-5">
                     <div class="form-group">
                             <input type="file" name="idcardpic" id="idcardpic" required>
+                            {{ csrf_field() }}
                         <div id="filename"></div>
                     </div>
                 </div>
