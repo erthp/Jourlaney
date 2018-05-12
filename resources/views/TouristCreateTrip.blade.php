@@ -5,7 +5,7 @@
                 <div class="col-4">
                     <div align="center">
                         <a href = "newfeeds"><img src="../pic/medal.png" class="homemenu-icon" height="80" alt=""></a>
-                        <p class="homemenu-text">Recommend</p>
+                        <p class="/">Recommend</p>
                     </div>
                 </div>
                 <div class="col-4">
