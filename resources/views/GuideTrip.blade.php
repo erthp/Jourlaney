@@ -409,6 +409,7 @@
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-4">
                                     <div class="mb-2">
+                                        @if($trip -> guideId == (Session::get('guideid')))
                                         <button type="button" class="btn btn-info">Edit</button>
                                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-popup">Delete</button>
                                         <div id="delete-popup" class="modal fade" role="dialog">
@@ -432,6 +433,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @else
+                                        @endif
                                     </div>
                                     <div class="month">      
                                         <ul>

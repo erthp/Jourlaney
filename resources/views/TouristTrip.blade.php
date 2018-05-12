@@ -415,6 +415,34 @@ ul {list-style-type: none;}
                                 <br><br><br>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-4">
+                                <div class="mb-2">
+                                        @if($trip -> touristId == (Session::get('touristid')))
+                                        <button type="button" class="btn btn-info">Edit</button>
+                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-popup">Delete</button>
+                                        <div id="delete-popup" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form method="POST" name="delete-form" action="{{ URL::to('/gdeletetrip') }}">  
+                                                    <input type="hidden" name="tripId" value="{{ $trip -> tripId }}"> 
+                                                    {{ csrf_field() }}                  
+                                                        <div class="modal-header">
+                                                            <h3>Delete confirmation</h3>
+                                                        </div>
+                                                        <div class="container mt-2 mb-2">
+                                                            <div class="col-2"></div>
+                                                            <div class="col-8">
+                                                                <button type="submit" class="btn btn-danger login-button">Delete</button>
+                                                                <button type="button" class="btn btn-default login-button" data-dismiss="modal">Cancel</button>
+                                                            </div>
+                                                            <div class="col-2"></div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @else
+                                        @endif
+                                    </div>
                                     <div class="month">      
                                         <ul>
                                           <li class="prev">&#10094;</li>
