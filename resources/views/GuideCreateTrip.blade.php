@@ -25,8 +25,7 @@
 <br>
 <div class="container">
     <h3 class="text-center trip-header">Create your trip</h3>
-        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetrip')}}">
-        {{ csrf_field() }} 
+        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetrip')}}" enctype="multipart/form-data">
             <div class="row mt-5">
                 <div class="col-lg-2">
                     <label class="trip-label" for="tripname">Trip name</label>
@@ -165,7 +164,7 @@
                 <div class="col-lg-10">
                     <div class="form-group">
                         <a>
-                            <input type="file" name="file_source" id="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+                            <input type="file" name="trippic" id="trippic" size="40" onchange='$("#upload-file-info").html($(this).val());'>
                         </a>
                     </div>
                 </div>
@@ -176,8 +175,8 @@
                     <label class="trip-label" for="transportation">Transportation</label>
                 </div>
                 <div class = "col-lg-8">
-                    <input type="checkbox" class="" name="transportation" id="transportation" value="private car" /> Private Car &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="transportation" id="transportation" value="public transportation" /> Public Transportation
+                    <input type="checkbox" class="" name="transportation" id="transportation" value="Private car" /> Private Car &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="transportation" id="transportation" value="Public transportation" /> Public Transportation
                 </div>
             </div>
             <br>
@@ -196,11 +195,11 @@
                     <label class="trip-label" for="trip-conditions">Trip conditions</label>
                 </div>
                 <div class="col-lg-8">
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์no pets" /> No Pets &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์flexible plane" /> Flexible Plan &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="์others" /> Others...
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="No pets" /> No Pets &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="Flexible plan" /> Flexible Plan &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="Seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions" id="trip-conditions" value="Others" /> Others...
                 </div>
             </div>
             <br>
@@ -209,7 +208,7 @@
                     <label class="trip-label">Trip Cost</label>
                 </div>
                 <div class = "col-lg-8">
-                <input type="number" min="0.00" max="10000.00" step="0.01"> baht. / Person
+                <input type="number" name="tripcost" min="0.00" max="10000.00" step="0.01"> baht. / Person
                 </div>
             </div>
             <br>
@@ -218,11 +217,9 @@
                     <label>Itinerary</label>
                 </div>
                 <div class="col-lg-8">
-                    <form method="post" action="">
                         <div id="cover">
                             
                         </div>
-                    </form>
                 <br>
                     <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -286,10 +283,12 @@
     
 	function addLocation(){
         loc++;
-        var locationForm = $("<select id=\"location"+loc+"\"></select>");
-        var field = $("#location > option").clone();
-        locationForm.append(field);
-        $('#addLocation').append(locationForm);
+        if(loc<=3){
+            var locationForm = $("<select id=\"location"+loc+"\"></select>");
+            var field = $("#location > option").clone();
+            locationForm.append(field);
+            $('#addLocation').append(locationForm);
+        }
     }
 </script>
 @endsection

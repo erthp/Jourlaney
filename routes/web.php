@@ -65,7 +65,7 @@ Route::get('adminIndex',function(){
 
 Route::get('adminGetData', 'AdminController@getdata');
 
-Route::post('/gcreatetrip',"GuideTripController@gcreatetrip");
+Route::post('/gcreatetrip',"GuideTripController@guidecreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/tcreatetrip',"TouristTripController@tcreatetrip");
 Route::post('/touristregis',"TouristRegisterController@touristregis");

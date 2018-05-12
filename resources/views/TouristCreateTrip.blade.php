@@ -277,10 +277,12 @@
     
 	function addLocation(){
         loc++;
-        var locationForm = $("<select id=\"location"+loc+"\"></select>");
-        var field = $("#location > option").clone();
-        locationForm.append(field);
-        $('#addLocation').append(locationForm);
+        if(loc<=3){
+            var locationForm = $("<select id=\"location"+loc+"\"></select>");
+            var field = $("#location > option").clone();
+            locationForm.append(field);
+            $('#addLocation').append(locationForm);
+        }
     }
 </script>
 @endsection
