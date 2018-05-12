@@ -230,31 +230,57 @@
         </form>
 
     </div>
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script>
+    <script type="text/javascript">
 	$(document).ready(function(){
 		first();                   // เมื่อ page ถูกโหลดจะทำฟังก์ชัน first ก่อน
-		$('#btnAdd').click(first); // เมื่อ click จะสร้าง element ขึ้นมาใหม่(สร้าง input ใหม่)
-		$('#btnSend').click(send); //เมื่อคลิกจะทำฟังก์ชัน send
+        $('#btnAdd').click(day); // เมื่อ click จะสร้าง element ขึ้นมาใหม่(สร้าง input ใหม่)
+        $('#btnTime').click(time);
 	});
-	
-	function first(){
-		var id = $('#cover div').length+1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
-		var wrapper = $("<div id=\"field"+id+"\"><br>");  // สร้าง div
-		var parag   = $("<p>Day "+id+" <img src='../pic/add.png' hight='16px' width='16px'></p>");   // สร้าง p
-		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"tel"+id+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"tel"+id+"\" size='50'/>")
-		wrapper.append(parag);   
+    var id=1;
+    var timeid=1;
+    var loc=1;
+
+
+    function first(){
+        //var id = $('#cover div').length+1;    // นับว่ามี tag div กี่อันแล้ว แล้ว +1
+        //var timeid = $('#cover div').length+1;        
+		var wrapper = $("<div id=\"field"+id+"\"> <a id='btnAdd'><img src='../pic/add.png' hight='16px' width='16px'></a>");  // สร้าง div
+		var parag   = $("<p>Day "+id+"</p>");   // สร้าง p
+		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime'><img src='../pic/add.png' hight='16px' width='16px'></a>");
+		wrapper.append(parag);
 		wrapper.append(text);
         wrapper.append(text2);
 		$('#cover').append(wrapper);
 	}
-	
-	function send(){  //นับ div ทั้งหมดก่อนส่ง
-		var id= $('#cover div').length;
-		var hiddens = $("<input type='hidden' name='hidden' value=\""+id+"\"/>");
-		$('form').append(hiddens);
-		$('form').submit(); 
+
+	function day(){
+        id++;
+		timeid=1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
+		var wrapper = $("<div id=\"field"+id+"\"> <a id='btnAdd' onClick='day()'><img src='../pic/add.png' hight='16px' width='16px'></a>");  // สร้าง div
+		var parag   = $("<p>Day "+id+"</p>");   // สร้าง p
+		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
+		wrapper.append(parag);
+		wrapper.append(text);
+        wrapper.append(text2);
+		$('#cover').append(wrapper);
 	}
+    
+    function time(){
+        timeid++;
+        var text    = $("<div><span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
+        text.append(text2);
+        $('#cover').append(text);
+    }
+    
+	function addLocation(){
+        loc++;
+        var locationForm = $("<select id=\"location"+loc+"\"></select>");
+        var field = $("#location > option").clone();
+        locationForm.append(field);
+        $('#addLocation').append(locationForm);
+    }
 </script>
 @endsection

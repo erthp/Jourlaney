@@ -244,10 +244,10 @@
 		first();                   // เมื่อ page ถูกโหลดจะทำฟังก์ชัน first ก่อน
         $('#btnAdd').click(day); // เมื่อ click จะสร้าง element ขึ้นมาใหม่(สร้าง input ใหม่)
         $('#btnTime').click(time);
-		// $('#btnSend').click(send); //เมื่อคลิกจะทำฟังก์ชัน send
 	});
     var id=1;
     var timeid=1;
+    var loc=1;
 
 
     function first(){
@@ -285,10 +285,11 @@
     }
     
 	function addLocation(){
-        loc=2;
-        var locationForm = $("<select id=\"location"+loc+"\"></select> ");
+        loc++;
+        var locationForm = $("<select id=\"location"+loc+"\"></select>");
         var field = $("#location > option").clone();
-        $('#location2').append($field);
+        locationForm.append(field);
+        $('#addLocation').append(locationForm);
     }
 </script>
 @endsection
