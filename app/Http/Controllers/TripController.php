@@ -30,5 +30,12 @@ class TripController extends Controller
         echo "<script>window.alert('Trip Deleted.')</script>";
         return view('index');
     }
+
+    public function tdeletetrip(Request $request){
+        $tripId = $request->input('tripId');
+        $delete = DB::delete("delete from TouristTrip where tripId = ".$tripId);
+        echo "<script>window.alert('Trip Deleted.')</script>";
+        return view('index');
+    }
     
 }
