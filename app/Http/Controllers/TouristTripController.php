@@ -13,7 +13,6 @@ class TouristTripController extends Controller
     public function touristrip(Request $request){
         //$username = $request->input('username');
         $queryTouristTrip = DB::insert("insert into TouristTrip(tripName,tripLocation,tripDetails,tripDate,touristId) values(?,?,?,?,?)",[$request->input('tripname'),$request->input('location'),$request->input('date'),$request->input('file_source'),$request->input('transportation'),$request->input('max-traveller'),$request->input('language'),$request->input('trip-conditions'),$request->input('trip-details')]);
-            echo "Create Trip Complete";
-       //return view('registercompleted');
+        return view('createtripcompleted');
     }
 }
