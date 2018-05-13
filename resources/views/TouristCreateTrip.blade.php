@@ -165,7 +165,7 @@
                 <div class="col-lg-10">
                     <div class="form-group">
                         <a>
-                            <input type="file" name="file_source" id="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+                            <input type="file" name="trippic" id="trippic" size="40" onchange='$("#upload-file-info").html($(this).val());'>
                         </a>
                     </div>
                 </div>
@@ -178,29 +178,6 @@
                 <div class = "col-lg-8">
                     <input type="checkbox" class="" name="transportation" id="transportation" value="private car" /> Private Car &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" class="" name="transportation" id="transportation" value="public transportation" /> Public Transportation
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label class="trip-label" for="max-traveller" >Max traveller</label>
-                </div>
-                <div class="col-lg-2">
-                    <div class="form-group">
-                        <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true"  min="1">
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label class="trip-label" for="language">Language</label>
-                </div>
-                <div class = "col-lg-8">
-                    <input type="checkbox" class="" name="language" id="language" value="Thai" /> Thai &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="language" id="language" value="English" /> English &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="language" id="language" value="Chainese" /> Chainese &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="language" id="language" value="Japanese" /> Japanese
                 </div>
             </div>
             <br>
