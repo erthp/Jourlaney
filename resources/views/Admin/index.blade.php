@@ -236,7 +236,11 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li>
+                            <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                {{ csrf_field() }} 
+                                <a onclick="document.getElementById('logout-form').submit()">Logout</a>
+                            </form>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -262,7 +266,7 @@
                         <li>
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -271,9 +275,9 @@
                                 <li>
                                     <a href="morris.html">Morris.js Charts</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                             <!-- /.nav-second-level -->
-                        </li>
+                        <!-- </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                         </li>
@@ -301,9 +305,9 @@
                                 <li>
                                     <a href="grid.html">Grid</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                             <!-- /.nav-second-level -->
-                        </li>
+                        <!-- </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -328,12 +332,12 @@
                                         <li>
                                             <a href="#">Third Level Item</a>
                                         </li>
-                                    </ul>
+                                    </ul> -->
                                     <!-- /.nav-third-level -->
-                                </li>
-                            </ul>
+                                <!-- </li>
+                            </ul> -->
                             <!-- /.nav-second-level -->
-                        </li>
+                        <!-- </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
@@ -343,7 +347,7 @@
                                 <li>
                                     <a href="login.html">Login Page</a>
                                 </li>
-                            </ul>
+                            </ul> -->
                             <!-- /.nav-second-level -->
                         </li>
                     </ul>
