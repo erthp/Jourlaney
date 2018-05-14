@@ -360,22 +360,6 @@ ul {list-style-type: none;}
                                     <br><br><br>
                                     <h5>Trip Details</h5>
                                     <table style="width:100%" cellpadding="10">
-                                      <tr>
-                                        <td>Transportation :</td>
-                                        <td>{{Session::get('transportation')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Max Traveller :</td>
-                                        <td>{{Session::get('max-traveller')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Language :</td>
-                                        <td>{{Session::get('language')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>Trip Conditions :</td>
-                                        <td>{{Session::get('trip-conditions')}}</td>
-                                      </tr>
                                     </table> 
                                     <br><br>
                                     <h5>Itinerary</h5>

@@ -355,16 +355,16 @@
                                     <table style="width:100%" cellpadding="10">
                                       <tr>
                                         <td>Transportation :</td>
-                                        <td>{{ $trip -> tripTransportation }}</td>
+                                        <td></td>
                                       </tr>
                                       <tr>
                                         <td>Max Travellers :</td>
                                         <td>{{ $trip -> tripTravellers }}</td>
                                       </tr>
-                                      <tr>
+                                      <!-- <tr>
                                         <td>Language :</td>
                                         <td>{{Session::get('language')}}</td>
-                                      </tr>
+                                      </tr> -->
                                       <tr>
                                         <td>Trip Conditions :</td>
                                         <td></td>
