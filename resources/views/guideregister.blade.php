@@ -100,7 +100,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="idcard "name="idcard" placeholder="ID card number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[13, 13]">
+                        <input type="text" class="form-control" id="idcard "name="idcard" onsubmit="checkForm()" placeholder="ID card number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[13, 13]">
                     </div>
                 </div>
             </div>
@@ -136,11 +136,22 @@
         </form>
 
     </div>
-<script>
+<script language="javascript">
     $('#register-form').parsley();
     $(document).ready(function(){
         $('#idcard').mask('0-0000-00000-0');
         $('.guidelicense').mask('00-00000');
     });
+    function checkID(id)
+{
+if(id.length != 13) return false;
+for(i=0, sum=0; i < 12; i++)
+sum += parseFloat(id.charAt(i))*(13-i); if((11-sum%11)%10!=parseFloat(id.charAt(12)))
+return false; return true;}
+
+function checkForm()
+{ if(!checkID(document.register-form.idcard.value))
+alert('Wrong ID card number.');
+}
 </script>
 @endsection
