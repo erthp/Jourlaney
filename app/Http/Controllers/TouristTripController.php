@@ -10,7 +10,7 @@ use App\Models\TouristTrip;
 
 class TouristTripController extends Controller
 {
-    public function touristrip(Request $request){
+    public function tcreatetrip(Request $request){
         $lastTripId = DB::select("select tripId from TouristTrip order by tripId desc limit 1");
         $tripIdObj = $lastTripId[0]->tripId;
         $tripId = $tripIdObj+1;
