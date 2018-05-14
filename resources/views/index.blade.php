@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="container">
+        <!-- <div class="container">
             <div class="row mt-4">
                 <div class ="col-4 text-center">
                     <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
@@ -48,5 +48,5 @@
                     <p class="h4">chiangmai </p>
                 </div>
             </div>
-        </div>
+        </div> -->
 @endsection
