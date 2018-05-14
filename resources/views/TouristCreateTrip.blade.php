@@ -135,7 +135,7 @@
                         <option value="Yala">Yala</option>
                         <option value="Yasothon">Yasothon</option>
                     </select>
-                    &nbsp;&nbsp; <a onclick=AddLocationField()><img src="../pic/add.png" height="16px" width="16px"></a>
+                    &nbsp;&nbsp; <a onclick="addLocation()"><img src="../pic/add.png" height="16px" width="16px"></a>
                     <p name="addLocation" id="addLocation"></p>
                     </div>
                 </div>
@@ -186,11 +186,9 @@
                     <label>Itinerary</label>
                 </div>
                 <div class="col-lg-8">
-                    <form method="post" action="">
                         <div id="cover">
-                            <a id='btnAdd'><img src='../pic/add.png' hight='16px' width='16px'></a>
+                            
                         </div>
-                    </form>
                     <br>
                     <input type="hidden" name="touristid" id="touristid" value="{{Session::get('touristid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
