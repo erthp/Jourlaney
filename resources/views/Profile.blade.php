@@ -10,9 +10,9 @@
         </div>
         @foreach($trip as $trip)
         <div class ="col-4 text-center mb-4">
-            @if(!empty(Session::get('guideid'))))
+            @if(!empty(Session::get('guideid')))
             <a href="../GuideTrip/{{ $trip -> tripId }}">
-            @elseif(!empty(Session::get('touristid'))))
+            @elseif(!empty(Session::get('touristid')))
             <a href="../TouristTrip/{{ $trip -> tripId }}">
             @endif
                 <img src="../images/trippic/{{ $trip -> tripPicture}}" class="img-responsive" height="150px">
