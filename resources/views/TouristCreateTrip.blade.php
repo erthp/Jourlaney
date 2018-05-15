@@ -25,7 +25,7 @@
 <br>
 <div class="container">
     <h3 class="text-center trip-header">Create your trip</h3>
-        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/tcreatetrip')}}">
+        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/tcreatetrip')}}" enctype="multipart/form-data">
         {{ csrf_field() }} 
             <div class="row mt-5">
                 <div class="col-lg-2">
