@@ -10,8 +10,12 @@
         </div>
         @foreach($trip as $trip)
         <div class ="col-4 text-center mb-4">
-            <a href="../GuideTrip/{{ $guideTrip -> tripId }}">
-                <img src="../images/trippic/{{ $guideTrip -> tripPicture}}" class="img-responsive" height="150px">
+            @if(!empty(Session::get('guideid'))))
+            <a href="../GuideTrip/{{ $trip -> tripId }}">
+            @elseif(!empty(Session::get('touristid'))))
+            <a href="../TouristTrip/{{ $trip -> tripId }}">
+            @endif
+                <img src="../images/trippic/{{ $trip -> tripPicture}}" class="img-responsive" height="150px">
                 <div class="mt-2">
                     <h4>{{ $trip -> tripName }}</h4>
                 </div>
