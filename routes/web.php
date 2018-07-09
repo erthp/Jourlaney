@@ -28,7 +28,7 @@ Route::get('header',function(){
 });
 
 Route::get('headerNav',function(){
-    return view('HeaderNav');
+    return view('headerNav');
 });
 
 Route::get('Profile/{username}', 'ProfileController@showProfile')->name('Profile.showProfile');
