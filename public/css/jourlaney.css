@@ -216,7 +216,98 @@ h4{
     color: #fff;
     background: transparent;
   }
+
+  #jourlaNav-alone {
+    position: absolute;
+    background-color: #1abc9c;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
   
+  #jourlaNav-alone .navbar-brand {
+    font-weight: 800;
+    color: #343a40;
+  }
+  
+  #jourlaNav-alone .navbar-toggler {
+    font-size: 12px;
+    font-weight: 800;
+    padding: 13px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+  
+  #jourlaNav-alone .navbar-nav > div.btn-nav > a {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  @media only screen and (min-width: 992px) {
+    #jourlaNav-alone {
+      border-bottom: 1px solid transparent;
+    }
+    #jourlaNav-alone .navbar-brand {
+      padding: 10px 20px;
+      color: #fff;
+    }
+    #jourlaNav-alone .navbar-brand:focus, #jourlaNav-alone .navbar-brand:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    #jourlaNav-alone .navbar-nav > div.btn-nav > a {
+      padding: 10px 20px;
+      color: #fff;
+    }
+    #jourlaNav-alone .navbar-nav > div.btn-nav > a:focus, #jourlaNav-alone .navbar-nav > div.btn-nav > a:hover {
+      color: #36D7B7;
+    }
+  }
+  
+  @media only screen and (min-width: 992px) {
+    #jourlaNav-alone {
+      -webkit-transition: background-color 0.2s;
+      -moz-transition: background-color 0.2s;
+      transition: background-color 0.2s;
+      /* Force Hardware Acceleration in WebKit */
+      -webkit-transform: translate3d(0, 0, 0);
+      -moz-transform: translate3d(0, 0, 0);
+      -ms-transform: translate3d(0, 0, 0);
+      -o-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      -webkit-backface-visibility: hidden;
+    }
+    #jourlaNav-alone.is-fixed {
+      /* when the user scrolls down, we hide the header right above the viewport */
+      position: fixed;
+      top: -67px;
+      -webkit-transition: -webkit-transform 0.2s;
+      -moz-transition: -moz-transform 0.2s;
+      transition: transform 0.2s;
+      border-bottom: 1px solid white;
+      background-color: #1abc9c;
+    }
+    #jourlaNav-alone.is-fixed .navbar-brand {
+      color: #212529;
+    }
+    #jourlaNav-alone.is-fixed .navbar-brand:focus, #jourlaNav-alone.is-fixed .navbar-brand:hover {
+      color: #0085A1;
+    }
+    #jourlaNav-alone.is-fixed .navbar-nav > div.btn-nav > a {
+      color: #1abc9c;
+    }
+    #jourlaNav-alone.is-fixed .navbar-nav > div.btn-nav > a:focus, #jourlaNav-alone.is-fixed .navbar-nav > div.btn-nav > a:hover {
+      color: #0085A1;
+    }
+    #jourlaNav-alone.is-visible {
+      /* if the user changes the scrolling direction, we show the header */
+      -webkit-transform: translate3d(0, 100%, 0);
+      -moz-transform: translate3d(0, 100%, 0);
+      -ms-transform: translate3d(0, 100%, 0);
+      -o-transform: translate3d(0, 100%, 0);
+      transform: translate3d(0, 100%, 0);
+    }
+  }
+
   #jourlaNav {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.1);

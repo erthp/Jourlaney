@@ -27,12 +27,20 @@ Route::get('header',function(){
     return view('header');
 });
 
+Route::get('headerNav',function(){
+    return view('HeaderNav');
+});
+
 Route::get('Profile/{username}', 'ProfileController@showProfile')->name('Profile.showProfile');
 Route::get('GuideTrip/{tripId}', 'TripController@showGuideTrip')->name('GuideTrip.ShowTrip');
 Route::get('TouristTrip/{tripId}', 'TripController@showTouristTrip')->name('TouristTrip.ShowTrip');
 
 Route::get('freeday',function(){
     return view('freeday');
+});
+
+Route::get('resetpassword',function(){
+    return view('ResetPassword');
 });
 
 Route::get('registercompleted',function(){
