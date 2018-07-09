@@ -196,7 +196,7 @@
                                         <label class="login-label" for="password">Password</label>
                                         <input type="password" class="form-control" name="password" placeholder="Password">
                                     </div>
-                                    <a href="resetpassword"><label class="login-label" for="forgetPassword" id="forgetPassword">Forget password?</label></a>
+                                    <a href=""><label class="login-label" for="forgetPassword" id="forgetPassword">Forget password?</label></a>
                                 </div>
                             </div>
                             <div class="modal-footer">
