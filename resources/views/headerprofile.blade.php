@@ -189,7 +189,6 @@
                             </div>
                             <div class="container">
                                 <div class="col-12">
-
                                     <div class="form-group">
                                         <label class="login-label" for="username">Username</label>
                                         <input type="text" class="form-control" name="username" placeholder="Username">
@@ -198,6 +197,7 @@
                                         <label class="login-label" for="password">Password</label>
                                         <input type="password" class="form-control" name="password" placeholder="Password">
                                     </div>
+                                    <a href="resetpassword"><label class="login-label" for="forgetPassword" id="forgetPassword">Forget password?</label></a>
                                 </div>
                             </div>
                             <div class="modal-footer">

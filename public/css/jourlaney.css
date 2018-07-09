@@ -14,6 +14,12 @@ a{
     cursor: pointer;
 }
 
+#forgetPassword{
+  text-decoration: underline;
+  cursor: pointer;
+  color: #666666;
+}
+
 h3{
   font-family: 'Kanit', sans-serif;
   font-weight: 800;
