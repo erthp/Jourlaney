@@ -33,12 +33,9 @@
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 @if(!empty(Session::get('username')))
                 <div class="navbar-header">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
                     <ul class="nav navbar-top-links navbar-right">
                         <li class="dropdown">
-                    		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    		<a class="dropdown" data-toggle="dropdown" href="#">
                         	    <img src="../pic/bell.png" >
                             </a>
                             <ul class="dropdown-menu dropdown-alerts">
@@ -96,8 +93,9 @@
                             </ul>
                         </li>
                             <!-- dropdown-alerts -->
+                            &nbsp;&nbsp;&nbsp;
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <a class="dropdown" data-toggle="dropdown" href="#">
                                 <img src="../pic/chat.png">
                             </a>
                             <ul class="dropdown-menu dropdown-messages">
@@ -146,8 +144,9 @@
                             </ul>
                         </li>
                             <!-- dropdown-alerts -->
+                            &nbsp;&nbsp;&nbsp;
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <a class="dropdown" data-toggle="dropdown" href="#">
                                     <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
