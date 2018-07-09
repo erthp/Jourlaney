@@ -21,30 +21,29 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg fixed-top animated fadeIn" id="jourlaNav-alone">
-      <div class="container">
-          <a href="/">
-      <img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-      <a href="/" class="titletext">Jourlaney</a>
+    <nav class="navbar navbar-expand-lg fixed-top animated fadeIn" id="jourlaNav-alone">
+        <div class="container">
+            <a href="/"><img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+            <a href="/" class="titletext">Jourlaney</a>
 
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-          <div class="btn-nav">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+            <div class="btn-nav">
             @if(!empty(Session::get('username')))
             <div class="navbar-header">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <ul class="nav navbar-top-links navbar-right">
-                            <li class="dropdown">
-                    		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        	    <img src="../pic/bell.png" >
-                                </a>
-                                <ul class="dropdown-menu dropdown-alerts">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li class="dropdown">
+                    	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="mr-3">
+                        	<img src="../pic/bell.png" >
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
                                         <a href="#">
                                             <div>
@@ -96,14 +95,14 @@
                                             <i class="fa fa-angle-right"></i>
                                         </a>
                                     </li> -->
-                                </ul>
-                            </li>
+                        </ul>
+                    </li>
                             <!-- dropdown-alerts -->
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/chat.png">
-                                </a>
-                                <ul class="dropdown-menu dropdown-messages">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" class="mr-3">
+                            <img src="../pic/chat.png">
+                        </a>
+                        <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
                                         <a href="#">
                                             <div>
@@ -146,30 +145,28 @@
                                             <i class="fa fa-angle-right"></i>
                                         </a>
                                     </li> -->
-                                </ul>
-                            </li>
-                            <!-- dropdown-alerts -->
-                            <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="Profile/{{Session::get('username')}}">Profile</a>
-                                    </li>
-                                    <li><a href="editprofile">Edit Profile</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
-                                        {{ csrf_field() }}
-                                    <a onclick="document.getElementById('logout-form').submit()">Logout</a>
-                                    </form>
-                                    </li>
-                                </ul>
-                            </li>
                         </ul>
-                    </div>
-                </nav>
+                    </li>
+                            <!-- dropdown-alerts -->
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="Profile/{{Session::get('username')}}">Profile</a>
+                        </li>
+                        <li>
+                            <a href="editprofile">Edit Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                {{ csrf_field() }}
+                                <a onclick="document.getElementById('logout-form').submit()">Logout</a>
+                            </form>
+                        </li>
+                    </li>
 
                 <!-- <a href="profile">{{Session::get('username')}}</a>
                 <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
@@ -180,64 +177,64 @@
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
             @endif
-            </div>
           </ul>
         </div>
       </div>
     </nav>
 
-                <div id="login-popup" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form method="POST" name="register-form" action="{{ URL::to('/login') }}">      
-                            {{ csrf_field() }}                  
-                            <div class="modal-header">
-                                <h3>Log in</h3>
-                            </div>
-                            <div class="container">
-                                <div class="col-12">
-
-                                    <div class="form-group">
-                                        <label class="login-label" for="username">Username</label>
-                                        <input type="text" class="form-control" name="username" placeholder="Username">
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="login-label" for="password">Password</label>
-                                        <input type="password" class="form-control" name="password" placeholder="Password">
-                                    </div>
-                                    <a href="resetpassword"><label class="login-label" for="forgetPassword" id="forgetPassword">Forget password?</label></a>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="submit" class="btn btn-primary login-button">Log in</button>
-                                <button type="button" class="btn btn-default login-button" data-dismiss="modal">Close</button>
-                            </div>
-                        </form>
+    <div id="login-popup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="POST" name="register-form" action="{{ URL::to('/login') }}">      
+                    {{ csrf_field() }}                  
+                    <div class="modal-header">
+                        <h3>Log in</h3>
                     </div>
-                </div>
-            </div>
-            <div id="register-popup" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <div class="row">
-                                    <div class="col-lg-12 text-center">
-                                        <h3>I am ...</h3>
-                                    </div>
-                                </div>
-                                <div class="row text-center mt-2">
-                                    <div class="col-lg-6 col-6">
-                                        <a href="guideregister"><img src = "../images/guide.png" style="height:150px"></a>
-                                        <h4 class="register-popup">Guide</h4>
-                                    </div>
-                                    <div class="col-lg-6 col-6">
-                                        <a href="touristregister"><img src = "../images/tourist.png" style="height:150px"></a>
-                                        <h4 class="register-popup">Tourist</h4>
-                                    </div>
-                                </div>
+                    <div class="container">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="login-label" for="username">Username</label>
+                                <input type="text" class="form-control" name="username" placeholder="Username">
                             </div>
+                            <div class="form-group">
+                                <label class="login-label" for="password">Password</label>
+                                <input type="password" class="form-control" name="password" placeholder="Password">
+                            </div>
+                            <a href="resetpassword"><label class="login-label" for="forgetPassword" id="forgetPassword">Forget password?</label></a>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary login-button">Log in</button>
+                        <button type="button" class="btn btn-default login-button" data-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="register-popup" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h3>I am ...</h3>
+                        </div>
+                    </div>
+                    <div class="row text-center mt-2">
+                        <div class="col-lg-6 col-6">
+                            <a href="guideregister"><img src = "../images/guide.png" style="height:150px"></a>
+                            <h4 class="register-popup">Guide</h4>
+                        </div>
+                        <div class="col-lg-6 col-6">
+                            <a href="touristregister"><img src = "../images/tourist.png" style="height:150px"></a>
+                            <h4 class="register-popup">Tourist</h4>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    @yield('page');
+</body>
+</html>
