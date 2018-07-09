@@ -25,7 +25,7 @@
     <header class="masthead" style="background-image: url('../images/thailand_header.jpg')">
         <div class="overlay"></div>
         <div class="container">
-            <nav class="navbar navbar-light clearbg">
+            <nav class="navbar navbar-light clearbg animated fadeInDown">
                 <a class="navbar-brand clearbg titletext" href="/">
                     <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
                     <span class="titletext">Jourlaney</span><br>
@@ -246,7 +246,7 @@
         </div>
     </header>
     <!--header -->  
-<div class="container profilemenu">
+<div class="container profilemenu animated fadeIn">
     <div class="row">
         <div class ="col-12 text-center">
             <br><br>
