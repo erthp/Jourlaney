@@ -1,6 +1,6 @@
-@extends('header')
+@extends('headerNav')
 @section('page')
-<div class="container">
+<div class="container navGap">
     <h3 class="text-center register-header">Edit Profile</h3>
         <form method="POST" id="register-form" name="register-form" action="{{URL::to('/editprofile')}}" enctype="multipart/form-data">
             <div class="row mt-5">

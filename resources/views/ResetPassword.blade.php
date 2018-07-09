@@ -2,7 +2,7 @@
 @section('page')
 @if(!empty(Session::get('username')))
 <div class="container">
-    <div class="row resetPasswordLabel">
+    <div class="row navGap">
         <div class="col-2">
             
         </div>
