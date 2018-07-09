@@ -1,3 +1,3 @@
-@extends('header')
+@extends('headerNav')
 @section('page')
 @endsection
