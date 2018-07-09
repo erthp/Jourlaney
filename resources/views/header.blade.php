@@ -40,7 +40,7 @@
                         <ul class="nav navbar-top-links navbar-right">
                             <li class="dropdown">
                     		    <a class="dropdown" data-toggle="dropdown" href="#">
-                        	    <img src="../pic/bell.png" style="margin-right:10%" >
+                        	    <img src="../pic/bell.png">
                                 </a>
                                 <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
@@ -97,9 +97,10 @@
                                 </ul>
                             </li>
                             <!-- dropdown-alerts -->
+                            &nbsp;&nbsp;&nbsp;
                             <li class="dropdown">
                                 <a class="dropdown" data-toggle="dropdown" href="#">
-                                    <img src="../pic/chat.png" style="margin-right:10%">
+                                    <img src="../pic/chat.png">
                                 </a>
                                 <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
@@ -147,6 +148,7 @@
                                 </ul>
                             </li>
                             <!-- dropdown-alerts -->
+                            &nbsp;&nbsp;&nbsp;
                             <li class="dropdown">
                                 <a class="dropdown" data-toggle="dropdown" href="#">
                                     <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
