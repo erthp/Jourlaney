@@ -164,6 +164,13 @@ h4{
     color: #36D7B7;
 }
 
+.username{
+    text-decoration: none;
+    color: #FFFFFF;
+    margin-left: 5pt;
+    display: inline;
+}
+
 /* Header */
 .section-heading {
     font-size: 36px;
