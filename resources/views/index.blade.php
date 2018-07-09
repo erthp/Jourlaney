@@ -1,6 +1,6 @@
 @extends('header')
 @section('page')
-        <div class="container homemenu">
+        <div class="container homemenu animated fadeIn">
             <div class="row">
                 <div class="col-4">
                     <div align="center">

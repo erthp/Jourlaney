@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="{{ URL::asset('css/jourlaney.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -20,10 +21,10 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="jourlaNav">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top  animated fadeIn" id="jourlaNav">
       <div class="container">
           <a href="/">
-      <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt=""></a>
+      <img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
       <a href="/" class="titletext">Jourlaney</a>
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -246,7 +247,7 @@
         <div class="row">
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
-            <input type="text" class="searchbox" name="search" placeholder="Where to go?">
+            <input type="text" class="searchbox animated fadeInDown" name="search" placeholder="Where to go?">
             </div>
           </div>
         </div>
