@@ -147,12 +147,12 @@
                             <!-- dropdown-alerts -->
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                <img src="../pic/user.png" height="24px" width="24px" >
-                            </a>
-                            <ul class="dropdown-menu dropdown-user">
-                                <li><a href="#">{{Session::get('username')}}</a>
-                                </li>
-                                <li><a href="../editprofile">Edit Profile</a>
+                                    <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="Profile/{{Session::get('username')}}">Profile</a>
+                                    </li>
+                                    <li><a href="editprofile">Edit Profile</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
