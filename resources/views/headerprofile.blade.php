@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link href="{{ URL::asset('css/jourlaney.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -24,7 +25,7 @@
     <header class="masthead" style="background-image: url('../images/thailand_header.jpg')">
         <div class="overlay"></div>
         <div class="container">
-            <nav class="navbar navbar-light clearbg">
+            <nav class="navbar navbar-light clearbg animated fadeInDown">
                 <a class="navbar-brand clearbg titletext" href="/">
                     <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
                     <span class="titletext">Jourlaney</span><br>
@@ -245,7 +246,7 @@
         </div>
     </header>
     <!--header -->  
-<div class="container profilemenu">
+<div class="container profilemenu animated fadeIn">
     <div class="row">
         <div class ="col-12 text-center">
             <br><br>
@@ -277,7 +278,6 @@
             <br>
             <br>
         </div>
-        @if(!empty(Session::get('guideNav')))
         <div class="col-4">
             <div align="center">
                 <a href="profile"><p class="h3">Trips</p></a>
@@ -293,18 +293,6 @@
                 <a href="rate&review"><p class="h3">Rate & Review</p></a>
             </div>
         </div>
-        @else(!empty(Session::get('touristVerification')))
-        <div class="col-6">
-            <div align="center">
-                <a href="profile"><p class="h3">Trips</p></a>
-            </div>
-        </div>
-        <div class="col-6">
-            <div align="center">
-                <a href="rate&review"><p class="h3">Rate & Review</p></a>
-            </div>
-        </div>
-        @endif
     </div>
 </div>
     </div>
