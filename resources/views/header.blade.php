@@ -41,7 +41,11 @@
                             <li class="dropdown">
                     		    <a class="dropdown" data-toggle="dropdown" href="#">
 <<<<<<< HEAD
+<<<<<<< HEAD
                         	    <img src="../pic/bell.png" style="margin-right:10%" class="mr-3">
+=======
+                        	    <img src="../pic/bell.png">
+>>>>>>> efb5a2ada3c4e5aa047cb1e41cf485dbdcdaccd4
 =======
                         	    <img src="../pic/bell.png">
 >>>>>>> efb5a2ada3c4e5aa047cb1e41cf485dbdcdaccd4
@@ -105,7 +109,11 @@
                             <li class="dropdown">
                                 <a class="dropdown" data-toggle="dropdown" href="#">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                     <img src="../pic/chat.png" style="margin-right:10%" class="mr-3">
+=======
+                                    <img src="../pic/chat.png">
+>>>>>>> efb5a2ada3c4e5aa047cb1e41cf485dbdcdaccd4
 =======
                                     <img src="../pic/chat.png">
 >>>>>>> efb5a2ada3c4e5aa047cb1e41cf485dbdcdaccd4
