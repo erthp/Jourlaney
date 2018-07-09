@@ -1,11 +1,13 @@
 @extends('headerNav')
 @section('page')
+@if(!empty(Session::get('username')))
 <div class="container">
     <div class="row resetPasswordLabel">
         <div class="col-2">
+            
         </div>
         <div class="col-8">
-            <div class="center"><h3>Reset Password</h3></div>
+            <a href="javascript:history.back()"><i class="fas fa-angle-left fa-2x mr-3"></i></a><h3 style="display:inline">Reset Password</h3>
         </div>
         <div class="col-2">
         </div>
@@ -19,23 +21,36 @@
                 <div class="container">
                     <div class="col-12">
                         <div class="form-group">
-                            <label class="login-label animated fadeIn" for="username">Username</label>
-                            <input type="text" class="form-control" name="username" placeholder="Username">
-                        </div>
-                        <div class="form-group">
-                            <label class="login-label animated fadeIn" for="password">Password</label>
+                            <label class="login-label animated fadeIn" for="password">Old Password</label>
                             <input type="password" class="form-control" name="password" placeholder="Password">
                         </div>
-                        <a href="resetpassword"><label class="login-label" for="forgetPassword" id="forgetPassword">Forget password?</label></a>
+                        <div class="form-group">
+                            <label class="login-label animated fadeIn" for="newpassword">New Password</label>
+                            <input type="password" class="form-control" name="newpassword" placeholder="New Password">
+                        </div>
+                        <div class="form-group">
+                            <label class="login-label animated fadeIn" for="renewpassword">Re-enter New Password</label>
+                            <input type="password" class="form-control" name="renewpassword" placeholder="Re-enter New Password">
+                        </div>
                     </div>
+                    <button type="submit" class="btn btn-success btn-block">Change Password</button>
                 </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary login-button">Log in</button>
-                        <button type="button" class="btn btn-default login-button" data-dismiss="modal">Close</button>
-                    </div>
-                </form>
-                </div>
+            </form>
+        </div>
         <div class="col-2">
         </div>
 </div>
+@else
+<div class="container">
+    <div class="row resetPasswordLabel">
+        <div class="col-2">
+            
+        </div>
+        <div class="col-8">
+            <a href="javascript:history.back()"><i class="fas fa-angle-left fa-2x mr-3"></i></a><h3 style="display:inline">Back</h3>
+        </div>
+        <div class="col-2">
+        </div>
+    </div>
+@endif
 @endsection
