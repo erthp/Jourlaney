@@ -36,13 +36,11 @@
           <div class="btn-nav">
             @if(!empty(Session::get('username')))
             <div class="navbar-header">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                        
                         <ul class="nav navbar-top-links navbar-right">
                             <li class="dropdown">
-                    		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        	    <img src="../pic/bell.png" >
+                    		    <a class="dropdown" data-toggle="dropdown" href="#">
+                        	    <img src="../pic/bell.png" style="margin-right:10%" >
                                 </a>
                                 <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
@@ -100,8 +98,8 @@
                             </li>
                             <!-- dropdown-alerts -->
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/chat.png">
+                                <a class="dropdown" data-toggle="dropdown" href="#">
+                                    <img src="../pic/chat.png" style="margin-right:10%">
                                 </a>
                                 <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
@@ -150,7 +148,7 @@
                             </li>
                             <!-- dropdown-alerts -->
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                <a class="dropdown" data-toggle="dropdown" href="#">
                                     <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
