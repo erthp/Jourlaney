@@ -150,15 +150,15 @@
                                     <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="Profile/{{Session::get('username')}}">Profile</a>
+                                    <li><a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
                                     </li>
-                                    <li><a href="editprofile">Edit Profile</a>
+                                    <li><a href="editprofile" class="userDropdown">Edit Profile</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
                                     <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
                                             {{ csrf_field() }} 
-                                        <a onclick="document.getElementById('logout-form').submit()">Logout</a>
+                                        <a onclick="document.getElementById('logout-form').submit()" class="userDropdown">Logout</a>
                                     </form>
                                 </li>
                             </ul>
