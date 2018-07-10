@@ -257,10 +257,23 @@
             @endif
             <center>
                 <table>
-                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                    @if(!empty(Session::get('profileGuideRating')))
+                        @if((Session::get('profileGuideRating'))>=1)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                        @if((Session::get('profileGuideRating'))>=2)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                        @if((Session::get('profileGuideRating'))>=3)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                        @if((Session::get('profileGuideRating'))>=4)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                        @if((Session::get('profileGuideRating'))>=5)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                    @endif
                 </table>
             </center>
             <center>
