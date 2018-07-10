@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top animated fadeIn" id="jourlaNav-alone">
+    <nav class="navbar navbar-expand-lg fixed-top animated fadeInDown" id="jourlaNav-alone">
         <div class="container">
             <a href="/"><img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
             <a href="/" class="titletext">Jourlaney</a>
@@ -41,8 +41,8 @@
                 <span class="icon-bar"></span>
                 <ul class="nav navbar-top-links navbar-right">
                     <li class="dropdown">
-                    	<a class="dropdown-toggle" data-toggle="dropdown" href="#" class="mr-3">
-                        	<img src="../pic/bell.png" >
+                    	<a class="dropdown" data-toggle="dropdown" href="#">
+                        	<img src="../pic/bell.png" class="mr-3">
                         </a>
                         <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
@@ -100,8 +100,8 @@
                     </li>
                             <!-- dropdown-alerts -->
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" class="mr-3">
-                            <img src="../pic/chat.png">
+                        <a class="dropdown" data-toggle="dropdown" href="#" class="mr-3">
+                            <img src="../pic/chat.png" class="mr-3">
                         </a>
                         <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
@@ -150,7 +150,7 @@
                     </li>
                             <!-- dropdown-alerts -->
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <a class="dropdown" data-toggle="dropdown" href="#">
                             <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
