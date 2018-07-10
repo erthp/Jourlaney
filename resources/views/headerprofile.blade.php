@@ -150,15 +150,15 @@
                                     <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="Profile/{{Session::get('username')}}">Profile</a>
+                                    <li><a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
                                     </li>
-                                    <li><a href="editprofile">Edit Profile</a>
+                                    <li><a href="editprofile" class="userDropdown">Edit Profile</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
                                     <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
                                             {{ csrf_field() }} 
-                                        <a onclick="document.getElementById('logout-form').submit()">Logout</a>
+                                        <a onclick="document.getElementById('logout-form').submit()" class="userDropdown">Logout</a>
                                     </form>
                                 </li>
                             </ul>
@@ -257,10 +257,23 @@
             @endif
             <center>
                 <table>
-                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                    <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                    @if(!empty(Session::get('profileGuideRating')))
+                        @if((Session::get('profileGuideRating'))>=1)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                        @if((Session::get('profileGuideRating'))>=2)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                        @if((Session::get('profileGuideRating'))>=3)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                        @if((Session::get('profileGuideRating'))>=4)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                        @if((Session::get('profileGuideRating'))>=5)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @endif
+                    @endif
                 </table>
             </center>
             <center>
