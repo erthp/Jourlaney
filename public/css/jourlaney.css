@@ -41,6 +41,8 @@ h4{
 
 .homemenu-text{
     color: #ffc844;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
 }
 
 .homepic {
@@ -175,10 +177,19 @@ h4{
 }
 
 .username{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
     text-decoration: none;
     color: #FFFFFF;
     margin-left: 5pt;
     display: inline;
+}
+
+.userDropdown{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  margin-left: 2%;
+  color: #1abc9c;
 }
 
 /* Header */
