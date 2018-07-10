@@ -30,6 +30,30 @@
                 </div>
             </div>
         </div>
+        <div class="container" style="margin-top:30px;">   
+            <ul class="nav">
+                <h3>Trips Available</h3>  &nbsp;&nbsp;&nbsp;       
+                    <li class="dropdown">
+                        <a class="dropdown" data-toggle="dropdown" href="#">
+                            <u><h3>Tomorrow</h3></u>
+                        </a>
+                        <br><br>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="Profile/{{Session::get('username')}}">Profile</a>
+                                    </li>
+                                    <li><a href="editprofile">Edit Profile</a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                        {{ csrf_field() }}
+                                    <a onclick="document.getElementById('logout-form').submit()">Logout</a>
+                                    </form>
+                                    </li>
+                                </ul>
+                            </li>
+            </ul>
+        </div>
         <!-- <div class="container">
             <div class="row mt-4">
                 <div class ="col-4 text-center">
