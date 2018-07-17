@@ -14,6 +14,25 @@ a{
     cursor: pointer;
 }
 
+.errormsg{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  background-color: #36D7B7;
+  color: #FFFFFF;
+  font-size: 2em;
+  text-align: center;
+}
+
+.errornumber{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    background-color: #36D7B7;
+    color: #FFFFFF;
+    font-size: 10em;
+    text-align: center;
+    margin-top: 20%;
+}
+
 #forgetPassword{
   text-decoration: underline;
   cursor: pointer;
