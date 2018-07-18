@@ -30,12 +30,12 @@
                 </div>
             </div>
         </div>
-        <div class="container" style="margin-top:30px;">   
+        <div class="container mt-5">   
             <ul class="nav">
-                <h3>Trips Available</h3>  &nbsp;&nbsp;&nbsp;       
+                <h3>Trips Available</h3>&nbsp;   
                     <li class="dropdown">
                         <a class="dropdown" data-toggle="dropdown" href="#">
-                            <u><h3>Tomorrow</h3></u>
+                            <u><h3> Tomorrow</h3></u>
                         </a>
                         <br><br>
                                 <ul class="dropdown-menu dropdown-user">
@@ -54,23 +54,23 @@
                             </li>
             </ul>
         </div>
-        <!-- <div class="container">
-            <div class="row mt-4">
+        <div class="container">
+            <div class="row">
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
                     <br>
-                    <p class="h4">chiangmai </p>
+                    <p class="h4 hometrip-tripname">chiangmai </p>
                 </div>
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
                     <br>
-                    <p class="h4">chiangmai </p>
+                    <p class="h4 hometrip-tripname">chiangmai </p>
                 </div>
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive" hight="300px" width="300px">
+                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
                     <br>
-                    <p class="h4">chiangmai </p>
+                    <p class="h4 hometrip-tripname">chiangmai </p>
                 </div>
             </div>
-        </div> -->
+        </div>
 @endsection
