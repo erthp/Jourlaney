@@ -73,15 +73,44 @@
                 </div>
             </div>
         </div>
+        <div class="container mt-5">   
+                <h3>Editor's Pick</h3> 
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class ="col-4 text-center">
+                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                    <br>
+                    <p class="h4 hometrip-tripname">Chiang Mai</p>
+                </div>
+                <div class ="col-4 text-center">
+                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                    <br>
+                    <p class="h4 hometrip-tripname">chiangmai </p>
+                </div>
+                <div class ="col-4 text-center">
+                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                    <br>
+                    <p class="h4 hometrip-tripname">chiangmai </p>
+                </div>
+            </div>
+        </div>
         <div class="container footer-bg">
             <div class="row">
                 <div class="col-4 footer-title">
-                JOURLANEY
+                <a class="footer-title-text" href="/">JOURLANEY</a>
                 </div>
                 <div class="col-4">
                 </div>
                 <div class="col-4">
-                t
+                    <div class="footer-social" align="right">
+                        <a class="footer-social-facebook">
+                        </a>
+                        <a class="footer-social-twitter">
+                        </a>
+                        <a class="footer-social-instagram">
+                        </a>
+                    </div>
                 </div>
             <div class="col-12 footer-menu">
                 HOME
@@ -93,6 +122,7 @@
                 ABOUT US
             </div>
             <div class="col-12 footer-foot">
+                <i class="fas fa-heart"></i> &copy; 2018, Jourlaney.
             </div>
             </div>
         </div>
