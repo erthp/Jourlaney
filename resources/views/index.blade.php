@@ -57,19 +57,31 @@
         <div class="container">
             <div class="row">
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
-                    <br>
+                    <div class="hometrip-container" align="center">
+                        <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">VIEW TRIP</div>
+                        </div>
+                    </div>
                     <p class="h4 hometrip-tripname">Chiang Mai</p>
                 </div>
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
-                    <br>
-                    <p class="h4 hometrip-tripname">chiangmai </p>
+                    <div class="hometrip-container" align="center">
+                        <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">VIEW TRIP</div>
+                        </div>
+                    </div>
+                    <p class="h4 hometrip-tripname">Chiang Mai</p>
                 </div>
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
-                    <br>
-                    <p class="h4 hometrip-tripname">chiangmai </p>
+                    <div class="hometrip-container" align="center">
+                        <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">VIEW TRIP</div>
+                        </div>
+                    </div>
+                    <p class="h4 hometrip-tripname">Chiang Mai</p>
                 </div>
             </div>
         </div>
@@ -79,19 +91,31 @@
         <div class="container">
             <div class="row">
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
-                    <br>
+                    <div class="hometrip-container" align="center">
+                        <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">VIEW TRIP</div>
+                        </div>
+                    </div>
                     <p class="h4 hometrip-tripname">Chiang Mai</p>
                 </div>
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
-                    <br>
-                    <p class="h4 hometrip-tripname">chiangmai </p>
+                    <div class="hometrip-container" align="center">
+                        <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">VIEW TRIP</div>
+                        </div>
+                    </div>
+                    <p class="h4 hometrip-tripname">Chiang Mai</p>
                 </div>
                 <div class ="col-4 text-center">
-                    <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
-                    <br>
-                    <p class="h4 hometrip-tripname">chiangmai </p>
+                    <div class="hometrip-container" align="center">
+                        <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">VIEW TRIP</div>
+                        </div>
+                    </div>
+                    <p class="h4 hometrip-tripname">Chiang Mai</p>
                 </div>
             </div>
         </div>
