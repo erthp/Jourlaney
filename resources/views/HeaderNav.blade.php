@@ -25,7 +25,7 @@
     <nav class="navbar navbar-expand-lg fixed-top animated fadeInDown" id="jourlaNav-alone">
         <div class="container">
             <a href="/"><img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-            <a href="/" class="titletext">Jourlaney</a>
+            <a href="/" class="titletext">JOURLANEY</a>
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu

@@ -28,7 +28,7 @@
             <nav class="navbar navbar-light clearbg animated fadeInDown">
                 <a class="navbar-brand clearbg titletext" href="/">
                     <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
-                    <span class="titletext">Jourlaney</span><br>
+                    <span class="titletext">JOURLANEY</span><br>
                 </a>
                 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
                 @if(!empty(Session::get('username')))

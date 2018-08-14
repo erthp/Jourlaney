@@ -41,6 +41,7 @@ a{
 
 .footer-bg{
   background-color: #444444;
+  margin-top: 5%;
 }
 
 .footer-foot{
@@ -332,10 +333,11 @@ h4{
 }
 
 .titletext{
-    font-family: 'Patrick Hand', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
     color: white;
     padding-left: 1%;
-    font-size: 18px;
+    font-size: 0.8em;
 }
 
 .titletext:hover{
