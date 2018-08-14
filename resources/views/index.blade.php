@@ -59,7 +59,7 @@
                 <div class ="col-4 text-center">
                     <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
                     <br>
-                    <p class="h4 hometrip-tripname">chiangmai </p>
+                    <p class="h4 hometrip-tripname">Chiang Mai</p>
                 </div>
                 <div class ="col-4 text-center">
                     <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
@@ -73,5 +73,27 @@
                 </div>
             </div>
         </div>
+        <div class="container footer-bg">
+            <div class="row">
+                <div class="col-4 footer-title">
+                JOURLANEY
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                t
+                </div>
+            <div class="col-12 footer-menu">
+                HOME
+            </div>
+            <div class="col-12 footer-menu">
+                TRIPS
+            </div>
+            <div class="col-12 footer-menu">
+                ABOUT US
+            </div>
+            <div class="col-12 footer-foot">
+            </div>
+            </div>
+        </div>
 @endsection
-@extends('footer')
