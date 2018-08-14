@@ -39,6 +39,129 @@ a{
   color: #666666;
 }
 
+.footer-bg{
+  background-color: #444444;
+}
+
+.footer-foot{
+  padding-top: 2%;
+  padding-bottom: 2%;
+  margin-left: 5%;
+  color: #999999;
+  font-family: 'Kanit', sans-serif;
+}
+
+.footer-menu{
+  color: #999999;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 800;
+  font-size: 1em;
+  margin-left: 5%;
+  padding-top: 1%;
+}
+
+.footer-social{
+  padding-top: 9%;
+  padding-right: 3%;
+}
+
+.footer-social-facebook{
+  background-size: cover;
+  background-image: url("../pic/facebook-icon.png");
+  width: 32px;
+  height: 32px;
+  padding-right: 2%;
+  display: inline-block;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  cursor: pointer;
+}
+
+.footer-social-facebook:hover{
+  background-size: cover;
+  background-image: url("../pic/facebook-icon-active.png");
+  width: 32px;
+  height: 32px;
+  padding-right: 2%;
+  display: inline-block;
+}
+
+.footer-social-instagram{
+  background-size: cover;
+  background-image: url("../pic/instagram-icon.png");
+  width: 32px;
+  height: 32px;
+  padding-right: 2%;
+  display: inline-block;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  cursor: pointer;
+}
+
+.footer-social-instagram:hover{
+  background-size: cover;
+  background-image: url("../pic/instagram-icon-active.png");
+  width: 32px;
+  height: 32px;
+  padding-right: 2%;
+  display: inline-block;
+}
+
+.footer-social-twitter{
+  background-size: cover;
+  background-image: url("../pic/twitter-icon.png");
+  width: 32px;
+  height: 32px;
+  padding-right: 2%;
+  display: inline-block;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  cursor: pointer;
+}
+
+.footer-social-twitter:hover{
+  background-size: cover;
+  background-image: url("../pic/twitter-icon-active.png");
+  width: 32px;
+  height: 32px;
+  padding-right: 2%;
+  display: inline-block;
+}
+
+.footer-title{
+  padding-left: 5%;
+  padding-top: 2%;
+}
+
+.footer-title-text{
+  color: #CCCCCC;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 800;
+  font-size: 2em;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  cursor: pointer;
+}
+
+.footer-title-text:hover{
+  color: #36D7B7;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 800;
+  font-size: 2em;
+  text-decoration: none;
+}
 h3{
   font-family: 'Kanit', sans-serif;
   font-weight: 800;
@@ -95,6 +218,15 @@ h4{
   font-family: 'Kanit', sans-serif;
   font-weight: 400;
   margin-top: 10px;
+}
+
+.jourlalink{
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.jourlalink:hover{
+  text-decoration: none;
 }
 
 #register-form{
