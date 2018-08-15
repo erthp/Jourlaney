@@ -151,7 +151,7 @@
                             
                             <li class="dropdown">
                                 <a class="dropdown" data-toggle="dropdown" href="#">
-                                    @if(!empty(Session::get('userProfileImage'))
+                                    @if(!empty(Session::get('userProfileImage')))
                                     <img src="../public/images/profilepic/{{Session::get('userProfileImage')}}" height="24px" width="24px">
                                     @else
                                     <img src="../pic/user.png" height="24px" width="24px">
