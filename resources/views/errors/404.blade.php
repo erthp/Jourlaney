@@ -26,7 +26,7 @@
                 <div class="text-center"><a href="/" class="titletext">Jourlaney</a></div>
         </nav>
         <div class="container">
-            <h1 class="text-center errornumber animated pulse">404</h1>
+            <h1 class="text-center errornumber animated fadeIn">404</h1>
             <h3 class="text-center errormsg animated fadeInDown">Page not found</h3>
             <h3 class="text-center errormsg animated fadeInDown">but <a href="/" class="jourlalink">Jour(la)ney</a> is never ending here.</h3>
         </div>
