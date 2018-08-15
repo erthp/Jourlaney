@@ -60,19 +60,21 @@
                     <div class="hometrip-container" align="center">
                         <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
                         <div class="image-overlay">
-                            <div class="image-overlay-text">VIEW TRIP</div>
+                            <a href="../GuideTrip/19" class="image-overlay-text">VIEW TRIP</a>
                         </div>
                     </div>
-                    <p class="h4 hometrip-tripname">Chiang Mai</p>
+                    <a href="../GuideTrip/19" class="h4 hometrip-tripname">Chiang Mai</a>
+                    <a href="../Profile/namhwan" class="h4 hometrip-tripowner">Namhwan</a>
                 </div>
                 <div class ="col-4 text-center">
                     <div class="hometrip-container" align="center">
                         <img src="../images/trippic/beach-bungalow.jpg" class="img-responsive object-fit-cover hometrip-image">
                         <div class="image-overlay">
-                            <div class="image-overlay-text">VIEW TRIP</div>
+                            <<a href="../GuideTrip/11" class="image-overlay-text">VIEW TRIP</a>
                         </div>
                     </div>
-                    <p class="h4 hometrip-tripname">Phang-nga</p>
+                    <a href="../GuideTrip/11" class="h4 hometrip-tripname">Hua Hin</a>
+                    <a href="../Profile/Nobita" class="h4 hometrip-tripowner">Nobita</a>
                 </div>
                 <div class ="col-4 text-center">
                     <div class="hometrip-container" align="center">
