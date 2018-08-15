@@ -239,6 +239,34 @@ h4{
   font-weight: 400;
   padding-top: 10px;
   text-align: center;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.hometrip-tripname:hover{
+  text-decoration: none;
+  color: #36D7B7;
+}
+
+.hometrip-tripowner{
+  font-family: 'Kanit', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  text-align: center;
+  display: block;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+}
+
+.hometrip-tripowner:hover{
+  text-decoration: none;
+  color: #36D7B7;
 }
 
 .image-overlay {
@@ -260,6 +288,16 @@ h4{
     color: #FFFFFF;
     padding: 8px 32px;
     cursor: pointer;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition:.5s;
+}
+
+.image-overlay-text:hover{
+  text-decoration: none;
+  color: #000000;
 }
 
 .jourlalink{
