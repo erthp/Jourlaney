@@ -37,17 +37,12 @@
                         <a class="dropdown" data-toggle="dropdown" href="#">
                             <u><h3>Tomorrow</h3></u>
                         </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="Profile/{{Session::get('username')}}">Profile</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="">Tomorrow</a>
                                     </li>
-                                    <li><a href="editprofile">Edit Profile</a>
+                                    <li><a href="">This week</a>
                                     </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
-                                        {{ csrf_field() }}
-                                    <a onclick="document.getElementById('logout-form').submit()">Logout</a>
-                                    </form>
+                                    <li><a href="">This month</a>
                                     </li>
                                 </ul>
                             </li>
