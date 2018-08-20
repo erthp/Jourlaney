@@ -21,7 +21,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light fixed-top  animated fadeIn" id="jourlaNav">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top animated fadeIn" id="jourlaNav">
       <div class="container">
           <a href="/">
       <img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>

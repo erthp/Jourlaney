@@ -49,12 +49,12 @@
             </ul>
         </div>
         <div class="container">
-            <div class="row mt-4">
+            <div class="row mt-4 animated fadeIn">
                 <div class ="col-4 text-center">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/chiangmai.jpg">
                         <div class="image-overlay">
-                            <div class="image-overlay-text">VIEW TRIP</div>
+                            <a class="image-overlay-text" href="../GuideTrip/19">VIEW TRIP</a>
                         </div>
                         <div class="card-body">
                             <a href="../GuideTrip/19" class="hometrip-tripname">Chiang Mai</a>
@@ -66,7 +66,7 @@
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/beach-bungalow.jpg">
                         <div class="image-overlay">
-                            <div class="image-overlay-text">VIEW TRIP</div>
+                            <a class="image-overlay-text" href="../GuideTrip/11">VIEW TRIP</a>
                         </div>
                         <div class="card-body">
                         <a href="../GuideTrip/11" class="h4 hometrip-tripname">Hua Hin</a>
@@ -78,7 +78,7 @@
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/buddhist.jpg">
                         <div class="image-overlay">
-                            <div class="image-overlay-text">VIEW TRIP</div>
+                            <a class="image-overlay-text" href="../GuideTrip/11">VIEW TRIP</a>
                         </div>
                         <div class="card-body">
                         <a href="../GuideTrip/11" class="h4 hometrip-tripname">Ayutthaya</a>
@@ -92,12 +92,12 @@
                 <h3>Editor's Pick</h3> 
         </div>
         <div class="container">
-        <div class="row mt-4">
+        <div class="row mt-4 animated fadeIn">
                 <div class ="col-4 text-center">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/chiangmai.jpg">
                         <div class="image-overlay">
-                            <div class="image-overlay-text">VIEW TRIP</div>
+                            <a class="image-overlay-text" href="../GuideTrip/19">VIEW TRIP</a>
                         </div>
                         <div class="card-body">
                             <a href="../GuideTrip/19" class="hometrip-tripname">Chiang Mai</a>
@@ -109,7 +109,7 @@
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/beach-bungalow.jpg">
                         <div class="image-overlay">
-                            <div class="image-overlay-text">VIEW TRIP</div>
+                            <a class="image-overlay-text" href="../GuideTrip/11">VIEW TRIP</a>
                         </div>
                         <div class="card-body">
                         <a href="../GuideTrip/11" class="h4 hometrip-tripname">Hua Hin</a>
@@ -121,7 +121,7 @@
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/buddhist.jpg">
                         <div class="image-overlay">
-                            <div class="image-overlay-text">VIEW TRIP</div>
+                            <a class="image-overlay-text" href="../GuideTrip/11">VIEW TRIP</a>
                         </div>
                         <div class="card-body">
                         <a href="../GuideTrip/11" class="h4 hometrip-tripname">Ayutthaya</a>
