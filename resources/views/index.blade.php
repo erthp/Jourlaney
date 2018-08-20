@@ -51,33 +51,40 @@
         <div class="container">
             <div class="row mt-4">
                 <div class ="col-4 text-center">
-                    <div class="hometrip-container" align="center">
-                        <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
-                        <div class="image-overlay">
-                            <a href="../GuideTrip/19" class="image-overlay-text">VIEW TRIP</a>
-                        </div>
-                    </div>
-                    <a href="../GuideTrip/19" class="h4 hometrip-tripname">Chiang Mai</a>
-                    <a href="../Profile/namhwan" class="h4 hometrip-tripowner">Namhwan</a>
-                </div>
-                <div class ="col-4 text-center">
-                    <div class="hometrip-container" align="center">
-                        <img src="../images/trippic/beach-bungalow.jpg" class="img-responsive object-fit-cover hometrip-image">
-                        <div class="image-overlay">
-                            <<a href="../GuideTrip/11" class="image-overlay-text">VIEW TRIP</a>
-                        </div>
-                    </div>
-                    <a href="../GuideTrip/11" class="h4 hometrip-tripname">Hua Hin</a>
-                    <a href="../Profile/Nobita" class="h4 hometrip-tripowner">Nobita</a>
-                </div>
-                <div class ="col-4 text-center">
-                <div class="hometrip-container" align="center">
-                        <img src="../images/trippic/buddhist.jpg" class="img-responsive object-fit-cover hometrip-image">
+                    <div class="card hometrip-container" style="width: 20rem;">
+                        <img class="card-img-top hometrip-image" src="../images/chiangmai.jpg">
                         <div class="image-overlay">
                             <div class="image-overlay-text">VIEW TRIP</div>
                         </div>
+                        <div class="card-body">
+                            <a href="../GuideTrip/19" class="hometrip-tripname">Chiang Mai</a>
+                            <a href="../Profile/namhwan" class="hometrip-tripowner">Namhwan</a>
+                        </div>
                     </div>
-                    <p class="h4 hometrip-tripname">Ayutthaya</p>
+                </div>
+                <div class ="col-4 text-center">
+                    <div class="card hometrip-container" style="width: 20rem;">
+                        <img class="card-img-top hometrip-image" src="../images/trippic/beach-bungalow.jpg">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">VIEW TRIP</div>
+                        </div>
+                        <div class="card-body">
+                        <a href="../GuideTrip/11" class="h4 hometrip-tripname">Hua Hin</a>
+                        <a href="../Profile/Nobita" class="h4 hometrip-tripowner">Nobita</a>
+                        </div>
+                    </div>
+                </div>
+                <div class ="col-4 text-center">
+                    <div class="card hometrip-container" style="width: 20rem;">
+                        <img class="card-img-top hometrip-image" src="../images/trippic/buddhist.jpg">
+                        <div class="image-overlay">
+                            <div class="image-overlay-text">VIEW TRIP</div>
+                        </div>
+                        <div class="card-body">
+                        <a href="../GuideTrip/11" class="h4 hometrip-tripname">Ayutthaya</a>
+                        <a href="../Profile/Nobita" class="h4 hometrip-tripowner">Nobita</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,33 +92,42 @@
                 <h3>Editor's Pick</h3> 
         </div>
         <div class="container">
-            <div class="row">
+        <div class="row mt-4">
                 <div class ="col-4 text-center">
-                    <div class="hometrip-container" align="center">
-                        <img src="../images/chiangmai.jpg" class="img-responsive object-fit-cover hometrip-image">
+                    <div class="card hometrip-container" style="width: 20rem;">
+                        <img class="card-img-top hometrip-image" src="../images/chiangmai.jpg">
                         <div class="image-overlay">
                             <div class="image-overlay-text">VIEW TRIP</div>
                         </div>
+                        <div class="card-body">
+                            <a href="../GuideTrip/19" class="hometrip-tripname">Chiang Mai</a>
+                            <a href="../Profile/namhwan" class="hometrip-tripowner">Namhwan</a>
+                        </div>
                     </div>
-                    <p class="h4 hometrip-tripname">Chiang Mai</p>
                 </div>
                 <div class ="col-4 text-center">
-                    <div class="hometrip-container" align="center">
-                        <img src="../images/trippic/beach-bungalow.jpg" class="img-responsive object-fit-cover hometrip-image">
+                    <div class="card hometrip-container" style="width: 20rem;">
+                        <img class="card-img-top hometrip-image" src="../images/trippic/beach-bungalow.jpg">
                         <div class="image-overlay">
                             <div class="image-overlay-text">VIEW TRIP</div>
                         </div>
+                        <div class="card-body">
+                        <a href="../GuideTrip/11" class="h4 hometrip-tripname">Hua Hin</a>
+                        <a href="../Profile/Nobita" class="h4 hometrip-tripowner">Nobita</a>
+                        </div>
                     </div>
-                    <p class="h4 hometrip-tripname">Phang-nga</p>
                 </div>
                 <div class ="col-4 text-center">
-                    <div class="hometrip-container" align="center">
-                        <img src="../images/trippic/1526149329.jpg" class="img-responsive object-fit-cover hometrip-image">
+                    <div class="card hometrip-container" style="width: 20rem;">
+                        <img class="card-img-top hometrip-image" src="../images/trippic/buddhist.jpg">
                         <div class="image-overlay">
                             <div class="image-overlay-text">VIEW TRIP</div>
                         </div>
+                        <div class="card-body">
+                        <a href="../GuideTrip/11" class="h4 hometrip-tripname">Ayutthaya</a>
+                        <a href="../Profile/Nobita" class="h4 hometrip-tripowner">Nobita</a>
+                        </div>
                     </div>
-                    <p class="h4 hometrip-tripname">Samut Prakan</p>
                 </div>
             </div>
         </div>
