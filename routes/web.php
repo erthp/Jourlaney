@@ -76,6 +76,7 @@ Route::get('adminIndex',function(){
 });
 
 Route::get('adminGetData', 'AdminController@getdata');
+Route::get('search', 'SearchController@getdata');
 
 Route::post('/gcreatetrip',"GuideTripController@guidecreatetrip");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
