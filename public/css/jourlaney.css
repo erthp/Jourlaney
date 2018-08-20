@@ -414,6 +414,38 @@ h4{
     text-transform: uppercase;
 }
 
+.searchbox-searchpage{
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1em;
+  background-image: none;
+  background-color: rgba(0,0,0,0);
+  text-align: left;
+  border: 1px solid white;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255);
+  color: #36D7B7;
+  width: 100%;
+  height: 40px;
+}
+
+.searchbox-searchpage::placeholder{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  color: #888888;
+  text-transform: uppercase;
+}
+
+.searchpage-margin{
+  margin-top: 100px;
+}
+
+.searchpage-submitbutton{
+  width: 50%;
+  margin-left: 20%;
+}
+
 .titletext{
     font-family: 'Open Sans', sans-serif;
     font-weight: 800;
