@@ -16,5 +16,16 @@
         </div>
             </form>
     </div>
+    <div class="row">
+        <div class="col-8">
+        @foreach ($trip as $trip)
+            <div>
+                {{ $trip -> tripName }}
+            </div>              
+        @endforeach
+        </div>
+        <div class="col-4">
+        </div>
+    </div>
 </div>
 @endsection
