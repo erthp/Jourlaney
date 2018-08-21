@@ -219,11 +219,11 @@
                                 </div>
                                 <div class="row text-center mt-2">
                                     <div class="col-lg-6 col-6">
-                                        <a href="guideregister"><img src = "../images/guide.png" style="height:150px"></a>
+                                        <a href="guideregister"><img src = "../images/guide.png" style="height:120px"></a>
                                         <h4 class="register-popup">Guide</h4>
                                     </div>
                                     <div class="col-lg-6 col-6">
-                                        <a href="touristregister"><img src = "../images/tourist.png" style="height:150px"></a>
+                                        <a href="touristregister"><img src = "../images/tourist.png" style="height:120px"></a>
                                         <h4 class="register-popup">Tourist</h4>
                                     </div>
                                 </div>
