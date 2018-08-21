@@ -352,6 +352,27 @@ h4{
   object-fit: cover;
 }
 
+.profileimage{
+  margin: -80px;
+  height: 180px;
+  width: 180px;
+  object-fit: cover;
+  border:2px solid white;
+  border-radius: 500px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+}
+
+.profileImageNav{
+  height: 24px;
+  width: 24px;
+  object-fit: cover;
+  border:1px solid white;
+  border-radius: 500px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+}
+
 ::placeholder {
     color: white;
     opacity: 1;
