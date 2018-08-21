@@ -9,7 +9,7 @@ class Trip extends Model
     protected $guideTrip = 'GuideTrip';
     protected $touristTrip = 'TouristTrip';
     public $timestamps = false;
-    protected $table = "GuideTrip";
+    public $table = "GuideTrip";
     protected $primarykey = "tripId";
 
 }
