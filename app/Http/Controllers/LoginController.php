@@ -30,6 +30,8 @@ class LoginController extends Controller
             Session::put('dob', $dob[0]->userDOB);
             $idCard = DB::table('Users')->select('userIdcard')->where('username', $username)->get();
             Session::put('idCard', $idCard[0]->userIdcard);
+            $profileImage = DB::table('Users')->select('userProfileImage')->where('username', $username)->get();
+            Session::put('profileImage', $profileImage[0]->userProfileImage);
             $guideid = DB::table('Guide')->select('guideId')->where('username',$username)->get();
             $touristid = DB::table('Tourist')->select('touristId')->where('username',$username)->get();
             if(isset($guideid[0])){

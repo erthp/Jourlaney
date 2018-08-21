@@ -16,7 +16,12 @@ class ProfileEditController extends Controller
         $checkEmail = DB::table('Users')->where(['userEmail'=>$userEmail])->get();
 
         if(count($checkEmail) ==0 || $checkEmail[0]->userEmail==$userEmail){
-            $queryUser = DB::update('update Users set userFirstName = ?, userLastName = ?, userEmail = ?, userDOB = ?, userIdcard = ? where username = ?', [$request->input('firstname'), $request->input('lastname'), $userEmail, $request->input('birthdate'), $request->input('idcard'),$username]);
+            $profilePicture = $request->file('profilepic');
+            $input['filename'] = time().'.'.$profilePicture->getClientOriginalExtension();
+            $picPath = public_path('/images/profilepic');
+            $profilePicture->move($picPath, $input['filename']);
+            $profilePicName = $input['filename'];
+            $queryUser = DB::update('update Users set userFirstName = ?, userLastName = ?, userEmail = ?, userDOB = ?, userIdcard = ?, userProfileImage = ? where username = ?', [$request->input('firstname'), $request->input('lastname'), $userEmail, $request->input('birthdate'), $request->input('idcard'), $profilePicName ,$username]);
             $firstname = DB::table('Users')->select('userFirstName')->where('username',$username)->get();
             Session::put('firstname', $firstname[0]->userFirstName);
             $lastname = DB::table('Users')->select('userLastName')->where('username',$username)->get();

@@ -85,6 +85,17 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label class="register-label" for="profilepic">Profile Picture</label>
+                </div>
+                <div class="col-lg-5">
+                    <div class="form-group">
+                        <input type="file" class="form-control" id="profilepic "name="profilepic" placeholder="Profile picture">
+                        {{ csrf_field() }}
+                    </div>
+                </div>
+            </div>
             <div class="row text-center mb-4">
                 <div class="col-lg-7">
                     <button type="submit" class="btn btn-success btn-block">Submit</button>

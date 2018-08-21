@@ -147,12 +147,12 @@
                            
                         <li class="dropdown">
                             <a class="dropdown" data-toggle="dropdown" href="#">
-                                    <img src="../pic/user.png" height="24px" width="24px"><p class="username">{{Session::get('username')}}</p>
+                                    <img src="../images/profilepic/{{Session::get('profileImage')}}" class="profileImageNav"><p class="username">{{Session::get('username')}}</p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
                                     <li><a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
                                     </li>
-                                    <li><a href="editprofile" class="userDropdown">Edit Profile</a>
+                                    <li><a href="../editprofile" class="userDropdown">Edit Profile</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
@@ -237,8 +237,8 @@
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="site-heading">
                     </div>
-                    <div class = "profile-pic">
-                        <center><img src ="../pic/user2.png" style="margin:-80px" height="180px" width="180px"></center>
+                    <div class="profile-pic">
+                        <center><img src ="../images/profilepic/{{ $user -> userProfileImage}}" class="profileimage"></center>
                     </div> 
                 </div>
             </div>
