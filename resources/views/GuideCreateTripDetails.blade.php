@@ -34,17 +34,6 @@
 <div class="container">
     <h3 class="text-center trip-header">Create your trip</h3>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetrip')}}" enctype="multipart/form-data">
-            <div class="row mt-5">
-                <div class="col-lg-2">
-                    <label class="trip-label" for="tripname">Trip name</label>
-                </div>
-                <div class="col-lg-8">
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="tripname" id="tripname" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 50]">
-                    </div>
-                </div>
-            </div>
-            <br>
             <div class="row">
                 <div class="col-lg-2">
                     <label class="trip-label" for="location">Location</label>
@@ -144,36 +133,6 @@
                     </select>
                     &nbsp;&nbsp; <a onclick="addLocation()"><img src="../pic/add.png" height="16px" width="16px"></a>
                     <p name="addLocation" id="addLocation"></p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-2">
-                    <label class="trip-label" for="date">Trip start</label>
-                </div>
-                <div class="col-lg-4">
-                    <div class="form-group">
-                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum">
-                    </div>
-                </div>
-                <lable>-</lable>
-                <div class="col-lg-4">
-                    <div class="form-group">
-                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum">
-                    </div>
-                </div>
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-2">
-                <label class="trip-label" for="trippic">Trip picture</label>
-                </div>
-                <div class="col-lg-10">
-                    <div class="form-group">
-                        <a>
-                            <input type="file" name="trippic" id="trippic" size="40" onchange='$("#upload-file-info").html($(this).val());'>
-                        </a>
                     </div>
                 </div>
             </div>
