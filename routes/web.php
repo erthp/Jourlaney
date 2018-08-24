@@ -43,6 +43,10 @@ Route::get('freeday',function(){
     return view('freeday');
 });
 
+Route::get('omise',function(){
+    return view('omise');
+});
+
 Route::get('resetpassword',function(){
     return view('ResetPassword');
 });
