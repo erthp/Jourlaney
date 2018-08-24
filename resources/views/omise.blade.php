@@ -2,10 +2,10 @@
 <head>
 </head>
 <body>
-<form name="checkoutForm" method="POST" action="checkout.php">
+<form name="checkoutForm" method="POST" action="{{URL::to('/checkout')}}">
   <script type="text/javascript" src="https://cdn.omise.co/omise.js"
-    data-key="pkey_test_52jyu0r8o4307z0zz00"
-    data-image="http://bit.ly/customer_image"
+    data-key="pkey_test_5d13mw1sktn0oad4nei"
+    data-image="http://52.221.186.101/pic/add.png"
     data-frame-label="Merchant site name"
     data-button-label="Pay now"
     data-submit-label="Submit"
