@@ -54,7 +54,7 @@
                         <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum">
                     </div>
                 </div>
-                <lable>-</lable>
+                <label>-</label>
                 <div class="col-lg-4">
                     <div class="form-group">
                         <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum">
@@ -69,7 +69,7 @@
                 <div class="col-lg-10">
                     <div class="form-group">
                         <a>
-                            <input type="file" name="trippic" id="trippic" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+                            <input type="file" name="trippic" id="trippic" size="40" onchange='$("#upload-file-info").html($(this).val());' required>
                         </a>
                     </div>
                 </div>
@@ -77,11 +77,11 @@
             <br>
             <div class="row">
                 <div class="col-lg-2">
-                    <label class="trip-label" for="max-traveller" >Max traveller</label>
+                    <label class="trip-label" for="max-traveller">Max traveller</label>
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true"  min="1">
+                        <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true" min="1">
                     </div>
                 </div>
             </div>
@@ -89,8 +89,8 @@
                 <div class="col-lg-2">
                     <label class="trip-label">Trip Cost</label>
                 </div>
-                <div class = "col-lg-8">
-                <input type="number" name="tripcost" min="0.00" max="10000.00" step="0.01"> baht. / Person
+                <div class="col-lg-2">
+                <input type="number" class="form-control" id="tripcost" name="tripcost" min="0.00" max="10000.00" step="0.01"> Baht/Person
                 </div>
             </div>
             <br>
@@ -100,7 +100,7 @@
                 <div class="col-lg-8">
                     <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    <button type="submit" class="btn btn-info btn-block">Add details</button>
                 </div>
             </div>
         </form>
