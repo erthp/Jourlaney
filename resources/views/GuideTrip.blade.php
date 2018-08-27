@@ -349,11 +349,11 @@
                             <div class="row">
                                 <div class="col-lg-5">
                                     <p><img src="../pic/location.png">
-                                            @if(!empty($tripLocation))
-                                                @foreach($tripLocation as $tripLocation)
+                                            <!-- @if(!empty($tripLocation)) -->
+                                                <!-- @foreach($tripLocation as $tripLocation) -->
                                                 {{ $tripLocation -> tripLocation }}
-                                                @endforeach
-                                            @endif</p>
+                                                <!-- @endforeach -->
+                                            <!-- @endif --></p>
                                     <img src="../pic/user2.png" width="64px" hight="64px">  {{ $creatorName -> userFirstName}}
                                     <br><br><br>
                                     <h5>Trip Details</h5>
@@ -362,7 +362,7 @@
                                         <td>Transportation :</td>
                                         <td>@if(!empty($tripTransportation))
                                             @foreach($tripTransportation as $tripTransportation)
-                                            {{ $tripTransportation }}
+                                            {{ $tripTransportation -> tripTransportation }}
                                             @endforeach
                                             @endif</td>
                                       </tr>
@@ -376,11 +376,11 @@
                                       </tr> -->
                                       <tr>
                                         <td>Trip Conditions :</td>
-                                        <td>@if(!empty($tripCondition))
-                                            @foreach($tripCondition as $tripCondition)
-                                            {{ $tripCondition }}
-                                            @endforeach
-                                            @endif</td>
+                                        <td><!-- @if(!empty($tripCondition))
+                                            @foreach($tripCondition as $condition) -->
+                                            {{ $tripCondition -> tripCondition[0] }}
+                                            <!-- @endforeach
+                                            @endif --></td>
                                       </tr>
                                     </table> 
                                     <br><br>
