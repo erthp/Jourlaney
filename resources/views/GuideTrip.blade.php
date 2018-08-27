@@ -348,14 +348,23 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-5">
-                                    <p><img src="../pic/location.png"> {{ $trip -> tripLocation }}</p>
+                                    <p><img src="../pic/location.png">
+                                            @if(!empty($tripLocation))
+                                                @foreach($tripLocation as $tripLocation)
+                                                {{ $tripLocation -> tripLocation }}
+                                                @endforeach
+                                            @endif</p>
                                     <img src="../pic/user2.png" width="64px" hight="64px">  {{ $creatorName -> userFirstName}}
                                     <br><br><br>
                                     <h5>Trip Details</h5>
                                     <table style="width:100%" cellpadding="10">
                                       <tr>
                                         <td>Transportation :</td>
-                                        <td></td>
+                                        <td>@if(!empty($tripTransportation))
+                                            @foreach($tripTransportation as $tripTransportation)
+                                            {{ $tripTransportation }}
+                                            @endforeach
+                                            @endif</td>
                                       </tr>
                                       <tr>
                                         <td>Max Travellers :</td>
@@ -367,7 +376,11 @@
                                       </tr> -->
                                       <tr>
                                         <td>Trip Conditions :</td>
-                                        <td></td>
+                                        <td>@if(!empty($tripCondition))
+                                            @foreach($tripCondition as $tripCondition)
+                                            {{ $tripCondition }}
+                                            @endforeach
+                                            @endif</td>
                                       </tr>
                                     </table> 
                                     <br><br>
@@ -509,7 +522,7 @@
                                         </div>
                                         &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
                                         <div class = "col-lg-8">
-                                        {{Session::get('price')}} baht
+                                        {{ $trip -> tripCost}} baht
                                         </div>
                                     </div>
                                     <hr>

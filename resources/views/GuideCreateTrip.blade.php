@@ -69,7 +69,7 @@
                 <div class="col-lg-10">
                     <div class="form-group">
                         <a>
-                            <input type="file" name="trippic" id="trippic" size="40" onchange='$("#upload-file-info").html($(this).val());' required>
+                            <input type="file" name="trippic" id="trippic" size="40" onchange='$("#upload-file-info").html($(this).val());'>
                         </a>
                     </div>
                 </div>

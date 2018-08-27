@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\DB;
 use App\Models\GuideTrip;
+use Illuminate\Support\Facades\Input;
 
 class GuideTripController extends Controller
 {
@@ -22,11 +23,11 @@ class GuideTripController extends Controller
         $guideTripPicName = $input['filename'];
 
         $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$request->input('tripname'),$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$request->input('max-traveller'),$request->input('tripcost'),$request->input('guideid')]);
-        return view('GuideCreateTripDetails');
+        return view('GuideCreateTripDetails',['tripId' => $tripId]);
     }
 
     public function GuideCreateTripDetails(Request $request){
-        $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,guideId) values(?,?,?,?,?,?,?)",[$tripId,$request->input('tripname'),$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$request->input('max-traveller'),$request->input('guideid')]);
+        $tripId = $request->input('tripId');
         
         if(!empty($request->input('location'))){
             $queryLocation1 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location')]);
@@ -37,17 +38,24 @@ class GuideTripController extends Controller
                 }
             }
         }
-        
-        if(!empty($request->input('transportation'))){ // ถ้าไม่ได้ให้เปลี่ยนเป็น $request ...
-            foreach((array)$_POST['transportation'] as $value){
+
+        if(isset($_POST['transportation'])){
+            $transportation = $_POST['transportation'];
+            foreach($transportation as $value){
                 $queryTransportation = DB::insert("insert into GuideTripTransportation(tripId, tripTransportation) value(?,?)",[$tripId,$value]);
             }
         }
 
         if(isset($_POST['trip-conditions'])){
-            foreach((array)$_POST['trip-conditions'] as $value){
+            $conditions = $_POST['trip-conditions'];
+            foreach($conditions as $value){
                 $queryTripConditions = DB::insert("insert into GuideTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
             }
-        }        
+        }
+        return view('createtripcompleted');  
+    }
+
+    public function GuideCreateTripDay(Request $request){
+        
     }
 }

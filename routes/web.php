@@ -87,6 +87,7 @@ Route::get('adminGetData', 'AdminController@getdata');
 Route::get('search', 'SearchController@getdata');
 
 Route::post('/gcreatetrip',"GuideTripController@guidecreatetrip");
+Route::post('/gcreatetripdetails',"GuideTripController@GuideCreateTripDetails");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/tcreatetrip',"TouristTripController@tcreatetrip");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
