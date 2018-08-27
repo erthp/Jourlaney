@@ -21,6 +21,11 @@ class GuideTripController extends Controller
         $guideTripImage->move($imagePath, $input['filename']);
         $guideTripPicName = $input['filename'];
 
+        $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$request->input('tripname'),$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$request->input('max-traveller'),$request->input('tripcost'),$request->input('guideid')]);
+        return view('GuideCreateTripDetails');
+    }
+
+    public function GuideCreateTripDetails(Request $request){
         $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,guideId) values(?,?,?,?,?,?,?)",[$tripId,$request->input('tripname'),$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$request->input('max-traveller'),$request->input('guideid')]);
         
         if(!empty($request->input('location'))){
@@ -43,8 +48,6 @@ class GuideTripController extends Controller
             foreach((array)$_POST['trip-conditions'] as $value){
                 $queryTripConditions = DB::insert("insert into GuideTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
             }
-        }
-        
-        return view('createtripcompleted');
+        }        
     }
 }
