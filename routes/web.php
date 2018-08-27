@@ -63,6 +63,10 @@ Route::get('guidecreatetrip',function(){
     return view('GuideCreateTrip');
 });
 
+Route::get('GuideCreateTripDetails',function(){
+    return view('GuideCreateTripDetails');
+});
+
 Route::get('touristcreatetrip',function(){
     return view('TouristCreateTrip');
 });
