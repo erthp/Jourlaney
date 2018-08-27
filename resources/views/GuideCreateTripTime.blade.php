@@ -33,7 +33,7 @@
 <br>
 <div class="container">
     <h3 class="text-center trip-header">Add trip details: Day {{ $tripDay }}</h3>
-        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetripdetails')}}" enctype="multipart/form-data">
+        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetriptime')}}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-2">
                     <label>Itinerary</label>
@@ -52,7 +52,9 @@
                 </div>
                 <div class="col-lg-8">
                     <input type="hidden" name="tripId" value="{{ $tripId }}"/>
-                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    <input type="hidden" name="tripDay" value="{{ $tripDay }}"/>
+                    <button type="submit" name="submit" value="addDay" class="btn btn-info btn-block">Add another day</button>
+                    <button type="submit" name="submit" value="submit" class="btn btn-success btn-block">Submit</button>
                 </div>
             </div>
         </form>
@@ -72,8 +74,8 @@
     function first(){
         //var id = $('#cover div').length+1;    // นับว่ามี tag div กี่อันแล้ว แล้ว +1
         //var timeid = $('#cover div').length+1;        
-		var wrapper = $("<div id=\"field"+id+"\"> <a id='btnAdd'><img src='../pic/add.png' hight='16px' width='16px'></a>");  // สร้าง div
-		var parag   = $("<p>Day "+id+"</p>");   // สร้าง p
+		var wrapper = $("<div id=\"field"+id+"\">");  // สร้าง div
+		var parag   = $("<p>Time</p>");   // สร้าง p
 		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
 		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime'><img src='../pic/add.png' hight='16px' width='16px'></a>");
 		wrapper.append(parag);
@@ -84,23 +86,23 @@
 
 	function day(){
         id++;
-		timeid=1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
-		var wrapper = $("<div id=\"field"+id+"\"> <a id='btnAdd' onClick='day()'><img src='../pic/add.png' hight='16px' width='16px'></a>");  // สร้าง div
-		var parag   = $("<p>Day "+id+"</p>");   // สร้าง p
+        timeid=1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
+		var wrapper = $("<div id=\"field"+id+"\">");  // สร้าง div
 		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
 		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
-		wrapper.append(parag);
 		wrapper.append(text);
         wrapper.append(text2);
-		$('#cover').append(wrapper);
+        $('#cover').append(wrapper);
 	}
     
     function time(){
         timeid++;
-        var text    = $("<div><span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
-        text.append(text2);
-        $('#cover').append(text);
+        if(timeid<=10){
+            var text    = $("<div><span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+            var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
+            text.append(text2);
+            $('#cover').append(text);
+        }
     }
 </script>
 @endsection

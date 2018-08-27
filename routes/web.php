@@ -67,6 +67,10 @@ Route::get('GuideCreateTripDetails',function(){
     return view('GuideCreateTripDetails');
 });
 
+Route::get('GuideCreateTripTime',function(){
+    return view('GuideCreateTripTime');
+});
+
 Route::get('touristcreatetrip',function(){
     return view('TouristCreateTrip');
 });
@@ -88,6 +92,7 @@ Route::get('search', 'SearchController@getdata');
 
 Route::post('/gcreatetrip',"GuideTripController@guidecreatetrip");
 Route::post('/gcreatetripdetails',"GuideTripController@GuideCreateTripDetails");
+Route::post('/gcreatetriptime',"GuideTripController@GuideCreateTripTime");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/tcreatetrip',"TouristTripController@tcreatetrip");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
