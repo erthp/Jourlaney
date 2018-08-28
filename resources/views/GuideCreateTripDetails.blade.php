@@ -178,6 +178,7 @@
     </div>
     <script type="text/javascript">
 	function addLocation(){
+        var loc=1;
         loc++;
         if(loc<=3){
             var locationForm = $("<select name=\"location"+loc+"\"></select>");
@@ -186,5 +187,5 @@
             $('#addLocation').append(locationForm);
         }
     }
-</script>
+    </script>
 @endsection
