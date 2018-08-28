@@ -71,6 +71,18 @@ Route::get('GuideCreateTripTime',function(){
     return view('GuideCreateTripTime');
 });
 
+Route::get('guideedittrip',function(){
+    return view('GuideEditTrip');
+});
+
+Route::get('GuideEditTripDetails',function(){
+    return view('GuideEditTripDetails');
+});
+
+Route::get('GuideEditTripTime',function(){
+    return view('GuideEditTripTime');
+});
+
 Route::get('touristcreatetrip',function(){
     return view('TouristCreateTrip');
 });
