@@ -132,8 +132,8 @@
                                 <span class="icon-bar"></span>
                                 <ul class="nav navbar-top-links navbar-right">
                                     <li class="dropdown">
-                    		            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        	                <img src="../pic/bell.png" >
+                    		            <a class="dropdown" data-toggle="dropdown" href="#">
+                        	                <img src="../pic/bell.png"class="mr-3" >
                                         </a>
                                     </li>
                                     <ul class="dropdown-menu dropdown-alerts">
@@ -191,8 +191,8 @@
                                 </ul>
                             <!-- dropdown-alerts -->
                                 <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <img src="../pic/chat.png">
+                                    <a class="dropdown" data-toggle="dropdown" href="#">
+                                        <img src="../pic/chat.png" class="mr-3">
                                     </a>
                                     <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
@@ -241,8 +241,8 @@
                                 </li>
                             <!-- dropdown-alerts -->
                                 <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                        <img src="../pic/user.png" height="24px" width="24px" >
+                                    <a class="dropdown" data-toggle="dropdown" href="#">
+                                        <img src="../pic/user.png">
                                     </a>
                                     <ul class="dropdown-menu dropdown-user">
                                         <li><a href="../Profile/{{Session::get('username')}}">{{Session::get('username')}}</a>
@@ -336,8 +336,36 @@
     <!--header -->
     <div class="container">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                     <h3>{{ $trip -> tripName }}</h3>
+                </div>
+                <div class="col-lg-2">
+                @if($trip -> guideId == (Session::get('guideid')))
+                                        <a href="/guideEdittrip"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
+                                        <a href="/guideDeletetrip" data-toggle="modal" data-target="#delete-popup"><img src="../pic/delete.png"width="20" height="20"></a>
+                                        <div id="delete-popup" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form method="POST" name="delete-form" action="{{ URL::to('/guideDeletetrip') }}">  
+                                                    <input type="hidden" name="tripId" value="{{ $trip -> tripId }}"> 
+                                                    {{ csrf_field() }}                  
+                                                        <div class="modal-header">
+                                                            <h3>Delete confirmation</h3>
+                                                        </div>
+                                                        <div class="container mt-2 mb-2">
+                                                            <div class="col-2"></div>
+                                                            <div class="col-8">
+                                                                <button type="submit" class="btn btn-danger login-button">Delete</button>
+                                                                <button type="button" class="btn btn-default login-button" data-dismiss="modal">Cancel</button>
+                                                            </div>
+                                                            <div class="col-2"></div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @else
+                                        @endif
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -347,7 +375,7 @@
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-5">
+                                <div class="col-lg-6">
                                     <p><img src="../pic/location.png">
                                             <!-- @if(!empty($tripLocation)) -->
                                                 <!-- @foreach($tripLocation as $tripLocation) -->
@@ -357,7 +385,7 @@
                                     <img src="../pic/user2.png" width="64px" hight="64px">  {{ $creatorName -> userFirstName}}
                                     <br><br><br>
                                     <h5>Trip Details</h5>
-                                    <table style="width:100%" cellpadding="10">
+                                    <table style="width:70%" cellpadding="10">
                                       <tr>
                                         <td>Transportation :</td>
                                         <td>@if(!empty($tripTransportation))
@@ -420,35 +448,7 @@
                                 </div>
                                 <br><br><br>
                                 <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-4">
-                                    <div class="mb-2">
-                                        @if($trip -> guideId == (Session::get('guideid')))
-                                        <button type="button" class="btn btn-info">Edit</button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-popup">Delete</button>
-                                        <div id="delete-popup" class="modal fade" role="dialog">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <form method="POST" name="delete-form" action="{{ URL::to('/gdeletetrip') }}">  
-                                                    <input type="hidden" name="tripId" value="{{ $trip -> tripId }}"> 
-                                                    {{ csrf_field() }}                  
-                                                        <div class="modal-header">
-                                                            <h3>Delete confirmation</h3>
-                                                        </div>
-                                                        <div class="container mt-2 mb-2">
-                                                            <div class="col-2"></div>
-                                                            <div class="col-8">
-                                                                <button type="submit" class="btn btn-danger login-button">Delete</button>
-                                                                <button type="button" class="btn btn-default login-button" data-dismiss="modal">Cancel</button>
-                                                            </div>
-                                                            <div class="col-2"></div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @else
-                                        @endif
-                                    </div>
+                                <div class="col-lg-6">
                                     <div class="month">      
                                         <ul>
                                           <li class="prev">&#10094;</li>
@@ -459,7 +459,6 @@
                                           </li>
                                         </ul>
                                     </div>
-
                                     <ul class="weekdays">
                                       <li>Mo</li>
                                       <li>Tu</li>
@@ -469,7 +468,6 @@
                                       <li>Sa</li>
                                       <li>Su</li>
                                     </ul>
-
                                     <ul class="days">
                                       <li></li>
                                       <li>1</li>
@@ -504,48 +502,6 @@
                                       <li>30</li>
                                       <li>31</li>
                                     </ul>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <label class="trip-label" for="guest" >Guest(s)</label>
-                                        </div>
-                                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <input type="number" class="" name="guest" id="guest"  data-parsley-required="true"  min="1">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <label class="trip-label">Price/Person</label>
-                                        </div>
-                                        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                                        <div class = "col-lg-8">
-                                        {{ $trip -> tripCost}} baht
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <label class="trip-label">Total</label>
-                                        </div>
-                                        &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
-                                        <div class = "col-lg-8">
-                                         baht
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <center>
-                                        <a href=""><button type="submit" class="btn btn-warning">Booking Trip</button></a>
-                                    </center>
-                                    <br>
-                                    <center>
-                                        <a href="chat"><button type="reset" class="btn btn-primary">Send a messege</button></a>
-                                    </center>
-
-
-                                </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->
