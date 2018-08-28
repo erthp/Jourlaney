@@ -290,6 +290,7 @@
             <br>
             <br>
         </div>
+        @if(!empty(Session::get('guideid')))
         <div class="col-4">
             <div align="center">
                 <a href="profile"><p class="h3">Trips</p></a>
@@ -305,6 +306,18 @@
                 <a href="rate&review"><p class="h3">Rate & Review</p></a>
             </div>
         </div>
+        @elseif(!empty(Session::get('touristid')))
+        <div class="col-6">
+            <div align="center">
+                <a href="profile"><p class="h3">Trips</p></a>
+            </div>
+        </div>
+        <div class="col-6 ">
+            <div align="center">
+                <a href="rate&review"><p class="h3">Rate & Review</p></a>
+            </div>
+        </div>
+        @endif
     </div>
 </div>
     </div>
