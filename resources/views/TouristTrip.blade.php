@@ -122,24 +122,34 @@ ul {list-style-type: none;}
 
 <body>
     <!--header -->
-    <header class="masthead" style="background-image: url('{{Session::get('trippic')}}')">
+    @if(isset($trip -> tripPicture))
+    <header class="masthead" style="background-image: url('/images/trippic/{{ $trip -> tripPicture }}')">
+    @else
+    <header class="masthead" style="background-image: url('/images/thailand_header.jpg')">
+    @endif
         <div class="overlay"></div>
-        <div class="container">
-            <nav class="navbar navbar-light clearbg">
-                <a class="navbar-brand clearbg titletext" href="/">
-                    <img src="favicon.png" width="30" height="30" class="d-inline-block align-top=" alt="">
-                    <span class="titletext">Jourlaney</span><br>
-                </a>
-                <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-                @if(!empty(Session::get('username')))
-            <div class="navbar-header">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="jourlaNav">
+            <div class="container">
+                <a href="/">
+                <img src="../favicon.png" width="30" height="30" class="d-inline-block align-top=" alt=""></a>
+                <a href="/" class="titletext">Jourlaney</a>
+
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fa fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <div class="btn-nav">
+                            @if(!empty(Session::get('username')))
+                            <div class="navbar-header">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
                         <ul class="nav navbar-top-links navbar-right">
                             <li class="dropdown">
-                    		    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        	    <img src="../pic/bell.png" >
+                    		    <a class="dropdown" data-toggle="dropdown" href="#">
+                        	    <img src="../pic/bell.png" class="mr-3" >
                                 </a>
                                 <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
@@ -197,8 +207,8 @@ ul {list-style-type: none;}
                             </li>
                             <!-- dropdown-alerts -->
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/chat.png">
+                                <a class="dropdown" data-toggle="dropdown" href="#">
+                                    <img src="../pic/chat.png" class="mr-3">
                                 </a>
                                 <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
@@ -247,8 +257,8 @@ ul {list-style-type: none;}
                             </li>
                             <!-- dropdown-alerts -->
                             <li class="dropdown">
-                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                                    <img src="../pic/user.png" height="24px" width="24px" >
+                                <a class="dropdown" data-toggle="dropdown" href="#">
+                                    <img src="../pic/user.png">
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
                                     <li><a href="profile"> {{Session::get('username')}}</a>
@@ -343,23 +353,75 @@ ul {list-style-type: none;}
     <!--header -->
     <div class="container-content">
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                     <h3>Trip Name</h3>
+                </div>
+                <div class="col-lg-2">
+                @if($trip -> touristId == (Session::get('touristid')))
+                                        <a href="/touristEdittrip"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
+                                        <a href="/touristDeletetrip" data-toggle="modal" data-target="#delete-popup"><img src="../pic/delete.png"width="20" height="20"></a>
+                                        <div id="delete-popup" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form method="POST" name="delete-form" action="{{ URL::to('/touristDeletetrip') }}">  
+                                                    <input type="hidden" name="tripId" value="{{ $trip -> tripId }}"> 
+                                                    {{ csrf_field() }}                  
+                                                        <div class="modal-header">
+                                                            <h3>Delete confirmation</h3>
+                                                        </div>
+                                                        <div class="container mt-2 mb-2">
+                                                            <div class="col-2"></div>
+                                                            <div class="col-8">
+                                                                <button type="submit" class="btn btn-danger login-button">Delete</button>
+                                                                <button type="button" class="btn btn-default login-button" data-dismiss="modal">Cancel</button>
+                                                            </div>
+                                                            <div class="col-2"></div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @else
+                                        @endif
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            <!-- /.row -->
-            <div class="row">
+             <!-- /.row -->
+             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-lg-5">
-                                    <p><img src="../pic/location.png"> Location</p>
-                                    <img src="../pic/user2.png" width="64px" hight="64px">  {{Session::get('firstname')}}
+                                <div class="col-lg-6">
+                                    <p><img src="../pic/location.png"></p>
+                                    <img src="../pic/user2.png" width="64px" hight="64px"> {{ $creatorName -> userFirstName}}
                                     <br><br><br>
                                     <h5>Trip Details</h5>
-                                    <table style="width:100%" cellpadding="10">
+                                    <table style="width:70%" cellpadding="10">
+                                      <tr>
+                                        <td>Transportation :</td>
+                                        <td>@if(!empty($tripTransportation))
+                                            @foreach($tripTransportation as $tripTransportation)
+                                            {{ $tripTransportation -> tripTransportation }}
+                                            @endforeach
+                                            @endif</td>
+                                      </tr>
+                                      <tr>
+                                        <td>Max Travellers :</td>
+                                        <td></td>
+                                      </tr>
+                                      <!-- <tr>
+                                        <td>Language :</td>
+                                        <td>{{Session::get('language')}}</td>
+                                      </tr> -->
+                                      <tr>
+                                        <td>Trip Conditions :</td>
+                                        <td><!-- @if(!empty($tripCondition))
+                                            @foreach($tripCondition as $condition) -->
+                                            {{ $tripCondition -> tripCondition[0] }}
+                                            <!-- @endforeach
+                                            @endif --></td>
+                                      </tr>
                                     </table> 
                                     <br><br>
                                     <h5>Itinerary</h5>
@@ -398,35 +460,7 @@ ul {list-style-type: none;}
                                 </div>
                                 <br><br><br>
                                 <!-- /.col-lg-6 (nested) -->
-                                <div class="col-lg-4">
-                                <div class="mb-2">
-                                        @if($trip -> touristId == (Session::get('touristid')))
-                                        <button type="button" class="btn btn-info">Edit</button>
-                                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete-popup">Delete</button>
-                                        <div id="delete-popup" class="modal fade" role="dialog">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <form method="POST" name="delete-form" action="{{ URL::to('/gdeletetrip') }}">  
-                                                    <input type="hidden" name="tripId" value="{{ $trip -> tripId }}"> 
-                                                    {{ csrf_field() }}                  
-                                                        <div class="modal-header">
-                                                            <h3>Delete confirmation</h3>
-                                                        </div>
-                                                        <div class="container mt-2 mb-2">
-                                                            <div class="col-2"></div>
-                                                            <div class="col-8">
-                                                                <button type="submit" class="btn btn-danger login-button">Delete</button>
-                                                                <button type="button" class="btn btn-default login-button" data-dismiss="modal">Cancel</button>
-                                                            </div>
-                                                            <div class="col-2"></div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        @else
-                                        @endif
-                                    </div>
+                                <div class="col-lg-6">
                                     <div class="month">      
                                         <ul>
                                           <li class="prev">&#10094;</li>
@@ -437,7 +471,6 @@ ul {list-style-type: none;}
                                           </li>
                                         </ul>
                                     </div>
-
                                     <ul class="weekdays">
                                       <li>Mo</li>
                                       <li>Tu</li>
@@ -447,7 +480,6 @@ ul {list-style-type: none;}
                                       <li>Sa</li>
                                       <li>Su</li>
                                     </ul>
-
                                     <ul class="days">
                                       <li></li>
                                       <li>1</li>
@@ -482,17 +514,6 @@ ul {list-style-type: none;}
                                       <li>30</li>
                                       <li>31</li>
                                     </ul>
-                                    <br>
-                                    <center>
-                                        <a href=""><button type="submit" class="btn btn-success">Join Trip</button></a>
-                                    </center>
-                                    <br>
-                                    <center>
-                                        <a href="chat"><button type="reset" class="btn btn-primary">Send a messege</button></a>
-                                    </center>
-
-
-                                </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->
