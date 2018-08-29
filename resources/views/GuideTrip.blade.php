@@ -346,7 +346,7 @@
                                         <div id="delete-popup" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <form method="POST" name="delete-form" action="{{ URL::to('/guideDeletetrip') }}">  
+                                                    <form method="POST" name="delete-form" action="{{ URL::to('/gdeletetrip') }}">  
                                                     <input type="hidden" name="tripId" value="{{ $trip -> tripId }}"> 
                                                     {{ csrf_field() }}                  
                                                         <div class="modal-header">
