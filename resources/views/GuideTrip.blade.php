@@ -382,9 +382,9 @@
                                                 {{ $tripLocation->tripLocation }}
                                                 @endforeach
                                             @endif</p>
-                                    <img src="../pic/user2.png" width="64px" hight="64px">  {{ $creatorName -> userFirstName}}
+                                    <img src="../images/profilepic/{{$creator->userProfileImage}}" class="profileImageTrip"> <a href="/Profile/{{$creator->username}}">{{ $creator -> userFirstName}}</a>
                                     <br><br><br>
-                                    <h5>Trip Details</h5>
+                                    <h5 clsss="tripTitle">Trip Details</h5>
                                     <table style="width:70%" cellpadding="10">
                                       <tr>
                                         <td>Transportation :</td>
@@ -412,7 +412,7 @@
                                       </tr>
                                     </table> 
                                     <br><br>
-                                    <h5>Itinerary</h5>
+                                    <h5 clsss="tripTitle">Itinerary</h5>
                                     <br>
                                     <table style="width:100%" cellpadding="10">
                                         @if(!empty($tripDetails))
