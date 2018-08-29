@@ -17,10 +17,14 @@ class TripController extends Controller
         $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
         $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
         $tripCost = DB::table('GuideTrip')->select('tripCost')->where(['tripId'=>$tripId])->first();
+        $tripDetails = DB::select("select d.tripDay, d.tripTime, d.tripDescription from GuideTripDetails d join GuideTrip g on g.tripId = d.tripId where d.tripId = " .$tripId);
+        //$tripMaxDay = DB::select("select MAX(d.tripDay) from GuideTripDetails d join GuideTrip g on g.tripId = d.tripId where d.tripId = " .$tripId);
+        $tripCountDay = '0';
+
         $value = Current($creatorId);
         $creatorName = DB::select("select Users.userFirstName from Users join Guide on Users.username = Guide.username join GuideTrip on Guide.guideId = GuideTrip.guideId where GuideTrip.guideId = ".$value);
-        //dd($tripTransportation);
-        return view('GuideTrip', ['creatorName' => $creatorName[0]], ['trip' => $tripData], ['tripCost' => $tripCost])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition);
+        //dd($tripMaxDay);
+        return view('GuideTrip', ['creatorName' => $creatorName[0]], ['trip' => $tripData], ['tripCost' => $tripCost])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails)->with('tripCountDay',$tripCountDay);
     }
 
     public function showTouristTrip($tripId){

@@ -414,36 +414,18 @@
                                     <br><br>
                                     <h5>Itinerary</h5>
                                     <br>
-                                    <p>Day 1</p>
                                     <table style="width:100%" cellpadding="10">
-                                      <tr>
-                                        <td>Time</td>
-                                        <td>detail</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
+                                        @if(!empty($tripDetails))          
+                                            @foreach($tripDetails as $details)
+                                                @if($tripCountDay < $details->tripTime)
+                                                {{ $tripCountday }}
+                                                <tr>
+                                                <td>{{ $details->tripTime }}</td>
+                                                <td> {{ $details->tripDescription }}</td>
+                                                </tr>
+                                                @endif
+                                            @endforeach
+                                        @endif
                                     </table>                                  
                                 </div>
                                 <br><br><br>
