@@ -415,16 +415,24 @@
                                     <h5>Itinerary</h5>
                                     <br>
                                     <table style="width:100%" cellpadding="10">
-                                        @if(!empty($tripDetails))          
+                                        @if(!empty($tripDetails))
+                                            @php
+                                                $minday=0;
+                                             @endphp
+                                            <tr>
                                             @foreach($tripDetails as $details)
-                                                @if($tripCountDay < $details->tripTime)
-                                                {{ $tripCountday }}
-                                                <tr>
-                                                <td>{{ $details->tripTime }}</td>
-                                                <td> {{ $details->tripDescription }}</td>
-                                                </tr>
-                                                @endif
-                                            @endforeach
+                                                    @if($minday < $details->tripDay)
+                                                    <td>Day {{ $details->tripDay }}</td>
+                                                        @php
+                                                            $minday++;
+                                                        @endphp
+                                                    @else
+                                                    <td></td>
+                                                    @endif
+                                                    <td>{{ $details->tripTime }}</td>
+                                                    <td> {{ $details->tripDescription }}</td>
+                                                    </tr>
+                                                @endforeach
                                         @endif
                                     </table>                                  
                                 </div>
