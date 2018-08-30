@@ -22,7 +22,10 @@ class GuideTripController extends Controller
         $guideTripImage->move($imagePath, $input['filename']);
         $guideTripPicName = $input['filename'];
 
-        $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$request->input('tripname'),$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$request->input('max-traveller'),$request->input('tripcost'),$request->input('guideid')]);
+        $tripName = $request->input('tripname');
+        $maxTraveller = $request->input('max-traveller');
+        $tripCost = $request->input('tripcost');
+        $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$request->input('guideid')]);
         return view('GuideCreateTripDetails',['tripId' => $tripId]);
     }
 
