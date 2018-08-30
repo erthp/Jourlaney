@@ -50,15 +50,30 @@
                 <div class="col-lg-5">
                     <div class="form-group">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" required>
+                            @php
+                            $gender = Session::get('gender');
+                            @endphp
+                            @if($gender == "Male")
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Male" checked>
+                            @else
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Male">
+                            @endif
                             <label class="form-check-label" for="male">Male</label>
                         </div>
                         <div class="form-check form-check-inline">
+                            @if($gender == "Female")
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Female" checked>
+                            @else
                             <input class="form-check-input" type="radio" name="gender" id="gender" value="Female">
+                            @endif
                             <label class="form-check-label" for="female">Female</label>
                         </div>
                         <div class="form-check form-check-inline">
+                            @if($gender == "Undefined")
+                            <input class="form-check-input" type="radio" name="gender" id="gender" value="Undefined" checked>
+                            @else
                             <input class="form-check-input" type="radio" name="gender" id="gender" value="Undefined">
+                            @endif
                             <label class="form-check-label" for="undefined">Undefined</label>
                         </div>
                     </div>
