@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="tripname" id="tripname" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 50]">
+                        <input type="text" class="form-control" name="tripname" id="tripname" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 50]" value="{{ $trip->tripName }}">
                     </div>
                 </div>
             </div>
@@ -51,13 +51,13 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum">
+                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $trip->tripStart }}">
                     </div>
                 </div>
                 <label>-</label>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum">
+                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $trip->tripEnd }}">
                     </div>
                 </div>
             </div>
@@ -69,6 +69,7 @@
                 <div class="col-lg-10">
                     <div class="form-group">
                         <a>
+                            <img src="../images/trippic/{{ $trip->tripPicture }}" class="edittrip-image">
                             <input type="file" name="trippic" id="trippic" size="40" onchange='$("#upload-file-info").html($(this).val());'>
                         </a>
                     </div>
@@ -81,7 +82,7 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true" min="1">
+                        <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true" min="1" value="{{ $trip->tripTravellers }}">
                     </div>
                 </div>
             </div>
@@ -90,7 +91,7 @@
                     <label class="trip-label">Trip Cost</label>
                 </div>
                 <div class="col-lg-2">
-                <input type="number" class="form-control" id="tripcost" name="tripcost" min="0.00" max="10000.00" step="0.01"> Baht/Person
+                <input type="number" class="form-control" id="tripcost" name="tripcost" min="0.00" max="10000.00" step="0.01"  value="{{ $trip->tripCost }}"> Baht/Person
                 </div>
             </div>
             <br>

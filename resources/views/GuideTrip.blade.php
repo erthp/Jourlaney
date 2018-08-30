@@ -341,7 +341,7 @@
                 </div>
                 <div class="col-lg-2">
                 @if($trip -> guideId == (Session::get('guideid')))
-                                        <a href="/guideEdittrip"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
+                                        <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
                                         <a href="/guideDeletetrip" data-toggle="modal" data-target="#delete-popup"><img src="../pic/delete.png"width="20" height="20"></a>
                                         <div id="delete-popup" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
