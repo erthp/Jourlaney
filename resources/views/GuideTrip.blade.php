@@ -333,7 +333,7 @@
                 </div>
             </div>
         </header>
-    <!--header -->
+    <!--header --> 
     <div class="container">
             <div class="row">
                 <div class="col-lg-3">
@@ -403,7 +403,7 @@
                                         <td>{{Session::get('language')}}</td>
                                       </tr> -->
                                       <tr>
-                                        <td>Trip Conditions :</td>
+                                        <td>Trip Conditions :</td>  
                                         <td>@if(!empty($tripCondition))
                                             @foreach($tripCondition as $condition)
                                             {{ $condition->tripCondition }}<br>
