@@ -26,10 +26,13 @@ class TripController extends Controller
     public function showTouristTrip($tripId){
         $tripData = DB::table('TouristTrip')->where(['tripId'=>$tripId])->first();
         $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
+        $tripLocation = DB::select("select l.tripLocation from TouristTripLocation l join TouristTrip t on t.tripId = l.tripId where l.tripId = " .$tripId);
         $value = Current($creatorId);
-        $creatorName = DB::select("select Users.userFirstName from Users join Tourist on Users.username = Tourist.username join TouristTrip on Tourist.touristId = TouristTrip.touristId where TouristTrip.touristId = ".$value);
-        return view('TouristTrip', ['trip' => $tripData], ['creatorName' => $creatorName[0]]);
+        $creator = DB::select("select Users.userFirstName from Users join Tourist on Users.username = Tourist.username join TouristTrip on Tourist.touristId = TouristTrip.touristId where TouristTrip.touristId = ".$value);
+        return view('TouristTrip', ['creator' => $creator[0]], ['trip' => $tripData], ['tripLocation',$tripLocation]);
     }
+
+    
 
     public function guideShowEditTrip($tripId){
         $tripData = DB::table('GuideTrip')->where(['tripId'=>$tripId])->first();
@@ -37,6 +40,14 @@ class TripController extends Controller
         $value = Current($creatorId);
         $creator = DB::select("select * from Users join Guide on Users.username = Guide.username join GuideTrip on Guide.guideId = GuideTrip.guideId where GuideTrip.tripId = ".$tripId);
         return view('GuideEditTrip', ['creator' => $creator[0]], ['trip' => $tripData]);
+    }
+
+    public function touristShowEditTrip($tripId){
+        $tripData = DB::table('TouristTrip')->where(['tripId'=>$tripId])->first();
+        $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
+        $value = Current($creatorId);
+        $creator = DB::select("select * from Users join Tourist on Users.username = Tourist.username join TouristTrip on Tourist.touristId = TouristTrip.touristId where TouristTrip.tripId = ".$tripId);
+        return view('TouristEditTrip', ['creator' => $creator[0]], ['trip' => $tripData]);
     }
 
     public function gdeletetrip(Request $request){
