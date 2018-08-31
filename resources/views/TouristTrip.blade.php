@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Jourlaney</title>
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <title>{{ $trip -> tripName }} on Jourlaney</title>
+    <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link href="{{ URL::asset('css/jourlaney.css') }}" rel="stylesheet">
@@ -17,28 +17,11 @@
     <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
-
-<style>
-    body{
-        color : #513819;
-    }
-    h5{
-        font-weight: 600;
-    }
-    hr{
-        border : 0.5px solid 	#5cb5ec;
-    }
-    .masthead{
-        padding-bottom : 25%;
-    }
-    
-    * {box-sizing: border-box;}
-ul {list-style-type: none;}
-
-.container-content{
-    margin-left:22%;
-}
-.month {
+    <style>
+        .masthead{
+            padding-bottom : 25%;
+        }
+        .month {
     padding: 60px 25px;
     width: 100%;
     background: #1abc9c;
@@ -117,7 +100,8 @@ ul {list-style-type: none;}
 @media screen and (max-width: 290px) {
     .weekdays li, .days li {width: 12.2%;}
 }
-</style>
+
+    </style>
 </head>
 
 <body>
@@ -146,12 +130,13 @@ ul {list-style-type: none;}
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
-                        <ul class="nav navbar-top-links navbar-right">
-                            <li class="dropdown">
-                    		    <a class="dropdown" data-toggle="dropdown" href="#">
-                        	    <img src="../pic/bell.png" class="mr-3" >
-                                </a>
-                                <ul class="dropdown-menu dropdown-alerts">
+                                <ul class="nav navbar-top-links navbar-right">
+                                    <li class="dropdown">
+                    		            <a class="dropdown" data-toggle="dropdown" href="#">
+                        	                <img src="../pic/bell.png"class="mr-3" >
+                                        </a>
+                                    </li>
+                                    <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
                                         <a href="#">
                                             <div>
@@ -204,13 +189,12 @@ ul {list-style-type: none;}
                                         </a>
                                     </li> -->
                                 </ul>
-                            </li>
                             <!-- dropdown-alerts -->
-                            <li class="dropdown">
-                                <a class="dropdown" data-toggle="dropdown" href="#">
-                                    <img src="../pic/chat.png" class="mr-3">
-                                </a>
-                                <ul class="dropdown-menu dropdown-messages">
+                                <li class="dropdown">
+                                    <a class="dropdown" data-toggle="dropdown" href="#">
+                                        <img src="../pic/chat.png" class="mr-3">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-messages">
                                     <!-- <li>
                                         <a href="#">
                                             <div>
@@ -245,35 +229,36 @@ ul {list-style-type: none;}
                                             </div>
                                             <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
                                         </a>
-                                    </li> -->
-                                    <!-- <li class="divider"></li>
+                                    </li>
+                                    <li class="divider"></li>
                                     <li>
                                         <a class="text-center" href="#">
                                             <strong>Read All Messages</strong>
                                             <i class="fa fa-angle-right"></i>
                                         </a>
                                     </li> -->
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
                             <!-- dropdown-alerts -->
-                            <li class="dropdown">
-                                <a class="dropdown" data-toggle="dropdown" href="#">
-                                    <img src="../pic/user.png">
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="profile"> {{Session::get('username')}}</a>
-                                    </li>
-                                    <li><a href="#">Settings</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                <li class="dropdown">
+                                    <a class="dropdown" data-toggle="dropdown" href="#">
+                                        <img src="../pic/user.png">
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-user">
+                                        <li><a href="../Profile/{{Session::get('username')}}">{{Session::get('username')}}</a>
+                                        </li>
+                                        <li><a href="../editprofile">Edit Profile</a>
+                                        </li>
+                                        <li class="divider"></li>
+                                        <li>
+                                        <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
                                         {{ csrf_field() }} 
-                                    <a onclick="document.getElementById('logout-form').submit()">Logout</a>
-                                    </form>
-                                    </li>
-                                </ul>
-                            </li>
+                                            <a onclick="document.getElementById('logout-form').submit()">Logout</a>
+                                        </form>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </div>
                         </ul>
                     </div>
                 </nav>
@@ -347,23 +332,20 @@ ul {list-style-type: none;}
                     </div>
                 </div>
             </div>
-            </nav>
-        </div>
-    </header>
-    <!--header -->
-    <div class="container-content">
+        </header>
+    <!--header --> 
+    <div class="container">
             <div class="row">
                 <div class="col-lg-3">
-                    <h3>Trip Name</h3>
+                    <h3>{{ $trip -> tripName }}</h3>
                 </div>
                 <div class="col-lg-2">
-                @if($trip -> touristId == (Session::get('touristid')))
-                                        <a href="/touristEdittrip"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
-                                        <a href="/touristDeletetrip" data-toggle="modal" data-target="#delete-popup"><img src="../pic/delete.png"width="20" height="20"></a>
+                                        <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
+                                        <a href="/guideDeletetrip" data-toggle="modal" data-target="#delete-popup"><img src="../pic/delete.png"width="20" height="20"></a>
                                         <div id="delete-popup" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <form method="POST" name="delete-form" action="{{ URL::to('/touristDeletetrip') }}">  
+                                                    <form method="POST" name="delete-form" action="{{ URL::to('/gdeletetrip') }}">  
                                                     <input type="hidden" name="tripId" value="{{ $trip -> tripId }}"> 
                                                     {{ csrf_field() }}                  
                                                         <div class="modal-header">
@@ -381,81 +363,74 @@ ul {list-style-type: none;}
                                                 </div>
                                             </div>
                                         </div>
-                                        @else
-                                        @endif
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-             <!-- /.row -->
-             <div class="row">
+            <!-- /.row -->
+            <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <p><img src="../pic/location.png"></p>
-                                    <img src="../pic/user2.png" width="64px" hight="64px"> {{ $creatorName -> userFirstName}}
+                                    <p><img src="../pic/location.png">
+                                            @if(!empty($tripLocation))
+                                                @foreach($tripLocation as $tripLocation)
+                                                {{ $tripLocation->tripLocation }}
+                                                @endforeach
+                                            @endif</p>
+                                    
                                     <br><br><br>
-                                    <h5>Trip Details</h5>
+                                    <h5 clsss="tripTitle">Trip Details</h5>
                                     <table style="width:70%" cellpadding="10">
                                       <tr>
                                         <td>Transportation :</td>
-                                        <td>@if(!empty($tripTransportation))
-                                            @foreach($tripTransportation as $tripTransportation)
-                                            {{ $tripTransportation -> tripTransportation }}
-                                            @endforeach
-                                            @endif</td>
+                                         <td>@if(!empty($tripTransportation))
+                                            @foreach($tripTransportation as $t)
+                                            {{ $t->tripTransportation }}<br>
+                                             @endforeach
+                                            @endif</td> 
                                       </tr>
                                       <tr>
                                         <td>Max Travellers :</td>
-                                        <td></td>
+                                       
                                       </tr>
                                       <!-- <tr>
                                         <td>Language :</td>
                                         <td>{{Session::get('language')}}</td>
                                       </tr> -->
                                       <tr>
-                                        <td>Trip Conditions :</td>
-                                        <td><!-- @if(!empty($tripCondition))
-                                            @foreach($tripCondition as $condition) -->
-                                            {{ $tripCondition -> tripCondition[0] }}
-                                            <!-- @endforeach
-                                            @endif --></td>
+                                        <td>Trip Conditions :</td>  
+                                        <td>@if(!empty($tripCondition))
+                                            @foreach($tripCondition as $condition)
+                                            {{ $condition->tripCondition }}<br>
+                                            @endforeach
+                                            @endif</td>
                                       </tr>
                                     </table> 
                                     <br><br>
-                                    <h5>Itinerary</h5>
+                                    <h5 clsss="tripTitle">Itinerary</h5>
                                     <br>
-                                    <p>Day 1</p>
                                     <table style="width:100%" cellpadding="10">
-                                      <tr>
-                                        <td>Time</td>
-                                        <td>detail</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
-                                      <tr>
-                                        <td>{{Session::get('time')}}</td>
-                                        <td>{{Session::get('detail')}}</td>
-                                      </tr>
+                                        @if(!empty($tripDetails))
+                                            @php
+                                                $minday=0;
+                                             @endphp
+                                            <tr>
+                                            @foreach($tripDetails as $details)
+                                                    @if($minday < $details->tripDay)
+                                                    <td>Day {{ $details->tripDay }}</td>
+                                                        @php
+                                                            $minday++;
+                                                        @endphp
+                                                    @else
+                                                    <td></td>
+                                                    @endif
+                                                    <td>{{ $details->tripTime }}</td>
+                                                    <td> {{ $details->tripDescription }}</td>
+                                                    </tr>
+                                                @endforeach
+                                        @endif
                                     </table>                                  
                                 </div>
                                 <br><br><br>
