@@ -179,7 +179,7 @@
                     <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" onclick="document.getElementById('logout-form').submit()">Logout</a>
                 </form> -->
             @else
-                <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
+                <a class="btn btn-outline-light btn-small navbar-btn mr-3" data-toggle="modal" data-target="#register-popup">Sign up</a>
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
             @endif
             </div>
