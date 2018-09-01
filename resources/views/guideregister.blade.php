@@ -127,6 +127,43 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label class="trip-label" for="bankname">Bank name</label>
+                </div>
+                <div class="col-lg-5">
+                    <div class="form-group" id="location-form">
+                    <select name="bankname" id="bankname">
+                        <option value="" selected>Select bank</option>
+                        <option value="BAAC">ธนาคารเพื่อการเกษตรและสหกรณ์ (BAAC)</option>
+                        <option value="GSB">ธนาคารออมสิน (GSB)</option>
+                        <option value="SCB">ไทยพาณิชย์ (SCB)</option>
+                        <option value="Kbank">กสิกร (Kbank)</option>
+                        <option value="KTB">กรุงไทย (KTB)</option>
+                        <option value="BBL">กรุงเทพ (BBL)</option>
+                        <option value="BAY">กรุงศรีอยุธยา (BAY)</option>
+                        <option value="Thanachart">ธนชาติ (Thanachart)</option>
+                        <option value="TMB">ทหารไทย (TMB)</option>
+                        <option value="Kiatnakin">เกียรตินาคิน (Kiatnakin)</option>
+                        <option value="Standard Chartered">แสตนดาร์ดชาร์เตอร์ด (Standard Chartered)</option>
+                        <option value="UOB">ยูโอบี (UOB)</option>
+                        <option value="TISCO">ทิสโก้ (TISCO)</option>
+                        <option value="CIMB">ซีไอเอ็มบี (CIMB)</option>
+                        <option value="ICBC">ไอซีบีซี (ICBC)</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label class="register-label" for="accountno">Account number</label>
+                </div>
+                <div class="col-lg-5">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="accountno "name="accountno" onsubmit="checkForm()" placeholder="ID card number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[10, 10]">
+                    </div>
+                </div>
+            </div>
             <br>
             <div class="row text-center mb-4">
                 <div class="col-lg-7">
