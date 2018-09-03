@@ -103,4 +103,20 @@ class GuideTripController extends Controller
             }
         }
     }
+
+    public function guideedittrip(Request $request){
+        $tripId = //ไอดี;
+
+        $guideTripImage = $request->file('trippic');
+        $input['filename'] = time().'.'.$guideTripImage->getClientOriginalExtension();
+        $imagePath = public_path('/images/trippic');
+        $guideTripImage->move($imagePath, $input['filename']);
+        $guideTripPicName = $input['filename'];
+
+        $tripName = $request->input('tripname');
+        $maxTraveller = $request->input('max-traveller');
+        $tripCost = $request->input('tripcost');
+        $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$request->input('guideid')]);
+        return view('GuideCreateTripDetails',['tripId' => $tripId]);
+    }
 }
