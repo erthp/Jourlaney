@@ -50,7 +50,7 @@
         </div>
         <div class="container">
             <div class="row mt-4 animated fadeIn">
-                <div class ="col-4 text-center">
+                <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/chiangmai.jpg">
                         <div class="image-overlay">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
                 </div>
-                <div class ="col-4 text-center">
+                <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/beach-bungalow.jpg">
                         <div class="image-overlay">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                 </div>
-                <div class ="col-4 text-center">
+                <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/buddhist.jpg">
                         <div class="image-overlay">
@@ -93,7 +93,7 @@
         </div>
         <div class="container">
         <div class="row mt-4 animated fadeIn">
-                <div class ="col-4 text-center">
+                <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/chiangmai.jpg">
                         <div class="image-overlay">
@@ -105,7 +105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class ="col-4 text-center">
+                <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/beach-bungalow.jpg">
                         <div class="image-overlay">
@@ -117,7 +117,7 @@
                         </div>
                     </div>
                 </div>
-                <div class ="col-4 text-center">
+                <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/buddhist.jpg">
                         <div class="image-overlay">
