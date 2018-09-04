@@ -142,8 +142,18 @@
                     <label class="trip-label" for="transportation">Transportation</label>
                 </div>
                 <div class = "col-lg-8">
+                    @if($tripTransportation[0] -> tripTransportation == "Private car")
+                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Private car" checked/> Private Car &nbsp;&nbsp;&nbsp;
+                    @else
                     <input type="checkbox" class="" name="transportation[]" id="transportation" value="Private car" /> Private Car &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" /> Public Transportation
+                    @endif
+                    @if($tripTransportation[0] -> tripTransportation == "Public transportation")
+                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" checked/> Public Transportation
+                    @elseif($tripTransportation[1] -> tripTransportation == "Public transportation")
+                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" checked/> Public Transportation
+                    @else
+                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" checked/> Public Transportation
+                    @endif
                 </div>
             </div>
             <br>

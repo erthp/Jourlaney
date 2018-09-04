@@ -40,6 +40,19 @@ class TripController extends Controller
         return view('GuideEditTrip', ['creator' => $creator[0]], ['trip' => $tripData]);
     }
 
+    public function guideShowEditTripDetails($tripId){
+        $tripData = DB::table('GuideTrip')->where(['tripId'=>$tripId])->first();
+        $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
+        $value = Current($creatorId);
+        $creator = DB::select("select * from Users join Guide on Users.username = Guide.username join GuideTrip on Guide.guideId = GuideTrip.guideId where GuideTrip.tripId = ".$tripId);
+        $tripTransportation = DB::select("select t.tripTransportation from GuideTripTransportation t join GuideTrip g on g.tripId = t.tripId where t.tripId = " .$tripId);
+        $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+        $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
+        $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
+        dd($tripTransportation);
+        return view('GuideEditTripDetails', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition);
+    }
+
     public function touristShowEditTrip($tripId){
         $tripData = DB::table('TouristTrip')->where(['tripId'=>$tripId])->first();
         $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();

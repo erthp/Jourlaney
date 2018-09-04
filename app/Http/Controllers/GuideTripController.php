@@ -121,7 +121,12 @@ class GuideTripController extends Controller
         $tripName = $request->input('tripname');
         $maxTraveller = $request->input('max-traveller');
         $tripCost = $request->input('tripcost');
+        $tripTransportation = DB::select("select t.tripTransportation from GuideTripTransportation t join GuideTrip g on g.tripId = t.tripId where t.tripId = " .$tripId);
+        $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+        $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
+        $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
         $queryGuideTrip = DB::update("update GuideTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ?, tripTravellers = ?, tripCost = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$tripId]);
-        return view('GuideEditTripDetails',['tripId' => $tripId]);
+        
+        return view('GuideEditTripDetails',['tripId' => $tripId])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation);
     }
 }
