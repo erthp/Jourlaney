@@ -105,7 +105,7 @@ class GuideTripController extends Controller
     }
 
     public function guideedittrip(Request $request){
-        $tripId = //ไอดี;
+        $tripId = $request->input('tripId');;
 
         $guideTripImage = $request->file('trippic');
         $input['filename'] = time().'.'.$guideTripImage->getClientOriginalExtension();
@@ -116,7 +116,7 @@ class GuideTripController extends Controller
         $tripName = $request->input('tripname');
         $maxTraveller = $request->input('max-traveller');
         $tripCost = $request->input('tripcost');
-        $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$request->input('guideid')]);
-        return view('GuideCreateTripDetails',['tripId' => $tripId]);
+        $queryGuideTrip = DB::update("update GuideTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ?, tripTravellers = ?, tripCost = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$tripId]);
+        return view('GuideEditTripDetails',['tripId' => $tripId]);
     }
 }

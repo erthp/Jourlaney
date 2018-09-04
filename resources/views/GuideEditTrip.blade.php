@@ -99,6 +99,7 @@
                 <div class="col-lg-2">
                 </div>
                 <div class="col-lg-8">
+                    <input type="hidden" name="tripId" id="tripId" value="{{ $trip -> tripId}}">
                     <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <button type="submit" class="btn btn-info btn-block">Add details</button>
