@@ -107,11 +107,16 @@ class GuideTripController extends Controller
     public function guideedittrip(Request $request){
         $tripId = $request->input('tripId');;
 
-        $guideTripImage = $request->file('trippic');
-        $input['filename'] = time().'.'.$guideTripImage->getClientOriginalExtension();
-        $imagePath = public_path('/images/trippic');
-        $guideTripImage->move($imagePath, $input['filename']);
-        $guideTripPicName = $input['filename'];
+        if($request->hasFile('trippic')){
+            $guideTripImage = $request->file('trippic');
+            $input['filename'] = time().'.'.$guideTripImage->getClientOriginalExtension();
+            $imagePath = public_path('/images/trippic');
+            $guideTripImage->move($imagePath, $input['filename']);
+            $guideTripPicName = $input['filename'];
+        }else{
+            $queryGuideTripPicName = DB::select("select tripPicture from GuideTrip where tripId =".$tripId);
+            $guideTripPicName = $queryGuideTripPicName[0]->tripPicture;
+        }
 
         $tripName = $request->input('tripname');
         $maxTraveller = $request->input('max-traveller');
