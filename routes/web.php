@@ -45,9 +45,6 @@ Route::get('freeday',function(){
     return view('freeday');
 });
 
-Route::get('omise',function(){
-    return view('omise');
-});
 
 Route::get('resetpassword',function(){
     return view('ResetPassword');
@@ -100,6 +97,14 @@ Route::get('admin',function(){
 Route::get('adminIndex',function(){
     return view('/Admin/index');
 });
+
+Route::get('charge', function () {
+	return view ('omise');
+});
+
+Route::post('/chargeOmise','OmiseCheckOutController@checkout');
+
+
 
 Route::get('adminGetData', 'AdminController@getdata');
 Route::get('search', 'SearchController@getdata');
