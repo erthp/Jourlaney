@@ -127,7 +127,39 @@ class GuideTripController extends Controller
         $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
         $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
         $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
+        $queryLocation = DB::select("select tripLocation from Location order by locationId");
         $queryGuideTrip = DB::update("update GuideTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ?, tripTravellers = ?, tripCost = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$tripId]);
-        return view('GuideEditTripDetails',['tripId' => $tripId])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition);
+        return view('GuideEditTripDetails',['tripId' => $tripId])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+    }
+
+    public function GuideEditTripDetails(Request $request){
+        $tripId = $request->input('tripId');
+        
+        if(!empty($request->input('location'))){
+            $queryLocation1 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location')]);
+            if(!empty($request->input('location2'))){
+                $queryLocation2 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location2')]);
+                if(!empty($request->input('location3'))){
+                    $queryLocation3 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location3')]);
+                }
+            }
+        }
+
+        if(isset($_POST['transportation'])){
+            $transportation = $_POST['transportation'];
+            foreach($transportation as $value){
+                $queryTransportation = DB::insert("insert into GuideTripTransportation(tripId, tripTransportation) value(?,?)",[$tripId,$value]);
+            }
+        }
+
+        if(isset($_POST['trip-conditions'])){
+            $conditions = $_POST['trip-conditions'];
+            foreach($conditions as $value){
+                $queryTripConditions = DB::insert("insert into GuideTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
+            }
+        }
+
+        $tripDay = 1;
+        return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay]);
     }
 }
