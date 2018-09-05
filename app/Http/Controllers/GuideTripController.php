@@ -136,11 +136,11 @@ class GuideTripController extends Controller
         $tripId = $request->input('tripId');
         
         if(!empty($request->input('location'))){
-            $queryLocation1 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location')]);
+            $queryLocation1 = DB::insert("update GuideTripLocation set tripId = ?, tripLocation = ?",[$tripId,$request->input('location')]);
             if(!empty($request->input('location2'))){
-                $queryLocation2 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location2')]);
+                $queryLocation2 = DB::insert("update GuideTripLocation set tripId = ?, tripLocation = ?",[$tripId,$request->input('location2')]);
                 if(!empty($request->input('location3'))){
-                    $queryLocation3 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location3')]);
+                    $queryLocation3 = DB::insert("update GuideTripLocation set tripId = ?, tripLocation = ?",[$tripId,$request->input('location3')]);
                 }
             }
         }
@@ -148,14 +148,14 @@ class GuideTripController extends Controller
         if(isset($_POST['transportation'])){
             $transportation = $_POST['transportation'];
             foreach($transportation as $value){
-                $queryTransportation = DB::insert("insert into GuideTripTransportation(tripId, tripTransportation) value(?,?)",[$tripId,$value]);
+                $queryTransportation = DB::insert("update GuideTripTransportation set tripId = ?, tripTransportation = ?",[$tripId,$value]);
             }
         }
 
         if(isset($_POST['trip-conditions'])){
             $conditions = $_POST['trip-conditions'];
             foreach($conditions as $value){
-                $queryTripConditions = DB::insert("insert into GuideTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
+                $queryTripConditions = DB::insert("update GuideTripCondition set tripId = ?, tripCondition = ?",[$tripId,$value]);
             }
         }
 
