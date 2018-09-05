@@ -26,7 +26,8 @@ class GuideTripController extends Controller
         $maxTraveller = $request->input('max-traveller');
         $tripCost = $request->input('tripcost');
         $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$request->input('guideid')]);
-        return view('GuideCreateTripDetails',['tripId' => $tripId]);
+        $queryLocation = DB::select("select tripLocation from Location order by locationId");
+        return view('GuideCreateTripDetails',['tripId' => $tripId])->with('queryLocation',$queryLocation);
     }
 
     public function GuideCreateTripDetails(Request $request){
