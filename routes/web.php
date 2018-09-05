@@ -59,7 +59,7 @@ Route::get('createtripcompleted',function(){
 });
 
 Route::get('guidecreatetrip',function(){
-    return view('GuideCreateTrip');
+    return view('GuideCreate    Trip');
 });
 
 Route::get('GuideCreateTripDetails',function(){
@@ -102,8 +102,14 @@ Route::get('charge', function () {
 	return view ('omise');
 });
 
-Route::post('/chargeOmise','OmiseCheckOutController@checkout');
+Route::get('transfer', function () {
+	return view ('omiseTransfer');
+});
 
+
+
+Route::post('/chargeOmise','OmiseCheckOutController@checkout');
+Route::post('/transferOmise','OmiseTransferController@transfer');
 
 
 Route::get('adminGetData', 'AdminController@getdata');
