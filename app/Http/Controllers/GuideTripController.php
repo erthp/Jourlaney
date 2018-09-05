@@ -160,6 +160,51 @@ class GuideTripController extends Controller
         }
 
         $tripDay = 1;
+        $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ?, tripDay = ?",[$tripId,$tripDay]);
         return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay]);
+    }
+
+    public function GuideEditTripTime(Request $request){
+        $tripId = $request->input('tripId');
+        $tripDay = $request->input('tripDay');
+        if(!empty($request->input('time1'))){
+            $queryTime1 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time1'),$request->input('desc1')]);
+            if(!empty($request->input('time2'))){
+                $queryTime2 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time2'),$request->input('desc2')]);
+                if(!empty($request->input('time3'))){
+                    $queryTime3 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time3'),$request->input('desc3')]);
+                    if(!empty($request->input('time4'))){
+                        $queryTime4 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time4'),$request->input('desc4')]);
+                        if(!empty($request->input('time5'))){
+                            $queryTime5 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time5'),$request->input('desc5')]);
+                            if(!empty($request->input('time6'))){
+                                $queryTime6 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time6'),$request->input('desc6')]);
+                                if(!empty($request->input('time7'))){
+                                    $queryTime7 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time7'),$request->input('desc7')]);
+                                    if(!empty($request->input('time8'))){
+                                        $queryTime8 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time8'),$request->input('desc8')]);
+                                        if(!empty($request->input('time9'))){
+                                            $queryTime9 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time9'),$request->input('desc9')]);
+                                            if(!empty($request->input('time10'))){
+                                                $queryTime10 = DB::insert("update GuideTripDetails set tripId = ?, tripDay = ?, tripTime = ?, tripDescription = ?",[$tripId,$tripDay,$request->input('time10'),$request->input('desc10')]);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            $tripDay++;
+            switch($request->submit){
+                case 'addDay':
+                    return view('GuideCreateTripTime',['tripId' => $tripId],['tripDay' => $tripDay]);
+                break;
+                case 'submit':
+                    return view('createtripcompleted');
+                break;
+            }
+        }
     }
 }
