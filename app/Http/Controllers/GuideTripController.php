@@ -202,8 +202,6 @@ class GuideTripController extends Controller
             dd($queryTime);
             switch($request->submit){
                 case 'addDay':
-                
-                
                     return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay])->with('queryTime',$queryTime);
                 break;
                 case 'submit':
