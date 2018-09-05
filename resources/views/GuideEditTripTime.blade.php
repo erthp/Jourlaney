@@ -40,14 +40,28 @@
                 </div>
                 <div class="col-lg-8">
                         <div id="cover">
-                            
+                            @php
+                                $count=1;
+                            @endphp
+                            @foreach( $queryTime as $qt )
+                            <div id="field{{ $count }}">
+                            <span>Time:&nbsp;</span><input type='time' name="time{{ $count }}" value="{{ $qt -> tripTime }}"/>
+                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name="desc{{ $count }}" size='50' value="{{ $qt -> tripDescription }}"/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>
+                            @php
+                                $count++;
+                            @endphp
+                            @endforeach
                         </div>
                 <br>
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     </div>
                 </div>
+                <div class="col-lg-2">
+                </div>
             </div>
-            <div class="row text-center mb-4">
+        </div>
+        <div class="container">
+            <div class="row text-center mt-4 mb-4">
                 <div class="col-lg-2">
                 </div>
                 <div class="col-lg-8">
@@ -57,18 +71,18 @@
                     <button type="submit" name="submit" value="submit" class="btn btn-success btn-block">Submit</button>
                 </div>
             </div>
+        </div>
         </form>
 
-    </div>
+    
     <script type="text/javascript">
 	$(document).ready(function(){
-		first();                   // เมื่อ page ถูกโหลดจะทำฟังก์ชัน first ก่อน
         $('#btnAdd').click(day); // เมื่อ click จะสร้าง element ขึ้นมาใหม่(สร้าง input ใหม่)
         $('#btnTime').click(time);
 	});
-    var id=1;
-    var timeid=1;
-    var loc=1;
+    var id="<?php echo $count ?>"-1;
+    var timeid="<?php echo $count ?>"-1;
+    var loc="<?php echo $count ?>"-1;
 
 
     function first(){
