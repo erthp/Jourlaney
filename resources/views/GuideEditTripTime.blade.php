@@ -33,7 +33,7 @@
 <br>
 <div class="container">
     <h3 class="text-center trip-header">Edit trip details: Day {{ $tripDay }}</h3>
-        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetriptime')}}" enctype="multipart/form-data">
+        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gedittriptime')}}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-2">
                     <label>Itinerary</label>
