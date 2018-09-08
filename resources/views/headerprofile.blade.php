@@ -273,6 +273,7 @@
                         @if((Session::get('profileGuideRating'))>=5)
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         @endif
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
                     @endif
                 </table>
             </center>
