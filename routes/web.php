@@ -59,7 +59,7 @@ Route::get('createtripcompleted',function(){
 });
 
 Route::get('guidecreatetrip',function(){
-    return view('GuideCreate    Trip');
+    return view('GuideCreateTrip');
 });
 
 Route::get('GuideCreateTripDetails',function(){
