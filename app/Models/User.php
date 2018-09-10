@@ -11,4 +11,14 @@ class User extends Model
     protected $primarykey = "username";
 
     protected $fill = ['username','userPassword'];
+
+    /**
+ * A user can have many messages
+ *
+ * @return \Illuminate\Database\Eloquent\Relations\HasMany
+ */
+public function messages()
+{
+  return $this->hasMany(Message::class);
+}
 }

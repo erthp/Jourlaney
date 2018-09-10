@@ -133,3 +133,7 @@ Route::post('/gdeletetrip',"TripController@gdeletetrip");
 Route::post('/tdeletetrip',"TripController@tdeletetrip");
 Route::post('/checkout',"OmiseCheckOutController@checkout");
 Auth::routes();
+
+Route::get('chat', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');
