@@ -1829,7 +1829,6 @@ define('main',['core', 'component/models'], function (component, models) {
 //# sourceMappingURL=main.js.map
 ;
 
-
 var main = require('main');
 var models = require('component/models');
 var $ = require('jquery');
