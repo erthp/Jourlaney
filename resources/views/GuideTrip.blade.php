@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link href="{{ URL::asset('css/pignose.calendar.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/jourlaney.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -15,92 +16,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/pignose.calendar.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
     <style>
         .masthead{
             padding-bottom : 25%;
         }
-        .month {
-    padding: 60px 25px;
-    width: 100%;
-    background: #1abc9c;
-    text-align: center;
-}
-
-.month ul {
-    margin: 0;
-    padding: 0;
-}
-
-.month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.month .prev {
-    float: left;
-    padding-top: 10px;
-}
-
-.month .next {
-    float: right;
-    padding-top: 10px;
-}
-
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    padding-left: 30px;
-    background-color: #ddd;
-}
-
-.weekdays li {
-    display: inline-block;
-    width: 12%;
-    color: #666;
-    text-align: center;
-}
-
-.days {
-    padding: 10px 0;
-    padding-left: 30px;
-    background: #eee;
-    margin: 0;
-}
-
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 12%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color: #777;
-}
-
-.days li .active {
-    padding: 5px;
-    background: #1abc9c;
-    color: white !important
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-    .weekdays li, .days li {width: 13.1%;}
-}
-
-@media screen and (max-width: 420px) {
-    .weekdays li, .days li {width: 12.5%;}
-    .days li .active {padding: 2px;}
-}
-
-@media screen and (max-width: 290px) {
-    .weekdays li, .days li {width: 12.2%;}
-}
-
     </style>
 </head>
 
