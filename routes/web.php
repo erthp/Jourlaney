@@ -132,3 +132,4 @@ Route::post('/guideverify',"AdminController@guideverify");
 Route::post('/gdeletetrip',"TripController@gdeletetrip");
 Route::post('/tdeletetrip',"TripController@tdeletetrip");
 Route::post('/checkout',"OmiseCheckOutController@checkout");
+Auth::routes();
