@@ -31,7 +31,7 @@ class ProfileController extends Controller
 
         if($check){
             $userProfileImage = DB::table('Users')->select('userProfileImage')->where(['username'=>$username])->get();
-            return view('Profile', ['trip' => $trip])->withUser($check,$checkGuide,$checkTourist)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating)->with('touristRating',$touristRating);
+            return view('Profile', ['trip' => $trip])->withUser($check,$checkGuide,$checkTourist)->with('guide',$checkGuide)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating)->with('touristRating',$touristRating);
         }
     }
 
