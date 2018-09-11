@@ -33,9 +33,9 @@ class ProfileController extends Controller
 
     public function ShowProfileFreeDay($username){
         $user = DB::table('Users')->where(['username'=>$username])->first();
-        $querguideId = DB::select("select guideId from Guide where username='".$username."'");
+        $queryGuideId = DB::select("select guideId from Guide where username='".$username."'");
+        $guideId = $queryGuideId[0]->guideId;
         $freeDay = DB::select("select freeday from GuideFreeDay where status='Free' and guideId='".$guideId."'");
-        dd($guideId);
-        return view('FreeDay')->withUser($user);
+        return view('FreeDay')->withUser($user)->with('freeDay',$freeDay);
     }
 }
