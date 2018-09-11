@@ -36,14 +36,11 @@ Route::get('headerNav',function(){
 });
 
 Route::get('Profile/{username}', 'ProfileController@showProfile')->name('Profile.showProfile');
+Route::get('FreeDay/{username}', 'ProfileController@showProfileFreeDay')->name('Profile.showProfileFreeDay');
 Route::get('GuideTrip/{tripId}', 'TripController@showGuideTrip')->name('GuideTrip.ShowTrip');
 Route::get('guideShowEditTrip/{tripId}', 'TripController@guideShowEditTrip')->name('GuideShowEditTrip.ShowEditTrip');
 Route::get('guideShowEditTripDetails/{tripId}', 'TripController@guideShowEditTripDetails')->name('GuideShowEditTripDetails.ShowEditTripDetails');
 Route::get('TouristTrip/{tripId}', 'TripController@showTouristTrip')->name('TouristTrip.ShowTrip');
-
-Route::get('freeday',function(){
-    return view('freeday');
-});
 
 
 Route::get('resetpassword',function(){
@@ -59,7 +56,7 @@ Route::get('createtripcompleted',function(){
 });
 
 Route::get('guidecreatetrip',function(){
-    return view('GuideCreate    Trip');
+    return view('GuideCreateTrip');
 });
 
 Route::get('GuideCreateTripDetails',function(){
@@ -132,3 +129,8 @@ Route::post('/guideverify',"AdminController@guideverify");
 Route::post('/gdeletetrip',"TripController@gdeletetrip");
 Route::post('/tdeletetrip',"TripController@tdeletetrip");
 Route::post('/checkout',"OmiseCheckOutController@checkout");
+// Auth::routes();
+
+Route::get('chat', 'ChatsController@index');
+Route::get('messages', 'ChatsController@fetchMessages');
+Route::post('messages', 'ChatsController@sendMessage');

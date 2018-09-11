@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group" id="location-form">
-                    <select name="location" id="location">
+                    <select name="location" id="location" required>
                         <option value="" selected>Select city</option>
                         @foreach( $queryLocation as $location)
                         <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>

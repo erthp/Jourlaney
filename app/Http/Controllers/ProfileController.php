@@ -30,4 +30,12 @@ class ProfileController extends Controller
             return view('Profile', ['trip' => $trip])->withUser($check,$checkGuide,$checkTourist);
         }
     }
+
+    public function ShowProfileFreeDay($username){
+        $user = DB::table('Users')->where(['username'=>$username])->first();
+        $querguideId = DB::select("select guideId from Guide where username='".$username."'");
+        $freeDay = DB::select("select freeday from GuideFreeDay where status='Free' and guideId='".$guideId."'");
+        dd($guideId);
+        return view('FreeDay')->withUser($user);
+    }
 }

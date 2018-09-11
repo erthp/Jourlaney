@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link href="{{ URL::asset('pg-calendar/dist/css/pignose.calendar.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/jourlaney.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -16,7 +17,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('pg-calendar/dist/js/pignose.calendar.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
 </head>
 
@@ -258,26 +261,48 @@
             <center>
                 <table>
                     @if(!empty(Session::get('profileGuideRating')))
-                        @if((Session::get('profileGuideRating'))>=1)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        @endif
-                        @if((Session::get('profileGuideRating'))>=2)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        @endif
-                        @if((Session::get('profileGuideRating'))>=3)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        @endif
-                        @if((Session::get('profileGuideRating'))>=4)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        @endif
                         @if((Session::get('profileGuideRating'))>=5)
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        @elseif((Session::get('profileGuideRating'))>=4)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        @elseif((Session::get('profileGuideRating'))>=3)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        @elseif((Session::get('profileGuideRating'))>=2)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        @elseif((Session::get('profileGuideRating'))>=1)
+                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        @else
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
                         @endif
                     @endif
                 </table>
             </center>
             <center>
-                <table style="margin-top:10px;"</style>
+                <table style="margin-top:10px;">
                     @if(!empty(Session::get('guideVerification')))
                     <td><img src = "../pic/verify.png" height="30px" width = "30px"></td>
                     <td><h3 style="margin:5px;color:#78DE2F">Verified</h3></td>
@@ -290,34 +315,6 @@
             <br>
             <br>
         </div>
-        @if(!empty(Session::get('guideid')))
-        <div class="col-4">
-            <div align="center">
-                <a href="profile"><p class="h3">Trips</p></a>
-            </div>
-        </div>
-        <div class="col-4">
-            <div align="center">
-                <a href="freeday"><p class="h3">Free Day</p></a>
-            </div>
-        </div>
-        <div class="col-4">
-            <div align="center">
-                <a href="rate&review"><p class="h3">Rate & Review</p></a>
-            </div>
-        </div>
-        @elseif(!empty(Session::get('touristid')))
-        <div class="col-6">
-            <div align="center">
-                <a href="profile"><p class="h3">Trips</p></a>
-            </div>
-        </div>
-        <div class="col-6 ">
-            <div align="center">
-                <a href="rate&review"><p class="h3">Rate & Review</p></a>
-            </div>
-        </div>
-        @endif
     </div>
 </div>
     </div>
