@@ -23,6 +23,7 @@
     <div class="row mt-4">
         <div class ="col-6 text-center">
             <div class="calendar"></div>
+            <input type="text" value="@foreach($freeDay as $freeDay) '{{ $freeDay->freeday }}', @endforeach" id="freeDay">
         </div>
         <div class ="col-6 text-center">
             
@@ -32,10 +33,8 @@
 <script>
 $(function() {
     $('.calendar').pignoseCalendar({
-        disabledDates: [
-			'2017-01-01',
-			'2017-06-01',
-			'2017-06-02'
+        enabledDates: [
+            document.getElementById('freeDay').value
         ]
     });
 });
