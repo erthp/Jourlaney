@@ -19,7 +19,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
-    <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('pg-calendar/dist/js/pignose.calendar.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
 </head>
 
@@ -261,31 +261,31 @@
             <center>
                 <table>
                     @if(!empty(Session::get('profileGuideRating')))
-                        @if((Session::get('profileGuideRating'))<=5)
+                        @if((Session::get('profileGuideRating'))>=5)
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        @elseif((Session::get('profileGuideRating'))<=4)
+                        @elseif((Session::get('profileGuideRating'))>=4)
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif((Session::get('profileGuideRating'))<=3)
+                        @elseif((Session::get('profileGuideRating'))>=3)
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif((Session::get('profileGuideRating'))<=2)
+                        @elseif((Session::get('profileGuideRating'))>=2)
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif((Session::get('profileGuideRating'))<=1)
+                        @elseif((Session::get('profileGuideRating'))>=1)
                         <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
