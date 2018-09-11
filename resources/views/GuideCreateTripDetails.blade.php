@@ -34,6 +34,7 @@
 <div class="container">
     <h3 class="text-center trip-header">Add trip details</h3>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gcreatetripdetails')}}" enctype="multipart/form-data">
+            <br>
             <div class="row">
                 <div class="col-lg-2">
                     <label class="trip-label" for="location">Location</label>
@@ -77,26 +78,20 @@
             <br>
                     <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    </div>
-                </div>
-            </div>
-            <div class="row text-center mb-4">
-                <div class="col-lg-2">
-                </div>
-                <div class="col-lg-8">
+            <div class="row text-center mb-4"> 
+                <div class="col-lg-10">
                     <input type="hidden" name="tripId" value="{{ $tripId }}"/>
                     <button type="submit" class="btn btn-info btn-block">Next</button>
                 </div>
             </div>
         </form>
-
-    </div>
+</div>
     <script type="text/javascript">
 	function addLocation(){
         var loc=1;
         loc++;
         if(loc<=3){
-            var locationForm = $("<select name=\"location"+loc+"\"></select>");
+            var locationForm = $("<br><select name=\"location"+loc+"\"></select>");
             var field = $("#location > option").clone();
             locationForm.append(field);
             $('#addLocation').append(locationForm);

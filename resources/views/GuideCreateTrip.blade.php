@@ -90,14 +90,15 @@
                     <label class="trip-label">Trip Cost</label>
                 </div>
                 <div class="col-lg-2">
-                <input type="number" class="form-control" id="tripcost" name="tripcost" min="0.00" max="10000.00" step="0.01" required> Baht/Person
+                <input type="number" class="form-control" id="tripcost" name="tripcost" min="0.00" max="10000.00" step="0.01" required>
+                </div>
+                <div class="col-lg-2">
+                    <p>Baht/Person</p>
                 </div>
             </div>
             <br>
             <div class="row text-center mb-4">
-                <div class="col-lg-2">
-                </div>
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <input type="hidden" name="guideid" id="guideid" value="{{Session::get('guideid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <button type="submit" class="btn btn-info btn-block">Add details</button>
