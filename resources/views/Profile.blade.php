@@ -29,7 +29,7 @@
         <div class="container">
             <div class="row mt-4 animated fadeIn">
             @foreach($trip as $trip)
-                @if(!empty(Session::get('guideid')))
+                @if(!empty($guide))
                 <div class ="col-4 text-center mt-4">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/{{ $trip -> tripPicture}}">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                @elseif(!empty(Session::get('touristid')))
+                @elseif(!empty($tourist))
                 <div class ="col-4 text-center mt-4">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/{{ $trip -> tripPicture}}">
