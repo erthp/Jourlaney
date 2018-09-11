@@ -294,11 +294,12 @@
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
                         <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
+                        @endif
                     @endif
                 </table>
             </center>
             <center>
-                <table style="margin-top:10px;"</style>
+                <table style="margin-top:10px;">
                     @if(!empty(Session::get('guideVerification')))
                     <td><img src = "../pic/verify.png" height="30px" width = "30px"></td>
                     <td><h3 style="margin:5px;color:#78DE2F">Verified</h3></td>
