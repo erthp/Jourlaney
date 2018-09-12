@@ -14,6 +14,25 @@ a{
     cursor: pointer;
 }
 
+.center-div{
+  text-align: center;
+  align-items:center;
+  justify-content:center;
+  display:flex;
+}
+
+.createdtrip-image{
+  text-align: center;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  backface-visibility: hidden;
+  display: block;
+  height: 200px;
+}
+
 .edittrip-image{
   -o-transition:.5s;
   -ms-transition:.5s;
