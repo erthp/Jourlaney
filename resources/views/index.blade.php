@@ -32,7 +32,7 @@
         </div>
         <div class="container" style="margin-top:30px;">   
             <ul class="nav">
-                <h3>Trips Available This Week</h3><!--   &nbsp;&nbsp;&nbsp;       
+                <h3>New Trips Available This Week</h3><!--   &nbsp;&nbsp;&nbsp;       
                     <li class="dropdown">
                         <a class="dropdown" data-toggle="dropdown" href="#">
                             <u><h3>Tomorrow</h3></u>
@@ -86,46 +86,32 @@
             </div>
         </div>
         <div class="container mt-5">   
-                <h3>Editor's Pick</h3> 
+                <h3>Upcoming Trips</h3> 
         </div>
         <div class="container">
-        <div class="row mt-4 animated fadeIn">
+            <div class="row mt-4 animated fadeIn">
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($upcomingGuideTrips as $guideTrip)
+                @if($i <= 3)
                 <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
-                        <img class="card-img-top hometrip-image" src="../images/chiangmai.jpg">
+                        <img class="card-img-top hometrip-image" src="../images/trippic/{{ $guideTrip -> tripPicture}}">
                         <div class="image-overlay">
-                            <a class="image-overlay-text" href="../GuideTrip/19">VIEW TRIP</a>
+                            <a class="image-overlay-text" href="../GuideTrip/{{ $guideTrip -> tripId }}">VIEW TRIP</a>
                         </div>
                         <div class="card-body">
-                            <a href="../GuideTrip/19" class="hometrip-tripname">Chiang Mai</a>
-                            <a href="../Profile/namhwan" class="hometrip-tripowner">Namhwan</a>
+                            <a href="../GuideTrip/{{ $guideTrip -> tripId }}" class="hometrip-tripname">{{ $guideTrip -> tripName}}</a>
+                            <p class="hometrip-tripowner">THB {{ $guideTrip -> tripCost }}</p>
                         </div>
                     </div>
                 </div>
-                <div class ="col-lg-4 col-12 text-center mb-2">
-                    <div class="card hometrip-container" style="width: 20rem;">
-                        <img class="card-img-top hometrip-image" src="../images/trippic/beach-bungalow.jpg">
-                        <div class="image-overlay">
-                            <a class="image-overlay-text" href="../GuideTrip/11">VIEW TRIP</a>
-                        </div>
-                        <div class="card-body">
-                        <a href="../GuideTrip/11" class="h4 hometrip-tripname">Hua Hin</a>
-                        <a href="../Profile/Nobita" class="h4 hometrip-tripowner">Nobita</a>
-                        </div>
-                    </div>
-                </div>
-                <div class ="col-lg-4 col-12 text-center mb-2">
-                    <div class="card hometrip-container" style="width: 20rem;">
-                        <img class="card-img-top hometrip-image" src="../images/trippic/buddhist.jpg">
-                        <div class="image-overlay">
-                            <a class="image-overlay-text" href="../GuideTrip/11">VIEW TRIP</a>
-                        </div>
-                        <div class="card-body">
-                        <a href="../GuideTrip/11" class="h4 hometrip-tripname">Ayutthaya</a>
-                        <a href="../Profile/Nobita" class="h4 hometrip-tripowner">Nobita</a>
-                        </div>
-                    </div>
-                </div>
+                @php
+                    $i++;
+                @endphp
+                @endif
+                @endforeach
             </div>
         </div>
         <div class="container">

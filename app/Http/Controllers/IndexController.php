@@ -16,10 +16,19 @@ class IndexController extends Controller
         $next4 = Carbon::today('Asia/Bangkok')->add('4 days')->isoFormat('YYYY-MM-DD');
         $next5 = Carbon::today('Asia/Bangkok')->add('5 days')->isoFormat('YYYY-MM-DD');
         $next6 = Carbon::today('Asia/Bangkok')->add('6 days')->isoFormat('YYYY-MM-DD');
+        $next7 = Carbon::today('Asia/Bangkok')->add('7 days')->isoFormat('YYYY-MM-DD');
+        $next8 = Carbon::today('Asia/Bangkok')->add('8 days')->isoFormat('YYYY-MM-DD');
+        $next9 = Carbon::today('Asia/Bangkok')->add('9 days')->isoFormat('YYYY-MM-DD');
+        $next10 = Carbon::today('Asia/Bangkok')->add('10 days')->isoFormat('YYYY-MM-DD');
+        $next11 = Carbon::today('Asia/Bangkok')->add('11 days')->isoFormat('YYYY-MM-DD');
+        $next12 = Carbon::today('Asia/Bangkok')->add('12 days')->isoFormat('YYYY-MM-DD');
         
         $queryGuideTrips = DB::select("select * from GuideTrip t join Guide g on t.guideId=g.guideId join Users u on g.username = u.username where t.tripStart = '".$today."' or t.tripStart = '".$next1."' or t.tripStart = '".$next2."' or t.tripStart = '".$next3."' or t.tripStart = '".$next4."' or t.tripStart = '".$next5."' or t.tripStart = '".$next6."'");
         shuffle($queryGuideTrips);
 
-        return view('index')->with('guideTrips',$queryGuideTrips);
+        $queryUpcomingGuideTrips = DB::select("select * from GuideTrip t join Guide g on t.guideId=g.guideId join Users u on g.username = u.username where t.tripStart = '".$next7."' or t.tripStart = '".$next8."' or t.tripStart = '".$next9."' or t.tripStart = '".$next10."' or t.tripStart = '".$next11."' or t.tripStart = '".$next11."' or t.tripStart = '".$next12."'");
+        shuffle($queryGuideTrips);
+
+        return view('index')->with('guideTrips',$queryGuideTrips)->with('upcomingGuideTrips',$queryUpcomingGuideTrips);
     }
 }
