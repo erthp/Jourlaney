@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="container">
-            <div class="row">
+            <div class="row mt-2">
                 <div class="col-4"></div>
                 <div class="col-4">
                     <div class="center-div">
@@ -140,6 +140,17 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="center-div">
+                        <input type="button" class="btn btn-lg btn-outline-light index-btn" value="See more trips">
+                    </div>
+                </div>
+                <div class="col-4"></div>
             </div>
         </div>
         <div class="container footer-bg">
