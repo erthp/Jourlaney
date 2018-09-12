@@ -18,6 +18,8 @@ class IndexController extends Controller
         $next6 = Carbon::today('Asia/Bangkok')->add('6 days')->isoFormat('YYYY-MM-DD');
         
         $queryGuideTrips = DB::select("select * from GuideTrip t join Guide g on t.guideId=g.guideId join Users u on g.username = u.username where t.tripStart = '".$today."' or t.tripStart = '".$next1."' or t.tripStart = '".$next2."' or t.tripStart = '".$next3."' or t.tripStart = '".$next4."' or t.tripStart = '".$next5."' or t.tripStart = '".$next6."'");
-        return view('index')->with('guideTrip',$queryGuideTrips);
+        shuffle($queryGuideTrips);
+
+        return view('index')->with('guideTrips',$queryGuideTrips);
     }
 }

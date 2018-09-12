@@ -53,7 +53,7 @@
                 @php
                     $i = 1;
                 @endphp
-                @foreach ($guideTrip as $guideTrip)
+                @foreach ($guideTrips as $guideTrip)
                 @if($i <= 3)
                 <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
