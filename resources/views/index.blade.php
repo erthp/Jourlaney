@@ -119,7 +119,7 @@
                 <div class="col-4"></div>
                 <div class="col-4">
                     <div class="center-div">
-                        <input type="button" class="btn btn-lg btn-outline-light index-btn" value="See more trips">
+                        <a href="/search"><input type="button" class="btn btn-lg btn-outline-light index-btn" value="See more trips"></a>
                     </div>
                 </div>
                 <div class="col-4"></div>

@@ -9,15 +9,33 @@
     <div class="row">
         <div class="col-8">
             <form method="GET" action="{{URL::to('/search')}}">
-                <input type="text" class="searchbox-searchpage animated fadeIn" name="search" placeholder="Search trip">
+                <input type="text" class="searchbox-searchpage animated fadeIn" name="name" placeholder="Search trip">   
         </div>
         <div class="col-4">
                 <button type="submit" class="btn btn-success btn-block searchpage-submitbutton">Submit</button>
-        </div>
-            </form>
+        </div>    
     </div>
     <div class="row">
+        <div class="col-4">
+            <div class="form-group">
+                <label class="search-datelabel">Start date</label>
+                <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" required>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group">
+                <label class="search-datelabel">End date</label>
+                <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" required>
+            </div>
+        </div>
+        <div class="col-4">
+                
+        </div>    
+    </div>
+    </form>
+    <div class="row">
         <div class="col-12">
+        
             <div class="row mt-4 animated fadeIn">
             @if(count($trip))
             @foreach ($trip as $tripresult)
@@ -44,4 +62,7 @@
         </div>
     </div>
 </div>
+<script>
+
+</script>
 @endsection
