@@ -88,6 +88,17 @@
                 </div>
             </div>
         </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="center-div">
+                        <input type="button" class="btn btn-lg btn-outline-light index-btn" value="See more trips">
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
         <div class="container mt-5">   
                 <h3>Editor's Pick</h3> 
         </div>
