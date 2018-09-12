@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/',function(){
-    return view('index');
-});
+Route::get('/', 'IndexController@getdata');
 
 Route::get('guideregister',function(){
     return view('guideregister');
