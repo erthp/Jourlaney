@@ -305,7 +305,7 @@
                                                 {{ $tripLocation->tripLocation }}
                                                 @endforeach
                                             @endif</p>
-                                    <img src="../images/profilepic/{{$creator->userProfileImage}}" class="profileImageTrip"> <a href="/Profile/{{$creator->username}}">{{ $creator -> userFirstName}}</a>
+                                    <img src="../images/profilepic/{{$creator->userProfileImage}}" class="profileImageTrip"> <p style="display:inline"><a href="/Profile/{{$creator->username}}">{{ $creator -> userFirstName}}</a>, {{ $creator -> guideLocation }} Guide</p>
                                     <br><br><br>
                                     <h5 clsss="tripTitle">Trip Details</h5>
                                     <table style="width:70%" cellpadding="10">
