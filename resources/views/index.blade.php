@@ -50,7 +50,11 @@
         </div>
         <div class="container">
             <div class="row mt-4 animated fadeIn">
+                @php
+                    $i = 1;
+                @endphp
                 @foreach ($guideTrip as $guideTrip)
+                @if($i <= 3)
                 <div class ="col-lg-4 col-12 text-center mb-2">
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/{{ $guideTrip -> tripPicture}}">
@@ -63,6 +67,10 @@
                         </div>
                     </div>
                 </div>
+                @php
+                    $i++;
+                @endphp
+                @endif
                 @endforeach
             </div>
         </div>
