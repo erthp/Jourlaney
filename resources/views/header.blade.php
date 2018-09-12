@@ -155,7 +155,7 @@
                             
                             <li class="dropdown">
                                 <a class="dropdown" data-toggle="dropdown" href="#">
-                                    <img class="profileImageNav" src="../images/profilepic/{{Session::get('profileImage')}}">
+                                <img src="../images/profilepic/{{Session::get('profileImage')}}" class="profileImageNav"><p class="username">{{Session::get('username')}}</p>
                                     <p class="username">{{Session::get('username')}}</p>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user">
