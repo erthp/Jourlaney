@@ -6,13 +6,12 @@
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <h3 class="text-center register-header">Trip Created.</h3>
-            <a href="/"><button type="button" class="btn btn-success">Back to home</button></a>
+        </div>
+        <div class="col-lg-4"><a href="/"><button type="button" class="btn btn-success">Back to home</button></a>
             @if($trip -> guideId == (Session::get('guideid')))
             <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><button type="button" class="btn btn-info">Edit</button></a>
             @else
-            @endif
-        </div>
-        <div class="col-lg-4"></div>
+            @endif</div>
     </div>
 </div>
 <div class="container">
@@ -94,6 +93,9 @@
                                 <br><br><br>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
+                                <div class="center-div mb-4">
+                                <img src="../images/trippic/{{ $trip->tripPicture }}" class="createdtrip-image">
+                                </div>
                                 <input type="hidden" id="tripStart" value="{{ $trip -> tripStart }}">
                                 <input type="hidden" id="tripEnd" value="{{ $trip -> tripEnd }}">
                                 <div class="calendar"></div>
