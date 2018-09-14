@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-4">
                     <div align="center">
-                        <a href = "findguide"><img src="../pic/search.png" class="homemenu-icon" height="80" alt=""></a>
+                        <a href="search"><img src="../pic/search.png" class="homemenu-icon" height="80" alt=""></a>
                         <p class="homemenu-text">Search Trip</p>
                     </div>
                 </div>
