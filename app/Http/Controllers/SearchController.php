@@ -10,9 +10,10 @@ use DB;
 class SearchController extends Controller
 {
     public function getdata(){
-        $input = Input::get('search');
-        $trip = DB::select('select t.tripId, t.tripName, t.tripLocation, t.tripPicture, t.guideId, u.username, u.userFirstName, t.tripStart, t.tripEnd from GuideTrip t join Guide g on t.GuideId=g.GuideId join Users u on g.username=u.username where t.tripName like ?',array('%'. $input .'%'));
-        //dd($trip);
+        $name = Input::get('name');
+        $startdate = Input::get('startdate');
+        $enddate = Input::get('enddate');
+        $trip = DB::select("select * from GuideTrip t join Guide g on t.GuideId=g.GuideId join Users u on g.username=u.username where (t.tripStart between '".$startdate."' and '".$enddate."') or (t.tripEnd between '".$startdate."' and '".$enddate."') or (t.tripStart <= '".$startdate."' and t.tripEnd >= '".$enddate."') and t.tripName like ?",array('%'. $name .'%'));
         return view('search', ['trip' => $trip]);
     }
 }
