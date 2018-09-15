@@ -43,14 +43,17 @@
                             @php
                                 $count=1;
                             @endphp
-                            @foreach( $queryTime as $qt )
-                            <div id="field{{ $count }}">
-                            <span>Time:&nbsp;</span><input type='time' name="time{{ $count }}" value="{{ $qt -> tripTime }}"/>
-                            <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name="desc{{ $count }}" size='50' value="{{ $qt -> tripDescription }}"/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>
-                            @php
-                                $count++;
-                            @endphp
-                            @endforeach
+                            @if(!empty($queryTime))
+                                @foreach( $queryTime as $qt )
+                                <div id="field{{ $count }}">
+                                <span>Time:&nbsp;</span><input type='time' name="time{{ $count }}" value="{{ $qt -> tripTime }}"/>
+                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name="desc{{ $count }}" size='50' value="{{ $qt -> tripDescription }}"/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>
+                                @php
+                                    $count++;
+                                @endphp
+                                @endforeach
+                            @else
+                            @endif
                         </div>
                 <br>
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
