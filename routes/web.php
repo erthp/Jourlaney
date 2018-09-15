@@ -38,6 +38,7 @@ Route::get('FreeDay/{username}', 'ProfileController@showProfileFreeDay')->name('
 Route::get('GuideTrip/{tripId}', 'TripController@showGuideTrip')->name('GuideTrip.ShowTrip');
 Route::get('guideShowEditTrip/{tripId}', 'TripController@guideShowEditTrip')->name('GuideShowEditTrip.ShowEditTrip');
 Route::get('guideShowEditTripDetails/{tripId}', 'TripController@guideShowEditTripDetails')->name('GuideShowEditTripDetails.ShowEditTripDetails');
+Route::get('guideShowEditTripTime/{tripId}', 'TripController@guideShowEditTripTime')->name('GuideShowEditTripTime.ShowEditTripTime');
 Route::get('TouristTrip/{tripId}', 'TripController@showTouristTrip')->name('TouristTrip.ShowTrip');
 
 
