@@ -69,7 +69,7 @@ class TripController extends Controller
         $deleteTripLocation = DB::delete("delete from GuideTripLocation where tripId = ".$tripId);
         $deleteTripTransportation = DB::delete("delete from GuideTripTransportation where tripId = ".$tripId);
         echo "<script>window.alert('Trip Deleted.')</script>";
-        return view('index');
+        return redirect('/');
     }
 
     public function tdeletetrip(Request $request){
@@ -79,7 +79,7 @@ class TripController extends Controller
         $deleteTripLocation = DB::delete("delete from TouristTripLocation where tripId = ".$tripId);
         $deleteTripTransportation = DB::delete("delete from TouristTripTransportation where tripId = ".$tripId);
         echo "<script>window.alert('Trip Deleted.')</script>";
-        return view('index');
+        return redirect('/');
     }
     
 }
