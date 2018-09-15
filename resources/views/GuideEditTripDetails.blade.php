@@ -50,8 +50,8 @@
                                 @endif
                             @endforeach
                         @else
-                            @foreach( $queryLocation as $location)
                             <option value="" selected>Select city</option>
+                            @foreach( $queryLocation as $location)
                             <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>
                             @endforeach
                         @endif
