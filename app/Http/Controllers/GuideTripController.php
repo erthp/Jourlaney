@@ -147,11 +147,12 @@ class GuideTripController extends Controller
         $tripId = $request->input('tripId');
         
         if(!empty($request->input('location'))){
-            $queryLocation1 = DB::insert("update GuideTripLocation set tripId = ?, tripLocation = ?",[$tripId,$request->input('location')]);
+            $rmlocation = DB::delete("delete from GuideTripLocation where tripId = ?",[$tripId]);
+            $queryLocation1 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location')]);
             if(!empty($request->input('location2'))){
-                $queryLocation2 = DB::insert("update GuideTripLocation set tripId = ?, tripLocation = ?",[$tripId,$request->input('location2')]);
+                $queryLocation2 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location2')]);
                 if(!empty($request->input('location3'))){
-                    $queryLocation3 = DB::insert("update GuideTripLocation set tripId = ?, tripLocation = ?",[$tripId,$request->input('location3')]);
+                    $queryLocation3 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location3')]);
                 }
             }
         }
@@ -169,9 +170,9 @@ class GuideTripController extends Controller
                 $queryTripConditions = DB::insert("update GuideTripCondition set tripId = ?, tripCondition = ? where tripId = ?",[$tripId,$value,$tripId]);
             }
         }
-
+        
         $tripDay = 1;
-        $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ? and tripDay = ? where tripId = ?",[$tripId,$tripDay,$tripId]);
+        $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
         return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay])->with('queryTime',$queryTime);
     }
 
