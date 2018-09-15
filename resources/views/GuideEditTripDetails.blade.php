@@ -41,13 +41,20 @@
                 <div class="col-lg-4">
                     <div class="form-group" id="location-form">
                     <select name="location" id="location">
-                        @foreach( $queryLocation as $location)
-                        @if($tripLocation[0]->tripLocation == $location->tripLocation)
-                        <option value="{{ $location -> tripLocation }}" selected>{{ $location -> tripLocation }}</option>
+                        @if(!empty($tripLocation))
+                            @foreach( $queryLocation as $location)
+                                @if($tripLocation[0]->tripLocation == $location->tripLocation)
+                                <option value="{{ $location -> tripLocation }}" selected>{{ $location -> tripLocation }}</option>
+                                @else
+                                <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>
+                                @endif
+                            @endforeach
                         @else
-                        <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>
+                            @foreach( $queryLocation as $location)
+                            <option value="" selected>Select city</option>
+                            <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>
+                            @endforeach
                         @endif
-                        @endforeach
                     </select>
                     @if(!empty($tripLocation[1]->tripLocation))
                     <select name="location2" id="location2">
@@ -82,17 +89,22 @@
                     <label class="trip-label" for="transportation">Transportation</label>
                 </div>
                 <div class = "col-lg-8">
-                    @if($tripTransportation[0] -> tripTransportation == "Private car")
-                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Private car" checked/> Private Car &nbsp;&nbsp;&nbsp;
+                    @if(!empty($tripTransportation))
+                        @if($tripTransportation[0] -> tripTransportation == "Private car")
+                        <input type="checkbox" class="" name="transportation[]" id="transportation" value="Private car" checked/> Private Car &nbsp;&nbsp;&nbsp;
+                        @else
+                        <input type="checkbox" class="" name="transportation[]" id="transportation" value="Private car" /> Private Car &nbsp;&nbsp;&nbsp;
+                        @endif
+                        @for($i = 1; $i <= 1; $i++)
+                            @if($tripTransportation[$i] -> tripTransportation == "Public transportation")
+                            <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" checked/> Public Transportation
+                            @else
+                            <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation"/> Public Transportation
+                            @endif
+                        @endfor
                     @else
                     <input type="checkbox" class="" name="transportation[]" id="transportation" value="Private car" /> Private Car &nbsp;&nbsp;&nbsp;
-                    @endif
-                    @if($tripTransportation[0] -> tripTransportation == "Public transportation")
-                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" checked/> Public Transportation
-                    @elseif($tripTransportation[1] -> tripTransportation == "Public transportation")
-                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" checked/> Public Transportation
-                    @else
-                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" checked/> Public Transportation
+                    <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation"/> Public Transportation
                     @endif
                 </div>
             </div>
@@ -102,61 +114,49 @@
                     <label class="trip-label" for="trip-conditions">Trip conditions</label>
                 </div>
                 <div class="col-lg-8">
-                    @if($tripCondition[0] -> tripCondition == "Smart casual")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" checked/> Smart Casual  &nbsp;&nbsp;&nbsp;
+                    @if(!empty($tripCondition))
+                        @if($tripCondition[0] -> tripCondition == "Smart casual")
+                        <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" checked/> Smart Casual  &nbsp;&nbsp;&nbsp;
+                        @else
+                        <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
+                        @endif
+
+                        @for($i = 1; $i <= 1; $i++)
+                            @if($tripCondition[$i] -> tripCondition == "No pets")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" checked/> No Pets &nbsp;&nbsp;&nbsp;
+                            @else
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" /> No Pets &nbsp;&nbsp;&nbsp;
+                            @endif
+                        @endfor
+
+                        @for($i = 1; $i <= 2; $i++)
+                            @if($tripCondition[$i] -> tripCondition == "Flexible plan")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" checked/> Flexible Plan &nbsp;&nbsp;&nbsp;
+                            @else
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" /> Flexible Plan &nbsp;&nbsp;&nbsp;
+                            @endif
+                        @endfor
+
+                        @for($i = 1; $i <= 3; $i++)
+                            @if($tripCondition[$i] -> tripCondition == "Seasonal activity")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" checked/> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                            @else
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                            @endif
+                        @endfor
+
+                        @for($i = 1; $i <= 4; $i++)
+                            @if($tripCondition[$i] -> tripCondition == "Others")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
+                            @else
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" /> Others...
+                            @endif
+                        @endfor
                     @else
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
-                    @endif
-
-                    @if($tripCondition[0] -> tripCondition == "No pets")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" checked/> No Pets &nbsp;&nbsp;&nbsp;
-                    @elseif($tripCondition[1] -> tripCondition == "No pets")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" checked/> No Pets &nbsp;&nbsp;&nbsp;
-                    @else
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" /> No Pets &nbsp;&nbsp;&nbsp;
-                    @endif
-
-                    @if($tripCondition[0] -> tripCondition == "Flexible plan")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" checked/> Flexible Plan &nbsp;&nbsp;&nbsp;
-                    @elseif($tripCondition[1] -> tripCondition == "Flexible plan")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" checked/> Flexible Plan &nbsp;&nbsp;&nbsp;
-                    @elseif($tripCondition[2] -> tripCondition == "Flexible plan")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" checked/> Flexible Plan &nbsp;&nbsp;&nbsp;
-                    @else
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" /> Flexible Plan &nbsp;&nbsp;&nbsp;
-                    @endif
-                    
-                    @if($tripCondition[0] -> tripCondition == "Seasonal activity")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" checked/> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                    @elseif($tripCondition[1] -> tripCondition == "Seasonal activity")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" checked/> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                    @elseif($tripCondition[2] -> tripCondition == "Seasonal activity")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" checked/> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                    @elseif($tripCondition[3] -> tripCondition == "Seasonal activity")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" checked/> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                    @else
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                    @endif
-
-                    @if($tripCondition[0] -> tripCondition == "Others")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
-                    @if(isset($tripCondition[1]))
-                    @elseif($tripCondition[1] -> tripCondition == "Others")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
-                    @endif
-                    @if(isset($tripCondition[2]))
-                    @elseif($tripCondition[2] -> tripCondition == "Others")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
-                    @endif
-                    @if(isset($tripCondition[3]))
-                    @elseif($tripCondition[3] -> tripCondition == "Others")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
-                    @endif
-                    @if(isset($tripCondition[4]))
-                    @elseif($tripCondition[4] -> tripCondition == "Others")
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" /> Others...
-                    @endif
-                    @else
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" /> Others...
                     @endif
                 </div>
