@@ -87,15 +87,16 @@
         </form>
 </div>
     <script type="text/javascript">
+    var loc=1;
 	function addLocation(){
-        var loc=1;
         loc++;
         if(loc<=3){
-            var locationForm = $("<br><select name=\"location"+loc+"\"></select>");
+            var locationForm = $("<select name=\"location"+loc+"\"></select>");
             var field = $("#location > option").clone();
             locationForm.append(field);
             $('#addLocation').append(locationForm);
         }
+        
     }
     </script>
 @endsection
