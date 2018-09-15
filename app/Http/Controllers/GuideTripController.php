@@ -159,7 +159,7 @@ class GuideTripController extends Controller
         if(isset($_POST['transportation'])){
             $transportation = $_POST['transportation'];
             foreach($transportation as $value){
-                $queryTransportation = DB::insert("update GuideTripTransportation set tripId = ?, tripTransportation = ? where tripId = ?",[$tripId,$value.$tripId]);
+                $queryTransportation = DB::insert("update GuideTripTransportation set tripId = ?, tripTransportation = ? where tripId = ?",[$tripId,$value,$tripId]);
             }
         }
 
