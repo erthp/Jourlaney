@@ -10,7 +10,7 @@
         </div>
         <div class="col-4">
             <div align="center">
-                <a href="freeday"><p class="h3">Free Day</p></a>
+                <a href="/FreeDay/{{ $user -> username }}"><p class="h3">Free Day</p></a>
             </div>
         </div>
         <div class="col-4">
