@@ -33,7 +33,7 @@
                     <h5 class="card-title">Edit your free day</h5>
                     <p class="card-text">Hello, {{$user -> userFirstName }}</p>
                     <p class="card-text">You can edit your available days by click on edit button below.</p>
-                    <a href="#" class="btn btn-outline-primary">Edit free day</a>
+                    <a href="/EditFreeDay/{{ $user -> username }}" class="btn btn-outline-primary">Edit free day</a>
                 @else
                     <h5 class="card-title">Calendar</h5>
                     <p class="card-text">This calendar showed available days of {{$user -> userFirstName }}</p>
