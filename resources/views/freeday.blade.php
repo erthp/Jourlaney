@@ -45,20 +45,12 @@
     </div>
 </div>
 <script>
-var $dates = document.getElementById('freeDay').value;
-document.write($dates);
+
 $(function() {
     $('.calendar').pignoseCalendar({
-        enabledDates: [
-            <?php if(is_array($freeDay)){ ?>
-                <?php foreach($freeDay as $freeDays){ ?>
-                    document.write("'");
-                    document.write("<?php $freeDays['freeday'] ?>");
-                    document.write("'");
-                    document.write(",");
-                <?php } ?>
-            <?php } ?>
-        ]
+        enabledDates: [ 
+            '2018-09-11',  '2018-09-15',  '2018-09-16', 
+         ]
     });
 });
 </script>
