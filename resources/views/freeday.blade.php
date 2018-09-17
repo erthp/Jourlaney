@@ -5,7 +5,7 @@
 <div class="row">
         <div class="col-4">
             <div align="center">
-            <a href="profile"><p class="h3">Trips</p></a>
+            <a href="/Profile/{{ $user -> username }}"><p class="h3">Trips</p></a>
             </div>
         </div>
         <div class="col-4">
@@ -26,15 +26,38 @@
             <input type="text" value="@foreach($freeDay as $freeDay) '{{ $freeDay->freeday }}', @endforeach" id="freeDay">
         </div>
         <div class ="col-6 text-center">
-            
+            <div class="card border-secondary mb-3">
+                <div class="card-header">Free Day</div>
+                <div class="card-body text-secondary">
+                @if($user -> username == (Session::get('username')))
+                    <h5 class="card-title">Edit your free day</h5>
+                    <p class="card-text">Hello, {{$user -> userFirstName }}</p>
+                    <p class="card-text">You can edit your available days by click on edit button below.</p>
+                    <a href="#" class="btn btn-outline-primary">Edit free day</a>
+                @else
+                    <h5 class="card-title">Calendar</h5>
+                    <p class="card-text">This calendar showed available days of {{$user -> userFirstName }}</p>
+                    <p class="card-text">You can chat to @if(($user->userGender)=="Male")him @elseif(($user->userGender)=="Female")her @else {{$user -> userFirstName }} @endif for make an appointment in available days.</p>
+                @endif
+                </div>
+            </div>
         </div>
     </div>
 </div>
 <script>
+var $dates = document.getElementById('freeDay').value;
+document.write($dates);
 $(function() {
     $('.calendar').pignoseCalendar({
         enabledDates: [
-            document.getElementById('freeDay').value
+            <?php if(is_array($freeDay)){ ?>
+                <?php foreach($freeDay as $freeDays){ ?>
+                    document.write("'");
+                    document.write("<?php $freeDays['freeday'] ?>");
+                    document.write("'");
+                    document.write(",");
+                <?php } ?>
+            <?php } ?>
         ]
     });
 });
