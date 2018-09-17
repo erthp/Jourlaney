@@ -47,16 +47,11 @@ var $dates = document.getElementById('freeDay').value;
 document.write($dates);
 $(function() {
     $('.calendar').pignoseCalendar({
-        enabledDates: [
-            <?php if(is_array($freeDay)){ ?>
-                <?php foreach($freeDay as $freeDays){ ?>
-                    document.write("'");
-                    document.write("<?php $freeDays['freeday'] ?>");
-                    document.write("'");
-                    document.write(",");
-                <?php } ?>
-            <?php } ?>
-        ]
+        theme: 'dark',
+        toggle: true,
+        select: function(dates, context) {
+			console.log('toggle active dates', context.storage.activeDates);
+		}
     });
 });
 </script>
