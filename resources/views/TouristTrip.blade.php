@@ -7,6 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
+    <link href="{{ URL::asset('pg-calendar/dist/css/pignose.calendar.min.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/jourlaney.css') }}" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -15,92 +16,14 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('pg-calendar/dist/js/pignose.calendar.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
     <style>
         .masthead{
             padding-bottom : 25%;
         }
-        .month {
-    padding: 60px 25px;
-    width: 100%;
-    background: #1abc9c;
-    text-align: center;
-}
-
-.month ul {
-    margin: 0;
-    padding: 0;
-}
-
-.month ul li {
-    color: white;
-    font-size: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.month .prev {
-    float: left;
-    padding-top: 10px;
-}
-
-.month .next {
-    float: right;
-    padding-top: 10px;
-}
-
-.weekdays {
-    margin: 0;
-    padding: 10px 0;
-    padding-left: 30px;
-    background-color: #ddd;
-}
-
-.weekdays li {
-    display: inline-block;
-    width: 12%;
-    color: #666;
-    text-align: center;
-}
-
-.days {
-    padding: 10px 0;
-    padding-left: 30px;
-    background: #eee;
-    margin: 0;
-}
-
-.days li {
-    list-style-type: none;
-    display: inline-block;
-    width: 12%;
-    text-align: center;
-    margin-bottom: 5px;
-    font-size:12px;
-    color: #777;
-}
-
-.days li .active {
-    padding: 5px;
-    background: #1abc9c;
-    color: white !important
-}
-
-/* Add media queries for smaller screens */
-@media screen and (max-width:720px) {
-    .weekdays li, .days li {width: 13.1%;}
-}
-
-@media screen and (max-width: 420px) {
-    .weekdays li, .days li {width: 12.5%;}
-    .days li .active {padding: 2px;}
-}
-
-@media screen and (max-width: 290px) {
-    .weekdays li, .days li {width: 12.2%;}
-}
-
     </style>
 </head>
 
@@ -340,6 +263,7 @@
                     <h3>{{ $trip -> tripName }}</h3>
                 </div>
                 <div class="col-lg-2">
+                @if($trip -> touristId == (Session::get('touristid')))
                                         <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
                                         <a href="/guideDeletetrip" data-toggle="modal" data-target="#delete-popup"><img src="../pic/delete.png"width="20" height="20"></a>
                                         <div id="delete-popup" class="modal fade" role="dialog">
@@ -363,6 +287,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @else
+                                        @endif
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -379,26 +305,10 @@
                                                 {{ $tripLocation->tripLocation }}
                                                 @endforeach
                                             @endif</p>
-                                    
+                                    <img src="../images/profilepic/{{$creator->userProfileImage}}" class="profileImageTrip"> <p style="display:inline"><a href="/Profile/{{$creator->username}}">{{ $creator -> userFirstName}}</a>, {{ $creator -> guideLocation }} Guide</p>
                                     <br><br><br>
                                     <h5 clsss="tripTitle">Trip Details</h5>
                                     <table style="width:70%" cellpadding="10">
-                                      <tr>
-                                        <td>Transportation :</td>
-                                         <td>@if(!empty($tripTransportation))
-                                            @foreach($tripTransportation as $t)
-                                            {{ $t->tripTransportation }}<br>
-                                             @endforeach
-                                            @endif</td> 
-                                      </tr>
-                                      <tr>
-                                        <td>Max Travellers :</td>
-                                       
-                                      </tr>
-                                      <!-- <tr>
-                                        <td>Language :</td>
-                                        <td>{{Session::get('language')}}</td>
-                                      </tr> -->
                                       <tr>
                                         <td>Trip Conditions :</td>  
                                         <td>@if(!empty($tripCondition))
@@ -436,59 +346,9 @@
                                 <br><br><br>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
-                                    <div class="month">      
-                                        <ul>
-                                          <li class="prev">&#10094;</li>
-                                          <li class="next">&#10095;</li>
-                                          <li>
-                                            May<br>
-                                            <span style="font-size:18px">2018</span>
-                                          </li>
-                                        </ul>
-                                    </div>
-                                    <ul class="weekdays">
-                                      <li>Mo</li>
-                                      <li>Tu</li>
-                                      <li>We</li>
-                                      <li>Th</li>
-                                      <li>Fr</li>
-                                      <li>Sa</li>
-                                      <li>Su</li>
-                                    </ul>
-                                    <ul class="days">
-                                      <li></li>
-                                      <li>1</li>
-                                      <li>2</li>
-                                      <li>3</li>
-                                      <li>4</li>
-                                      <li>5</li>
-                                      <li>6</li>
-                                      <li>7</li>
-                                      <li>8</li>
-                                      <li>9</li>
-                                      <li>10</li>
-                                      <li>11</li>
-                                      <li>12</li>
-                                      <li>13</li>
-                                      <li>14</li>
-                                      <li><span class="active">15</span></li>
-                                      <li>16</li>
-                                      <li>17</li>
-                                      <li>18</li>
-                                      <li>19</li>
-                                      <li>20</li>
-                                      <li>21</li>
-                                      <li>22</li>
-                                      <li>23</li>
-                                      <li>24</li>
-                                      <li>25</li>
-                                      <li>26</li>
-                                      <li>27</li>
-                                      <li>28</li>
-                                      <li>29</li>
-                                      <li>30</li>
-                                      <li>31</li>
-                                    </ul>
+                                <input type="hidden" id="tripStart" value="{{ $trip -> tripStart }}">
+                                <input type="hidden" id="tripEnd" value="{{ $trip -> tripEnd }}">
+                                </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
                             <!-- /.row (nested) -->
