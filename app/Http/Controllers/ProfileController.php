@@ -40,6 +40,29 @@ class ProfileController extends Controller
         $queryGuideId = DB::select("select guideId from Guide where username='".$username."'");
         $guideId = $queryGuideId[0]->guideId;
         $freeDay = DB::select("select freeday from GuideFreeDay where status='Free' and guideId='".$guideId."'");
-        return view('FreeDay')->withUser($user)->with('freeDay',$freeDay);
-    }
+        $check = DB::table('Users')->where(['username'=>$username])->first();
+        $checkGuide = DB::table('Guide')->where(['username'=>$username])->first();
+        $checkTourist = DB::table('Tourist')->where(['username'=>$username])->first();
+        $touristRating = 0;
+        $guideRating = 0;
+        $guideLocation = "";
+
+        if(!empty($checkGuide)){
+            $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
+            $guideLocation = $profileGuideLocation[0]->guideLocation;
+            $profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
+            $guideRating = $profileGuideRating[0]->guideRating;
+            $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'"');
+        }
+        if(!empty($checkTourist)){
+            $profileTouristRating = DB::table('Tourist')->select('touristRating')->where(['username'=>$username])->get();
+            $touristRating = $profileTouristRating[0]->touristRating;
+            $trip = DB::select('select * from TouristTrip join Tourist on TouristTrip.touristId=Tourist.touristId where Tourist.username="'.$username.'"');
+        }
+
+        if($check){
+            $userProfileImage = DB::table('Users')->select('userProfileImage')->where(['username'=>$username])->get();
+            return view('FreeDay')->withUser($check,$checkGuide,$checkTourist)->with('guide',$checkGuide)->with('tourist',$checkTourist)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating)->with('touristRating',$touristRating)->with('freeDay',$freeDay);
+        }
+       }
 }
