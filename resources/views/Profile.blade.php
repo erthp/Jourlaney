@@ -2,7 +2,8 @@
 @section('page')
 <br>
 <div class="container profilemenu">
-<div class="row">
+@if(!empty(Session::get('guideid')))
+    <div class="row">
         <div class="col-4">
             <div align="center">
                 <p class="h3">Trips</p>
@@ -10,7 +11,7 @@
         </div>
         <div class="col-4">
             <div align="center">
-                <a href="freeday"><p class="h3">Free Day</p></a>
+                <a href="/FreeDay/{{ $user -> username }}"><p class="h3">Free Day</p></a>
             </div>
         </div>
         <div class="col-4">
@@ -19,12 +20,25 @@
             </div>
         </div>
     </div>
-
+@elseif(!empty(Session::get('touristid')))   
+    <div class="row">
+        <div class="col-6">
+            <div align="center">
+                <p class="h3">Trips</p>
+            </div>
+        </div>
+        <div class="col-6">
+            <div align="center">
+                <a href="rate&review"><p class="h3">Rate & Review</p></a>
+            </div>
+        </div>
+    </div>
+@endif
+<br>
     <div class="row">
         <div class ="col-12 text-left">
-            <br>
-            <h4>Trip created by {{ $user -> userFirstName}}</h4>
-            <br>
+        <br>
+            <h3>Trip created by {{ $user -> userFirstName}}</h3>
         </div>
         <div class="container">
             <div class="row mt-4 animated fadeIn">

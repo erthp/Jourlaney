@@ -1,21 +1,53 @@
-@extends('headerNav')
+@extends('header')
 @section('page')
+<div class="container homemenu animated fadeIn">
+            <div class="row">
+                <div class="col-4">
+                    <div align="center">
+                        <a href = "/"><img src="../pic/medal.png" class="homemenu-icon" height="80" alt=""></a>
+                        <p class="homemenu-text">Recommend</p>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div align="center">
+                    @if(!empty(Session::get('guideid')))
+                        <a href = "guidecreatetrip"><img src="../pic/tickets.png" class="homemenu-icon" height="80" alt=""></a>
+                        <p class="homemenu-text">Create Trip</p>
+                    @elseif(!empty(Session::get('touristid')))
+                        <a href = "touristcreatetrip"><img src="../pic/tickets.png" class="homemenu-icon" height="80" alt=""></a>
+                        <p class="homemenu-text">Create Trip</p>
+                    @else
+                        <a href = "/" onclick="alert('Please login first!')"><img src="../pic/tickets.png" class="homemenu-icon" height="80" alt=""></a>
+                        <p class="homemenu-text">Create Trip</p>
+                    @endif
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div align="center">
+                        <a href="search"><img src="../pic/search.png" class="homemenu-icon" height="80" alt=""></a>
+                        <p class="homemenu-text">Search Trip</p>
+                    </div>
+                </div>
+            </div>
+</div>
+<br>
 <div class="container">
-    <div class="row searchpage-margin">
-        <div class="col-12">
-            <h4>Search</h4>
-        </div>
-    </div>
+    <h3 class="text-center trip-header">Search Trips</h3>
+    <br>
     <div class="row">
+        <div class="col-1"></div>
         <div class="col-8">
             <form method="GET" action="{{URL::to('/search')}}">
-                <input type="text" class="searchbox-searchpage animated fadeIn" name="name" placeholder="Search trip">   
+               <input type="text" class="searchbox-searchpage animated fadeIn" name="name" placeholder="Trip name">   
         </div>
-        <div class="col-4">
-                <button type="submit" class="btn btn-success btn-block searchpage-submitbutton">Submit</button>
-        </div>    
+        <div class="col-2">
+                <button type="submit" class="btn btn-info btn-block searchpage-submitbutton"><img src="../pic/search.png" height="24"></button>
+        </div>
+        <div class="col-1"></div>  
     </div>
+    <br>
     <div class="row">
+        <div class="col-1"></div>
         <div class="col-4">
             <div class="form-group">
                 <label class="search-datelabel">Start date</label>
@@ -28,9 +60,10 @@
                 <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" required>
             </div>
         </div>
-        <div class="col-4">
-                
-        </div>    
+        <div class="col-2">
+                <br><br><button type="submit" class="btn btn-info btn-block searchpage-submitbutton"><img src="../pic/search.png" height="24"></button>
+        </div>
+        <div class="col-1"></div>    
     </div>
     </form>
     <div class="row">

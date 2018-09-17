@@ -35,6 +35,7 @@ Route::get('headerNav',function(){
 
 Route::get('Profile/{username}', 'ProfileController@showProfile')->name('Profile.showProfile');
 Route::get('FreeDay/{username}', 'ProfileController@showProfileFreeDay')->name('Profile.showProfileFreeDay');
+Route::get('EditFreeDay/{username}', 'ProfileController@showEditFreeDay')->name('Profile.showEditFreeDay');
 Route::get('GuideTrip/{tripId}', 'TripController@showGuideTrip')->name('GuideTrip.ShowTrip');
 Route::get('guideShowEditTrip/{tripId}', 'TripController@guideShowEditTrip')->name('GuideShowEditTrip.ShowEditTrip');
 Route::get('guideShowEditTripDetails/{tripId}', 'TripController@guideShowEditTripDetails')->name('GuideShowEditTripDetails.ShowEditTripDetails');
