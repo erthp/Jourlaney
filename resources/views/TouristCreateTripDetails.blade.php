@@ -66,7 +66,7 @@
                 </div>
             </div>
             <br>
-                    <input type="hidden" name="touristid" id="guideid" value="{{Session::get('touristid')}}">
+                    <input type="hidden" name="touristid" id="touristid" value="{{Session::get('touristid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
             <div class="row text-center mb-4"> 
                 <div class="col-lg-10">
