@@ -165,7 +165,7 @@
                         @endfor
                         @for($i = 0; $i < count($tripCondition); $i++)
                             @if($tripCondition[$i] -> tripCondition !== "Others")
-                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others"/> Others...
                             @endif
                         @endfor
                     @else

@@ -39,13 +39,6 @@ class TouristTripController extends Controller
             }
         }
 
-        if(isset($_POST['transportation'])){
-            $transportation = $_POST['transportation'];
-            foreach($transportation as $value){
-                $queryTransportation = DB::insert("insert into TouristTripTransportation(tripId, tripTransportation) value(?,?)",[$tripId,$value]);
-            }
-        }
-
         if(isset($_POST['trip-conditions'])){
             $conditions = $_POST['trip-conditions'];
             foreach($conditions as $value){
