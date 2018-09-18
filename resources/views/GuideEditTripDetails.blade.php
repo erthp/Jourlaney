@@ -95,10 +95,13 @@
                         @else
                         <input type="checkbox" class="" name="transportation[]" id="transportation" value="Private car" /> Private Car &nbsp;&nbsp;&nbsp;
                         @endif
-                        @for($i = 1; $i <= 1; $i++)
+                        @for($i = 0; $i < count($tripTransportation); $i++)
                             @if($tripTransportation[$i] -> tripTransportation == "Public transportation")
                             <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation" checked/> Public Transportation
-                            @else
+                            @endif
+                        @endfor
+                        @for($i = 0; $i < count($tripTransportation); $i++)
+                            @if($tripTransportation[$i] -> tripTransportation !== "Public transportation")
                             <input type="checkbox" class="" name="transportation[]" id="transportation" value="Public transportation"/> Public Transportation
                             @endif
                         @endfor
@@ -121,35 +124,48 @@
                         <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
                         @endif
 
-                        @for($i = 1; $i <= 1; $i++)
+                        @for($i = 0; $i < count($tripCondition); $i++)
                             @if($tripCondition[$i] -> tripCondition == "No pets")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" checked/> No Pets &nbsp;&nbsp;&nbsp;
-                            @else
-                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" /> No Pets &nbsp;&nbsp;&nbsp;
+                            @endif
+                        @endfor
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                            @if($tripCondition[$i] -> tripCondition !== "No pets")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets"/> No Pets &nbsp;&nbsp;&nbsp;
                             @endif
                         @endfor
 
-                        @for($i = 1; $i <= 2; $i++)
+
+                        @for($i = 0; $i < count($tripCondition); $i++)
                             @if($tripCondition[$i] -> tripCondition == "Flexible plan")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" checked/> Flexible Plan &nbsp;&nbsp;&nbsp;
-                            @else
-                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" /> Flexible Plan &nbsp;&nbsp;&nbsp;
+                            @endif
+                        @endfor
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                            @if($tripCondition[$i] -> tripCondition !== "Flexible plan")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan"/> Flexible Plan &nbsp;&nbsp;&nbsp;
                             @endif
                         @endfor
 
-                        @for($i = 1; $i <= 3; $i++)
+                        @for($i = 0; $i < count($tripCondition); $i++)
                             @if($tripCondition[$i] -> tripCondition == "Seasonal activity")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" checked/> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                            @else
-                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                            @endif
+                        @endfor
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                            @if($tripCondition[$i] -> tripCondition !== "Seasonal activity")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity"/> Seasonal Activity &nbsp;&nbsp;&nbsp;
                             @endif
                         @endfor
 
-                        @for($i = 1; $i <= 4; $i++)
+                        @for($i = 0; $i < count($tripCondition); $i++)
                             @if($tripCondition[$i] -> tripCondition == "Others")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
-                            @else
-                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" /> Others...
+                            @endif
+                        @endfor
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                            @if($tripCondition[$i] -> tripCondition !== "Others")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
                             @endif
                         @endfor
                     @else
@@ -172,15 +188,15 @@
                 </div>
                 <div class="col-lg-8">
                     <input type="hidden" name="tripId" value="{{ $tripId }}"/>
-                    <button type="submit" class="btn btn-info btn-block">Next</button>
+                    <button type="submit" class="btn btn-info btn-block">Edit time details</button>
                 </div>
             </div>
         </form>
 
     </div>
     <script type="text/javascript">
+    var loc=1;
 	function addLocation(){
-        var loc=1;
         loc++;
         if(loc<=3){
             var locationForm = $("<select name=\"location"+loc+"\"></select>");
