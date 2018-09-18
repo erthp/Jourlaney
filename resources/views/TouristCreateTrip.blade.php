@@ -23,13 +23,13 @@
                     </div>
                 </div>
                 <div class="col-4">
-                <div align="center">
+                    <div align="center">
                         <a href="search"><img src="../pic/search.png" class="homemenu-icon" height="80" alt=""></a>
                         <p class="homemenu-text">Search Trip</p>
                     </div>
                 </div>
             </div>
-        </div>
+</div>
 <br>
 <div class="container">
     <h3 class="text-center trip-header">Create your trip</h3>
@@ -76,13 +76,11 @@
                 </div>
             </div>
             <br>
+            <div class="row text-center mb-4">
+                <div class="col-lg-10">
                     <input type="hidden" name="touristid" id="touristid" value="{{Session::get('touristid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <div class="row text-center mb-4">
-                <div class="col-lg-2">
-                </div>
-                <div class="col-lg-8">
-                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                    <button type="submit" class="btn btn-info btn-block">Add details</button>
                 </div>
             </div>
         </form>
