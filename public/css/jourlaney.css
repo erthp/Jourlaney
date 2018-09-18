@@ -495,13 +495,14 @@ h4{
   border-radius: 4px;
   background-color: rgba(255, 255, 255);
   color: #36D7B7;
-  width: 100%;
+  width: 96%;
   height: 40px;
+  padding-left: 1%;
 }
 
 .searchbox-searchpage::placeholder{
   font-family: 'Open Sans', sans-serif;
-  font-weight: 800;
+  font-weight: 500;
   color: #888888;
   text-transform: uppercase;
 }

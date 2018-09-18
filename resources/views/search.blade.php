@@ -35,19 +35,17 @@
     <h3 class="text-center trip-header">Search Trips</h3>
     <br>
     <div class="row">
-        <div class="col-1"></div>
+        <div class="col-2"></div>
         <div class="col-8">
+            <label class="search-namelabel">Trip name / Location</label>
             <form method="GET" action="{{URL::to('/search')}}">
-               <input type="text" class="searchbox-searchpage animated fadeIn" name="name" placeholder="Trip name">   
+            <input type="text" class="searchbox-searchpage animated fadeIn" name="name" placeholder="Trip name / Location">   
         </div>
-        <div class="col-2">
-                <button type="submit" class="btn btn-info btn-block searchpage-submitbutton"><img src="../pic/search.png" height="24"></button>
-        </div>
-        <div class="col-1"></div>  
+        <div class="col-2"></div>  
     </div>
-    <br>
+    <br><br>
     <div class="row">
-        <div class="col-1"></div>
+        <div class="col-2"></div>
         <div class="col-4">
             <div class="form-group">
                 <label class="search-datelabel">Start date</label>
@@ -60,12 +58,18 @@
                 <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" required>
             </div>
         </div>  
-        <div class="col-2">
-                <br><br><button type="submit" class="btn btn-info btn-block searchpage-submitbutton"><img src="../pic/search.png" height="24"></button>
-        </div>
-        <div class="col-1"></div>    
+        <div class="col-2"></div>    
     </div>
     </form>
+    <br>
+    <div class="row">
+        <div class="col-5"></div>
+        <div class="col-2">
+                <button type="submit" class="btn btn-info btn-block searchpage-submitbutton">Search</button>
+        </div>
+        <div class="col-5"></div>    
+    </div>
+    <br>
     <div class="row">
         <div class="col-12">
         
