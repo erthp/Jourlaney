@@ -91,7 +91,10 @@
                     <label class="trip-label">Trip Cost</label>
                 </div>
                 <div class="col-lg-2">
-                <input type="number" class="form-control" id="tripcost" name="tripcost" min="0.00" max="10000.00" step="0.01"  value="{{ $trip->tripCost }}"> Baht/Person
+                <input type="number" class="form-control" id="tripcost" name="tripcost" min="0.00" max="10000.00" step="0.01"  value="{{ $trip->tripCost }}">
+                </div>
+                <div class="col-lg-2">
+                    <p>Baht/Person</p>
                 </div>
             </div>
             <br>
