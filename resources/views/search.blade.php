@@ -49,18 +49,18 @@
         <div class="col-4">
             <div class="form-group">
                 <label class="search-datelabel">Start date</label>
-                <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" required>
+                <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum">
             </div>
         </div>
         <div class="col-4">
             <div class="form-group">
                 <label class="search-datelabel">End date</label>
-                <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" required>
+                <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum">
             </div>
         </div>  
         <div class="col-2"></div>    
     </div>
-    </form>
+    
     <br>
     <div class="row">
         <div class="col-5"></div>
@@ -69,6 +69,7 @@
         </div>
         <div class="col-5"></div>    
     </div>
+    </form>
     <br>
     <div class="row">
         <div class="col-12">
