@@ -1,11 +1,12 @@
 @extends('header')
 @section('page')
+    @if(!empty(Session::get('guideid')) || !empty(Session::get('touristid')))
         <div class="container homemenu animated fadeIn">
             <div class="row">
                 <div class="col-4">
                     <div align="center">
-                        <a href = "/"><img src="../pic/medal.png" class="homemenu-icon" height="80" alt=""></a>
-                        <p class="homemenu-text">Recommend</p>
+                        <a href = "/"><img src="../pic/map.png" class="homemenu-icon" height="80" alt=""></a>
+                        <p class="homemenu-text">All Trips</p>
                     </div>
                 </div>
                 <div class="col-4">
@@ -30,6 +31,7 @@
                 </div>
             </div>
         </div>
+    @endif
         <div class="container" style="margin-top:30px;">   
             <ul class="nav">
                 <h3>New Trips Available This Week</h3><!--   &nbsp;&nbsp;&nbsp;       
