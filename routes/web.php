@@ -127,14 +127,13 @@ Route::get('transfer', function () {
 	return view ('omiseTransfer');
 });
 
-
-
 Route::post('/chargeOmise','OmiseCheckOutController@checkout');
 Route::post('/transferOmise','OmiseTransferController@transfer');
 
 
 Route::get('adminGetData', 'AdminController@getdata');
-Route::get('search', 'SearchController@getdata');
+
+Route::get('/search', 'SearchController@getdata');
 
 Route::post('/gcreatetrip',"GuideTripController@guidecreatetrip");
 Route::post('/gcreatetripdetails',"GuideTripController@GuideCreateTripDetails");
