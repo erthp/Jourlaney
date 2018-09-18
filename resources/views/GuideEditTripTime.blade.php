@@ -92,21 +92,9 @@
         //var id = $('#cover div').length+1;    // นับว่ามี tag div กี่อันแล้ว แล้ว +1
         //var timeid = $('#cover div').length+1;        
 		var wrapper = $("<div id=\"field"+id+"\">");  // สร้าง div
-<<<<<<< HEAD
-<<<<<<< HEAD
 		var parag   = $("<p>Time</p>");   // สร้าง p
-		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
 		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='48'/> <a id='btnTime onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
-=======
-		var parag   = $("<p>Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail</p>");   // สร้าง p
-		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime'><img src='../pic/add.png' hight='16px' width='16px'></a>");
->>>>>>> bf823cd240f65c65859373a0bacd08cc18caaeb0
-=======
-		var parag   = $("<p>Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail</p>");   // สร้าง p
-		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime'><img src='../pic/add.png' hight='16px' width='16px'></a>");
->>>>>>> bf823cd240f65c65859373a0bacd08cc18caaeb0
 		wrapper.append(parag);
 		wrapper.append(text);
         wrapper.append(text2);
@@ -117,18 +105,8 @@
         id++;
         timeid=1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
 		var wrapper = $("<div id=\"field"+id+"\">");  // สร้าง div
-<<<<<<< HEAD
-<<<<<<< HEAD
-		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
 		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='48'/> <a id='btnTime'><img src='../pic/add.png' hight='16px' width='16px'></a>");
-=======
-		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
->>>>>>> bf823cd240f65c65859373a0bacd08cc18caaeb0
-=======
-		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
->>>>>>> bf823cd240f65c65859373a0bacd08cc18caaeb0
 		wrapper.append(text);
         wrapper.append(text2);
         $('#cover').append(wrapper);
@@ -137,18 +115,8 @@
     function time(){
         timeid++;
         if(timeid<=10){
-<<<<<<< HEAD
-<<<<<<< HEAD
             var text    = $("<div id=\"field"+timeid+"\"><div><span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
             var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='48'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\'><img src='../pic/add.png' hight='16px' width='16px'></a></div>");
-=======
-            var text    = $("<div><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-            var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
->>>>>>> bf823cd240f65c65859373a0bacd08cc18caaeb0
-=======
-            var text    = $("<div><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-            var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
->>>>>>> bf823cd240f65c65859373a0bacd08cc18caaeb0
             text.append(text2);
             $('#cover').append(text);
         }
