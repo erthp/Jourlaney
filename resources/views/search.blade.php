@@ -4,8 +4,8 @@
             <div class="row">
                 <div class="col-4">
                     <div align="center">
-                        <a href = "/"><img src="../pic/medal.png" class="homemenu-icon" height="80" alt=""></a>
-                        <p class="homemenu-text">Recommend</p>
+                        <a href = "/"><img src="../pic/map.png" class="homemenu-icon" height="80" alt=""></a>
+                        <p class="homemenu-text">All Trips</p>
                     </div>
                 </div>
                 <div class="col-4">
