@@ -40,6 +40,10 @@ Route::get('GuideTrip/{tripId}', 'TripController@showGuideTrip')->name('GuideTri
 Route::get('guideShowEditTrip/{tripId}', 'TripController@guideShowEditTrip')->name('GuideShowEditTrip.ShowEditTrip');
 Route::get('guideShowEditTripDetails/{tripId}', 'TripController@guideShowEditTripDetails')->name('GuideShowEditTripDetails.ShowEditTripDetails');
 Route::get('guideShowEditTripTime/{tripId}', 'TripController@guideShowEditTripTime')->name('GuideShowEditTripTime.ShowEditTripTime');
+Route::get('touristShowEditTrip/{tripId}', 'TripController@touristShowEditTrip')->name('TouristShowEditTrip.ShowEditTrip');
+Route::get('touristShowEditTripDetails/{tripId}', 'TripController@touristShowEditTripDetails')->name('TouristShowEditTripDetails.ShowEditTripDetails');
+Route::get('touristShowEditTripTime/{tripId}', 'TripController@touristShowEditTripTime')->name('TouristShowEditTripTime.ShowEditTripTime');
+
 Route::get('TouristTrip/{tripId}', 'TripController@showTouristTrip')->name('TouristTrip.ShowTrip');
 
 
@@ -91,6 +95,18 @@ Route::get('TouristCreateTripTime',function(){
     return view('TouristCreateTripTime');
 });
 
+Route::get('touristedittrip',function(){
+    return view('TouristEditTrip');
+});
+
+Route::get('TouristEditTripDetails',function(){
+    return view('TouristEditTripDetails');
+});
+
+Route::get('TouristEditTripTime',function(){
+    return view('TouristEditTripTime');
+});
+
 Route::get('editprofile',function(){
     return view('EditProfile');
 });
@@ -130,6 +146,9 @@ Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/tcreatetrip',"TouristTripController@tcreatetrip");
 Route::post('/tcreatetripdetails',"TouristTripController@TouristCreateTripDetails");
 Route::post('/tcreatetriptime',"TouristTripController@TouristCreateTripTime");
+Route::post('/tedittrip',"TouristTripController@touristedittrip");
+Route::post('/tedittripdetails',"TouristTripController@TouristEditTripDetails");
+Route::post('/tedittriptime',"TouristTripController@TouristEditTripTime");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
 Route::post('/editprofile',"ProfileEditController@editprofile");
 Route::post('/login',"LoginController@login");
