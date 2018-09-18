@@ -74,7 +74,7 @@
         //var timeid = $('#cover div').length+1;        
 		var wrapper = $("<div id=\"field"+id+"\">");  // สร้าง div
 		var parag   = $("<p>Time</p>");   // สร้าง p
-		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
 		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime'><img src='../pic/add.png' hight='16px' width='16px'></a>");
 		wrapper.append(parag);
 		wrapper.append(text);
@@ -86,7 +86,7 @@
         id++;
         timeid=1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
 		var wrapper = $("<div id=\"field"+id+"\">");  // สร้าง div
-		var text    = $("<span>Time:&nbsp;</span><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
+		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
 		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
 		wrapper.append(text);
         wrapper.append(text2);
