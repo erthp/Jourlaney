@@ -83,6 +83,14 @@ Route::get('touristcreatetrip',function(){
     return view('TouristCreateTrip');
 });
 
+Route::get('TouristCreateTripDetails',function(){
+    return view('TouristCreateTripDetails');
+});
+
+Route::get('TouristCreateTripTime',function(){
+    return view('TouristCreateTripTime');
+});
+
 Route::get('editprofile',function(){
     return view('EditProfile');
 });
@@ -120,6 +128,8 @@ Route::post('/gedittripdetails',"GuideTripController@GuideEditTripDetails");
 Route::post('/gedittriptime',"GuideTripController@GuideEditTripTime");
 Route::post('/guideregis',"GuideRegisterController@guideregis");
 Route::post('/tcreatetrip',"TouristTripController@tcreatetrip");
+Route::post('/tcreatetripdetails',"TouristTripController@TouristCreateTripDetails");
+Route::post('/tcreatetriptime',"TouristTripController@TouristCreateTripTime");
 Route::post('/touristregis',"TouristRegisterController@touristregis");
 Route::post('/editprofile',"ProfileEditController@editprofile");
 Route::post('/login',"LoginController@login");
