@@ -160,7 +160,7 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('./logout') }}"> 
                                             {{ csrf_field() }} 
                                         <a onclick="document.getElementById('logout-form').submit()" class="userDropdown">Logout</a>
                                     </form>
