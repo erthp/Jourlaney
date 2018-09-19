@@ -204,10 +204,12 @@ class GuideTripController extends Controller
             }
             $tripDay++;
             $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
-            dd($queryTime);
             switch($request->submit){
                 case 'addDay':
-                    return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay])->with('queryTime',$queryTime);
+                    if(!empty($queryTime))
+                        return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay])->with('queryTime',$queryTime);
+                    else
+                    return view('GuideCreateTripTime',['tripId' => $tripId],['tripDay' => $tripDay])->with('queryTime',$queryTime);
                 break;
                 case 'submit':
                     return view('createtripcompleted');
