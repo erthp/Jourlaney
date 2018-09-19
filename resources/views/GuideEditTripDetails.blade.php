@@ -32,7 +32,7 @@
         </div>
 <br>
 <div class="container">
-    <h3 class="text-center trip-header">Add trip details</h3>
+    <h3 class="text-center trip-header">Edit trip details</h3>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gedittripdetails')}}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-2">

@@ -39,12 +39,13 @@
                     <label>Itinerary</label>
                 </div>
                 <div class="col-lg-10">
-                        <div id="cover">
+                <div id="cover">
                             @php
                                 $count=1;
                             @endphp
                             @if(!empty($queryTime))
                                 @foreach( $queryTime as $qt )
+                                <div id="cover">
                                 <div id="field{{ $count }}" class="form-inline">
                                 <div class="col-4"><span>Time:&nbsp;</span><input type='time' class='form-control' name="time{{ $count }}" value="{{ $qt -> tripTime }}"/></div>
                                 <div class="col-6"><input type='text' class='form-control' name="desc{{ $count }}" size='40' value="{{ $qt -> tripDescription }}"/></div>
@@ -82,7 +83,7 @@
     
     <script type="text/javascript">
 	$(document).ready(function(){
-        $('#btnAdd').click(day); // เมื่อ click จะสร้าง element ขึ้นมาใหม่(สร้าง input ใหม่)
+        $('#btnAdd').click(day);
         $('#btnTime').click(time);
 	});
     var id="<?php echo $count ?>"-1;
@@ -96,7 +97,7 @@
 		var wrapper = $("<div id=\"field"+id+"\" class='form-inline'>");  // สร้าง div
 		var parag   = $("<div class='col-4'><span>Time:&nbsp;</span>");   // สร้าง p
 		var text    = $("<input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
-		var text2    = $("<div class='col-6'><input type='text'  name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
+		var text2    = $("<div class='col-6'><input type='text' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" class='form-control' size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
 		wrapper.append(parag);
 		wrapper.append(text);
         wrapper.append(text2);
@@ -125,7 +126,7 @@
     }
 
     function remove1(){
-        document.getElementById('field2').outerHTML = "";
+        document.getElementById('field1').outerHTML = "";
     }
     function remove2(){
         document.getElementById('field2').outerHTML = "";
