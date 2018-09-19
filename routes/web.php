@@ -121,6 +121,10 @@ Route::get('adminIndex',function(){
 
 Route::get('login', ['as' => 'login', 'uses' => 'LoginController@login']);
 
+Route::get('chat', function () {
+	return view ('chat');
+});
+
 Route::get('charge', function () {
 	return view ('omise');
 });
@@ -160,7 +164,3 @@ Route::post('/gdeletetrip',"TripController@gdeletetrip");
 Route::post('/tdeletetrip',"TripController@tdeletetrip");
 Route::post('/checkout',"OmiseCheckOutController@checkout");
 // Auth::routes();
-
-Route::get('chat', 'ChatsController@index');
-Route::get('messages', 'ChatsController@fetchMessages');
-Route::post('messages', 'ChatsController@sendMessage');

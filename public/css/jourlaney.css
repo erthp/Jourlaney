@@ -21,6 +21,28 @@ a{
   display:flex;
 }
 
+.chat-left{
+  background-color: #e9ece5;
+  min-height: 600px;
+  overflow: scroll;
+}
+
+.chat-middle{
+  background-color: #ffffff;
+  min-height: 600px;
+  overflow: scroll;
+}
+
+.chat-right{
+  background-color: #e9ece5;
+  min-height: 600px;
+  overflow: scroll;
+}
+
+.chat-trip-title{
+  font-size: 1em;
+}
+
 .createdtrip-image{
   text-align: center;
   -o-transition:.5s;
