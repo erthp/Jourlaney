@@ -72,10 +72,10 @@
     function first(){
         //var id = $('#cover div').length+1;    // นับว่ามี tag div กี่อันแล้ว แล้ว +1
         //var timeid = $('#cover div').length+1;        
-		var wrapper = $("<div id=\"field"+id+"\">");  // สร้าง div
-		var parag   = $("<p>Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detail</p>");   // สร้าง p
-		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime'><img src='../pic/add.png' hight='16px' width='16px'></a>");
+		var wrapper = $("<div id=\"field"+id+"\" class='form-inline'>");  // สร้าง div
+		var parag   = $("<div class='col-4'><span>Time:&nbsp;</span>");   // สร้าง p
+		var text    = $("<input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
+		var text2    = $("<div class='col-6'><input type='text'  name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
 		wrapper.append(parag);
 		wrapper.append(text);
         wrapper.append(text2);
@@ -85,22 +85,53 @@
 	function day(){
         id++;
         timeid=1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
-		var wrapper = $("<div id=\"field"+id+"\">");  // สร้าง div
-		var text    = $("<input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-		var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
+		var wrapper = $("<div id=\"field"+id+"\" class='form-inline'>");  // สร้าง div
+		var text    = $("<div class='col-4'><input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
+		var text2    = $("<div class='col-6'><input type='text' class='form-control' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
 		wrapper.append(text);
         wrapper.append(text2);
         $('#cover').append(wrapper);
 	}
-    
+
     function time(){
         timeid++;
         if(timeid<=10){
-            var text    = $("<div><input type='time' name=\"time"+timeid+"\" />"); // สร้าง input
-            var text2    = $("<span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name=\"desc"+timeid+"\" size='50'/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>");
+            var text    = $("<div id=\"field"+timeid+"\" class='form-inline'><div class='col-4'><span>Time:&nbsp;</span><input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
+            var text2    = $("<div class='col-6'><input type='text' class='form-control' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
             text.append(text2);
             $('#cover').append(text);
         }
+    }
+
+    function remove1(){
+        document.getElementById('field2').outerHTML = "";
+    }
+    function remove2(){
+        document.getElementById('field2').outerHTML = "";
+    }
+    function remove3(){
+        document.getElementById('field3').outerHTML = "";
+    }
+    function remove4(){
+        document.getElementById('field4').outerHTML = "";
+    }
+    function remove5(){
+        document.getElementById('field5').outerHTML = "";
+    }
+    function remove6(){
+        document.getElementById('field6').outerHTML = "";
+    }
+    function remove7(){
+        document.getElementById('field7').outerHTML = "";
+    }
+    function remove8(){
+        document.getElementById('field8').outerHTML = "";
+    }
+    function remove9(){
+        document.getElementById('field9').outerHTML = "";
+    }
+    function remove10(){
+        document.getElementById('field10').outerHTML = "";
     }
 </script>
 @endsection
