@@ -119,6 +119,8 @@ Route::get('adminIndex',function(){
     return view('/Admin/index');
 });
 
+Route::get('login', ['as' => 'login', 'uses' => 'LoginController@login']);
+
 Route::get('charge', function () {
 	return view ('omise');
 });
