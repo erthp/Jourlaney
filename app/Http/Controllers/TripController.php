@@ -52,7 +52,6 @@ class TripController extends Controller
         $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
         $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
         
-
         return view('GuideEditTripDetails', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition);
     }
 
@@ -112,5 +111,4 @@ class TripController extends Controller
         echo "<script>window.alert('Trip Deleted.')</script>";
         return redirect('/');
     }
-    
 }
