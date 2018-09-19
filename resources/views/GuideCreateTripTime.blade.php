@@ -73,10 +73,8 @@
         //var id = $('#cover div').length+1;    // นับว่ามี tag div กี่อันแล้ว แล้ว +1
         //var timeid = $('#cover div').length+1;        
 		var wrapper = $("<div id=\"field"+id+"\" class='form-inline'>");  // สร้าง div
-		var parag   = $("<div class='col-4'><span>Time:&nbsp;</span>");   // สร้าง p
-		var text    = $("<input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
-		var text2    = $("<div class='col-6'><input type='text'  name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
-		wrapper.append(parag);
+		var text    = $("<div class='col-4'><span>Time:&nbsp;</span><input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
+		var text2    = $("<div class='col-6'><input type='text' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40' class='form-control'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
 		wrapper.append(text);
         wrapper.append(text2);
 		$('#cover').append(wrapper);
