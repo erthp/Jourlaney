@@ -155,5 +155,20 @@
     function remove10(){
         document.getElementById('field10').outerHTML = "";
     }
+    function remove11(){
+        document.getElementById('field10').outerHTML = "";
+    }
+    function remove12(){
+        document.getElementById('field10').outerHTML = "";
+    }
+    function remove13(){
+        document.getElementById('field10').outerHTML = "";
+    }
+    function remove14(){
+        document.getElementById('field10').outerHTML = "";
+    }
+    function remove15(){
+        document.getElementById('field10').outerHTML = "";
+    }
 </script>
 @endsection
