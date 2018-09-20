@@ -141,26 +141,41 @@ Route::get('adminGetData', 'AdminController@getdata');
 
 Route::get('/search', 'SearchController@getdata');
 
+//Admin Controllers
+Route::post('/adminLogin',"AdminController@login");
+Route::post('/guideverify',"AdminController@guideverify");
+
+//User Controllers
+Route::post('/guideregis',"GuideRegisterController@guideregis");
+Route::post('/touristregis',"TouristRegisterController@touristregis");
+Route::post('/login',"LoginController@login");
+Route::post('/logout',"LoginController@logout");
+Route::post('/editprofile',"ProfileEditController@editprofile");
+
+//Trip Controllers
 Route::post('/gcreatetrip',"GuideTripController@guidecreatetrip");
 Route::post('/gcreatetripdetails',"GuideTripController@GuideCreateTripDetails");
 Route::post('/gcreatetriptime',"GuideTripController@GuideCreateTripTime");
+
 Route::post('/gedittrip',"GuideTripController@guideedittrip");
 Route::post('/gedittripdetails',"GuideTripController@GuideEditTripDetails");
 Route::post('/gedittriptime',"GuideTripController@GuideEditTripTime");
-Route::post('/guideregis',"GuideRegisterController@guideregis");
+
 Route::post('/tcreatetrip',"TouristTripController@tcreatetrip");
 Route::post('/tcreatetripdetails',"TouristTripController@TouristCreateTripDetails");
 Route::post('/tcreatetriptime',"TouristTripController@TouristCreateTripTime");
+
 Route::post('/tedittrip',"TouristTripController@touristedittrip");
 Route::post('/tedittripdetails',"TouristTripController@TouristEditTripDetails");
 Route::post('/tedittriptime',"TouristTripController@TouristEditTripTime");
-Route::post('/touristregis',"TouristRegisterController@touristregis");
-Route::post('/editprofile',"ProfileEditController@editprofile");
-Route::post('/login',"LoginController@login");
-Route::post('/logout',"LoginController@logout");
-Route::post('/adminLogin',"AdminController@login");
-Route::post('/guideverify',"AdminController@guideverify");
+
 Route::post('/gdeletetrip',"TripController@gdeletetrip");
 Route::post('/tdeletetrip',"TripController@tdeletetrip");
+
+//Chat Controllers
+Route::post('/createChat',"ChatController@CreateChat");
+
+//Payment Controllers
 Route::post('/checkout',"OmiseCheckOutController@checkout");
+
 // Auth::routes();
