@@ -46,6 +46,7 @@ Route::get('touristShowEditTripTime/{tripId}', 'TripController@touristShowEditTr
 
 Route::get('TouristTrip/{tripId}', 'TripController@showTouristTrip')->name('TouristTrip.ShowTrip');
 
+Route::get('chat/{chatRoomId}', 'ChatController@showChat')->name('Chat.showChat');
 
 Route::get('resetpassword',function(){
     return view('ResetPassword');
@@ -120,10 +121,6 @@ Route::get('adminIndex',function(){
 });
 
 Route::get('login', ['as' => 'login', 'uses' => 'LoginController@login']);
-
-Route::get('chat', function () {
-	return view ('chat');
-});
 
 Route::get('charge', function () {
 	return view ('omise');
