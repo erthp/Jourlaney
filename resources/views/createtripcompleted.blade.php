@@ -10,6 +10,8 @@
         <div class="col-lg-4"><a href="/"><button type="button" class="btn btn-success">Back to home</button></a>
             @if($trip -> guideId == (Session::get('guideid')))
             <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><button type="button" class="btn btn-info">Edit</button></a>
+            @elseif($trip -> touristId == (Session::get('touristid')))
+            <a href="../touristShowEditTrip/{{ $trip -> tripId }}"><button type="button" class="btn btn-info">Edit</button></a>
             @else
             @endif</div>
     </div>
