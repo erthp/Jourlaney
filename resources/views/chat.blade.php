@@ -159,7 +159,6 @@
                 </div>
             </div>
     </div>
-<<<<<<< HEAD
     <div class="row mt-4 chat-body">
         <div class="col-3 chat-left"></div>
         <div class="col-6 chat-middle">
@@ -228,8 +227,4 @@ $(function(){
 });
  
 </script>
-=======
-</div> 
-
->>>>>>> 60118de5bf550806241f07abdf886e6a48000449
 @endsection
