@@ -368,9 +368,12 @@
                                 <div class="center-div mt-3">
                                     @if(!empty(Session::get('touristid')))
                                         <form method="POST" name="chat-with-guide-form" action="{{ URL::to('/createChat') }}">
-                                        <input type="hidden" name="tripId" value="{{ $trip -> tripId }}">
-                                        <input type="hidden" name="guideId" value="{{ $creator -> guideId }}">
-                                        <p>Interested?</p><button type="submit" class="btn btn-info">Send Message</button>
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="tripId" value="{{ $trip -> tripId }}">
+                                            <input type="hidden" name="guideId" value="{{ $creator -> guideId }}">
+                                            <input type="hidden" name="touristId" value="{{Session::get('touristid')}}">
+                                            <p>Interested?</p><button type="submit" class="btn btn-info">Send Message</button>
+                                        </form>
                                     @endif
                                 </div>
                                 </div>
