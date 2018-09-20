@@ -145,10 +145,10 @@
                     </div>
                 </div>
                 <div class="col-12 footer-menu">
-                HOME
+                <a href="/">HOME</a>
             </div>
             <div class="col-12 footer-menu">
-                TRIPS
+                <a href="search">TRIPS</a>
             </div>
             <div class="col-12 footer-menu">
                 ABOUT US
