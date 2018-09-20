@@ -365,8 +365,14 @@
                                 <input type="hidden" id="tripStart" value="{{ $trip -> tripStart }}">
                                 <input type="hidden" id="tripEnd" value="{{ $trip -> tripEnd }}">
                                 <div class="calendar"></div>
-
-                                <!-- <iframe src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23ffffff&amp;src=th.th%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=Asia%2FBangkok" style="border-width:0" width="600" height="400" frameborder="0" scrolling="no"></iframe> -->
+                                <div class="center-div mt-3">
+                                    @if(!empty(Session::get('touristid')))
+                                        <form method="POST" name="chat-with-guide-form" action="{{ URL::to('/createChat') }}">
+                                        <input type="hidden" name="tripId" value="{{ $trip -> tripId }}">
+                                        <input type="hidden" name="guideId" value="{{ $creator -> guideId }}">
+                                        <p>Interested?</p><button type="submit" class="btn btn-info">Send Message</button>
+                                    @endif
+                                </div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
@@ -384,6 +390,37 @@
   
     @yield('page')
     </div>
+    <div class="container footer-bg">
+            <div class="row">
+                <div class="col-4 footer-title">
+                <a class="footer-title-text" href="/">JOURLANEY</a>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                    <div class="footer-social" align="right">
+                        <a class="footer-social-facebook">
+                        </a>
+                        <a class="footer-social-twitter">
+                        </a>
+                        <a class="footer-social-instagram">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 footer-menu">
+                <a href="/">HOME</a>
+            </div>
+            <div class="col-12 footer-menu">
+                <a href="search">TRIPS</a>
+            </div>
+            <div class="col-12 footer-menu">
+                ABOUT US
+            </div>
+            <div class="col-12 footer-foot">
+                <i class="fas fa-heart"></i> &copy; 2018, Jourlaney.
+            </div>
+            </div>
+        </div>
     <script>
 $(function() {
     $('.calendar').pignoseCalendar({
