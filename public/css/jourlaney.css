@@ -21,21 +21,32 @@ a{
   display:flex;
 }
 
+.chat-body{
+  min-height: 600px;
+}
+
+.chat-form{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 2%;
+  margin-left: 2%;
+  padding-right: 5%;
+}
+
 .chat-left{
   background-color: #e9ece5;
-  min-height: 600px;
   overflow: scroll;
 }
 
 .chat-middle{
   background-color: #ffffff;
-  min-height: 600px;
   overflow: scroll;
+  position: relative;
 }
 
 .chat-right{
   background-color: #e9ece5;
-  min-height: 600px;
   overflow: scroll;
 }
 
@@ -110,6 +121,14 @@ a{
   font-weight: 800;
   font-size: 1em;
   margin-left: 5%;
+  padding-top: 1%;
+}
+
+.footer-menu a{
+  color: #999999;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 800;
+  font-size: 1em;
   padding-top: 1%;
 }
 
