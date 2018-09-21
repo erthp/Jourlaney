@@ -21,6 +21,11 @@ a{
   display:flex;
 }
 
+.chatListBox{
+  border-bottom-style: solid;
+  border-bottom-color: #FFFFFF;
+}
+
 .chat-body{
   min-height: 600px;
 }
@@ -37,6 +42,7 @@ a{
 .chat-left{
   background-color: #e9ece5;
   overflow: scroll;
+  height: 600px;
 }
 
 .chat-middle{
@@ -455,6 +461,16 @@ h4{
 .profileImageTrip{
   height: 64px;
   width: 64px;
+  object-fit: cover;
+  border:1px solid white;
+  border-radius: 500px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+}
+
+.profileImageChat{
+  height: 48px;
+  width: 48px;
   object-fit: cover;
   border:1px solid white;
   border-radius: 500px;
