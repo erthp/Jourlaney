@@ -21,15 +21,17 @@ class ChatController extends Controller
     }
 
     public function ShowChat($chatRoomId){
-        $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId where c.chatRoomId =".$chatRoomId);
+        $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
         if(Session::get('guideid')){
             $guideId = Session::get('guideid');
-            $chatList = DB::select("select c.chatRoomId, c.guideId, c.touristId, MAX(c.chatText) from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join Users tu on t.username=t.username where c.guideId=".$guideId." group by c.chatRoomId sort by c.chatTime");
+            $chatList = DB::select("select c.chatRoomId, c.guideId, c.touristId, MAX(c.chatText) from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join Users tu on t.username=t.username where c.guideId=".$guideId." group by c.chatRoomId");
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
-            $chatList = DB::select("select *, gu.*, tu.* from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join Users tu on t.username=t.username where c.touristId=".$touristId." group by c.chatRoomId");
+            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username where c.touristId=".$touristId." group by c.chatRoomId");
+        }else{
+            return view('404.blade.php');
         }
-        dd($chatList);
-        //return view('chat',['query' => $query])-with('chatList',$chatList);
+        //dd($query);
+        return view('chat',['query' => $query])->with('chatList',$chatList);
     }
 }
