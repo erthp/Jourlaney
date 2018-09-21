@@ -112,6 +112,10 @@ Route::get('editprofile',function(){
     return view('EditProfile');
 });
 
+Route::get('ChatLayout',function(){
+    return view('ChatLayout');
+});
+
 Route::get('admin',function(){
     return view('/Admin/admin');
 });
