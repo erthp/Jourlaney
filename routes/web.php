@@ -179,6 +179,7 @@ Route::post('/tdeletetrip',"TripController@tdeletetrip");
 
 //Chat Controllers
 Route::post('/createChat',"ChatController@CreateChat");
+Route::post('/sendChat',"ChatController@SendChat");
 
 //Payment Controllers
 Route::post('/checkout',"OmiseCheckOutController@checkout");

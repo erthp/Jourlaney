@@ -13,7 +13,8 @@
     <div class="row mt-4 chat-body">
         <div class="col-3 chat-left">
             @foreach( $chatList as $chatLists )
-            <div class="row chatListBox">
+            <a href="/chat/{{ $chatLists -> chatRoomId }}">
+                <div class="row chatListBox">
                     <div class="col-4 mt-4 mb-4">
                         <img src="../images/profilepic/{{$query[0]->userProfileImage}}" class="profileImageChat">
                     </div>
@@ -21,17 +22,24 @@
                         <p>{{ $chatLists -> userFirstName }}</p>
                         <p>{{ $chatLists -> chatText }}</p>
                     </div>
-            </div>
+                </div>
+            </a>
             @endforeach
         </div>
         <div class="col-6 chat-middle">
-            <input type="hidden" name="h_maxID" id="h_maxID" value="0">
-            <div class="input-group chat-form">
-                <input type="text" class="form-control" id="msg" name="msg">
-                <div class="input-group-append">
-                    <button type="button" class="btn btn-primary">Send</button>
+            <input type="hidden" name="chatRoomId" value="{{ $chatLists -> chatRoomId }}">
+            <input type="hidden" name="guideId" value="{{ $chatLists -> guideId }}">
+            <input type="hidden" name="touristId" value="{{ $chatLists -> touristId }}">
+            <input type="hidden" name="touristId" value="{{ $chatLists -> guideTripId }}">
+            <form method="POST" action="{{URL::to('/sendchat')}}">
+                <div class="input-group chat-form">
+                    <input type="text" class="form-control" id="msg" name="msg">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-primary">Send</button>
+                    </div>
                 </div>
-            </div>
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+            </form>
         </div>
         <div class="col-3 chat-right">
             <div class="row mt-4">
@@ -47,7 +55,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         setInterval(function() {
-        $('.container').load('data.php');
+        $('.container').load('ChatController.php');
         }, 2000);
 });   
 </script>
