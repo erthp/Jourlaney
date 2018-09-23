@@ -1147,6 +1147,16 @@ h4{
     .weekdays li, .days li {width: 12.2%;}
 }
 
+#createcompleted-popup h4 {
+  margin: 20px;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+a#confirm {
+  color: #ffffff;
+}
+
 /* ul {list-style-type: none;}
 
 h5{

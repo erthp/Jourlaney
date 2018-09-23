@@ -3,24 +3,42 @@
 <div class="container">
     
     <div class="row">
-        <div class="col-lg-4"></div>
+        <div class="col-lg-5"></div>
         <div class="col-lg-4">
-            <h3 class="text-center register-header">Trip Created.</h3>
-        </div>
-        <div class="col-lg-4"><a href="/"><button type="button" class="btn btn-success">Back to home</button></a>
             @if($trip -> guideId == (Session::get('guideid')))
-            <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><button type="button" class="btn btn-info">Edit</button></a>
+            <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><button type="button" class="btn btn-info mr-3">Edit</button></a>
             @elseif($trip -> touristId == (Session::get('touristid')))
             <a href="../touristShowEditTrip/{{ $trip -> tripId }}"><button type="button" class="btn btn-info">Edit</button></a>
             @else
-            @endif</div>
+            @endif
+            <a class="btn btn-success" data-toggle="modal" data-target="#createcompleted-popup" id="confirm">Confirm</a>
+        </div>
     </div>
 </div>
+<div id="createcompleted-popup" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <div class="header"></div>
+                                <div class="row text-center">
+                                    <div class="col-lg-6 col-6">
+                                        <h4 class="createcompleted-popup">Trip Created!</h4>
+                                    </div>
+                                </div>
+                                <div class="footer text-right">
+                                    <a href="/"><button type="submit" class="btn btn-primary">Back to home</button></a>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 <div class="container">
             <div class="row">
                 <div class="col-lg-3">
                     <h3>{{ $trip -> tripName }}</h3>
-                </div>
+                </div> 
                 <div class="col-lg-2">
                 </div>
                 <!-- /.col-lg-12 -->
