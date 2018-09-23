@@ -161,5 +161,16 @@
             $('#addLocation').append(locationForm);
         }
     }
+
+    function checkDate() {
+        var dateString = document.getElementById('startdate').value;
+        var date = new Date(dateString);
+        var today = new Date();
+        if ( date < today ) { 
+            $('#startdate').after('<p>You cannot enter a date in past.</p>');
+            return false;
+        }
+        return true;
+    }
 </script>
 @endsection
