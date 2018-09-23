@@ -2,7 +2,7 @@
 @section('page')
 <div class="container homemenu animated fadeIn">
             <div class="row">
-                <div class="col-4">
+            <div class="col-4">
                     <div align="center">
                         <a href = "/"><img src="../pic/map.png" class="homemenu-icon" height="80" alt=""></a>
                         <p class="homemenu-text">All Trips</p>
@@ -160,6 +160,17 @@
             locationForm.append(field);
             $('#addLocation').append(locationForm);
         }
+    }
+
+    function checkDate() {
+        var dateString = document.getElementById('startdate').value;
+        var date = new Date(dateString);
+        var today = new Date();
+        if ( date < today ) { 
+            $('#startdate').after('<p>You cannot enter a date in past.</p>');
+            return false;
+        }
+        return true;
     }
 </script>
 @endsection
