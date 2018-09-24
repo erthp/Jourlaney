@@ -25,7 +25,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top animated fadeInDown" id="jourlaNav-alone">
+    <nav class="navbar navbar-expand-lg fixed-top" id="jourlaNav-alone">
         <div class="container">
             <a href="/"><img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
             <a href="/" class="titletext">JOURLANEY</a>
