@@ -180,6 +180,11 @@ Route::post('/tdeletetrip',"TripController@tdeletetrip");
 //Chat Controllers
 Route::post('/createChat',"ChatController@CreateChat");
 Route::post('/sendChat',"ChatController@SendChat");
+Route::get('/showChat', [
+    'uses' => 'ChatController@ShowChat',
+    'as' => 'showChat'
+  ]);
+  
 
 //Payment Controllers
 Route::post('/checkout',"OmiseCheckOutController@checkout");

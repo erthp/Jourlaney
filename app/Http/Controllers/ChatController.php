@@ -31,20 +31,27 @@ class ChatController extends Controller
         }else{
             return view('404');
         }
-        //dd($query);
-        return view('chat',['query' => $query])->with('chatList',$chatList);
+        return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId);
     }
 
     public function SendChat(Request $request){
+        date_default_timezone_set('Asia/Bangkok');
+        $time = date('Y-m-d H:i:s', time());
+        $chatRoomId = $request->input('chatRoomId');
         if(Session::get('guideid')){
             $guideId = Session::get('guideid');
             $message = $request->input('msg');
-            $query = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId, chatTime, chatText, sender values(?,?,?,?,?,?,?)",[$chatId, $request->input('guideId'), $request->input('touristId'), $request->input('guideTripId'), time(), $message, "Guide"]);
+            $add = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId, chatTime, chatText, sender) values(?,?,?,?,?,?,?)",[$chatRoomId, $request->input('guideId'), $request->input('touristId'), $request->input('guideTripId'), $time, $message, "Guide"]);
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
             $message = $request->input('msg');
-            $query = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId, chatTime, chatText, sender values(?,?,?,?,?,?,?)",[$chatId, $request->input('guideId'), $request->input('touristId'), $request->input('guideTripId'), time(), $message, "Tourist"]);
-            return true;
+            $add = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId, chatTime, chatText, sender) values(?,?,?,?,?,?,?)",[$chatRoomId, $request->input('guideId'), $request->input('touristId'), $request->input('guideTripId'), $time, $message, "Tourist"]);
+            
+            $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
+            $touristId = Session::get('touristid');
+            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username where c.touristId=".$touristId." group by c.chatRoomId desc");
+        
+            return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId);
         }else{
             return view('404');
         }

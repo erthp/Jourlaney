@@ -27,16 +27,19 @@
             @endforeach
         </div>
         <div class="col-6 chat-middle">
-            <form method="POST" action="{{URL::to('/sendchat')}}">
-            <input type="hidden" name="chatRoomId" value="{{ $chatLists -> chatRoomId }}">
+            @foreach( $query as $query )
+                {{ $query -> chatText }}<br>
+            @endforeach
+            <form method="POST" action="{{URL::to('/sendChat')}}">
+            <input type="hidden" name="chatRoomId" value="{{ $chatRoomId }}">
             <input type="hidden" name="guideId" value="{{ $chatLists -> guideId }}">
             <input type="hidden" name="touristId" value="{{ $chatLists -> touristId }}">
-            <input type="hidden" name="touristId" value="{{ $chatLists -> guideTripId }}">
+            <input type="hidden" name="guideTripId" value="{{ $chatLists -> guideTripId }}">
             
                 <div class="input-group chat-form">
                     <input type="text" class="form-control" id="msg" name="msg">
                     <div class="input-group-append">
-                        <button type="button" class="btn btn-primary">Send</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
                     </div>
                 </div>
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -45,8 +48,8 @@
         <div class="col-3 chat-right">
             <div class="row mt-4">
                 <div class="col-12">
-                    <p class="center-div">You're chatting with {{ $query[0] -> userFirstName }}</p>
-                    <p class="center-div">on {{ $query[0] -> tripName }} trip</p>
+                    <p class="center-div">You're chatting with {{ $query -> userFirstName }}</p>
+                    <p class="center-div">on {{ $query -> tripName }} trip</p>
                     <p class="center-div">Status: </p>
                 </div>
             </div>
@@ -56,7 +59,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         setInterval(function() {
-        $('.container').load('ChatController.php');
+        $('.container').load('{{ route('showChat') }}');
         }, 2000);
 });   
 </script>
