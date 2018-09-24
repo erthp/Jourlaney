@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Jourlaney</title>
-    <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="../favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -27,7 +27,7 @@
 <body>
     <nav class="navbar navbar-expand-lg fixed-top" id="jourlaNav-alone">
         <div class="container">
-            <a href="/"><img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
+            <a href="/"><img src="../favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
             <a href="/" class="titletext">JOURLANEY</a>
 
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
