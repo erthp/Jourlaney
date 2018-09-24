@@ -106,7 +106,7 @@
                 </div>
                 <div class="col-lg-5">
                     <div class="form-group">
-                        <input type="file" class="form-control" id="profilepic "name="profilepic" placeholder="Profile picture">
+                        <input type="file" class="form-control" id="profilepic" name="profilepic" placeholder="Profile picture">
                         {{ csrf_field() }}
                     </div>
                 </div>
