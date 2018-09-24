@@ -27,14 +27,13 @@ a{
 }
 
 .chat-body{
-  min-height: 600px;
+  min-height: 550px;
 }
 
 .chat-form{
   position: absolute;
   bottom: 0;
   left: 0;
-  margin-bottom: 2%;
   margin-left: 2%;
   padding-right: 5%;
 }
@@ -42,13 +41,13 @@ a{
 .chat-left{
   background-color: #e9ece5;
   overflow: scroll;
-  height: 600px;
+  height: 550px;
 }
 
 .chat-middle{
   background-color: #ffffff;
   overflow: scroll;
-  position: relative;
+  height: 550px;
 }
 
 .chat-right{
@@ -58,6 +57,10 @@ a{
 
 .chat-trip-title{
   font-size: 1em;
+}
+
+.chat-sentbox{
+  bottom: -50px;
 }
 
 .createdtrip-image{
