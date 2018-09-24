@@ -21,6 +21,7 @@ class ProfileEditController extends Controller
             $picPath = public_path('/images/profilepic');
             $profilePicture->move($picPath, $input['filename']);
             $profilePicName = $input['filename'];
+            
             $queryUser = DB::update('update Users set userFirstName = ?, userLastName = ?, userEmail = ?, userGender = ?, userDOB = ?, userIdcard = ?, userProfileImage = ? where username = ?', [$request->input('firstname'), $request->input('lastname'), $userEmail, $gender, $request->input('birthdate'), $request->input('idcard'), $profilePicName ,$username]);
             $firstname = DB::table('Users')->select('userFirstName')->where('username',$username)->get();
             Session::put('firstname', $firstname[0]->userFirstName);
