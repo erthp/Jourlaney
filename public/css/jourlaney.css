@@ -48,11 +48,34 @@ a{
   background-color: #ffffff;
   overflow: scroll;
   height: 550px;
+  padding-bottom: 4%;
 }
 
 .chat-right{
   background-color: #e9ece5;
   overflow: scroll;
+}
+
+.chat-text{
+  font-family: 'Kanit', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.chat-time-left{
+  font-family: 'Kanit', sans-serif;
+  font-weight: 400;
+  font-size: 0.1em;
+  margin-left: 2%;
+  color: #999999;
+}
+
+.chat-time-right{
+  font-family: 'Kanit', sans-serif;
+  font-weight: 400;
+  font-size: 0.1em;
+  margin-right: 2%;
+  color: #999999;
 }
 
 .chat-trip-title{
