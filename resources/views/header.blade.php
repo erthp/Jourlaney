@@ -145,7 +145,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form method="POST" name="register-form" action="{{ URL::to('/login') }}">      
-                            {{ csrf_field() }}                  
+                            @csrf                
                             <div class="modal-header">
                                 <h3>Log in</h3>
                             </div>

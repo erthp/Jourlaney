@@ -27,11 +27,12 @@
             @endforeach
         </div>
         <div class="col-6 chat-middle">
+            <form method="POST" action="{{URL::to('/sendchat')}}">
             <input type="hidden" name="chatRoomId" value="{{ $chatLists -> chatRoomId }}">
             <input type="hidden" name="guideId" value="{{ $chatLists -> guideId }}">
             <input type="hidden" name="touristId" value="{{ $chatLists -> touristId }}">
             <input type="hidden" name="touristId" value="{{ $chatLists -> guideTripId }}">
-            <form method="POST" action="{{URL::to('/sendchat')}}">
+            
                 <div class="input-group chat-form">
                     <input type="text" class="form-control" id="msg" name="msg">
                     <div class="input-group-append">
