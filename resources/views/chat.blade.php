@@ -7,7 +7,7 @@
             </div>
             <div class="col-11">
                 <h3>Chat with <a href="/Profile/{{ $query[0] -> username }}">{{ $query[0] -> userFirstName }}</a></h3>
-                <h4 class="chat-trip-title">on {{ $query[0] -> tripName }} trip</h4>
+                <h4 class="chat-trip-title">on {{ $query[0] -> tripName }} trip <span class="badge badge-pill badge-secondary">#{{ $query[0] -> chatRoomId }}</span></h4>
             </div>
     </div>
     <div class="row mt-4 chat-body">
@@ -29,7 +29,51 @@
 
         <div class="col-6 chat-middle">
             @foreach( $query as $query )
-                {{ $query -> chatText }}<br>
+                @if(Session::get('touristid'))
+                    @if(($query -> sender) == "Tourist")
+                    <div class="row text-right mb-2">
+                        <div class="col-6"></div>
+                        <div class="col-6">
+                            <span class="badge badge-pill badge-info chat-text">
+                            {{ $query -> chatText }}
+                            </span>
+                            <span class="chat-time-right"><br>{{ $query -> chatTime }}</span>
+                        </div>
+                    </div>
+                    @elseif(($query -> sender) == "Guide")
+                    <div class="row text-left mb-2">
+                        <div class="col-6">
+                            <span class="badge badge-pill badge-light chat-text">
+                            {{ $query -> chatText }}
+                            </span>
+                            <span class="chat-time-left"><br>{{ $query -> chatTime }}</span>
+                        </div>
+                        <div class="col-6"></div>
+                    </div>
+                    @endif
+                @elseif(Session::get('guideid'))
+                    @if(($query -> sender) == "Guide")
+                    <div class="row text-right mb-2">
+                        <div class="col-6"></div>
+                        <div class="col-6">
+                            <span class="badge badge-pill badge-info chat-text">
+                            {{ $query -> chatText }}
+                            </span>
+                            <span class="chat-time-right"><br>{{ $query -> chatTime }}</span>
+                        </div>
+                    </div>
+                    @elseif(($query -> sender) == "Tourist")
+                    <div class="row text-left mb-2">
+                        <div class="col-6">
+                            <span class="badge badge-pill badge-light chat-text">
+                            {{ $query -> chatText }}
+                            </span>
+                            <span class="chat-time-left"><br>{{ $query -> chatTime }}</span>
+                        </div>
+                        <div class="col-6"></div>
+                    </div>
+                    @endif
+                @endif
             @endforeach
         </div>
 
