@@ -95,11 +95,9 @@
         //var id = $('#cover div').length+1;    // นับว่ามี tag div กี่อันแล้ว แล้ว +1
         //var timeid = $('#cover div').length+1;        
 		var wrapper = $("<div id=\"field"+id+"\" class='form-inline'>");  // สร้าง div
-		var parag   = $("<div class='col-4'><span>Time:&nbsp;</span>");   // สร้าง p
-		var text    = $("<input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
-		var text2    = $("<div class='col-6'><input type='text' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" class='form-control' size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
-		wrapper.append(parag);
-		wrapper.append(text);
+		var text    = $("<div class='col-2'><span>Time</span><input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
+		var text2    = $("<div class='col-6'><span>Detail</span><input type='text' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40' class='form-control'/></div><div class='col-2'><br><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
+        wrapper.append(text);
         wrapper.append(text2);
 		$('#cover').append(wrapper);
 	}
@@ -108,8 +106,8 @@
         id++;
         timeid=1;            // นับว่ามี tag div กี่อันแล้ว แล้ว +1
 		var wrapper = $("<div id=\"field"+id+"\" class='form-inline'>");  // สร้าง div
-		var text    = $("<div class='col-4'><input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
-		var text2    = $("<div class='col-6'><input type='text' class='form-control' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
+		var text    = $("<div class='col-2'><input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
+		var text2    = $("<div class='col-6'><input type='text' class='form-control' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><br><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
 		wrapper.append(text);
         wrapper.append(text2);
         $('#cover').append(wrapper);
@@ -118,15 +116,15 @@
     function time(){
         timeid++;
         if(timeid<=10){
-            var text    = $("<div id=\"field"+timeid+"\" class='form-inline'><div class='col-4'><span>Time:&nbsp;</span><input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
-            var text2    = $("<div class='col-6'><input type='text' class='form-control' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
+            var text    = $("<div id=\"field"+timeid+"\" class='form-inline'><div class='col-2'><input type='time' class='form-control' name=\"time"+timeid+"\" /></div>"); // สร้าง input
+            var text2    = $("<div class='col-6'><input type='text' class='form-control' name=\"desc"+timeid+"\" id=\"desc"+timeid+"\" size='40'/></div><div class='col-2'><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a><a id='btnTime' onClick=\'remove"+timeid+"()\' class='ml-2'><img src='../pic/remove.png' hight='16px' width='16px'></a></div></div>");
             text.append(text2);
             $('#cover').append(text);
         }
     }
 
-    function remove1(){
-        document.getElementById('field1').outerHTML = "";
+     function remove1(){
+        document.getElementById('field2').outerHTML = "";
     }
     function remove2(){
         document.getElementById('field2').outerHTML = "";
