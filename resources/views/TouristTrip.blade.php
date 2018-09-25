@@ -264,12 +264,12 @@
                 </div>
                 <div class="col-lg-2">
                 @if($trip -> touristId == (Session::get('touristid')))
-                                        <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
-                                        <a href="/guideDeletetrip" data-toggle="modal" data-target="#delete-popup"><img src="../pic/delete.png"width="20" height="20"></a>
+                                        <a href="../touristShowEditTrip/{{ $trip -> tripId }}"><img src="../pic/edit.png" class="mr-3" width="20" height="20"></a>
+                                        <a href="/touristDeletetrip" data-toggle="modal" data-target="#delete-popup"><img src="../pic/delete.png"width="20" height="20"></a>
                                         <div id="delete-popup" class="modal fade" role="dialog">
                                             <div class="modal-dialog">
                                                 <div class="modal-content">
-                                                    <form method="POST" name="delete-form" action="{{ URL::to('/gdeletetrip') }}">  
+                                                    <form method="POST" name="delete-form" action="{{ URL::to('/tdeletetrip') }}">  
                                                     <input type="hidden" name="tripId" value="{{ $trip -> tripId }}"> 
                                                     {{ csrf_field() }}                  
                                                         <div class="modal-header">
