@@ -35,8 +35,7 @@
     <h3 class="text-center trip-header">Edit trip details: Day {{ $tripDay }}</h3>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gedittriptime')}}" enctype="multipart/form-data">
             <div class="row">
-                <div class="col-lg-2">
-                    <label>Itinerary</label>
+                <div class="col-lg-1">
                 </div>
                 <div class="col-lg-10">
                 <div id="cover">
@@ -61,8 +60,6 @@
                 <br>
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     </div>
-                </div>
-                <div class="col-lg-2">
                 </div>
             </div>
         </div>
