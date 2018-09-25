@@ -278,7 +278,7 @@
                                                         <div class="container mt-2 mb-2">
                                                             <div class="col-2"></div>
                                                             <div class="col-8">
-                                                                <button type="submit" class="btn btn-danger login-button">Delete</button>
+                                                                <button type="submit" class="btn btn-danger login-button mr-3">Delete</button>
                                                                 <button type="button" class="btn btn-default login-button" data-dismiss="modal">Cancel</button>
                                                             </div>
                                                             <div class="col-2"></div>
