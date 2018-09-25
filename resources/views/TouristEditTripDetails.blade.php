@@ -135,23 +135,11 @@
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity"/> Seasonal Activity &nbsp;&nbsp;&nbsp;
                             @endif
                         @endfor
-
-                        @for($i = 0; $i < count($tripCondition); $i++)
-                            @if($tripCondition[$i] -> tripCondition == "Others")
-                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
-                            @endif
-                        @endfor
-                        @for($i = 0; $i < count($tripCondition); $i++)
-                            @if($tripCondition[$i] -> tripCondition !== "Others")
-                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" checked/> Others...
-                            @endif
-                        @endfor
                     @else
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" /> No Pets &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" /> Flexible Plan &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
-                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Others" /> Others...
                     @endif
                 </div>
             </div>
