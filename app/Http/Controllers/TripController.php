@@ -107,7 +107,6 @@ class TripController extends Controller
         $deleteTrip = DB::delete("delete from TouristTrip where tripId = ".$tripId);
         $deleteTripCondition = DB::delete("delete from TouristTripCondition where tripId = ".$tripId);
         $deleteTripLocation = DB::delete("delete from TouristTripLocation where tripId = ".$tripId);
-        $deleteTripTransportation = DB::delete("delete from TouristTripTransportation where tripId = ".$tripId);
         echo "<script>window.alert('Trip Deleted.')</script>";
         return redirect('/');
     }
