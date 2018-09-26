@@ -5,11 +5,11 @@
     <div class="row">
         <div class="col-lg-5"></div>
         <div class="col-lg-4">
-            @if(!empty(Session::get('guideid'))
+            @if(!empty(Session::get('guideid')))
                 @if($trip -> guideId == (Session::get('guideid')))
                     <a href="../guideShowEditTrip/{{ $trip -> tripId }}"><button type="button" class="btn btn-info mr-3">Edit</button></a>
                 @endif
-            @elseif(!empty(Session::get('touristid'))
+            @elseif(!empty(Session::get('touristid')))
                 @if($trip -> touristId == (Session::get('touristid')))
                     <a href="../touristShowEditTrip/{{ $trip -> tripId }}"><button type="button" class="btn btn-info">Edit</button></a>
                 @endif
