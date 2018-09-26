@@ -32,6 +32,7 @@
         </div>
 <br>
 <div class="container">
+@if((Session::get('guideid')) == ( $creator -> guideId ))
     <h3 class="text-center trip-header">Edit trip details: Day {{ $tripDay }}</h3>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/tedittriptime')}}" enctype="multipart/form-data">
             <div class="row">
@@ -73,7 +74,9 @@
             </div>
         </div>
         </form>
-
+@else
+    <h3 class="text-center trip-header">Error!</h3>
+@endif
     
     <script type="text/javascript">
 	$(document).ready(function(){
