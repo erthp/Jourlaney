@@ -1,4 +1,4 @@
-@extends('HeaderNav')
+@extends('headerNav')
 @section('page')
 <div class="container">
     <div class="row navGap">
