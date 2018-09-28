@@ -1,4 +1,4 @@
-@extends('headernav')
+@extends('HeaderNav')
 @section('page')
 <div class="container">
     <div class="row navGap">
@@ -27,7 +27,7 @@
             @endforeach
         </div>
 
-        <div class="col-6 chat-middle">
+        <div class="col-6 chat-middle" id="chat-middle">
             @foreach( $query as $query )
                 @if(Session::get('touristid'))
                     @if(($query -> sender) == "Tourist")
@@ -117,6 +117,8 @@
         setInterval(function() {
         $('.container').load('{{ route('showChat') }}');
         }, 2000);
+        var message = document.getElementById('chat-middle');
+        message.scrollTop = message.scrollHeight - message.clientHeight;
 });   
 </script>
 @endsection
