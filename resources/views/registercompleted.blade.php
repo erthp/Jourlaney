@@ -2,9 +2,9 @@
 @section('page')
 <div class="container">
     <h3 class="text-center register-header">Register Completed.</h3>
-    <div class="row">
-        <div class="col-lg-2"></div>
-        <div class="col-lg-8">
+    <div class="row center">
+        <div class="col-lg-2 mx-auto"></div>
+        <div class="col-lg-4 mx-auto">
             <form method="POST" name="register-form" action="{{ URL::to('/login') }}">
             {{ csrf_field() }}
                 <div class="form-group">
@@ -18,7 +18,7 @@
                 <button type="submit" class="btn btn-success btn-block">Log in</button>
             </form>
         </div>
-        <div class="col-lg-2"></div>
+        <div class="col-lg-2 mx-auto"></div>
     </div>
 </div>
 @endsection
