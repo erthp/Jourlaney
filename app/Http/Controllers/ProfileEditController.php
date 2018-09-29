@@ -16,13 +16,16 @@ class ProfileEditController extends Controller
         $checkEmail = DB::table('Users')->where(['userEmail'=>$userEmail])->get();
 
         if(count($checkEmail) ==0 || $checkEmail[0]->userEmail==$userEmail){
-            $profilePicture = $request->file('profilepic');
-            $input['filename'] = time().'.'.$profilePicture->getClientOriginalExtension();
-            $picPath = public_path('/images/profilepic');
-            $profilePicture->move($picPath, $input['filename']);
-            $profilePicName = $input['filename'];
+            $profilePicName = Session::get('profileImage');
+            if(!empty($request->file('profilepic'))){
+                $profilePicture = $request->file('profilepic');
+                $input['filename'] = time().'.'.$profilePicture->getClientOriginalExtension();
+                $picPath = public_path('/images/profilepic');
+                $profilePicture->move($picPath, $input['filename']);
+                $profilePicName = $input['filename'];
+            }
             
-            $queryUser = DB::update('update Users set userFirstName = ?, userLastName = ?, userEmail = ?, userGender = ?, userDOB = ?, userIdcard = ?, userProfileImage = ? where username = ?', [$request->input('firstname'), $request->input('lastname'), $userEmail, $gender, $request->input('birthdate'), $request->input('idcard'), $profilePicName ,$username]);
+            $queryUser = DB::update('update Users set userFirstName = ?, userLastName = ?, userEmail = ?, userGender = ?, userDOB = ?, userIdcard = ?, userProfileImage = ? where username = ?', [$request->input('firstname'), $request->input('lastname'), $userEmail, $request->input('gender'), $request->input('birthdate'), $request->input('idcard'), $profilePicName ,$username]);
             $firstname = DB::table('Users')->select('userFirstName')->where('username',$username)->get();
             Session::put('firstname', $firstname[0]->userFirstName);
             $lastname = DB::table('Users')->select('userLastName')->where('username',$username)->get();
@@ -37,7 +40,7 @@ class ProfileEditController extends Controller
             Session::put('idCard', $idCard[0]->userIdcard);
             $guideid = DB::table('Guide')->select('guideId')->where('username',$username)->get();
             echo "<script>window.alert('Update completed.')</script>";
-            return view('index');
+            return redirect('/');
         }
         else{
             echo "<script>window.alert('Dublicate email! Please change.')</script>";
