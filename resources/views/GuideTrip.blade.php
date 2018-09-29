@@ -112,57 +112,9 @@
                                         </a>
                                     </li> -->
                                 </ul>
-                            <!-- dropdown-alerts -->
-                                <li class="dropdown">
-                                    <a class="dropdown" data-toggle="dropdown" href="#">
-                                        <img src="../pic/chat.png" class="mr-3">
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-messages">
-                                    <!-- <li>
-                                        <a href="#">
-                                            <div>
-                                                <strong>John Smith</strong>
-                                                <span class="pull-right text-muted">
-                                                    <em>Yesterday</em>
-                                                </span>
-                                            </div>
-                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <div>
-                                                <strong>John Smith</strong>
-                                                <span class="pull-right text-muted">
-                                                    <em>Yesterday</em>
-                                                </span>
-                                            </div>
-                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">
-                                            <div>
-                                                <strong>John Smith</strong>
-                                                <span class="pull-right text-muted">
-                                                    <em>Yesterday</em>
-                                                </span>
-                                            </div>
-                                            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                                        </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a class="text-center" href="#">
-                                            <strong>Read All Messages</strong>
-                                            <i class="fa fa-angle-right"></i>
-                                        </a>
-                                    </li> -->
-                                    </ul>
-                                </li>
-                            <!-- dropdown-alerts -->
+                                <!-- dropdown-alerts -->
+                                <a href = "chat"><img src="../pic/chat.png" class="mr-3"></a>
+                                <!-- dropdown-alerts -->
                                 <li class="dropdown">
                                     <a class="dropdown" data-toggle="dropdown" href="#">
                                         <img src="../pic/user.png">
