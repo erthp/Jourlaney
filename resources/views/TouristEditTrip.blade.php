@@ -32,9 +32,9 @@
         </div>
 <br>
 <div class="container">
-@if((Session::get('guideid')) == ( $creator -> guideId ))
+@if((Session::get('touristid')) == ( $creator -> touristId ))
     <h3 class="text-center trip-header">Edit your trip</h3>
-        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gedittrip')}}" enctype="multipart/form-data">
+        <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/tedittrip')}}" enctype="multipart/form-data">
             <div class="row mt-5">
                 <div class="col-lg-2">
                     <label class="trip-label" for="tripname">Trip name</label>
