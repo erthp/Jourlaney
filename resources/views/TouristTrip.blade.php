@@ -115,28 +115,29 @@
                              <!-- dropdown-alerts -->
                         <a href = "chat"><img src="../pic/chat.png" class="mr-3"></a>
                             <!-- dropdown-alerts -->
-                                <li class="dropdown">
-                                    <a class="dropdown" data-toggle="dropdown" href="#">
-                                        <img src="../pic/user.png">
-                                    </a>
-                                    <ul class="dropdown-menu dropdown-user">
-                                        <li><a href="../Profile/{{Session::get('username')}}">{{Session::get('username')}}</a>
-                                        </li>
-                                        <li><a href="../editprofile">Edit Profile</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li>
-                                        <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
-                                        {{ csrf_field() }} 
-                                            <a onclick="document.getElementById('logout-form').submit()">Logout</a>
-                                        </form>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </div>
-                        </ul>
-                    </div>
-                </nav>
+                    <li class="dropdown">
+                        <a class="dropdown" data-toggle="dropdown" href="#">
+                        <img src="../images/profilepic/{{Session::get('profileImage')}}" class="profileImageNav"><p class="username">{{Session::get('username')}}</p>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
+                        </li>
+                        <li>
+                            <a href="editprofile" class="userDropdown">Edit Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                {{ csrf_field() }}
+                                <a onclick="document.getElementById('logout-form').submit()" class="userDropdown">Logout</a>
+                            </form>
+                        </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
                 <!-- <a href="profile">{{Session::get('username')}}</a>
                 <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
