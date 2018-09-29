@@ -72,10 +72,12 @@
                                              @endforeach
                                             @endif</td> 
                                       </tr>
+                                      @if(!empty(Session::get('guideid')))
                                       <tr>
                                         <td>Max Travellers :</td>
                                         <td>{{ $trip -> tripTravellers }}</td>
                                       </tr>
+                                      @endif
                                       <!-- <tr>
                                         <td>Language :</td>
                                         <td>{{Session::get('language')}}</td>
