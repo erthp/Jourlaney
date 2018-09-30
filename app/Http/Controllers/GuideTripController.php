@@ -64,7 +64,9 @@ class GuideTripController extends Controller
     public function GuideCreateTripTime(Request $request){
         $tripId = $request->input('tripId');
         $tripDay = $request->input('tripDay');
-        if(!empty($request->input('time2'))){
+        if(!empty($request->input('time1'))){
+            $queryTime1 = DB::insert("insert into GuideTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time1'),$request->input('desc1')]);
+        }if(!empty($request->input('time2'))){
             $queryTime2 = DB::insert("insert into GuideTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time2'),$request->input('desc2')]);
         }if(!empty($request->input('time3'))){
             $queryTime3 = DB::insert("insert into GuideTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time3'),$request->input('desc3')]);

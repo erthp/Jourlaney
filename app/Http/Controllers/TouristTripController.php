@@ -55,33 +55,35 @@ class TouristTripController extends Controller
         $tripDay = $request->input('tripDay');
         if(!empty($request->input('time1'))){
             $queryTime1 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time1'),$request->input('desc1')]);
-            if(!empty($request->input('time2'))){
-                $queryTime2 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time2'),$request->input('desc2')]);
-                if(!empty($request->input('time3'))){
-                    $queryTime3 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time3'),$request->input('desc3')]);
-                    if(!empty($request->input('time4'))){
-                        $queryTime4 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time4'),$request->input('desc4')]);
-                        if(!empty($request->input('time5'))){
-                            $queryTime5 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time5'),$request->input('desc5')]);
-                            if(!empty($request->input('time6'))){
-                                $queryTime6 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time6'),$request->input('desc6')]);
-                                if(!empty($request->input('time7'))){
-                                    $queryTime7 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time7'),$request->input('desc7')]);
-                                    if(!empty($request->input('time8'))){
-                                        $queryTime8 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time8'),$request->input('desc8')]);
-                                        if(!empty($request->input('time9'))){
-                                            $queryTime9 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time9'),$request->input('desc9')]);
-                                            if(!empty($request->input('time10'))){
-                                                $queryTime10 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time10'),$request->input('desc10')]);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+        }if(!empty($request->input('time2'))){
+            $queryTime2 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time2'),$request->input('desc2')]);
+        }if(!empty($request->input('time3'))){
+            $queryTime3 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time3'),$request->input('desc3')]);
+        }if(!empty($request->input('time4'))){
+            $queryTime4 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time4'),$request->input('desc4')]);
+        }if(!empty($request->input('time5'))){
+            $queryTime5 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time5'),$request->input('desc5')]);
+        }if(!empty($request->input('time6'))){
+            $queryTime6 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time6'),$request->input('desc6')]);
+        }if(!empty($request->input('time7'))){
+            $queryTime7 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time7'),$request->input('desc7')]);
+        }if(!empty($request->input('time8'))){
+            $queryTime8 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time8'),$request->input('desc8')]);
+        }if(!empty($request->input('time9'))){
+            $queryTime9 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time9'),$request->input('desc9')]);
+        }if(!empty($request->input('time10'))){
+            $queryTime10 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time10'),$request->input('desc10')]);
+        }if(!empty($request->input('time11'))){
+            $queryTime10 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time11'),$request->input('desc11')]);
+        }if(!empty($request->input('time12'))){
+            $queryTime10 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time12'),$request->input('desc12')]);
+        }if(!empty($request->input('time13'))){
+            $queryTime10 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time13'),$request->input('desc13')]);
+        }if(!empty($request->input('time14'))){
+            $queryTime10 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time14'),$request->input('desc14')]);
+        }if(!empty($request->input('time15'))){
+            $queryTime10 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time15'),$request->input('desc15')]);
+        }
             $tripDay++;
             switch($request->submit){
                 case 'addDay':
