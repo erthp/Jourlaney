@@ -101,26 +101,24 @@
                             <!-- dropdown-alerts -->
                            
                         <li class="dropdown">
-                            <a class="dropdown" data-toggle="dropdown" href="#">
-                                    <img src="../images/profilepic/{{Session::get('profileImage')}}" class="profileImageNav"><p class="username">{{Session::get('username')}}</p>
-                                </a>
-                                <ul class="dropdown-menu dropdown-user">
-                                    <li><a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
-                                    </li>
-                                    <li><a href="../editprofile" class="userDropdown">Edit Profile</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('./logout') }}"> 
-                                            {{ csrf_field() }} 
-                                        <a onclick="document.getElementById('logout-form').submit()" class="userDropdown">Logout</a>
-                                    </form>
-                                </li>
-                            </ul>
+                        <a class="dropdown" data-toggle="dropdown" href="#">
+                        <img src="../images/profilepic/{{Session::get('profileImage')}}" class="profileImageNav"><p class="username">{{Session::get('username')}}</p>
+                        </a>
+                        <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
                         </li>
-                    </ul>
-                </div>
-            </nav>
+                        <li>
+                            <a href="editprofile" class="userDropdown">Edit Profile</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                {{ csrf_field() }}
+                                <a onclick="document.getElementById('logout-form').submit()" class="userDropdown">Logout</a>
+                            </form>
+                        </li>
+                    </li>
 
                 <!-- <a href="profile">{{Session::get('username')}}</a>
                 <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
@@ -131,7 +129,11 @@
             <a class="btn btn-outline-light btn-small navbar-btn mr-3" data-toggle="modal" data-target="#register-popup">Sign up</a>
             <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
             @endif
+            </ul>
         </div>
+      </div>
+    </nav>
+
 
                 <div id="login-popup" class="modal fade" role="dialog">
                 <div class="modal-dialog">

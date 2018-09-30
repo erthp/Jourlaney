@@ -115,7 +115,7 @@
                              <!-- dropdown-alerts -->
                         <a href = "chat"><img src="../pic/chat.png" class="mr-3"></a>
                             <!-- dropdown-alerts -->
-                    <li class="dropdown">
+                            <li class="dropdown">
                         <a class="dropdown" data-toggle="dropdown" href="#">
                         <img src="../images/profilepic/{{Session::get('profileImage')}}" class="profileImageNav"><p class="username">{{Session::get('username')}}</p>
                         </a>
@@ -134,10 +134,6 @@
                             </form>
                         </li>
                     </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
                 <!-- <a href="profile">{{Session::get('username')}}</a>
                 <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
@@ -148,7 +144,6 @@
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#register-popup">Sign up</a>
                 <a class="btn btn-outline-light btn-small navbar-btn" data-toggle="modal" data-target="#login-popup">Login</a>
             @endif
-            </div>
           </ul>
         </div>
       </div>
