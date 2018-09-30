@@ -139,7 +139,7 @@ class GuideTripController extends Controller
         $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
         $queryLocation = DB::select("select tripLocation from Location order by locationId");
         $queryGuideTrip = DB::update("update GuideTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ?, tripTravellers = ?, tripCost = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$tripId]);
-        return view('GuideEditTripDetails',['tripId' => $tripId])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+        return view('GuideEditTripDetails',['tripId' => $tripId],['creatorId' => $creatorId])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
     }
 
     public function GuideEditTripDetails(Request $request){
