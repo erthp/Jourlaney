@@ -13,7 +13,13 @@ class SearchController extends Controller
         $name = Input::get('name');
         $startdate = Input::get('startdate');
         $enddate = Input::get('enddate');
-        $trip = DB::select("select * from GuideTrip t join Guide g on t.GuideId=g.GuideId join Users u on g.username=u.username where (t.tripStart between '".$startdate."' and '".$enddate."') or (t.tripEnd between '".$startdate."' and '".$enddate."') or (t.tripStart <= '".$startdate."' and t.tripEnd >= '".$enddate."') or t.tripName like '%$name%'");
+        if(empty($name)){
+            $trip = DB::select("select * from GuideTrip t join Guide g on t.GuideId=g.GuideId join Users u on g.username=u.username where (t.tripStart between '".$startdate."' and '".$enddate."') or (t.tripEnd between '".$startdate."' and '".$enddate."') or (t.tripStart <= '".$startdate."' and t.tripEnd >= '".$enddate."')");
+        }elseif(empty($startdate) && empty($enddate)){
+            $trip = DB::select("select * from GuideTrip t join Guide g on t.GuideId=g.GuideId join Users u on g.username=u.username where t.tripName like '%$name%'");
+        }else{
+            $trip = DB::select("select * from GuideTrip t join Guide g on t.GuideId=g.GuideId join Users u on g.username=u.username where ((t.tripStart between '".$startdate."' and '".$enddate."') or (t.tripEnd between '".$startdate."' and '".$enddate."') or (t.tripStart <= '".$startdate."' and t.tripEnd >= '".$enddate."')) and (t.tripName like '%$name%')");
+        }
         return view('search', ['trip' => $trip]);
     }
 }
