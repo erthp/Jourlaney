@@ -39,7 +39,7 @@
         <div class="col-8">
             <label class="search-namelabel">Trip name / Location</label>
             <form method="GET" action="{{URL::to('/search')}}">
-            <input type="text" class="searchbox-searchpage animated fadeIn" name="name" placeholder="Trip name / Location">   
+            <input type="text" class="searchbox-searchpage animated fadeIn" name="name" placeholder="Trip name / Location" value="{{ $name }}">   
         </div>
         <div class="col-2"></div>  
     </div>
@@ -49,16 +49,31 @@
         <div class="col-4">
             <div class="form-group">
                 <label class="search-datelabel">Start date</label>
-                <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum">
+                <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $startdate }}">
             </div>
         </div>
         <div class="col-4">
             <div class="form-group">
                 <label class="search-datelabel">End date</label>
-                <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum">
+                <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $enddate }}">
             </div>
         </div>  
         <div class="col-2"></div>    
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <label class="search-datelabel">Show trip form: </label>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="guide" name="guide" checked>
+                <label class="form-check-label" for="Guide">Guide</label>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="tourist" name="tourist">
+                <label class="form-check-label" for="Tourist">Tourist</label>
+            </div>
+        </div>
+        <div class="col-2"></div> 
     </div>
     
     <br>
