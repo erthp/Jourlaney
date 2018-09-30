@@ -45,9 +45,11 @@
                             @endphp
                             @if(!empty($queryTime))
                                 @foreach( $queryTime as $qt )
-                                <div id="field{{ $count }}">
-                                <span>Time:&nbsp;</span><input type='time' name="time{{ $count }}" value="{{ $qt -> tripTime }}"/>
-                                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><input type='text' name="desc{{ $count }}" size='50' value="{{ $qt -> tripDescription }}"/> <a id='btnTime' onClick='time()'><img src='../pic/add.png' hight='16px' width='16px'></a>
+                                <div id="cover">
+                                <div id="field{{ $count }}" class="form-inline">
+                                <div class="col-2"><input type='time' class='form-control' name="time{{ $count }}" value="{{ $qt -> tripTime }}"/></div>
+                                <div class="col-6"><input type='text' class='form-control' name="desc{{ $count }}" size='40' value="{{ $qt -> tripDescription }}"/></div><div class="col-2"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><a id='btnTime' onClick='time()'><img src='../pic/add.png' height='16px' width='16px'></a><a id='btnTime' onClick='remove{{ $count }}()' class="ml-2"><img src='../pic/remove.png' height='16px' width='16px'></a></div>
+                                </div>
                                 @php
                                     $count++;
                                 @endphp
@@ -63,7 +65,7 @@
         </div>
         <div class="container">
             <div class="row text-center mt-4 mb-4">
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                 </div>
                 <div class="col-lg-8">
                     <input type="hidden" name="tripId" value="{{ $tripId }}"/>

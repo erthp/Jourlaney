@@ -33,7 +33,7 @@
 <br>
 <div class="container">
 
-    <h3 class="text-center trip-header">Edit trip details: Day {{ $tripDay }}</h3>
+    <h3 class="text-center trip-header">Edit trip details: Day {{ $tripDay }}</h3><br>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gedittriptime')}}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-1">
@@ -47,9 +47,9 @@
                                 @foreach( $queryTime as $qt )
                                 <div id="cover">
                                 <div id="field{{ $count }}" class="form-inline">
-                                <div class="col-4"><span>Time:&nbsp;</span><input type='time' class='form-control' name="time{{ $count }}" value="{{ $qt -> tripTime }}"/></div>
-                                <div class="col-6"><input type='text' class='form-control' name="desc{{ $count }}" size='40' value="{{ $qt -> tripDescription }}"/></div>
-                                <div class="col-2"><a id='btnTime' onClick='time()'><img src='../pic/add.png' height='16px' width='16px'></a><a id='btnTime' onClick='remove{{ $count }}()' class="ml-2"><img src='../pic/remove.png' height='16px' width='16px'></a></div>
+                                <div class="col-2"><input type='time' class='form-control' name="time{{ $count }}" value="{{ $qt -> tripTime }}"/></div>
+                                <div class="col-6"><input type='text' class='form-control' name="desc{{ $count }}" size='40' value="{{ $qt -> tripDescription }}"/></div><div class="col-2"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><a id='btnTime' onClick='time()'><img src='../pic/add.png' height='16px' width='16px'></a><a id='btnTime' onClick='remove{{ $count }}()' class="ml-2"><img src='../pic/remove.png' height='16px' width='16px'></a></div>
+                                
                                 </div>
                                 @php
                                     $count++;
@@ -66,7 +66,7 @@
         </div>
         <div class="container">
             <div class="row text-center mt-4 mb-4">
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                 </div>
                 <div class="col-lg-8">
                     <input type="hidden" name="tripId" value="{{ $tripId }}"/>
