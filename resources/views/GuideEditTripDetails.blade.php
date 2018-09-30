@@ -127,14 +127,15 @@
                             $seasonal = "false"
                         @endphp
                         @for($i = 0; $i < count($tripCondition); $i++)
-                        @if($tripCondition[$i] -> tripCondition == "Smart casual")
-                        <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" checked/> Smart Casual  &nbsp;&nbsp;&nbsp;
-                        @php
-                            $smartCasual = "true";
-                        @endphp
+                            @if($tripCondition[$i] -> tripCondition == "Smart casual")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" checked/> Smart Casual  &nbsp;&nbsp;&nbsp;
+                            @php
+                                $smartCasual = "true";
+                            @endphp
+                            @endif
                         @endfor
                         @if($smartCasual !== "true")
-                        <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
                         @endif
 
                         @for($i = 0; $i < count($tripCondition); $i++)
