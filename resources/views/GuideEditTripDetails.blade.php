@@ -34,7 +34,7 @@
 
 <div class="container">
 @if((Session::get('guideid')) == ( $creatorId -> guideId ))
-    <h3 class="text-center trip-header">Edit trip details</h3>
+    <h3 class="text-center trip-header">Edit trip details</h3><br>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gedittripdetails')}}" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-2">
@@ -188,11 +188,13 @@
                 </div>
             </div>
             <div class="row text-center mb-4">
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <input type="hidden" name="tripId" value="{{ $tripId }}"/>
                     <button type="submit" class="btn btn-info btn-block">Edit time details</button>
+                </div>
+                <div class="col-lg-3">
                 </div>
             </div>
         </form>
