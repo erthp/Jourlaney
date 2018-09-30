@@ -96,10 +96,18 @@
                     <div class="card hometrip-container" style="width: 20rem;">
                         <img class="card-img-top hometrip-image" src="../images/trippic/{{ $tripresult -> tripPicture }}">
                         <div class="image-overlay">
-                            <a class="image-overlay-text" href="../GuideTrip/19">VIEW TRIP</a>
+                            @if(!empty( $trip-> guideId))
+                            <a class="image-overlay-text" href="../GuideTrip/{{ $tripresult -> tripId }}">VIEW TRIP</a>
+                            @else
+                            <a class="image-overlay-text" href="../TouristTrip/{{ $tripresult -> tripId }}">VIEW TRIP</a>
+                            @endif
                         </div>
                         <div class="card-body">
+                            @if(!empty( $trip-> guideId))
                             <a href="../GuideTrip/{{ $tripresult -> tripId }}" class="hometrip-tripname">{{ $tripresult -> tripName }}</a>
+                            @else
+                            <a href="../TouristTrip/{{ $tripresult -> tripId }}" class="hometrip-tripname">{{ $tripresult -> tripName }}</a>
+                            @endif
                             <a href="../Profile/{{ $tripresult -> username }}" class="hometrip-tripowner">{{ $tripresult -> userFirstName }}</a>
                         </div>
                     </div>
