@@ -123,7 +123,7 @@ class TouristTripController extends Controller
             $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
             $tripLocation = DB::select("select l.tripLocation from TouristTripLocation l join TouristTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
             $queryLocation = DB::select("select tripLocation from Location order by locationId");
-            $queryTouristTrip = DB::update("update TouristTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$tripId]);
+            $queryTouristTrip = DB::update("update TouristTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$touristTripPicName,$tripId]);
             return view('TouristEditTripDetails',['tripId' => $tripId],['creatorId' => $creatorId])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
         }
     
