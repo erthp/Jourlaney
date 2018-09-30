@@ -377,6 +377,37 @@
             </div>
             </div>
         </div>
+        <div class="container footer-bg">
+            <div class="row">
+                <div class="col-4 footer-title">
+                <a class="footer-title-text" href="/">JOURLANEY</a>
+                </div>
+                <div class="col-4">
+                </div>
+                <div class="col-4">
+                    <div class="footer-social" align="right">
+                        <a class="footer-social-facebook">
+                        </a>
+                        <a class="footer-social-twitter">
+                        </a>
+                        <a class="footer-social-instagram">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 footer-menu">
+                <a href="/">HOME</a>
+            </div>
+            <div class="col-12 footer-menu">
+                <a href="search">TRIPS</a>
+            </div>
+            <div class="col-12 footer-menu">
+                ABOUT US
+            </div>
+            <div class="col-12 footer-foot">
+                <i class="fas fa-heart"></i> &copy; 2018, Jourlaney.
+            </div>
+            </div>
+        </div>
     <script>
 $(function() {
     $('.calendar').pignoseCalendar({
