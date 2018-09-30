@@ -228,7 +228,7 @@ class GuideTripController extends Controller
                 $tripData = DB::table('GuideTrip')->where(['tripId'=>$tripId])->first();
                     
                 $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
-                $tripTransportion = DB::select("select c.tripTransportation from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+                $tripTransportation = DB::select("select c.tripTransportation from GuideTripTransportation c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
 
                 $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
                 $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
