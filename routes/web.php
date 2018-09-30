@@ -50,8 +50,8 @@ Route::get('touristShowEditTripTime/{tripId}', 'TripController@touristShowEditTr
 
 Route::get('TouristTrip/{tripId}', 'TripController@showTouristTrip')->name('TouristTrip.ShowTrip');
 
-Route::get('chat/{chatRoomId}', 'ChatController@showChat')->name('Chat.showChat');
-
+Route::get('chat/{chatRoomId}', 'ChatController@ShowChat')->name('Chat.ShowChat');
+Route::get('ShowChatPage', 'ChatController@ShowChatPage')->name('Chat.ShowChatPage');
 Route::get('resetpassword',function(){
     return view('ResetPassword');
 });

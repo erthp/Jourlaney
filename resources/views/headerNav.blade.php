@@ -102,7 +102,7 @@
                         </ul>
                     </li>
                             <!-- dropdown-alerts -->
-                    <a href = "chat"><img src="../pic/chat.png" class="mr-3"></a>
+                    <a href = "{{ URL::to('/ShowChatPage') }}"><img src="../pic/chat.png" class="mr-3"></a>
                             <!-- dropdown-alerts -->
                     <li class="dropdown">
                         <a class="dropdown" data-toggle="dropdown" href="#">
