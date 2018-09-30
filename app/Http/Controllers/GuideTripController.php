@@ -225,7 +225,17 @@ class GuideTripController extends Controller
                     return view('GuideCreateTripTime',['tripId' => $tripId],['tripDay' => $tripDay])->with('queryTime',$queryTime);
                 break;
                 case 'submit':
-                    return view('createtripcompleted');
+                $tripData = DB::table('GuideTrip')->where(['tripId'=>$tripId])->first();
+                    
+                $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+                $tripTransportion = DB::select("select c.tripTransportation from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+
+                $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
+                $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
+                $tripDetails = DB::select("select d.tripDay, d.tripTime, d.tripDescription from GuideTripDetails d join GuideTrip g on g.tripId = d.tripId where d.tripId = " .$tripId);
+                $value = Current($creatorId);
+                $creator = DB::select("select * from Users join Guide on Users.username = Guide.username join GuideTrip on Tourist.TouristId = GuideTrip.guideId where GuideTrip.tripId = ".$tripId);
+                return view('createtripcompleted', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails)->with('tripTransportation',$tripTransportation);
                 break;
             }
         }

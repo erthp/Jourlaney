@@ -94,11 +94,11 @@ class TouristTripController extends Controller
                     
                     $tripCondition = DB::select("select c.tripCondition from TouristTripCondition c join TouristTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
             
-                    $creatorId = DB::table('TouristTrip')->select('TouristId')->where(['tripId'=>$tripId])->first();
+                    $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
                     $tripLocation = DB::select("select l.tripLocation from TouristTripLocation l join TouristTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
                     $tripDetails = DB::select("select d.tripDay, d.tripTime, d.tripDescription from TouristTripDetails d join TouristTrip g on g.tripId = d.tripId where d.tripId = " .$tripId);
                     $value = Current($creatorId);
-                    $creator = DB::select("select * from Users join Tourist on Users.username = Tourist.username join TouristTrip on Tourist.TouristId = TouristTrip.TouristId where TouristTrip.tripId = ".$tripId);
+                    $creator = DB::select("select * from Users join Tourist on Users.username = Tourist.username join TouristTrip on Tourist.touristId = TouristTrip.TouristId where TouristTrip.tripId = ".$tripId);
                     return view('createtripcompleted', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails);
                 break;
             }
