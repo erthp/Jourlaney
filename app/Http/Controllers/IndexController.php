@@ -29,6 +29,6 @@ class IndexController extends Controller
         $queryUpcomingGuideTrips = DB::select("select * from GuideTrip t join Guide g on t.guideId=g.guideId join Users u on g.username = u.username where t.tripStart = '".$next7."' or t.tripStart = '".$next8."' or t.tripStart = '".$next9."' or t.tripStart = '".$next10."' or t.tripStart = '".$next11."' or t.tripStart = '".$next11."' or t.tripStart = '".$next12."'");
         shuffle($queryGuideTrips);
 
-        return view('index')->with('guideTrips',$queryGuideTrips)->with('upcomingGuideTrips',$queryUpcomingGuideTrips);
+        return view('index',['today',$today],['next6',$next6],['next7',$next7],['next12',$next12])->with('guideTrips',$queryGuideTrips)->with('upcomingGuideTrips',$queryUpcomingGuideTrips);
     }
 }
