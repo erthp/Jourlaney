@@ -301,6 +301,7 @@
                                 <div class="col-lg-6">
                                 <input type="hidden" id="tripStart" value="{{ $trip -> tripStart }}">
                                 <input type="hidden" id="tripEnd" value="{{ $trip -> tripEnd }}">
+                                <div class="calendar"></div>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
@@ -319,5 +320,12 @@
     @yield('page')
     </div>
 </body>
-
+<script>
+$(function() {
+    $('.calendar').pignoseCalendar({
+        minDate: document.getElementById('tripStart').value,
+        maxDate: document.getElementById('tripEnd').value
+    });
+});
+</script>
 </html>
