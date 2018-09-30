@@ -16,8 +16,14 @@ class ChatController extends Controller
         $touristId = $request->input('touristId');
         $guideId = $request->input('guideId');
         $guideTripId = $request->input('tripId');
-        $query = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId) values(?,?,?,?)",[$chatId,$guideId,$touristId,$guideTripId]);
-        return view('chat')->with('chatRoomId',$chatId);
+        $create = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId) values(?,?,?,?)",[$chatId,$guideId,$touristId,$guideTripId]);
+        
+        $touristId = Session::get('touristid');
+        $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username where c.touristId=".$touristId." group by c.chatRoomId desc");
+        $maxChatRoomId = DB::select("select MAX(c.chatRoomId) as chatRoomId from ChatRoom c join Tourist t on c.touristId=t.touristId where t.touristId=".$touristId);
+        $chatRoomId = $maxChatRoomId[0]->chatRoomId;
+        $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
+        return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId);
     }
 
     public function ShowChatPage(){
