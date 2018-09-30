@@ -33,7 +33,7 @@
 <br>
 
 <div class="container">
-@if((Session::get('guideid')) == ( $creator -> guideId ))
+@if((Session::get('guideid')) == ( $creatorId -> guideId ))
     <h3 class="text-center trip-header">Edit trip details</h3>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gedittripdetails')}}" enctype="multipart/form-data">
             <div class="row">
@@ -120,45 +120,58 @@
                 </div>
                 <div class="col-lg-8">
                     @if(!empty($tripCondition))
-                        @if($tripCondition[0] -> tripCondition == "Smart casual")
+                        @php
+                            $smartCasual = "false";
+                            $noPets = "false";
+                            $flexiblePlan = "false";
+                            $seasonal = "false"
+                        @endphp
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                        @if($tripCondition[$i] -> tripCondition == "Smart casual")
                         <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" checked/> Smart Casual  &nbsp;&nbsp;&nbsp;
-                        @else
+                        @php
+                            $smartCasual = "true";
+                        @endphp
+                        @endfor
+                        @if($smartCasual !== "true")
                         <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
                         @endif
 
                         @for($i = 0; $i < count($tripCondition); $i++)
                             @if($tripCondition[$i] -> tripCondition == "No pets")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" checked/> No Pets &nbsp;&nbsp;&nbsp;
+                            @php
+                                $noPets = "true";
+                            @endphp
                             @endif
                         @endfor
-                        @for($i = 0; $i < count($tripCondition); $i++)
-                            @if($tripCondition[$i] -> tripCondition !== "No pets")
+                            @if($noPets !== "true")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets"/> No Pets &nbsp;&nbsp;&nbsp;
                             @endif
-                        @endfor
-
 
                         @for($i = 0; $i < count($tripCondition); $i++)
                             @if($tripCondition[$i] -> tripCondition == "Flexible plan")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" checked/> Flexible Plan &nbsp;&nbsp;&nbsp;
+                            @php
+                                $flexiblePlan = "true";
+                            @endphp
                             @endif
                         @endfor
-                        @for($i = 0; $i < count($tripCondition); $i++)
-                            @if($tripCondition[$i] -> tripCondition !== "Flexible plan")
+                            @if($flexiblePlan !== "true")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan"/> Flexible Plan &nbsp;&nbsp;&nbsp;
                             @endif
-                        @endfor
 
                         @for($i = 0; $i < count($tripCondition); $i++)
                             @if($tripCondition[$i] -> tripCondition == "Seasonal activity")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" checked/> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                            @php
+                                $seasonal = "true";
+                            @endphp
                             @endif
                         @endfor
-                        @for($i = 0; $i < count($tripCondition); $i++)
-                            @if($tripCondition[$i] -> tripCondition !== "Seasonal activity")
+                            @if($seasonal !== "true")
                             <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity"/> Seasonal Activity &nbsp;&nbsp;&nbsp;
                             @endif
-                        @endfor
                     @else
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
                     <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" /> No Pets &nbsp;&nbsp;&nbsp;
