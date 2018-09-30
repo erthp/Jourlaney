@@ -27,7 +27,7 @@
                                 <div class="header"></div>
                                 <div class="row text-center">
                                     <div class="col-lg-6 col-6">
-                                        <h4 class="createcompleted-popup">Trip Created!</h4>
+                                        <h4 class="createcompleted-popup">Saved!</h4>
                                     </div>
                                 </div>
                                 <div class="footer text-right">
