@@ -127,6 +127,46 @@
                 <div class="col-4"></div>
             </div>
         </div>
+        <div class="container mt-5">   
+                <h3>Upcoming Trips from Tourist</h3> 
+        </div>
+        <div class="container">
+            <div class="row mt-4 animated fadeIn">
+                @php
+                    $i = 1;
+                @endphp
+                @foreach ($touristTrips as $touristTrip)
+                @if($i <= 3)
+                <div class ="col-lg-4 col-12 text-center mb-2">
+                    <div class="card hometrip-container" style="width: 20rem;">
+                        <img class="card-img-top hometrip-image" src="../images/trippic/{{ $touristTrip -> tripPicture}}">
+                        <div class="image-overlay">
+                            <a class="image-overlay-text" href="../TouristTrip/{{ $touristTrip -> tripId }}">VIEW TRIP</a>
+                        </div>
+                        <div class="card-body">
+                            <a href="../TouristTrip/{{ $touristTrip -> tripId }}" class="hometrip-tripname">{{ $touristTrip -> tripName}}</a>
+                            <p class="hometrip-tripowner">{{ $touristTrip -> username }}</p>
+                        </div>
+                    </div>
+                </div>
+                @php
+                    $i++;
+                @endphp
+                @endif
+                @endforeach
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-2">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div class="center-div">
+                        <a href="/search?startdate={{ $today }}&enddate={{ $next6 }}"><input type="button" class="btn btn-lg btn-outline-light index-btn" value="See more trips"></a>
+                    </div>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
         <div class="container footer-bg">
             <div class="row">
                 <div class="col-4 footer-title">
