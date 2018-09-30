@@ -204,7 +204,7 @@
           <div class="col-lg-8 col-md-10 mx-auto">
             <div class="site-heading">
             <form method="GET" action="{{URL::to('/search')}}">
-                <input type="text" class="searchbox animated fadeInDown" name="search" placeholder="Where to go?">
+                <input type="text" class="searchbox animated fadeInDown" name="name" placeholder="Where to go?">
             </form>
             </div>
           </div>
