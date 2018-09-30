@@ -102,6 +102,6 @@ class TouristTripController extends Controller
                     return view('createtripcompleted', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails);
                 break;
             }
-        }
     }
+    
 }
