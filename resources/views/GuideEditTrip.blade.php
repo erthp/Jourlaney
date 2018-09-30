@@ -32,7 +32,7 @@
         </div>
 <br>
 <div class="container">
-@if((Session::get('guideid')) == ( $creator -> guideId ))
+@if((Session::get('guideid')) == ( $creatorId->guideId ))
     <h3 class="text-center trip-header">Edit your trip</h3>
         <form method="POST" id="trip-form" name="trip-form" action="{{URL::to('/gedittrip')}}" enctype="multipart/form-data">
             <div class="row mt-5">

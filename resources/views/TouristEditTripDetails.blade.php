@@ -192,11 +192,13 @@
                 </div>
             </div>
             <div class="row text-center mb-4">
-                <div class="col-lg-2">
+                <div class="col-lg-3">
                 </div>
-                <div class="col-lg-8">
+                <div class="col-lg-6">
                     <input type="hidden" name="tripId" value="{{ $tripId }}"/>
                     <button type="submit" class="btn btn-info btn-block">Edit time details</button>
+                </div>
+                <div class="col-lg-3">
                 </div>
             </div>
         </form>
