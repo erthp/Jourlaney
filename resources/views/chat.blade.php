@@ -99,7 +99,7 @@
                 <div class="row chat-sentbox">
                     <div class="col-12">
                         <div class="input-group chat-form">
-                            <input type="text" class="form-control" id="msg" name="msg">
+                            <input type="text" class="form-control" id="msg" name="msg" autofocus>
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-primary">Send</button>
                             </div>
