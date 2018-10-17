@@ -20,7 +20,7 @@
                     </div>
                     <div class="col-8 mt-4 mb-4">
                         <p>{{ $chatLists -> userFirstName }}</p>
-                        <p>{{ $chatLists -> chatText }}</p>
+                        <p>{{ $chatLists -> tripName }}</p>
                     </div>
                 </div>
             </a>
