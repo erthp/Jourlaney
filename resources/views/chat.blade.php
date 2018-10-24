@@ -15,12 +15,12 @@
             @foreach( $chatList as $chatLists )
             <a href="/chat/{{ $chatLists -> chatRoomId }}">
                 <div class="row chatListBox">
-                    <div class="col-4 mt-4 mb-4">
+                    <div class="col-4 mt-4 mb-2">
                         <img src="../images/profilepic/{{$query[0]->userProfileImage}}" class="profileImageChat">
                     </div>
-                    <div class="col-8 mt-4 mb-4">
-                        <p>{{ $chatLists -> userFirstName }}</p>
-                        <p>{{ $chatLists -> tripName }}</p>
+                    <div class="col-8 mt-4 mb-2">
+                        <p class="chat-list-name">{{ $chatLists -> userFirstName }}</p>
+                        <p class="chat-list-trip">on {{ $chatLists -> tripName }}</p>
                     </div>
                 </div>
             </a>

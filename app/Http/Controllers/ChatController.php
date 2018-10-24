@@ -39,11 +39,12 @@ class ChatController extends Controller
             }
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
-            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username where c.touristId=".$touristId." group by c.chatRoomId desc");
+            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc");
             if(!empty($chatList)){
                 $maxChatRoomId = DB::select("select MAX(c.chatRoomId) as chatRoomId from ChatRoom c join Tourist t on c.touristId=t.touristId where t.touristId=".$touristId);
                 $chatRoomId = $maxChatRoomId[0]->chatRoomId;
                 $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
+                //dd($chatList);
             }else{
                 return view('404');
             }
@@ -66,7 +67,7 @@ class ChatController extends Controller
         }else{
             return view('404');
         }
-        //dd($query);
+        dd($query);
         return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId);
     }
 
