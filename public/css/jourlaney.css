@@ -1,16 +1,17 @@
 @import url('https://fonts.googleapis.com/css?family=Patrick+Hand');
 @import url('https://fonts.googleapis.com/css?family=Kanit');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,800');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700');
 
 body{
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Quicksand', 'Kanit', sans-serif;
     background-color:#c0dfd9;
     font-weight: 400;
 }
 
 a{
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 800;
+    font-family: 'Quicksand', 'Kanit', sans-serif;
+    font-weight: 700;
     cursor: pointer;
 }
 
@@ -44,6 +45,19 @@ a{
   height: 550px;
 }
 
+.chat-list-name{
+  font-family: 'Quicksand', 'Kanit', sans-serif;
+  font-weight: 700;
+  color: #333333;
+}
+
+.chat-list-trip{
+  font-family: 'Quicksand', 'Kanit', sans-serif;
+  font-weight: 400;
+  color: #333333;
+  margin-top: -10px;
+}
+
 .chat-middle{
   background-color: #ffffff;
   overflow: scroll;
@@ -57,13 +71,13 @@ a{
 }
 
 .chat-text{
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
   font-weight: 400;
   font-size: 1em;
 }
 
 .chat-time-left{
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
   font-weight: 400;
   font-size: 0.1em;
   margin-left: 2%;
@@ -71,7 +85,7 @@ a{
 }
 
 .chat-time-right{
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
   font-weight: 400;
   font-size: 0.1em;
   margin-right: 2%;
