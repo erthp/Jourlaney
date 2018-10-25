@@ -81,8 +81,49 @@
             <div class="row mt-4">
                 <div class="col-12">
                     <p class="center-div">You're chatting with {{ $query -> userFirstName }}</p>
-                    <p class="center-div">on {{ $query -> tripName }} trip</p>
-                    <p class="center-div">Status: </p>
+                    <p class="center-div chat-status-tripname">on {{ $query -> tripName }} trip</p>
+
+                    @if(!empty(session::get('guideid')))
+                        @if(($orderStatus[0] -> status) == "Chat")
+                            <p class="center-div chat-status">Status: Chat</p>
+                            <button type="button" class="btn btn-success btn-block">Create trip order</button>
+                            <p class="center-div">Create order for tourist's transfer</p>
+                        @elseif(($orderStatus[0] -> status) == "Transfer")
+                            <p class="center-div chat-status">Status: Transfer</p>
+                            <p class="center-div">Wait for transfer confirmation</p>
+                        @elseif(($orderStatus[0] -> status) == "Confirmed")
+                            <p class="center-div chat-status">Status: Trip Confirmed</p>
+                            <p class="center-div">Prepare for trip in selected date.</p>
+                        @elseif(($orderStatus[0] -> status) == "Success")
+                            <p class="center-div chat-status">Status: Trip Success</p>
+                            <p class="center-div">Wait for tourist confirmation. If tourist doesn't confirm. Order will confirmed automatically in 3 days after trip completed.</p>
+                        @elseif(($orderStatus[0] -> status) == "Review")
+                            <p class="center-div chat-status">Status: Review</p>
+                            <button type="button" class="btn btn-primary btn-block">Rate and review your guide</button>
+                            <p class="center-div">Rate and review your guide</p>
+                        @endif
+                    @elseif(!empty(session::get('touristid')))
+                        @if(($orderStatus[0] -> status) == "Chat")
+                            <p class="center-div chat-status">Status: Chat</p>
+                            <p class="center-div">You can chat with guide for details and pricing agreement. After agreement completed, guide will create trip order for you.</p>
+                        @elseif(($orderStatus[0] -> status) == "Transfer")
+                            <p class="center-div chat-status">Status: Transfer</p>
+                            <button type="button" class="btn btn-primary btn-block">Transfer to system</button>
+                            <p class="center-div">You must transfer trip cost to system to confirm this order</p>
+                        @elseif(($orderStatus[0] -> status) == "Confirmed")
+                            <p class="center-div chat-status">Status: Trip Confirmed</p>
+                            <p class="center-div">Meet up at selected place and time.</p>
+                        @elseif(($orderStatus[0] -> status) == "Success")
+                            <p class="center-div chat-status">Status: Trip Success</p>
+                            <button type="button" class="btn btn-success btn-block">Confirm Trip</button>
+                            <p class="center-div">Confirm trip and transfer trip cost to guide.</p>
+                            <a class="center-div">Have a problem? Contact us.</a>
+                        @elseif(($orderStatus[0] -> status) == "Review")
+                            <p class="center-div chat-status">Status: Review</p>
+                            <button type="button" class="btn btn-primary btn-block">Rate and review your guide</button>
+                            <p class="center-div">Rate and review your guide</p>
+                        @endif
+                    @endif
                 </div>
             </div>
         </div>
