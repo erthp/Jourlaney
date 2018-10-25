@@ -70,6 +70,15 @@ a{
   overflow: scroll;
 }
 
+.chat-status{
+  font-family: 'Quicksand', 'Kanit', sans-serif;
+  font-weight: 700;
+}
+
+.chat-status-tripname{
+  border-bottom: 2px #333333;
+}
+
 .chat-text{
   font-family: 'Quicksand', 'Kanit', sans-serif;
   font-weight: 400;
