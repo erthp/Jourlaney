@@ -108,7 +108,26 @@
                             <p class="center-div">You can chat with guide for details and pricing agreement. After agreement completed, guide will create trip order for you.</p>
                         @elseif(($orderStatus[0] -> status) == "Transfer")
                             <p class="center-div chat-status">Status: Transfer</p>
-                            <button type="button" class="btn btn-primary btn-block">Transfer to system</button>
+                            <div class="omise-popup center-div">
+                                <form name="checkoutForm" method="POST" action="/chargeOmise">
+                                    <input type="hidden" name="description" value="order ฿{{$orderStatus[0] -> tripCost}}.00" />
+                                    <input type="hidden" name="amount" value="{{$orderStatus[0] -> tripCost}}00" />
+                                    <input type="hidden" name="name" value="abc" />
+                                            <script type="text/javascript" src="https://cdn.omise.co/omise.js"
+                                                data-key="pkey_test_5d13mw1sktn0oad4nei"
+                                                data-image="http://52.221.186.101/pic/add.png"
+                                                data-frame-label="Jourlaney"
+                                                data-button-label="Transfer to system"
+                                                data-submit-label="Submit"
+                                                data-location="no"
+                                                data-amount="{{$orderStatus[0] -> tripCost}}00" 
+                                                data-currency="thb"
+                                                >
+                                            </script>
+                                        <!--the script will render <input type="hidden" name="omiseToken"> for you automatically-->
+                                    {{ csrf_field() }}
+                                </form>
+                            </div>
                             <p class="center-div">You must transfer trip cost to system to confirm this order</p>
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
                             <p class="center-div chat-status">Status: Trip Confirmed</p>
