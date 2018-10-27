@@ -28,53 +28,55 @@
         </div>
 
         <div class="col-6 chat-middle" id="chat-middle">
-            @foreach( $query as $query )
-                @if(Session::get('touristid'))
-                    @if(($query -> sender) == "Tourist")
-                    <div class="row text-right mb-2">
-                        <div class="col-6"></div>
-                        <div class="col-6">
-                            <span class="badge badge-pill badge-info chat-text">
-                            {{ $query -> chatText }}
-                            </span>
-                            <span class="chat-time-right"><br>{{ $query -> chatTime }}</span>
+            @if(Session::get('touristid') == ($query[0] -> touristId) || Session::get('guideid') == ($query[0] -> guideId))
+                @foreach( $query as $query )
+                    @if(Session::get('touristid'))
+                        @if(($query -> sender) == "Tourist")
+                        <div class="row text-right mb-2">
+                            <div class="col-6"></div>
+                            <div class="col-6">
+                                <span class="badge badge-pill badge-info chat-text">
+                                {{ $query -> chatText }}
+                                </span>
+                                <span class="chat-time-right"><br>{{ $query -> chatTime }}</span>
+                            </div>
                         </div>
-                    </div>
-                    @elseif(($query -> sender) == "Guide")
-                    <div class="row text-left mb-2">
-                        <div class="col-6">
-                            <span class="badge badge-pill badge-light chat-text">
-                            {{ $query -> chatText }}
-                            </span>
-                            <span class="chat-time-left"><br>{{ $query -> chatTime }}</span>
+                        @elseif(($query -> sender) == "Guide")
+                        <div class="row text-left mb-2">
+                            <div class="col-6">
+                                <span class="badge badge-pill badge-light chat-text">
+                                {{ $query -> chatText }}
+                                </span>
+                                <span class="chat-time-left"><br>{{ $query -> chatTime }}</span>
+                            </div>
+                            <div class="col-6"></div>
                         </div>
-                        <div class="col-6"></div>
-                    </div>
+                        @endif
+                    @elseif(Session::get('guideid'))
+                        @if(($query -> sender) == "Guide")
+                        <div class="row text-right mb-2">
+                            <div class="col-6"></div>
+                            <div class="col-6">
+                                <span class="badge badge-pill badge-info chat-text">
+                                {{ $query -> chatText }}
+                                </span>
+                                <span class="chat-time-right"><br>{{ $query -> chatTime }}</span>
+                            </div>
+                        </div>
+                        @elseif(($query -> sender) == "Tourist")
+                        <div class="row text-left mb-2">
+                            <div class="col-6">
+                                <span class="badge badge-pill badge-light chat-text">
+                                {{ $query -> chatText }}
+                                </span>
+                                <span class="chat-time-left"><br>{{ $query -> chatTime }}</span>
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                        @endif
                     @endif
-                @elseif(Session::get('guideid'))
-                    @if(($query -> sender) == "Guide")
-                    <div class="row text-right mb-2">
-                        <div class="col-6"></div>
-                        <div class="col-6">
-                            <span class="badge badge-pill badge-info chat-text">
-                            {{ $query -> chatText }}
-                            </span>
-                            <span class="chat-time-right"><br>{{ $query -> chatTime }}</span>
-                        </div>
-                    </div>
-                    @elseif(($query -> sender) == "Tourist")
-                    <div class="row text-left mb-2">
-                        <div class="col-6">
-                            <span class="badge badge-pill badge-light chat-text">
-                            {{ $query -> chatText }}
-                            </span>
-                            <span class="chat-time-left"><br>{{ $query -> chatTime }}</span>
-                        </div>
-                        <div class="col-6"></div>
-                    </div>
-                    @endif
-                @endif
-            @endforeach
+                @endforeach
+            @endif
         </div>
 
         <div class="col-3 chat-right">
@@ -87,21 +89,51 @@
                         @if(($orderStatus[0] -> status) == "Chat")
                             <p class="center-div chat-status">Status: Chat</p>
                             <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#createTrip">Create trip order</button>
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal fade" id="createTrip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        ...
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Create Order</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="{{URL::to('/createOrder')}}" method="GET">
+                                                <div class="form-group">
+                                                    <label>Trip name</label>
+                                                    <input type="text" class="form-control" name="tripName" value="{{ $query -> tripName }}" disabled>
+                                                    <small class="form-text text-muted">Trip name has automatically generated.</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Meetup date</label>
+                                                    <input type="date" class="form-control" name="startDate">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Trip details</label>
+                                                    <textarea class="form-control" name="tripDetails"></textarea>
+                                                    <small class="form-text text-muted">You can fill agreement details here.</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Trip cost</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text">฿</span>
+                                                        </div>
+                                                        <input type="text" class="form-control tripCost" aria-label="Cost" name="tripCost" id="tripCost" onkeyup="Calculate()">
+                                                        <div class="input-group-append">
+                                                            <span class="input-group-text">.00</span>
+                                                        </div>
+                                                    </div>
+                                                    <small class="form-text text-muted">You will recieve trip cost after calculated from service charge and tax deduction.</small>
+                                                </div>
+
+                                                {{ csrf_field() }}
+                                            </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Create order</button>
                                     </div>
                                     </div>
                                 </div>
@@ -113,7 +145,7 @@
                             <p class="center-div">Wait for transfer confirmation</p>
 
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
-                            <div class="check_mark">
+                        <div class="check_mark">
                                 <div class="sa-icon sa-success animate">
                                     <span class="sa-line sa-tip animateSuccessTip"></span>
                                     <span class="sa-line sa-long animateSuccessLong"></span>
@@ -129,7 +161,7 @@
                                     }, 10);
                                 });
                             </script>
-                            <p class="center-div chat-status">Status: Trip Confirmed</p>
+                            <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Prepare for trip in selected date.</p>
 
                         @elseif(($orderStatus[0] -> status) == "Success")
@@ -164,7 +196,6 @@
                                                 data-currency="thb"
                                                 >
                                             </script>
-                                        <!--the script will render <input type="hidden" name="omiseToken"> for you automatically-->
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -238,6 +269,6 @@
         }, 2000);
         var message = document.getElementById('chat-middle');
         message.scrollTop = message.scrollHeight - message.clientHeight;
-});   
+    });   
 </script>
 @endsection
