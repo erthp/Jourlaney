@@ -92,6 +92,22 @@
                             <p class="center-div chat-status">Status: Transfer</p>
                             <p class="center-div">Wait for transfer confirmation</p>
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
+                            <div class="check_mark">
+                                <div class="sa-icon sa-success animate">
+                                    <span class="sa-line sa-tip animateSuccessTip"></span>
+                                    <span class="sa-line sa-long animateSuccessLong"></span>
+                                    <div class="sa-placeholder"></div>
+                                    <div class="sa-fix"></div>
+                                </div>
+                            </div>
+                            <script>
+                                $("body").onload(function() {
+                                    $(".sa-success").addClass("hide");
+                                    setTimeout(function() {
+                                        $(".sa-success").removeClass("hide");
+                                    }, 10);
+                                });
+                            </script>
                             <p class="center-div chat-status">Status: Trip Confirmed</p>
                             <p class="center-div">Prepare for trip in selected date.</p>
                         @elseif(($orderStatus[0] -> status) == "Success")
