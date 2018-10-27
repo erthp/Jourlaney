@@ -16,11 +16,11 @@
             <a href="/chat/{{ $chatLists -> chatRoomId }}">
                 <div class="row chatListBox">
                     <div class="col-4 mt-4 mb-2">
-                        <img src="../images/profilepic/{{$query[0]->userProfileImage}}" class="profileImageChat">
+                        <img src="../images/profilepic/{{$chatLists->userProfileImage}}" class="profileImageChat">
                     </div>
                     <div class="col-8 mt-4 mb-2">
                         <p class="chat-list-name">{{ $chatLists -> userFirstName }}</p>
-                        <p class="chat-list-trip">on {{ $chatLists -> tripName }}</p>
+                        <p class="chat-list-trip">on {{ $chatLists -> tripName }}</p><span class="badge badge-pill badge-secondary">#{{ $chatLists -> chatRoomId }}</span>
                     </div>
                 </div>
             </a>
@@ -99,7 +99,7 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{URL::to('/createOrder')}}" method="GET">
+                                            <form action="{{URL::to('/createOrder')}}" method="POST" name="createOrder" enctype="multipart/form-data">
                                                 <input type="hidden" name="chatRoomId" value="{{$orderStatus[0] -> chatRoomId}}" />
                                                 <div class="form-group">
                                                     <label>Trip name</label>
@@ -113,7 +113,7 @@
                                                 <div class="form-group">
                                                     <label>Trip details</label>
                                                     <textarea class="form-control" name="tripDetails"></textarea>
-                                                    <small class="form-text text-muted">You can fill agreement details here.</small>
+                                                    <small class="form-text text-muted">You can fill agreement details or meetup location here.</small>
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Trip cost</label>
@@ -121,7 +121,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text">฿</span>
                                                         </div>
-                                                        <input type="text" class="form-control tripCost" aria-label="Cost" name="tripCost" id="tripCost" onkeyup="Calculate()">
+                                                        <input type="number" class="form-control tripCost" aria-label="Cost" name="tripCost" id="tripCost" onkeyup="Calculate()">
                                                         <div class="input-group-append">
                                                             <span class="input-group-text">.00</span>
                                                         </div>
@@ -130,12 +130,13 @@
                                                 </div>
 
                                                 {{ csrf_field() }}
-                                            </form>
+                                            
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                         <button type="submit" class="btn btn-primary">Create order</button>
                                     </div>
+                                    </form>
                                     </div>
                                 </div>
                             </div>
@@ -144,6 +145,11 @@
                         @elseif(($orderStatus[0] -> status) == "Transfer")
                             <p class="center-div chat-status">Status: Transfer</p>
                             <p class="center-div">Wait for transfer confirmation</p>
+                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
+                            <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
+                            <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
+                            <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
+                            <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
 
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
                         <div class="check_mark">
@@ -164,6 +170,11 @@
                             </script>
                             <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Prepare for trip in selected date.</p>
+                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
+                            <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
+                            <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
+                            <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
+                            <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
 
                         @elseif(($orderStatus[0] -> status) == "Success")
                             <p class="center-div chat-status">Status: Trip Success</p>
@@ -201,6 +212,11 @@
                                 </form>
                             </div>
                             <p class="center-div">You must transfer trip cost to system to confirm this order</p>
+                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
+                            <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
+                            <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
+                            <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
+                            <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
                         
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
                             <div class="check_mark">
@@ -221,6 +237,11 @@
                             </script>
                             <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Meet up at selected place and time.</p>
+                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
+                            <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
+                            <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
+                            <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
+                            <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
                         
                         @elseif(($orderStatus[0] -> status) == "Success")
                             <p class="center-div chat-status">Status: Trip Success</p>
