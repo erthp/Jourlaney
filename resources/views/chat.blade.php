@@ -86,11 +86,32 @@
                     @if(!empty(session::get('guideid')))
                         @if(($orderStatus[0] -> status) == "Chat")
                             <p class="center-div chat-status">Status: Chat</p>
-                            <button type="button" class="btn btn-success btn-block">Create trip order</button>
+                            <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#createTrip">Create trip order</button>
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                             <p class="center-div">Create order for tourist's transfer</p>
+
                         @elseif(($orderStatus[0] -> status) == "Transfer")
                             <p class="center-div chat-status">Status: Transfer</p>
                             <p class="center-div">Wait for transfer confirmation</p>
+
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
                             <div class="check_mark">
                                 <div class="sa-icon sa-success animate">
@@ -110,9 +131,11 @@
                             </script>
                             <p class="center-div chat-status">Status: Trip Confirmed</p>
                             <p class="center-div">Prepare for trip in selected date.</p>
+
                         @elseif(($orderStatus[0] -> status) == "Success")
                             <p class="center-div chat-status">Status: Trip Success</p>
                             <p class="center-div">Wait for tourist confirmation. If tourist doesn't confirm. Order will confirmed automatically in 3 days after trip completed.</p>
+                        
                         @elseif(($orderStatus[0] -> status) == "Review")
                             <p class="center-div chat-status">Status: Review</p>
                             <button type="button" class="btn btn-primary btn-block">Rate and review your guide</button>
@@ -122,6 +145,7 @@
                         @if(($orderStatus[0] -> status) == "Chat")
                             <p class="center-div chat-status">Status: Chat</p>
                             <p class="center-div">You can chat with guide for details and pricing agreement. After agreement completed, guide will create trip order for you.</p>
+                        
                         @elseif(($orderStatus[0] -> status) == "Transfer")
                             <p class="center-div chat-status">Status: Transfer</p>
                             <div class="omise-popup center-div">
@@ -145,6 +169,7 @@
                                 </form>
                             </div>
                             <p class="center-div">You must transfer trip cost to system to confirm this order</p>
+                        
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
                             <div class="check_mark">
                                 <div class="sa-icon sa-success animate">
@@ -164,11 +189,13 @@
                             </script>
                             <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Meet up at selected place and time.</p>
+                        
                         @elseif(($orderStatus[0] -> status) == "Success")
                             <p class="center-div chat-status">Status: Trip Success</p>
                             <button type="button" class="btn btn-success btn-block">Confirm Trip</button>
                             <p class="center-div">Confirm trip and transfer trip cost to guide.</p>
                             <a class="center-div">Have a problem? Contact us.</a>
+                        
                         @elseif(($orderStatus[0] -> status) == "Review")
                             <p class="center-div chat-status">Status: Review</p>
                             <button type="button" class="btn btn-primary btn-block">Rate and review your guide</button>
