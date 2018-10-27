@@ -12,15 +12,15 @@ class ProfileController extends Controller
         $check = DB::table('Users')->where(['username'=>$username])->first();
         $checkGuide = DB::table('Guide')->where(['username'=>$username])->first();
         $checkTourist = DB::table('Tourist')->where(['username'=>$username])->first();
-        $touristRating = 0;
-        $guideRating = 0;
+        $touristRating = 0.00;
+        $guideRating = 0.00;
         $guideLocation = "";
 
         if(!empty($checkGuide)){
             $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
             $guideLocation = $profileGuideLocation[0]->guideLocation;
             $profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
-            $guideRating = $profileGuideRating[0]->guideRating;
+            $guideRating = number_format($profileGuideRating[0]->guideRating,2);
             $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'"');
         }
         if(!empty($checkTourist)){
