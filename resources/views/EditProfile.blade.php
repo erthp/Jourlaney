@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-2">
+                <div class="col-lg-1">
                     <label class="register-label" for="gender">Gender</label>
                 </div>
                 <div class="col-lg-5">
