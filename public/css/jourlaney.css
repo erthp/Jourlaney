@@ -542,6 +542,13 @@ h4{
   -moz-border-radius: 500px;
 }
 
+.profile-active-menu{
+  color: #333333;
+  padding-bottom: 5%;
+  border-bottom-style: solid;
+  border-bottom-color: #333333;
+}
+
 .profile-rating{
   color: #333333;
   display: inline-block;

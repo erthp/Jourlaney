@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-4">
             <div align="center">
-                <p class="h3">Trips</p>
+                <p class="h3 profile-active-menu">Trips</p>
             </div>
         </div>
         <div class="col-4">
