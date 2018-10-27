@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use Carbon\Carbon;
 
 class ChatController extends Controller
 {
@@ -36,7 +37,16 @@ class ChatController extends Controller
             $chatRoomId = $maxChatRoomId[0]->chatRoomId;
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
-            //dd($query);
+            
+            if($orderStatus[0]->status == "Confirmed"){
+                $orderCheck = DB::select("select tripStartDate from TripOrder where chatRoomId =".$chatRoomId);
+                $orderDate = $orderCheck[0];
+                $sub3 = Carbon::today('Asia/Bangkok')->sub('3 days')->isoFormat('YYYY-MM-DD');
+                if($sub3 >= $orderCheck[0]->tripStartDate){
+                    $change = DB::update('update TripOrder set status = ? where chatRoomId = ?',["Review",$chatRoomId]);
+                    return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
+                }
+            }
             }else{
                 return view('404');
             }
@@ -60,6 +70,8 @@ class ChatController extends Controller
     }
 
     public function ShowChat($chatRoomId){
+        $today = Carbon::today('Asia/Bangkok')->isoFormat('YYYY-MM-DD');
+        $sub3 = Carbon::today('Asia/Bangkok')->sub('3 days')->isoFormat('YYYY-MM-DD');
         if(Session::get('guideid')){
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
             $guideId = Session::get('guideid');
@@ -90,7 +102,7 @@ class ChatController extends Controller
             $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username where c.guideId=".$guideId." group by c.chatRoomId desc");
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
 
-            return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
+            return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus)->with('today',$today);
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
             $message = $request->input('msg');
