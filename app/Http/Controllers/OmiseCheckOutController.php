@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use DB;
         
         require_once dirname(__FILE__).'/omise/lib/Omise.php';
@@ -31,7 +32,8 @@ use DB;
 
         if ($charge['status'] == 'successful') {
         $confirm = DB::update('update TripOrder set status = ? where chatRoomId = ?',["Confirmed",$chatRoomId]);
-        echo "<script>swal('Success', 'Your trip has confirmed.', 'success')</script>";
+        return app('App\Http\Controllers\ChatController')->ShowChatPage();
+        echo "<script>window.alert('Success!, Your trip has confirmed.')</script>";
         } else {
         echo "<script>window.alert('Transfer Failed. Check your info and try again.')</script>";
         }

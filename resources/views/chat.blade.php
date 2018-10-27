@@ -130,7 +130,23 @@
                             </div>
                             <p class="center-div">You must transfer trip cost to system to confirm this order</p>
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
-                            <p class="center-div chat-status">Status: Trip Confirmed</p>
+                            <div class="check_mark">
+                                <div class="sa-icon sa-success animate">
+                                    <span class="sa-line sa-tip animateSuccessTip"></span>
+                                    <span class="sa-line sa-long animateSuccessLong"></span>
+                                    <div class="sa-placeholder"></div>
+                                    <div class="sa-fix"></div>
+                                </div>
+                            </div>
+                            <script>
+                                $("body").onload(function() {
+                                    $(".sa-success").addClass("hide");
+                                    setTimeout(function() {
+                                        $(".sa-success").removeClass("hide");
+                                    }, 10);
+                                });
+                            </script>
+                            <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Meet up at selected place and time.</p>
                         @elseif(($orderStatus[0] -> status) == "Success")
                             <p class="center-div chat-status">Status: Trip Success</p>
