@@ -458,9 +458,6 @@ h4{
   text-decoration: none;
 }
 
-#register-form{
-  margin-left:32%;
-}
 #trip-form{
   margin-left:15%;
 }
@@ -526,6 +523,16 @@ h4{
   -moz-border-radius: 500px;
 }
 
+.profileImageEdit{
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+  border:1px solid white;
+  border-radius: 500px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+}
+
 .profileImageTrip{
   height: 64px;
   width: 64px;
@@ -575,6 +582,14 @@ h4{
   vertical-align: text-top;
 }
 
+.profileedit-menu{
+  color: #333333;
+  padding-bottom: 1%;
+  border-bottom-style: solid;
+  border-bottom-color: #333333;
+  border-bottom-width: 1px;
+}
+
 ::placeholder {
     color: white;
     opacity: 1;
@@ -594,8 +609,11 @@ h4{
 
 .register-header{
     color: #513819;
-    margin-top: 10px;
-    padding-top: 10px;
+    border-left-style: solid;
+    border-left-color: #1abc9c;
+    border-left-width: 4px;
+    padding-left: 10px;
+    margin-bottom: 3%;
 }
 
 .register-label{
@@ -696,6 +714,27 @@ h4{
   font-family: 'Open Sans', sans-serif;
   font-weight: 800;
   color: #3b3a36;
+}
+
+.upload-button {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  cursor: pointer;
+  vertical-align: text-top;
+}
+
+.upload-button button{
+  cursor: pointer;
+}
+
+.upload-button input[type=file] {
+  font-size: 100px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
 }
 
 .username{
