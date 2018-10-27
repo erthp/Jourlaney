@@ -157,88 +157,13 @@
             @else
             <h5>Tourist</h5>
             @endif
-            <center>
-                <table>
                     @if(!empty($guideRating))
-                        @if(($guideRating)>=5)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        @elseif(($guideRating)>=4)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif(($guideRating)>=3)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif(($guideRating)>=2)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif(($guideRating)>=1)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @else
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @endif
+                        <img src = "../pic/star.png" height="24px" width = "24px"> <h5 class="profile-rating"> {{ $guideRating }}</h5>
                     @endif
                     @if(!empty($touristRating))
-                        @if(($touristRating)>=5)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        @elseif(($touristRating)>=4)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif(($touristRating)>=3)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif(($touristRating)>=2)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @elseif(($touristRating)>=1)
-                        <td><img src = "../pic/star.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @else
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        <td><img src = "../pic/star2.png" height="36px" width = "36px"></td>
-                        @endif
+                        <img src = "../pic/star.png" height="24px" width = "24px"> <h5 class="profile-rating"> {{ $touristRating }}</h5>
                     @endif
                 </table>
-            </center>
             <center>
                 <table style="margin-top:10px;">
                     @if(!empty($guide -> guideVerification))
