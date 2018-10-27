@@ -1,36 +1,5 @@
-@extends('header')
+@extends('headerNav')
 @section('page')
-<div class="container homemenu animated fadeIn">
-            <div class="row">
-                <div class="col-4">
-                    <div align="center">
-                        <a href = "/"><img src="../pic/map.png" class="homemenu-icon" height="80" alt=""></a>
-                        <p class="homemenu-text">All Trips</p>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div align="center">
-                    @if(!empty(Session::get('guideid')))
-                        <a href = "guidecreatetrip"><img src="../pic/tickets.png" class="homemenu-icon" height="80" alt=""></a>
-                        <p class="homemenu-text">Create Trip</p>
-                    @elseif(!empty(Session::get('touristid')))
-                        <a href = "touristcreatetrip"><img src="../pic/tickets.png" class="homemenu-icon" height="80" alt=""></a>
-                        <p class="homemenu-text">Create Trip</p>
-                    @else
-                        <a href = "/" onclick="alert('Please login first!')"><img src="../pic/tickets.png" class="homemenu-icon" height="80" alt=""></a>
-                        <p class="homemenu-text">Create Trip</p>
-                    @endif
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div align="center">
-                        <a href="search"><img src="../pic/search.png" class="homemenu-icon" height="80" alt=""></a>
-                        <p class="homemenu-text">Search Trip</p>
-                    </div>
-                </div>
-            </div>
-</div>
-<br>
 <div class="container">
     <h3 class="text-center trip-header">Search Trips</h3>
     <br>
