@@ -15,6 +15,10 @@ a{
     cursor: pointer;
 }
 
+a:hover{
+  text-decoration: none;
+}
+
 .center-div{
   text-align: center;
   align-items:center;
@@ -547,6 +551,22 @@ h4{
   padding-bottom: 5%;
   border-bottom-style: solid;
   border-bottom-color: #333333;
+}
+
+.profile-inactive-menu{
+  color: #1abc9c;
+  padding-bottom: 5%;
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  transition:.5s;
+  cursor: pointer;
+}
+
+.profile-inactive-menu:hover{
+  color: #36D7B7;
+  text-decoration: none;
 }
 
 .profile-rating{
