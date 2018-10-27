@@ -112,7 +112,7 @@
                                 <form name="checkoutForm" method="POST" action="/chargeOmise">
                                     <input type="hidden" name="description" value="order ฿{{$orderStatus[0] -> tripCost}}.00" />
                                     <input type="hidden" name="amount" value="{{$orderStatus[0] -> tripCost}}00" />
-                                    <input type="hidden" name="name" value="abc" />
+                                    <input type="hidden" name="chatRoomId" value="{{$orderStatus[0] -> chatRoomId}}" />
                                             <script type="text/javascript" src="https://cdn.omise.co/omise.js"
                                                 data-key="pkey_test_5d13mw1sktn0oad4nei"
                                                 data-image="http://52.221.186.101/pic/add.png"

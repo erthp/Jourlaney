@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
         
         require_once dirname(__FILE__).'/omise/lib/Omise.php';
         use OmiseCharge; 
@@ -16,6 +17,7 @@ use Illuminate\Http\Request;
        public function checkout(Request $request){
         $name = $request->input('name');
         $amount = $request->input('amount');
+        $chatRoomId = $request->input('chatRoomId');
         
         $charge = OmiseCharge::create(array(
         'amount' => $amount,
@@ -23,12 +25,15 @@ use Illuminate\Http\Request;
         'card' => $_POST["omiseToken"]
         ));
 
+
+
         //return redirect('index');
 
         if ($charge['status'] == 'successful') {
-        echo 'Success';
+        $confirm = DB::update('update TripOrder set status = ? where chatRoomId = ?',["Confirmed",$chatRoomId]);
+        echo "<script>swal('Success', 'Your trip has confirmed.', 'success')</script>";
         } else {
-        echo 'Fail';
+        echo "<script>window.alert('Transfer Failed. Check your info and try again.')</script>";
         }
 
         
