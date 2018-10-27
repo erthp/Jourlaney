@@ -88,7 +88,9 @@
                     @if(!empty(session::get('guideid')))
                         @if(($orderStatus[0] -> status) == "Chat")
                             <p class="center-div chat-status">Status: Chat</p>
-                            <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#createTrip">Create trip order</button>
+                            <div class="center-div">
+                                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#createTrip">Create trip order</button>
+                            </div>
                             <div class="modal fade" id="createTrip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
@@ -170,20 +172,17 @@
                             </script>
                             <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Prepare for trip in selected date.</p>
+                            <p class="center-div">Wait for tourist confirmation. If tourist doesn't confirm. Order will confirmed automatically in 3 days after trip completed.</p>
                             <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
                             <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
                             <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
 
-                        @elseif(($orderStatus[0] -> status) == "Success")
-                            <p class="center-div chat-status">Status: Trip Success</p>
-                            <p class="center-div">Wait for tourist confirmation. If tourist doesn't confirm. Order will confirmed automatically in 3 days after trip completed.</p>
-                        
                         @elseif(($orderStatus[0] -> status) == "Review")
                             <p class="center-div chat-status">Status: Review</p>
-                            <button type="button" class="btn btn-primary btn-block">Rate and review your guide</button>
-                            <p class="center-div">Rate and review your guide</p>
+                            <div class="center-div"><button type="button" class="btn btn-primary btn-block">Rate and review your tourist</button></div>
+                            <p class="center-div">Rate and review your tourist</p>
                         @endif
                     @elseif(!empty(session::get('touristid')))
                         @if(($orderStatus[0] -> status) == "Chat")
@@ -237,17 +236,16 @@
                             </script>
                             <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Meet up at selected place and time.</p>
+                            <div class="center-div">
+                                <button type="button" class="btn btn-success btn-block">Confirm Trip</button>
+                            </div>
+                            <p class="center-div">Confirm trip and transfer trip cost to guide.</p>
+                            <a class="center-div">Have a problem? Contact us.</a>
                             <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
                             <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
                             <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
-                        
-                        @elseif(($orderStatus[0] -> status) == "Success")
-                            <p class="center-div chat-status">Status: Trip Success</p>
-                            <button type="button" class="btn btn-success btn-block">Confirm Trip</button>
-                            <p class="center-div">Confirm trip and transfer trip cost to guide.</p>
-                            <a class="center-div">Have a problem? Contact us.</a>
                         
                         @elseif(($orderStatus[0] -> status) == "Review")
                             <p class="center-div chat-status">Status: Review</p>
