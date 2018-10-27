@@ -30,7 +30,7 @@ class ChatController extends Controller
     public function ShowChatPage(){
         if(Session::get('guideid')){
             $guideId = Session::get('guideid');
-            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username where c.guideId=".$guideId." group by c.chatRoomId desc");
+            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc");
             if(!empty($chatList)){
             $maxChatRoomId = DB::select("select MAX(c.chatRoomId) as chatRoomId from ChatRoom c join Guide g on c.guideId=g.guideId where g.guideId=".$guideId);
             $chatRoomId = $maxChatRoomId[0]->chatRoomId;
