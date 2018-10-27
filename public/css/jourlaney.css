@@ -75,6 +75,7 @@ a{
 .chat-right{
   background-color: #e9ece5;
   overflow: scroll;
+  height: 550px;
 }
 
 .chat-status{
