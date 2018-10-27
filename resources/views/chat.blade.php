@@ -100,6 +100,7 @@
                                         </div>
                                         <div class="modal-body">
                                             <form action="{{URL::to('/createOrder')}}" method="GET">
+                                                <input type="hidden" name="chatRoomId" value="{{$orderStatus[0] -> chatRoomId}}" />
                                                 <div class="form-group">
                                                     <label>Trip name</label>
                                                     <input type="text" class="form-control" name="tripName" value="{{ $query -> tripName }}" disabled>
