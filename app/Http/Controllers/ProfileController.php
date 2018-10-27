@@ -21,7 +21,7 @@ class ProfileController extends Controller
             $guideLocation = $profileGuideLocation[0]->guideLocation;
             $profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
             $guideRating = number_format($profileGuideRating[0]->guideRating,2);
-            $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'"');
+            $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'" order by GuideTrip.tripId desc');
         }
         if(!empty($checkTourist)){
             $profileTouristRating = DB::table('Tourist')->select('touristRating')->where(['username'=>$username])->get();
