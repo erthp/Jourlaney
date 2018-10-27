@@ -82,8 +82,8 @@
         <div class="col-3 chat-right">
             <div class="row mt-4">
                 <div class="col-12">
-                    <p class="center-div">You're chatting with {{ $query -> userFirstName }}</p>
-                    <p class="center-div chat-status-tripname">on {{ $query -> tripName }} trip</p>
+                    <p class="center-div">You're chatting with {{ $query[0] -> userFirstName }}</p>
+                    <p class="center-div chat-status-tripname">on {{ $query[0] -> tripName }} trip</p>
 
                     @if(!empty(session::get('guideid')))
                         @if(($orderStatus[0] -> status) == "Chat")
@@ -147,7 +147,7 @@
                         @elseif(($orderStatus[0] -> status) == "Transfer")
                             <p class="center-div chat-status">Status: Transfer</p>
                             <p class="center-div">Wait for transfer confirmation</p>
-                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
+                            <p class="center-div chat-order-status">Trip name: {{ $query[0] -> tripName }}</p>
                             <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
@@ -211,11 +211,10 @@
                                 </form>
                             </div>
                             <p class="center-div">You must transfer trip cost to system to confirm this order</p>
-                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
+                            <p class="center-div chat-order-status">Trip name: {{ $query[0] -> tripName }}</p>
                             <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
-                            <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
                         
                         @elseif(($orderStatus[0] -> status) == "Confirmed")
                             <div class="check_mark">
@@ -237,19 +236,43 @@
                             <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Meet up at selected place and time.</p>
                             <div class="center-div">
-                                <button type="button" class="btn btn-success btn-block">Confirm Trip</button>
+                                <button type="submit" class="btn btn-success btn-block" data-toggle="modal" data-target="#confirmOrder">Confirm Trip</button>
                             </div>
+                            <div class="modal fade" id="confirmOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <form name="confirmOrder" method="POST" action="/confirmOrder">
+                                        <input type="hidden" name="chatRoomId" value="{{$orderStatus[0] -> chatRoomId}}" />
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Confirm Trip</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-success">Confirm</button>
+                                            </div>
+                                        </div>
+                                        {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                </div>
                             <p class="center-div">Confirm trip and transfer trip cost to guide.</p>
                             <a class="center-div">Have a problem? Contact us.</a>
-                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
+                            <p class="center-div chat-order-status">Trip name: {{ $query[0] -> tripName }}</p>
                             <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
-                            <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
                         
                         @elseif(($orderStatus[0] -> status) == "Review")
                             <p class="center-div chat-status">Status: Review</p>
-                            <button type="button" class="btn btn-primary btn-block">Rate and review your guide</button>
+                            <div class="center-div">
+                                <button type="button" class="btn btn-primary btn-block">Rate and review your guide</button>
+                            </div>
                             <p class="center-div">Rate and review your guide</p>
                         @endif
                     @endif
