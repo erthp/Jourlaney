@@ -542,6 +542,12 @@ h4{
   -moz-border-radius: 500px;
 }
 
+.profile-rating{
+  color: #333333;
+  display: inline-block;
+  vertical-align: text-top;
+}
+
 ::placeholder {
     color: white;
     opacity: 1;
