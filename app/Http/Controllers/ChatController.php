@@ -43,8 +43,7 @@ class ChatController extends Controller
                 $orderDate = $orderCheck[0];
                 $sub3 = Carbon::today('Asia/Bangkok')->sub('3 days')->isoFormat('YYYY-MM-DD');
                 if($sub3 >= $orderCheck[0]->tripStartDate){
-                    $change = DB::update('update TripOrder set status = ? where chatRoomId = ?',["Review",$chatRoomId]);
-                    return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
+                    return app('App\Http\Controllers\OrderController')->ConfirmOrder();
                 }
             }
             }else{
