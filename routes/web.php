@@ -188,5 +188,6 @@ Route::get('/showChat', [
 
 //Payment Controllers
 Route::post('/checkout',"OmiseCheckOutController@checkout");
+Route::post('/createOrder',"OrderController@CreateOrder");
 
 // Auth::routes();
