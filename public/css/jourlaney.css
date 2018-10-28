@@ -5,7 +5,8 @@
 
 body{
     font-family: 'Quicksand', 'Kanit', sans-serif;
-    background-color:#c0dfd9;
+    background: rgb(192,223,217);
+    background: linear-gradient(180deg, rgba(192,223,217,1) 0%, rgba(192,223,217,1) 50%, rgba(147,249,185,1) 100%);
     font-weight: 400;
 }
 
