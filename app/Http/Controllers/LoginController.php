@@ -40,6 +40,10 @@ class LoginController extends Controller
                 Session::put('guidelocation', $guidelocation[0]->guideLocation);
                 $guideVerification = DB::table('Guide')->select('guideVerification')->where('username',$username)->get();
                 Session::put('guideVerification', $guideVerification[0]->guideVerification);
+                $guideBankAccountNumber = DB::table('GuideBankAccount')->select('bankAccountNumber')->where('guideid',$guideid[0]->guideId)->get();
+                Session::put('guideBankAccountNumber', $guideBankAccountNumber[0]->bankAccountNumber);
+                $guideBankAccountBank = DB::table('GuideBankAccount')->select('bankAccountBank')->where('guideid',$guideid[0]->guideId)->get();
+                Session::put('guideBankAccountBank', $guideBankAccountBank[0]->bankAccountBank);
             }
             if(isset($touristid[0])){
                 Session::put('touristid', $touristid[0]->touristId);

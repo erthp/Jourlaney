@@ -113,7 +113,7 @@
                 <div class="col-lg-4">
                     <div class="form-group">
                         <label class="register-label" for="bankAccount">Bank account number</label>
-                        <input type="text" class="form-control" id="bankAccount" name="bankAccount" placeholder="Bank account number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[10, 10]" value="">
+                        <input type="text" class="form-control" id="bankAccount" name="bankAccount" placeholder="Bank account number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[10, 10]" value="{{Session::get('guideBankAccountNumber')}}">
                     </div>
                 </div>
             </div>
