@@ -180,12 +180,12 @@ a:hover{
   padding-bottom: 2%;
   margin-left: 5%;
   color: #999999;
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
 }
 
 .footer-menu{
   color: #999999;
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
   font-weight: 800;
   font-size: 1em;
   margin-left: 5%;
@@ -194,7 +194,7 @@ a:hover{
 
 .footer-menu a{
   color: #999999;
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
   font-weight: 800;
   font-size: 1em;
   padding-top: 1%;
@@ -284,7 +284,7 @@ a:hover{
 
 .footer-title-text{
   color: #CCCCCC;
-  font-family: 'Kanit', sans-serif;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
   font-weight: 800;
   font-size: 2em;
   -o-transition:.5s;
