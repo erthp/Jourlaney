@@ -82,8 +82,8 @@
         <div class="col-3 chat-right">
             <div class="row mt-4">
                 <div class="col-12">
-                    <p class="center-div">You're chatting with {{ $query[0] -> userFirstName }}</p>
-                    <p class="center-div chat-status-tripname">on {{ $query[0] -> tripName }} trip</p>
+                    <p class="center-div">You're chatting with {{ $query -> userFirstName }}</p>
+                    <p class="center-div chat-status-tripname">on {{ $query -> tripName }} trip</p>
 
                     @if(!empty(session::get('guideid')))
                         @if(($orderStatus[0] -> status) == "Chat")
