@@ -38,7 +38,7 @@
                                 <span class="badge badge-pill badge-info chat-text">
                                 {{ $query -> chatText }}
                                 </span>
-                                <span class="chat-time-right"><br>{{ $query -> chatTime }}</span>
+                                <span class="chat-time-right"><br>{{ $query -> chatTime }} @if(($query -> readStatus) == 1)|<b>Read</b>@endif</span>
                             </div>
                         </div>
                         @elseif(($query -> sender) == "Guide")
@@ -60,7 +60,7 @@
                                 <span class="badge badge-pill badge-info chat-text">
                                 {{ $query -> chatText }}
                                 </span>
-                                <span class="chat-time-right"><br>{{ $query -> chatTime }}</span>
+                                <span class="chat-time-right"><br>{{ $query -> chatTime }} @if(($query -> readStatus) == 1)| <b>Read</b>@endif</span>
                             </div>
                         </div>
                         @elseif(($query -> sender) == "Tourist")
