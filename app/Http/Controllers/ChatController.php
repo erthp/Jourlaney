@@ -41,8 +41,10 @@ class ChatController extends Controller
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
             $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Tourist' and chatRoomId =".$chatRoomId);
 
+            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and guideId=".$guideId);
+            Session::put('NotificationCount', $NotificationCount[0]->notiCount);
+
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
-            
             if($orderStatus[0]->status == "Confirmed"){
                 $orderCheck = DB::select("select tripStartDate from TripOrder where chatRoomId =".$chatRoomId);
                 $orderDate = $orderCheck[0];
@@ -63,6 +65,9 @@ class ChatController extends Controller
                 $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
                 $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Guide' and chatRoomId =".$chatRoomId);
                 
+                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and touristId=".$touristId);
+                Session::put('NotificationCount', $NotificationCount[0]->notiCount);
+
                 $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
                 //dd($orderStatus);
             }else{
@@ -84,6 +89,9 @@ class ChatController extends Controller
             $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc");
             $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Tourist' and chatRoomId =".$chatRoomId);
 
+            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and guideId=".$guideId);
+            Session::put('NotificationCount', $NotificationCount[0]->notiCount);
+
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
         }elseif(Session::get('touristid')){
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
@@ -91,6 +99,9 @@ class ChatController extends Controller
             $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc");
             $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Guide' and c.chatRoomId =".$chatRoomId);
             
+            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and touristId=".$touristId);
+            Session::put('NotificationCount', $NotificationCount[0]->notiCount);
+
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
         }else{
             return view('404');
@@ -109,10 +120,10 @@ class ChatController extends Controller
             $add = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId, chatTime, chatText, sender) values(?,?,?,?,?,?,?)",[$chatRoomId, $request->input('guideId'), $request->input('touristId'), $request->input('guideTripId'), $time, $message, "Guide"]);
         
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
-            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username where c.guideId=".$guideId." group by c.chatRoomId desc");
+            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc");
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
 
-            return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus)->with('today',$today);
+            return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
             $message = $request->input('msg');
@@ -127,5 +138,12 @@ class ChatController extends Controller
         }else{
             return view('404');
         }
+    }
+
+    public function reportForm(Request $request){
+        $chatRoomId = $request->input('chatRoomId');
+        $touristId = Session::get('touristid');
+        $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username join TripOrder ord on c.chatRoomId=ord.chatRoomId where c.chatRoomId =".$chatRoomId);
+        return view('Report',['query' => $query]);
     }
 }
