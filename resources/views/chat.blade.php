@@ -262,8 +262,14 @@
                                     </div>
                                 </div>
                             <p class="center-div">Confirm trip and transfer trip cost to guide.</p>
-                            <a class="center-div">Have a problem? Contact us.</a>
-                            <p class="center-div chat-order-status">Trip name: {{ $query[0] -> tripName }}</p>
+                            <form name="report" method="POST" action="/reportForm">
+                                <input type="hidden" name="chatRoomId" value="{{ $chatRoomId }}">
+                                <div class="center-div">
+                                    <button type="submit" class="btn btn-secondary btn-sm mb-2">Have a problem? Contact us.</button>
+                                </div>
+                                {{ csrf_field() }}
+                            </form>
+                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
                             <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>

@@ -138,6 +138,10 @@ Route::get('transfer', function () {
 	return view ('omiseTransfer');
 });
 
+Route::get('Report',function(){
+    return view('Report');
+});
+
 Route::post('/chargeOmise','OmiseCheckOutController@checkout');
 Route::post('/transferOmise','OmiseTransferController@transfer');
 
@@ -184,7 +188,8 @@ Route::get('/showChat', [
     'uses' => 'ChatController@ShowChat',
     'as' => 'showChat'
   ]);
-  
+Route::post('/reportForm',"ChatController@reportForm");
+Route::post('/reportToAdmin',"ChatController@reportToAdmin");
 
 //Payment Controllers
 Route::post('/checkout',"OmiseCheckOutController@checkout");
