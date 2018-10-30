@@ -61,7 +61,7 @@
                             <a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
                         </li>
                         <li>
-                            <a href="editprofile" class="userDropdown">Edit Profile</a>
+                            <a href="{{ URL::to('/editprofile') }}" class="userDropdown">Edit Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li>
