@@ -147,8 +147,7 @@
                         @elseif(($orderStatus[0] -> status) == "Transfer")
                             <p class="center-div chat-status">Status: Transfer</p>
                             <p class="center-div">Wait for transfer confirmation</p>
-                            <p class="center-div chat-order-status">Trip name: {{ $query[0] -> tripName }}</p>
-                            <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
+                            <p class="center-div chat-order-status">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
                             <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
@@ -173,8 +172,7 @@
                             <p class="center-div chat-status animated pulse">Status: Trip Confirmed</p>
                             <p class="center-div">Prepare for trip in selected date.</p>
                             <p class="center-div">Wait for tourist confirmation. If tourist doesn't confirm. Order will confirmed automatically in 3 days after trip completed.</p>
-                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
-                            <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
+                            <p class="center-div chat-order-status">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
                             <p class="center-div">You'll recieve: ฿{{ $orderStatus[0] -> tripCostWithVat }}.00</p>
@@ -211,7 +209,7 @@
                                 </form>
                             </div>
                             <p class="center-div">You must transfer trip cost to system to confirm this order</p>
-                            <p class="center-div chat-order-status">Trip name: {{ $query[0] -> tripName }}</p>
+                            <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
                             <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
