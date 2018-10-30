@@ -4,17 +4,17 @@
 <div class="container profilemenu">
 @if(!empty(Session::get('guideid')))
     <div class="row">
-        <div class="col-4">
+        <div class="col-6">
             <div align="center">
                 <p class="h3 profile-active-menu">Trips</p>
             </div>
         </div>
-        <div class="col-4">
+        <!-- <div class="col-4">
             <div align="center">
                 <a href="/FreeDay/{{ $user -> username }}"><p class="h3 profile-inactive-menu">Free Day</p></a>
             </div>
-        </div>
-        <div class="col-4">
+        </div> -->
+        <div class="col-6">
             <div align="center">
                 <a href="rate&review"><p class="h3 profile-inactive-menu">Rate & Review</p></a>
             </div>
