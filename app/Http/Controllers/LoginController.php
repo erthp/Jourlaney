@@ -44,12 +44,12 @@ class LoginController extends Controller
                 Session::put('guideBankAccountNumber', $guideBankAccountNumber[0]->bankAccountNumber);
                 $guideBankAccountBank = DB::table('GuideBankAccount')->select('bankAccountBank')->where('guideid',$guideid[0]->guideId)->get();
                 Session::put('guideBankAccountBank', $guideBankAccountBank[0]->bankAccountBank);
-                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and guideId=".$guideid[0]->guideId);
+                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideid[0]->guideId);
                 Session::put('NotificationCount', $NotificationCount[0]->notiCount);
             }
             if(isset($touristid[0])){
                 Session::put('touristid', $touristid[0]->touristId);
-                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and touristId=".$touristid[0]->touristId);
+                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Guide' and touristId=".$touristid[0]->touristId);
                 Session::put('NotificationCount', $NotificationCount[0]->notiCount);
             }
             return redirect('/');

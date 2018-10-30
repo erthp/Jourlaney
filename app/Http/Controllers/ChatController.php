@@ -41,7 +41,7 @@ class ChatController extends Controller
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
             $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Tourist' and chatRoomId =".$chatRoomId);
 
-            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and guideId=".$guideId);
+            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideId);
             Session::put('NotificationCount', $NotificationCount[0]->notiCount);
 
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
@@ -65,7 +65,7 @@ class ChatController extends Controller
                 $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
                 $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Guide' and chatRoomId =".$chatRoomId);
                 
-                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and touristId=".$touristId);
+                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Guide' and touristId=".$touristId);
                 Session::put('NotificationCount', $NotificationCount[0]->notiCount);
 
                 $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
@@ -89,7 +89,7 @@ class ChatController extends Controller
             $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc");
             $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Tourist' and chatRoomId =".$chatRoomId);
 
-            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and guideId=".$guideId);
+            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideId);
             Session::put('NotificationCount', $NotificationCount[0]->notiCount);
 
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
@@ -99,7 +99,7 @@ class ChatController extends Controller
             $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc");
             $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Guide' and c.chatRoomId =".$chatRoomId);
             
-            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and touristId=".$touristId);
+            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Guide' and touristId=".$touristId);
             Session::put('NotificationCount', $NotificationCount[0]->notiCount);
 
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
