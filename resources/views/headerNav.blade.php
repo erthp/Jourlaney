@@ -45,7 +45,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <ul class="nav navbar-top-links navbar-right">
-                    <a href = "{{ URL::to('/') }}"><img src="../pic/uk.png" class="mr-3"></a>
                             <!-- dropdown-alerts -->
                     <a href = "{{ URL::to('/ShowChatPage') }}"><img src="../pic/chat.png">
                         @if(Session::get('NotificationCount') >= 1)
