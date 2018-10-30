@@ -289,7 +289,7 @@
     <div class="row">
         <div class="col-3"></div>
         <div class="col-6">
-            <form method="POST" action="{{URL::to('/sendChat')}}">
+            <form method="POST" action="{{URL::to('/sendChat')}}" autocomplete="off">
                 <input type="hidden" name="chatRoomId" value="{{ $chatRoomId }}">
                 <input type="hidden" name="guideId" value="{{ $chatLists -> guideId }}">
                 <input type="hidden" name="touristId" value="{{ $chatLists -> touristId }}">
