@@ -34,7 +34,7 @@ class ChatController extends Controller
     public function ShowChatPage(){
         if(Session::get('guideid')){
             $guideId = Session::get('guideid');
-            $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc order by c.chatTextId desc");
+            $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc order by MAX(c.chatTextId) desc");
             if(!empty($chatList)){
             $maxChatRoomId = DB::select("select MAX(c.chatRoomId) as chatRoomId from ChatRoom c join Guide g on c.guideId=g.guideId where g.guideId=".$guideId);
             $chatRoomId = $maxChatRoomId[0]->chatRoomId;
@@ -59,7 +59,7 @@ class ChatController extends Controller
             }
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
-            $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc order by c.chatTextId desc");
+            $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc order by MAX(c.chatTextId) desc");
             if(!empty($chatList)){
                 $maxChatRoomId = DB::select("select MAX(c.chatRoomId) as chatRoomId from ChatRoom c join Tourist t on c.touristId=t.touristId where t.touristId=".$touristId);
                 $chatRoomId = $maxChatRoomId[0]->chatRoomId;
@@ -88,7 +88,7 @@ class ChatController extends Controller
         if(Session::get('guideid')){
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
             $guideId = Session::get('guideid');
-            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc");
+            $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc order by MAX(c.chatTextId) desc");
             $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Tourist' and chatRoomId =".$chatRoomId);
 
             $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideId);
@@ -98,7 +98,7 @@ class ChatController extends Controller
         }elseif(Session::get('touristid')){
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
             $touristId = Session::get('touristid');
-            $chatList = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc");
+            $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc order by MAX(c.chatTextId) desc");
             $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Guide' and chatRoomId =".$chatRoomId);
             
             $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Guide' and touristId=".$touristId);
