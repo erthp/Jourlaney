@@ -19,7 +19,7 @@
                         <img src="../images/profilepic/{{$chatLists->userProfileImage}}" class="profileImageChat">
                     </div>
                     <div class="col-8 mt-4 mb-2">
-                        <p class="chat-list-name">{{ $chatLists -> userFirstName }}</p>
+                        <p class="chat-list-name">{{ $chatLists -> userFirstName }} @if(($chatLists -> unread) == 0)<i class="fas fa-circle unread-icon fa-sm"></i>@endif</p>
                         <p class="chat-list-trip">on {{ $chatLists -> tripName }}</p><span class="badge badge-pill badge-secondary">#{{ $chatLists -> chatRoomId }}</span>
                     </div>
                 </div>
