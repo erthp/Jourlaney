@@ -135,18 +135,13 @@ class GuideTripController extends Controller
         $tripName = $request->input('tripname');
         $maxTraveller = $request->input('max-traveller');
         $tripCost = $request->input('tripcost');
+        $queryGuideTrip = DB::update("update GuideTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ?, tripTravellers = ?, tripCost = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$tripId]);
+        $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
         $tripTransportation = DB::select("select t.tripTransportation from GuideTripTransportation t join GuideTrip g on g.tripId = t.tripId where t.tripId = " .$tripId);
         $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
-        $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
-        $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
         $queryLocation = DB::select("select tripLocation from Location order by locationId");
-        $queryGuideTrip = DB::update("update GuideTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ?, tripTravellers = ?, tripCost = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$tripId]);
-        return view('GuideEditTripDetails',['tripId' => $tripId],['creatorId' => $creatorId])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
-    }
-
-    public function GuideEditTripDetails(Request $request){
-        $tripId = $request->input('tripId');
         
+
         if(!empty($request->input('location'))){
             $rmlocation = DB::delete("delete from GuideTripLocation where tripId = ?",[$tripId]);
             $queryLocation1 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location')]);
@@ -175,7 +170,7 @@ class GuideTripController extends Controller
         $tripDay = 1;
         $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
         $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
-        return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime);
+        return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
     }
 
     public function GuideEditTripTime(Request $request){
