@@ -131,7 +131,7 @@ class ChatController extends Controller
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
             $message = $request->input('msg');
-            $add = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId, chatTime, chatText, sender, readStatus) values(?,?,?,?,?,?,?)",[$chatRoomId, $request->input('guideId'), $request->input('touristId'), $request->input('guideTripId'), $time, $message, "Tourist",0]);
+            $add = DB::insert("insert into ChatRoom(chatRoomId, guideId, touristId, guideTripId, chatTime, chatText, sender, readStatus) values(?,?,?,?,?,?,?,?)",[$chatRoomId, $request->input('guideId'), $request->input('touristId'), $request->input('guideTripId'), $time, $message, "Tourist",0]);
 
             $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
             $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users gu on g.username=gu.username where c.touristId=".$touristId." group by c.chatRoomId desc order by MAX(c.chatTextId) desc");
