@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'IndexController@getdata');
+Route::get('th', 'IndexController@getdataTH');
 
 Route::get('404',function(){
     return view('404');
@@ -26,6 +27,10 @@ Route::get('touristregister',function(){
 });
 
 Route::get('header',function(){
+    return view('header');
+});
+
+Route::get('headerTH',function(){
     return view('header');
 });
 

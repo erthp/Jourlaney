@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Jourlaney</title>
+    <title>เจอร์ลานี</title>
     <link rel="shortcut icon" type="image/png" href="favicon.png"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
@@ -32,7 +32,7 @@
       <div class="container">
           <a href="/">
       <img src="favicon.png" width="30" height="30" class="d-inline-block align-top" alt=""></a>
-      <a href="/" class="titletext">JOURLANEY</a>
+      <a href="/" class="titletext">เจอร์ลานี</a>
 
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
@@ -45,7 +45,7 @@
             <div class="navbar-header">
                         
                         <ul class="nav navbar-top-links navbar-right">
-                            <a href = "{{ URL::to('/th') }}"><img src="../pic/thailand.png" class="mr-3"></a>
+                            <a href = "{{ URL::to('/') }}"><img src="../pic/uk.png" class="mr-3"></a>
                             <!-- dropdown-alerts -->
                             <a href = "{{ URL::to('/ShowChatPage') }}"><img src="../pic/chat.png">
                             @if(Session::get('NotificationCount') >= 1)
