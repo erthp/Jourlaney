@@ -24,7 +24,7 @@ class ChatController extends Controller
         $createOrder = DB::insert("insert into TripOrder(chatRoomId, status) values(?,?)",[$chatId,'Chat']);
 
         $touristId = Session::get('touristid');
-        $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username where c.touristId=".$touristId." group by c.chatRoomId desc");
+        $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc");
         $maxChatRoomId = DB::select("select MAX(c.chatRoomId) as chatRoomId from ChatRoom c join Tourist t on c.touristId=t.touristId where t.touristId=".$touristId);
         $chatRoomId = $maxChatRoomId[0]->chatRoomId;
         $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
