@@ -84,6 +84,55 @@ class ChatController extends Controller
         return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
     }
 
+    public function ShowChatOnly($chatRoomId){
+        if(Session::get('guideid')){
+            $guideId = Session::get('guideid');
+            $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users tu on t.username=tu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.guideId=".$guideId." group by c.chatRoomId desc order by MAX(c.chatTextId) desc");
+            if(!empty($chatList)){
+            
+            $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on t.username=u.username where c.chatRoomId =".$chatRoomId);
+
+            $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideId);
+            Session::put('NotificationCount', $NotificationCount[0]->notiCount);
+
+            $chatReadStatus = DB::select("select readStatus from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId where c.guideId=".$guideId." and sender = 'Tourist' group by c.chatRoomId desc");
+
+            $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
+            if($orderStatus[0]->status == "Confirmed"){
+                $orderCheck = DB::select("select tripStartDate from TripOrder where chatRoomId =".$chatRoomId);
+                $orderDate = $orderCheck[0];
+                $sub3 = Carbon::today('Asia/Bangkok')->sub('3 days')->isoFormat('YYYY-MM-DD');
+                if($sub3 >= $orderCheck[0]->tripStartDate){
+                    return app('App\Http\Controllers\OrderController')->ConfirmOrder();
+                }
+            }
+            }else{
+                return view('404');
+            }
+        }elseif(Session::get('touristid')){
+            $touristId = Session::get('touristid');
+            $chatList = DB::select("select *, MIN(c.readStatus) as unread from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join Users gu on g.username=gu.username join GuideTrip gt on c.guideTripId=gt.tripId where c.touristId=".$touristId." group by c.chatRoomId desc order by MAX(c.chatTextId) desc");
+            if(!empty($chatList)){
+                
+                $query = DB::select("select * from ChatRoom c join Guide g on c.guideId=g.guideId join Tourist t on c.touristId=t.touristId join GuideTrip gt on c.guideTripId=gt.tripId join Users u on g.username=u.username where c.chatRoomId =".$chatRoomId);
+                $readStatus = DB::update("update ChatRoom set readStatus = 1 where sender = 'Guide' and chatRoomId =".$chatRoomId);
+                
+                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Guide' and touristId=".$touristId);
+                Session::put('NotificationCount', $NotificationCount[0]->notiCount);
+
+                $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
+                //dd($orderStatus);
+            }else{
+                return view('404');
+            }
+        }else{
+            return view('404');
+        }
+        
+        //dd($query);
+        return view('ShowChatOnly',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
+    }
+
     public function ShowChat($chatRoomId){
         $today = Carbon::today('Asia/Bangkok')->isoFormat('YYYY-MM-DD');
         $sub3 = Carbon::today('Asia/Bangkok')->sub('3 days')->isoFormat('YYYY-MM-DD');
