@@ -1,6 +1,7 @@
 @extends('headerNav')
 @section('page')
-<div class="container">
+<div class="container" id="chatPage">
+    <input type="hidden" name="chatRoomId" id="chatRoomId" value="{{ $chatRoomId }}">
     <div class="row navGap">
             <div class="col-1">
                 <img src="../images/profilepic/{{$query[0]->userProfileImage}}" class="profileImageTrip">
@@ -147,7 +148,7 @@
                             <p class="center-div chat-status">Status: Transfer</p>
                             <p class="center-div">Wait for transfer confirmation</p>
                             <div class="center-div">
-                                <button type="submit" class="btn btn-danger btn-block mb-2" data-toggle="modal" data-target="#confirmOrder">Cancel order</button>
+                                <button type="submit" class="btn btn-danger btn-block mb-2" data-toggle="modal" data-target="#cancelOrder">Cancel order</button>
                             </div>
                             <div class="modal fade" id="cancelOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
@@ -223,7 +224,7 @@
                                                 data-key="pkey_test_5d13mw1sktn0oad4nei"
                                                 data-image="http://52.221.186.101/pic/add.png"
                                                 data-frame-label="Jourlaney"
-                                                data-button-label="Transfer to system"
+                                                data-button-label="Pay now"
                                                 data-submit-label="Submit"
                                                 data-location="no"
                                                 data-amount="{{$orderStatus[0] -> tripCost}}00" 
@@ -300,7 +301,30 @@
                         @elseif(($orderStatus[0] -> status) == "Review")
                             <p class="center-div chat-status">Status: Review</p>
                             <div class="center-div">
-                                <button type="button" class="btn btn-primary btn-block">Rate and review your guide</button>
+                                <button type="submit" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#Rate">Rate and review your guide</button>
+                            </div>
+                            <div class="modal fade" id="rate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <form name="ratereview" method="POST" action="/ratereview">
+                                        <input type="hidden" name="chatRoomId" value="{{$orderStatus[0] -> chatRoomId}}" />
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Cancel order</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                <button type="submit" class="btn btn-success">Yes</button>
+                                            </div>
+                                        </div>
+                                        {{ csrf_field() }}
+                                        </form>
+                                    </div>
                             </div>
                             <p class="center-div">Rate and review your guide</p>
                         @endif
@@ -334,13 +358,24 @@
         <div class="col-3"></div>
     </div>
 </div>
-<script type="text/javascript">
+<script>
     $(document).ready(function() {
-        setInterval(function() {
-        $('.container').load('{{ route('showChat') }}');
-        }, 2000);
         var message = document.getElementById('chat-middle');
-        message.scrollTop = message.scrollHeight - message.clientHeight;
-    });   
+        message.scrollTop = message.scrollHeight;
+
+
+        $("#chat-middle").mouseleave(function(){
+        var timeout = setInterval(reloadChat, 1000);
+        var chatRoomId = document.getElementById('chatRoomId');
+            function reloadChat () {
+            $('#chat-middle').load('{{ action('ChatController@ShowChatOnly', ['chatRoomId' => $chatRoomId]) }}');
+            
+            var message = document.getElementById('chat-middle-only');
+            message.scrollTop = message.scrollHeight;
+            
+            }
+        });
+
+});
 </script>
 @endsection
