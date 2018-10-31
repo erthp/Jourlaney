@@ -122,7 +122,7 @@
     }
 
      function remove1(){
-        document.getElementById('field2').outerHTML = "";
+        document.getElementById('field1').outerHTML = "";
     }
     function remove2(){
         document.getElementById('field2').outerHTML = "";
