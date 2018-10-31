@@ -21,7 +21,7 @@ class OrderController extends Controller
         $tripCostWithVat = ($tripCost * 83) / 100;
 
         $query = DB::update('update TripOrder set status = ?, agreementDetails = ?, tripStartDate = ?, tripCost = ?, tripCostWithVat = ? where chatRoomId = ?',["Transfer",$agreementDetails,$tripStartDate,$tripCost,$tripCostWithVat,$chatRoomId]);
-        return app('App\Http\Controllers\ChatController')->ShowChatPage();
+        return app('App\Http\Controllers\ChatController')->ShowChat($chatRoomId);
     }
 
     public function ConfirmOrder(Request $request){
@@ -38,7 +38,7 @@ class OrderController extends Controller
             'amount' => $intAmount,
             'recipient' => $guideBankAccount
             ));
-        return app('App\Http\Controllers\ChatController')->ShowChatPage();
+        return app('App\Http\Controllers\ChatController')->ShowChat($chatRoomId);
     
     }
 
@@ -47,7 +47,7 @@ class OrderController extends Controller
         $chatRoomId = $request->input('chatRoomId');
         $query = DB::update('update TripOrder set status = ? where chatRoomId = ?',["Chat",$chatRoomId]);
         
-        return app('App\Http\Controllers\ChatController')->ShowChatPage();
+        return app('App\Http\Controllers\ChatController')->ShowChat($chatRoomId);
     
     }
 }

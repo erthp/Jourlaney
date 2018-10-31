@@ -200,5 +200,6 @@ Route::post('/reportToAdmin',"ChatController@reportToAdmin");
 Route::post('/checkout',"OmiseCheckOutController@checkout");
 Route::post('/createOrder',"OrderController@CreateOrder");
 Route::post('/confirmOrder',"OrderController@ConfirmOrder");
+Route::post('/cancelOrder',"OrderController@CancelOrder");
 
 // Auth::routes();

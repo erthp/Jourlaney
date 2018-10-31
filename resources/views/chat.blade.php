@@ -146,6 +146,32 @@
                         @elseif(($orderStatus[0] -> status) == "Transfer")
                             <p class="center-div chat-status">Status: Transfer</p>
                             <p class="center-div">Wait for transfer confirmation</p>
+                            <div class="center-div">
+                                <button type="submit" class="btn btn-danger btn-block mb-2" data-toggle="modal" data-target="#confirmOrder">Cancel order</button>
+                            </div>
+                            <div class="modal fade" id="cancelOrder" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                    <form name="cancelOrder" method="POST" action="/cancelOrder">
+                                        <input type="hidden" name="chatRoomId" value="{{$orderStatus[0] -> chatRoomId}}" />
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Cancel order</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                <button type="submit" class="btn btn-success">Yes</button>
+                                            </div>
+                                        </div>
+                                        {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                            </div>
                             <p class="center-div chat-order-status">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
                             <p class="center-div">Cost: ฿{{ $orderStatus[0] -> tripCost }}.00</p>
