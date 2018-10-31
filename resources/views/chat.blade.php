@@ -301,30 +301,49 @@
                         @elseif(($orderStatus[0] -> status) == "Review")
                             <p class="center-div chat-status">Status: Review</p>
                             <div class="center-div">
-                                <button type="submit" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#Rate">Rate and review your guide</button>
+                                <button type="submit" class="btn btn-primary btn-block mb-2" data-toggle="modal" data-target="#ratereview">Rate and review your guide</button>
                             </div>
-                            <div class="modal fade" id="rate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                    <form name="ratereview" method="POST" action="/ratereview">
-                                        <input type="hidden" name="chatRoomId" value="{{$orderStatus[0] -> chatRoomId}}" />
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Cancel order</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <div class="modal fade" id="ratereview" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Rate and Review</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Are you sure?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                <button type="submit" class="btn btn-success">Yes</button>
-                                            </div>
+                                            </button>
                                         </div>
-                                        {{ csrf_field() }}
-                                        </form>
+                                        <div class="modal-body">
+                                            <form action="{{URL::to('/createOrder')}}" method="POST" name="createOrder" enctype="multipart/form-data">
+                                                <input type="hidden" name="chatRoomId" value="{{$orderStatus[0] -> chatRoomId}}" />
+                                                <div class="form-group">
+                                                    <fieldset class="rating">
+                                                        <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+                                                        <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+                                                        <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+                                                        <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+                                                        <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                                        <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                                    </fieldset>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Comment</label>
+                                                    <textarea class="form-control" name="review"></textarea>
+                                                    <small class="form-text text-muted">-</small>
+                                                </div>
+                                                {{ csrf_field() }}
+                                            
                                     </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                    </form>
+                                    </div>
+                                </div>
                             </div>
                             <p class="center-div">Rate and review your guide</p>
                         @endif
