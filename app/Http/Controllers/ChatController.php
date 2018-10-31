@@ -80,7 +80,7 @@ class ChatController extends Controller
             return view('404');
         }
         
-        //dd($chatList);
+        //dd($query);
         return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
     }
 
