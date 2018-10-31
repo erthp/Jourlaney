@@ -36,8 +36,17 @@ class OrderController extends Controller
 
         $transfer = OmiseTransfer::create(array(
             'amount' => $intAmount,
-            'recipient' => 'recp_test_5d13mw24wssbid89es0'
+            'recipient' => $guideBankAccount
             ));
+        return app('App\Http\Controllers\ChatController')->ShowChatPage();
+    
+    }
+
+    public function CancelOrder(Request $request){
+        
+        $chatRoomId = $request->input('chatRoomId');
+        $query = DB::update('update TripOrder set status = ? where chatRoomId = ?',["Chat",$chatRoomId]);
+        
         return app('App\Http\Controllers\ChatController')->ShowChatPage();
     
     }
