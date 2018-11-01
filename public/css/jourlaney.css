@@ -584,6 +584,16 @@ h4{
   color: #333333;
   display: inline-block;
   vertical-align: text-top;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
+  font-weight: 500;
+}
+
+.review-rating{
+  color: #333333;
+  display: inline-block;
+  vertical-align: text-bottom;
+  font-family: 'Quicksand', 'Kanit', sans-serif;
+  font-weight: 500;
 }
 
 .profileedit-menu{

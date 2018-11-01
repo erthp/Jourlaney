@@ -151,8 +151,9 @@ class ProfileController extends Controller
                 $guideRating = number_format($intPlus/$i,2);
             }
 
-            
+            $allReview = DB::select("select distinct ord.guideRating as guideRating, ord.guideReview as guideReview, ord.chatRoomId, c.touristId, u.username, u.userFirstName, u.userProfileImage from TripOrder ord join ChatRoom c on ord.chatRoomId = c.chatRoomId join Tourist t on c.touristId=t.touristId join Users u on t.username = u.username where c.guideId=".$guideId." and ord.guideRating is not null");
         }
+
         if(!empty($checkTourist)){
             $getTouristId = DB::table('Tourist')->select('touristId')->where(['username'=>$username])->get();
             $touristId = $getTouristId[0]->touristId;
@@ -168,11 +169,13 @@ class ProfileController extends Controller
             if($intPlus != 0){
                 $touristRating = number_format($intPlus/$i,2);
             }
+
+            $allReview = DB::select("select distinct ord.touristRating as touristRating, ord.touristReview as touristReview, ord.chatRoomId, c.guideId, u.username, u.userFirstName, u.userProfileImage from TripOrder ord join ChatRoom c on ord.chatRoomId = c.chatRoomId join Guide g on c.touristId=g.touristId join Users u on t.username = u.username where c.touristId=".$touristId." and ord.touristRating is not null");
         }
 
         if($check){
             $userProfileImage = DB::table('Users')->select('userProfileImage')->where(['username'=>$username])->get();
-            return view('ProfileRatingReview', ['trip' => $trip])->withUser($check,$checkGuide,$checkTourist)->with('guide',$checkGuide)->with('tourist',$checkTourist)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating)->with('touristRating',$touristRating);
+            return view('ProfileRatingReview')->withUser($check,$checkGuide,$checkTourist)->with('guide',$checkGuide)->with('tourist',$checkTourist)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating)->with('touristRating',$touristRating)->with('allReview',$allReview);
         }
     }
 }

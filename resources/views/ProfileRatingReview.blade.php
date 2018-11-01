@@ -23,32 +23,38 @@
     <div class="row">
         <div class ="col-12 text-left">
         <br>
-            <h3>Trip created by {{ $user -> userFirstName}}</h3>
+            <h3>{{ $user -> userFirstName}}'s Reviews</h3>
         </div>
         <div class="container">
             <div class="row mt-4 animated fadeIn">
-            @foreach($trip as $trip)
+            @foreach($allReview as $allReview)
                 @if(!empty($guide))
-                <div class ="col-4 text-center mt-4">
-                    <div class="card hometrip-container" style="width: 20rem;">
-                        <img class="card-img-top hometrip-image" src="../images/trippic/{{ $trip -> tripPicture}}">
-                        <div class="image-overlay">
-                            <a class="image-overlay-text" href="../GuideTrip/{{ $trip -> tripId }}">VIEW TRIP</a>
-                        </div>
+                <div class="col-12 mb-2">
+                    <div class="card">
                         <div class="card-body">
-                            <a href="../GuideTrip/{{ $trip -> tripId }}" class="hometrip-tripname">{{ $trip -> tripName }}</a>
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/profilepic/{{$allReview->userProfileImage}}" class="profileImageTrip">
+                                </div>
+                                <div class="col-11">
+                                    <p style="display:inline"><a href="/Profile/{{$allReview->username}}">{{ $allReview -> userFirstName}}</a></p><br><img src = "../pic/star.png" height="16px" width = "16px" > <h6 class="review-rating" style="display:inline"> {{ $allReview -> guideRating}} </p><p>" {{ $allReview -> guideReview }} "</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 @elseif(!empty($tourist))
-                <div class ="col-4 text-center mt-4">
-                    <div class="card hometrip-container" style="width: 20rem;">
-                        <img class="card-img-top hometrip-image" src="../images/trippic/{{ $trip -> tripPicture}}">
-                        <div class="image-overlay">
-                            <a class="image-overlay-text" href="../TouristTrip/{{ $trip -> tripId }}">VIEW TRIP</a>
-                        </div>
+                <div class="col-12 mb-2">
+                    <div class="card">
                         <div class="card-body">
-                            <a href="../TouristTrip/{{ $trip -> tripId }}" class="hometrip-tripname">{{ $trip -> tripName }}</a>
+                            <div class="row">
+                                <div class="col-1">
+                                    <img src="../images/profilepic/{{$allReview->userProfileImage}}" class="profileImageTrip">
+                                </div>
+                                <div class="col-11">
+                                    <p style="display:inline"><a href="/Profile/{{$allReview->username}}">{{ $allReview -> userFirstName}}</a></p><br><img src = "../pic/star.png" height="16px" width = "16px" > <h6 class="review-rating" style="display:inline"> {{ $allReview -> touristRating}} </p><p>" {{ $allReview -> touristReview }} "</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
