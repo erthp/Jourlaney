@@ -2,11 +2,10 @@
 @section('page')
 <br>
 <div class="container profilemenu">
-@if(!empty(Session::get('guideid')))
     <div class="row">
         <div class="col-6">
             <div align="center">
-                <p class="h3 profile-active-menu">Trips</p>
+            <a href="/Profile/{{ $user -> username }}"><p class="h3 profile-inactive-menu">Trips</p></a>
             </div>
         </div>
         <!-- <div class="col-4">
@@ -16,24 +15,10 @@
         </div> -->
         <div class="col-6">
             <div align="center">
-                <a href="/Rating/{{ $user -> username }}"><p class="h3 profile-inactive-menu">Rate & Review</p></a>
+                <p class="h3 profile-active-menu">Rate & Review</p>
             </div>
         </div>
     </div>
-@elseif(!empty(Session::get('touristid')))   
-    <div class="row">
-        <div class="col-6">
-            <div align="center">
-                <p class="h3 profile-active-menu">Trips</p>
-            </div>
-        </div>
-        <div class="col-6">
-            <div align="center">
-                <a href="rate&review"><p class="h3 profile-inactive-menu">Rate & Review</p></a>
-            </div>
-        </div>
-    </div>
-@endif
 <br>
     <div class="row">
         <div class ="col-12 text-left">
