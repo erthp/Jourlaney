@@ -19,13 +19,38 @@ class ProfileController extends Controller
         if(!empty($checkGuide)){
             $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
             $guideLocation = $profileGuideLocation[0]->guideLocation;
-            $profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
-            $guideRating = number_format($profileGuideRating[0]->guideRating,2);
+            //$profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
+            //$guideRating = number_format($profileGuideRating[0]->guideRating,2);
             $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'" order by GuideTrip.tripId desc');
+            
+            $getGuideId = DB::table('Guide')->select('guideId')->where(['username'=>$username])->get();
+            $guideId = $getGuideId[0]->guideId;
+            $allRating = DB::select("select distinct ord.guideRating as guideRating, ord.chatRoomId from TripOrder ord join ChatRoom c on ord.chatRoomId = c.chatRoomId where c.guideId=".$guideId." and ord.guideRating is not null");
+            
+            $i = 0;
+            $intPlus = 0;
+            foreach($allRating as $ar){
+                $intRating = (double)($allRating[$i]->guideRating);
+                $intPlus += $intRating;
+                $i++;
+            }
+            
+            $guideRating = number_format($intPlus/$i,2);
         }
         if(!empty($checkTourist)){
-            $profileTouristRating = DB::table('Tourist')->select('touristRating')->where(['username'=>$username])->get();
-            $touristRating = $profileTouristRating[0]->touristRating;
+            $getTouristId = DB::table('Tourist')->select('touristId')->where(['username'=>$username])->get();
+            $touristId = $getTouristId[0]->touristId;
+            $allRating = DB::select("select distinct ord.touristRating as touristRating, ord.chatRoomId from TripOrder ord join ChatRoom c on ord.chatRoomId = c.chatRoomId where c.touristId=".$touristId." and ord.touristRating is not null");
+            
+            $i = 0;
+            $intPlus = 0;
+            foreach($allRating as $ar){
+                $intRating = (double)($allRating[$i]->guideRating);
+                $intPlus += $intRating;
+                $i++;
+            }
+            
+            $touristRating = number_format($intPlus/$i,2);
             $trip = DB::select('select * from TouristTrip join Tourist on TouristTrip.touristId=Tourist.touristId where Tourist.username="'.$username.'"');
         }
 

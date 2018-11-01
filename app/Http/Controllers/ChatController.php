@@ -159,7 +159,7 @@ class ChatController extends Controller
         }else{
             return view('404');
         }
-        //dd($query);
+        //dd($orderStatus);
         return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
     }
 
