@@ -135,10 +135,7 @@ class ProfileController extends Controller
         if(!empty($checkGuide)){
             $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
             $guideLocation = $profileGuideLocation[0]->guideLocation;
-            //$profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
-            //$guideRating = number_format($profileGuideRating[0]->guideRating,2);
-            $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'" order by GuideTrip.tripId desc');
-            
+                        
             $getGuideId = DB::table('Guide')->select('guideId')->where(['username'=>$username])->get();
             $guideId = $getGuideId[0]->guideId;
             $allRating = DB::select("select distinct ord.guideRating as guideRating, ord.chatRoomId from TripOrder ord join ChatRoom c on ord.chatRoomId = c.chatRoomId where c.guideId=".$guideId." and ord.guideRating is not null");
@@ -153,6 +150,8 @@ class ProfileController extends Controller
             if($intPlus != 0){
                 $guideRating = number_format($intPlus/$i,2);
             }
+
+            
         }
         if(!empty($checkTourist)){
             $getTouristId = DB::table('Tourist')->select('touristId')->where(['username'=>$username])->get();
@@ -169,7 +168,6 @@ class ProfileController extends Controller
             if($intPlus != 0){
                 $touristRating = number_format($intPlus/$i,2);
             }
-            $trip = DB::select('select * from TouristTrip join Tourist on TouristTrip.touristId=Tourist.touristId where Tourist.username="'.$username.'"');
         }
 
         if($check){
