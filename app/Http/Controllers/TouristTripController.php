@@ -141,12 +141,13 @@ class TouristTripController extends Controller
                 }
             }
 
+            $rmCondition = DB::delete("delete from TouristTripCondition where tripId = ?",[$tripId]);
             if(isset($_POST['trip-conditions'])){
-                $conditions = $_POST['trip-conditions'];
-                foreach($conditions as $value){
-                    $queryTripConditions = DB::insert("update TouristTripCondition set tripId = ?, tripCondition = ? where tripId = ?",[$tripId,$value,$tripId]);
-                }
+            $conditions = $_POST['trip-conditions'];
+            foreach($conditions as $value){
+                $queryTripConditions = DB::insert("insert into TouristTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
             }
+        }
             
             $tripDay = 1;
             $queryTime = DB::select("select tripTime, tripDescription from TouristTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);

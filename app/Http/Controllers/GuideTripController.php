@@ -153,17 +153,19 @@ class GuideTripController extends Controller
             }
         }
 
+        $rmTransportation = DB::delete("delete from GuideTripTransportation where tripId = ?",[$tripId]);
         if(isset($_POST['transportation'])){
             $transportation = $_POST['transportation'];
             foreach($transportation as $value){
-                $queryTransportation = DB::insert("update GuideTripTransportation set tripId = ?, tripTransportation = ? where tripId = ?",[$tripId,$value,$tripId]);
+                $queryTransportation = DB::insert("insert into GuideTripTransportation(tripId, tripTransportation) value(?,?)",[$tripId,$value]);
             }
         }
 
+        $rmCondition = DB::delete("delete from GuideTripCondition where tripId = ?",[$tripId]);
         if(isset($_POST['trip-conditions'])){
             $conditions = $_POST['trip-conditions'];
             foreach($conditions as $value){
-                $queryTripConditions = DB::insert("update GuideTripCondition set tripId = ?, tripCondition = ? where tripId = ?",[$tripId,$value,$tripId]);
+                $queryTripConditions = DB::insert("insert into GuideTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
             }
         }
         
