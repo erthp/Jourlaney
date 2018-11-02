@@ -416,7 +416,7 @@
                             <div class="input-group chat-form">
                                 <input type="text" class="form-control" id="chatSearch" name="chatSearch">
                                 <div class="input-group-append">
-                                    <button type="submit" class="btn btn-primary">Search</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
                                 </div>
                             </div>
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
