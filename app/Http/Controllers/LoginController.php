@@ -34,6 +34,7 @@ class LoginController extends Controller
             Session::put('profileImage', $profileImage[0]->userProfileImage);
             $guideid = DB::table('Guide')->select('guideId')->where('username',$username)->get();
             $touristid = DB::table('Tourist')->select('touristId')->where('username',$username)->get();
+
             if(isset($guideid[0])){
                 Session::put('guideid', $guideid[0]->guideId);
                 $guidelocation = DB::table('Guide')->select('guideLocation')->where('username',$username)->get();
