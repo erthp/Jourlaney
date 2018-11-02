@@ -409,7 +409,21 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-3"></div>
+        <div class="col-3">
+            <form method="POST" action="{{URL::to('/searchChat')}}" autocomplete="off">                    
+                    <div class="row chat-sentbox">
+                        <div class="col-12">
+                            <div class="input-group chat-form">
+                                <input type="text" class="form-control" id="chatSearch" name="chatSearch">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-primary">Search</button>
+                                </div>
+                            </div>
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                </form>
+                </div>
+            </div>
+        </div>
         <div class="col-6">
             <form method="POST" action="{{URL::to('/sendChat')}}" autocomplete="off">
                 <input type="hidden" name="chatRoomId" value="{{ $chatRoomId }}">
@@ -429,7 +443,7 @@
                     </form>
                     </div>
                 </div>
-            </div>
+        </div>
         <div class="col-3"></div>
     </div>
 </div>

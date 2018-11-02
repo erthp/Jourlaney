@@ -198,6 +198,7 @@ Route::get('/showChat', [
   ]);
 Route::post('/reportForm',"ChatController@reportForm");
 Route::post('/reportToAdmin',"ChatController@reportToAdmin");
+Route::post('/searchChat',"ChatController@SearchChat");
 
 //Payment Controllers
 Route::post('/checkout',"OmiseCheckOutController@checkout");
