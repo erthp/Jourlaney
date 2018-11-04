@@ -3,6 +3,7 @@
 <div class="container navGap">
     <h3 class="register-header">Report to Admin</h3>
         <form method="POST" name="register-form" action="{{URL::to('/reportToAdmin')}}" enctype="multipart/form-data">
+            <input type="hidden" name="chatRoomId" value="{{ $query[0] -> chatRoomId}}">
             <div class="row">
                 <div class="col-8">
                     <h5 class="profileedit-menu">Your Trip Info</h5>
@@ -37,13 +38,13 @@
             <div class="row">
                 <div class="col-4">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="Cheat" id="Cheat" value="Cheat">
+                        <input class="form-check-input" type="radio" name="problem" id="Cheat" value="Cheat">
                         <label class="form-check-label">
                             Cheat.
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="noplan" id="noplan" value="Doesn't go on plan">
+                        <input class="form-check-input" type="radio" name="problem" id="noplan" value="Doesn't go on plan">
                         <label class="form-check-label">
                             Doesn't go on plan.
                         </label>
@@ -54,7 +55,7 @@
                 <div class="col-4">
                     <div class="form-group">
                         <label class="register-label">Other</label>
-                        <textarea class="form-control" id="Other" rows="5"></textarea>
+                        <textarea class="form-control" name="other" id="other" rows="5"></textarea>
                     </div>
                 </div>
             </div>
