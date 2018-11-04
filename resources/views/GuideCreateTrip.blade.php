@@ -57,7 +57,7 @@
                 <label>-</label>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" required>
+                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-gte="#startdate" required>
                     </div>
                 </div>
             </div>

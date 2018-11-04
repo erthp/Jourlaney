@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="tripname" id="tripname" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 50]">
+                        <input type="text" class="form-control" name="tripname" id="tripname" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 50]" required>
                     </div>
                 </div>
             </div>
@@ -52,13 +52,13 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum">
+                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" required>
                     </div>
                 </div>
                 <lable>-</lable>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum">
+                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-gte="#startdate" required>
                     </div>
                 </div>
             </div>

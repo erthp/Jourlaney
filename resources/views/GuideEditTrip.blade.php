@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $trip->tripStart }}">
+                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-gte="#startdate" value="{{ $trip->tripStart }}">
                     </div>
                 </div>
                 <label>-</label>

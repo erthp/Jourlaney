@@ -41,7 +41,7 @@
                 </div>
                 <div class="col-lg-8">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="tripname" id="tripname" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 50]" value="{{ $trip->tripName }}">
+                        <input type="text" class="form-control" name="tripname" id="tripname" data-parsley-required="true" data-parsley-type="alphanum" data-parsley-length="[3, 50]" value="{{ $trip->tripName }}" required>
                     </div>
                 </div>
             </div>
@@ -52,13 +52,13 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $trip->tripStart }}">
+                        <input type="date" class="form-control" name="startdate" id="startdate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $trip->tripStart }}" required>
                     </div>
                 </div>
                 <label>-</label>
                 <div class="col-lg-4">
                     <div class="form-group">
-                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $trip->tripEnd }}">
+                        <input type="date" class="form-control" name="enddate" id="enddate" data-parsley-required="true" data-parsley-type="alphanum" value="{{ $trip->tripEnd }}" data-parsley-gte="#startdate" required>
                     </div>
                 </div>
             </div>
