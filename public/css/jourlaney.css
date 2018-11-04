@@ -447,7 +447,7 @@ h4{
   font-weight: 800;
   text-transform: uppercase;
   font-size: 1em;
-  
+   
 }
 
 .jourlalink{
@@ -1625,6 +1625,10 @@ button {
 .rating > label { 
   color: #ddd; 
  float: right; 
+}
+
+.btn{
+  margin-left: 0;
 }
 
 /***** CSS Magic to Highlight Stars on Hover *****/

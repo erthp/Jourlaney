@@ -48,10 +48,9 @@
     <br>
     <div class="row">
         <div class="col-5"></div>
-        <div class="col-2">
-                <button type="submit" class="btn btn-info btn-block searchpage-submitbutton">Search</button>
+        <div class="col-3">
+            <button type="submit" class="btn btn-info btn-block searchpage-submitbutton">Search</button>
         </div>
-        <div class="col-5"></div>    
     </div>
     </form>
     <br>
