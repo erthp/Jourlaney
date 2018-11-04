@@ -204,7 +204,7 @@ class ChatController extends Controller
         $chatRoomId = $request->input('chatRoomId');
         $problem = $request->input('problem');
         $other = $request->input('other');
-        $query = DB::insert("insert into AdminMessage(chatRoomId, problem, other) values(?,?,?)",[$chatRoomId,$problem,$other]);
+        $query = DB::insert("insert into AdminMessage(chatRoomId, problem, messageText) values(?,?,?)",[$chatRoomId,$problem,$other]);
         echo "<script>window.alert('Reported to admin.')</script>";
         return app('App\Http\Controllers\ChatController')->ShowChat($chatRoomId);
     }
