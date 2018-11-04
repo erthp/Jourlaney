@@ -150,6 +150,13 @@ Route::get('Report',function(){
     return view('Report');
 });
 
+Route::get('Mail', function () {
+	return view ('Mail');
+});
+
+
+Route::post('/Mail','PhpMailerController@Mail');
+
 Route::post('/chargeOmise','OmiseCheckOutController@checkout');
 Route::post('/transferOmise','OmiseTransferController@transfer');
 
@@ -207,4 +214,5 @@ Route::post('/confirmOrder',"OrderController@ConfirmOrder");
 Route::post('/cancelOrder',"OrderController@CancelOrder");
 Route::post('/rateReview',"OrderController@RateReview");
 
+//Route::post('/SendMail','PhpSendMailController@Sendmail');
 // Auth::routes();
