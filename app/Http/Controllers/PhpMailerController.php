@@ -1,17 +1,19 @@
 <?php
 
+namespace App\Http\Controllers;
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
+use Illuminate\Http\Request;
 		
-namespace App\Http\Controllers;
-date_default_timezone_set('Asia/Bangkok');
-require 'PHPMailer/PHPMailerAutoload.php';
 class PhpMailerController extends Controller{  
     public function Mail(Request $request){
 		// Import PHPMailer classes into the global namespace
 		// These must be at the top of your script, not inside a function
 		
 		//Load Composer's autoloader
+		date_default_timezone_set('Asia/Bangkok');
+		require '../PHPMailer/PHPMailerAutoload.php';
 		$mail = new PHPMailer(true);                              // Passing `true` enables exceptions
 		try {
 			//Server settings
@@ -26,7 +28,7 @@ class PhpMailerController extends Controller{
 		
 			//Recipients
 			$mail->setFrom('knick6@otmail.com', 'Knack');
-			$mail->addAddress('kasidis.sr@mail.kmutt.ac.th', 'Kasidis Sri');     // Add a recipient
+			$mail->addAddress('panot.1997@mail.kmutt.ac.th', 'eth');     // Add a recipient
 			//$mail->addAddress('ellen@example.com');               // Name is optional  
 			//$mail->addReplyTo('info@example.com', 'Information');
 			//$mail->addCC('cc@example.com');

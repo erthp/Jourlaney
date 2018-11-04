@@ -1,12 +1,8 @@
 <html>
 <body>
 <form name="SendEmail" method="POST" action="/Mail">
-<input type="Submit" value="Send Email" onclick="msg()">
+<input type="Submit" value="Send Email">
+{{ csrf_field() }}
 </form>
-<script>
-function msg() {
-    alert("Send Complete");
-}
-</script>
 </body>
 </html>
