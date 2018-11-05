@@ -20,7 +20,7 @@ class ProfileController extends Controller
             $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
             $guideLocation = $profileGuideLocation[0]->guideLocation;
             //$profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
-            //$guideRating = number_format($profileGuideRating[0]->guideRating,2);
+            //$guideRating = ($profileGuideRating[0]->guideRating,2);
             $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'" order by GuideTrip.tripId desc');
             
             $getGuideId = DB::table('Guide')->select('guideId')->where(['username'=>$username])->get();
