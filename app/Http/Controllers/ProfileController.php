@@ -46,7 +46,7 @@ class ProfileController extends Controller
             $i = 0;
             $intPlus = 0;
             foreach($allRating as $ar){
-                $intRating = (double)($allRating[$i]->guideRating);
+                $intRating = (double)($allRating[$i]->touristRating);
                 $intPlus += $intRating;
                 $i++;
             }
