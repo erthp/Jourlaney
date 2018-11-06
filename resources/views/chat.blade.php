@@ -33,7 +33,7 @@
                 @foreach( $query as $query )
                     @if(Session::get('touristid'))
                         @if(($query -> sender) == "Tourist")
-                        <div class="row text-right mb-2">
+                        <div class="row text-right mt-1 mb-1">
                             <div class="col-6"></div>
                             <div class="col-6">
                                 <span class="badge badge-pill badge-info chat-text">
@@ -43,7 +43,7 @@
                             </div>
                         </div>
                         @elseif(($query -> sender) == "Guide")
-                        <div class="row text-left mb-2">
+                        <div class="row text-left mt-1 mb-1">
                             <div class="col-6">
                                 <span class="badge badge-pill badge-light chat-text">
                                 {{ $query -> chatText }}
@@ -55,7 +55,7 @@
                         @endif
                     @elseif(Session::get('guideid'))
                         @if(($query -> sender) == "Guide")
-                        <div class="row text-right mb-2">
+                        <div class="row text-right mt-1 mb-1">
                             <div class="col-6"></div>
                             <div class="col-6">
                                 <span class="badge badge-pill badge-info chat-text">
@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         @elseif(($query -> sender) == "Tourist")
-                        <div class="row text-left mb-2">
+                        <div class="row text-left mt-1 mb-1">
                             <div class="col-6">
                                 <span class="badge badge-pill badge-light chat-text">
                                 {{ $query -> chatText }}

@@ -757,11 +757,12 @@ class OrderController extends Controller
         
         $query = DB::update('update TripOrder set status = ? where chatRoomId = ?',["Review",$chatRoomId]);
         
-        $guideBankAccount = DB::select('select bankAccountNumber from GuideBankAccount gba join ChatRoom cr on gba.guideId=cr.guideId where cr.chatRoomId ='.$chatRoomId);
+        $guideBankAccountQuery = DB::select('select bankAccountNumber from GuideBankAccount gba join ChatRoom cr on gba.guideId=cr.guideId where cr.chatRoomId ='.$chatRoomId);
         $transferCost = DB::select('select tripCostWithVat from TripOrder where chatRoomId ='.$chatRoomId);
         $costVat = ($transferCost[0]->tripCostWithVat)."00";
         $intAmount = (int)$costVat;
 
+        $guideBankAccount = $guideBankAccountQuery[0]->bankAccountNumber;
         $transfer = OmiseTransfer::create(array(
              'amount' => $intAmount,
              'recipient' => $guideBankAccount
