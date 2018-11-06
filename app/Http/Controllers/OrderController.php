@@ -51,7 +51,7 @@ class OrderController extends Controller
 
             //Recipients
             $mail->setFrom('jourlaney@gmail.com', 'Jourlaney');
-            $mail->addAddress('panot.1997@mail.kmutt.ac.th', 'Eth');     // Add a recipient
+            $mail->addAddress('faii_ptw@hotmail.com', 'Faii');     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
             //$mail->addCC('cc@example.com');
@@ -243,6 +243,16 @@ class OrderController extends Controller
                                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                                     <tr>
                                         <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+                                            Dear '.$customerFirstName.',
+                                            <br><br>
+                                            We would remind you that the balance of THB'.$orderTripCost.' is with in 1 day. <br>Please give this matter your attention and let us have a remittance by return. <br>If the payment is made, please disregard this reminder and accept our thanks.
+                                            <br><br>
+                                            Yours faithfully,<br>
+                                            Jourlaney\'s team.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
                                             <h1 style="margin: 0 0 10px; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;text-align: center;">Quotation</h1>
                                             <p style="margin: 0 0;">Jourlaney</p>
                                             <p style="margin: 0 0 10px;font-size: 12px;">jourlaney.com</p>
@@ -397,7 +407,7 @@ class OrderController extends Controller
 
             //Recipients
             $mail->setFrom('jourlaney@gmail.com', 'Jourlaney');
-            $mail->addAddress('panot.1997@mail.kmutt.ac.th', 'Eth');     // Add a recipient
+            $mail->addAddress('faii_ptw@hotmail.com', 'Faii');     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
             //$mail->addCC('cc@example.com');
