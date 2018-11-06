@@ -52,7 +52,7 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="form-group">
-                        <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true" min="1" value="{{ $trip->tripTravellers }}">
+                        <input type="number" class="form-control" name="max-traveller" id="max-traveller"  data-parsley-required="true" min="1" max="100" value="{{ $trip->tripTravellers }}">
                     </div>
                 </div>
             </div>
