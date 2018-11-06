@@ -68,6 +68,7 @@ a:hover{
   overflow: scroll;
   height: 550px;
   padding-bottom: 4%;
+  padding-top: 1%;
 }
 
 .chat-order-status{
