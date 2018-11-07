@@ -57,7 +57,7 @@ class ChatController extends Controller
                 }
             }
             }else{
-                return view('404');
+                return view('NoChat');
             }
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
@@ -74,10 +74,10 @@ class ChatController extends Controller
                 $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
                 //dd($orderStatus);
             }else{
-                return view('404');
+                return view('NoChat');
             }
         }else{
-            return view('404');
+            return view('NoChat');
         }
         
         //dd($query);
@@ -107,7 +107,7 @@ class ChatController extends Controller
                 }
             }
             }else{
-                return view('404');
+                return view('NoChat');
             }
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
@@ -123,10 +123,10 @@ class ChatController extends Controller
                 $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
                 //dd($orderStatus);
             }else{
-                return view('404');
+                return view('NoChat');
             }
         }else{
-            return view('404');
+            return view('NoChat');
         }
         
         //dd($query);
@@ -157,7 +157,7 @@ class ChatController extends Controller
 
             $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
         }else{
-            return view('404');
+            return view('NoChat');
         }
         //dd($orderStatus);
         return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
@@ -189,7 +189,7 @@ class ChatController extends Controller
             //dd($chatList);
             return view('chat',['query' => $query])->with('chatList',$chatList)->with('chatRoomId',$chatRoomId)->with('orderStatus',$orderStatus);
         }else{
-            return view('404');
+            return view('NoChat');
         }
     }
 
@@ -234,7 +234,7 @@ class ChatController extends Controller
                 }
             }
             }else{
-                return view('404');
+                return view('NoChat');
             }
         }elseif(Session::get('touristid')){
             $touristId = Session::get('touristid');
@@ -252,10 +252,10 @@ class ChatController extends Controller
                 $orderStatus = DB::select("select * from TripOrder where chatRoomId =".$chatRoomId);
                 //dd($orderStatus);
             }else{
-                return view('404');
+                return view('NoChat');
             }
         }else{
-            return view('404');
+            return view('NoChat');
         }
         
         //dd($query);
