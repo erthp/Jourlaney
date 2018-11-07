@@ -18,6 +18,10 @@ Route::get('404',function(){
     return view('404');
 });
 
+Route::get('NoChat',function(){
+    return view('NoChat');
+});
+
 Route::get('guideregister',function(){
     return view('guideregister');
 });
