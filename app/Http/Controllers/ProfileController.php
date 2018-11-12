@@ -62,68 +62,6 @@ class ProfileController extends Controller
         }
     }
 
-    public function ShowProfileFreeDay($username){
-        $user = DB::table('Users')->where(['username'=>$username])->first();
-        $queryGuideId = DB::select("select guideId from Guide where username='".$username."'");
-        $guideId = $queryGuideId[0]->guideId;
-        $freeDay = DB::select("select freeday from GuideFreeDay where status='Free' and guideId='".$guideId."'");
-        $check = DB::table('Users')->where(['username'=>$username])->first();
-        $checkGuide = DB::table('Guide')->where(['username'=>$username])->first();
-        $checkTourist = DB::table('Tourist')->where(['username'=>$username])->first();
-        $touristRating = 0;
-        $guideRating = 0;
-        $guideLocation = "";
-
-        if(!empty($checkGuide)){
-            $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
-            $guideLocation = $profileGuideLocation[0]->guideLocation;
-            $profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
-            $guideRating = $profileGuideRating[0]->guideRating;
-            $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'"');
-        }
-        if(!empty($checkTourist)){
-            $profileTouristRating = DB::table('Tourist')->select('touristRating')->where(['username'=>$username])->get();
-            $touristRating = $profileTouristRating[0]->touristRating;
-            $trip = DB::select('select * from TouristTrip join Tourist on TouristTrip.touristId=Tourist.touristId where Tourist.username="'.$username.'"');
-        }
-
-        if($check){
-            $userProfileImage = DB::table('Users')->select('userProfileImage')->where(['username'=>$username])->get();
-            return view('FreeDay')->withUser($check,$checkGuide,$checkTourist)->with('guide',$checkGuide)->with('tourist',$checkTourist)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating)->with('touristRating',$touristRating)->with('freeDay',$freeDay);
-        }
-    }
-
-    public function ShowEditFreeDay($username){
-        $user = DB::table('Users')->where(['username'=>$username])->first();
-        $queryGuideId = DB::select("select guideId from Guide where username='".$username."'");
-        $guideId = $queryGuideId[0]->guideId;
-        $freeDay = DB::select("select freeday from GuideFreeDay where status='Free' and guideId='".$guideId."'");
-        $check = DB::table('Users')->where(['username'=>$username])->first();
-        $checkGuide = DB::table('Guide')->where(['username'=>$username])->first();
-        $checkTourist = DB::table('Tourist')->where(['username'=>$username])->first();
-        $touristRating = 0;
-        $guideRating = 0;
-        $guideLocation = "";
-
-        if(!empty($checkGuide)){
-            $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
-            $guideLocation = $profileGuideLocation[0]->guideLocation;
-            $profileGuideRating = DB::table('Guide')->select('guideRating')->where(['username'=>$username])->get();
-            $guideRating = $profileGuideRating[0]->guideRating;
-            $trip = DB::select('select * from GuideTrip join Guide on GuideTrip.guideId=Guide.guideId where Guide.username="'.$username.'"');
-        }
-        if(!empty($checkTourist)){
-            $profileTouristRating = DB::table('Tourist')->select('touristRating')->where(['username'=>$username])->get();
-            $touristRating = $profileTouristRating[0]->touristRating;
-            $trip = DB::select('select * from TouristTrip join Tourist on TouristTrip.touristId=Tourist.touristId where Tourist.username="'.$username.'"');
-        }
-
-        if($check){
-            $userProfileImage = DB::table('Users')->select('userProfileImage')->where(['username'=>$username])->get();
-            return view('EditFreeDay')->withUser($check,$checkGuide,$checkTourist)->with('guide',$checkGuide)->with('tourist',$checkTourist)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating)->with('touristRating',$touristRating)->with('freeDay',$freeDay);
-        }
-    }
-
     public function showRating($username){
         $check = DB::table('Users')->where(['username'=>$username])->first();
         $checkGuide = DB::table('Guide')->where(['username'=>$username])->first();
@@ -182,11 +120,31 @@ class ProfileController extends Controller
     public function showOrderHistory(){
         $username = Session::get('username');
         $check = DB::table('Users')->where(['username'=>$username])->first();
-        
+        $checkGuide = DB::table('Guide')->where(['username'=>$username])->first();
         $guideId = Session::get('guideid');
+
+        if(!empty($checkGuide)){
+            $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
+            $guideLocation = $profileGuideLocation[0]->guideLocation;
+            $allRating = DB::select("select distinct ord.guideRating as guideRating, ord.chatRoomId from TripOrder ord join ChatRoom c on ord.chatRoomId = c.chatRoomId where c.guideId=".$guideId." and ord.guideRating is not null");
+            
+            $getGuideId = DB::table('Guide')->select('guideId')->where(['username'=>$username])->get();
+            $guideId = $getGuideId[0]->guideId;
+            
+            $i = 0;
+            $intPlus = 0;
+            foreach($allRating as $ar){
+                $intRating = (double)($allRating[$i]->guideRating);
+                $intPlus += $intRating;
+                $i++;
+            }
+            if($intPlus != 0){
+                $guideRating = number_format($intPlus/$i,2);
+            }
+        }
 
         $query = DB::select("select distinct ord.*, u.userFirstName, gt.tripName from TripOrder ord join ChatRoom c on c.chatRoomId=ord.chatRoomId join GuideTrip gt on c.guideTripId=gt.tripId join Tourist t on c.touristId=t.touristId join Users u on t.username=u.username where c.guideId=".$guideId." and ord.status<>'Chat' order by c.chatTime desc");
         // dd($query);
-        return view('ProfileOrder')->withUser($check)->with('query',$query);
+        return view('ProfileOrder')->withUser($check)->with('query',$query)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating);
     }
 }
