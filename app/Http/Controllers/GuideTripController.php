@@ -18,7 +18,9 @@ class GuideTripController extends Controller
 
         $startDate = $request->input('startdate');
         $endDate = $request->input('enddate');
+
         if($startDate <= $endDate){
+            $guideTripImage = $request->file('trippic');
             $input['filename'] = time().'.'.$guideTripImage->getClientOriginalExtension();
             $imagePath = public_path('/images/trippic');
             $guideTripImage->move($imagePath, $input['filename']);
