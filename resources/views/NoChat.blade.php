@@ -27,9 +27,9 @@
                 <div class="text-center"><a href="/" class="titletext">Jourlaney</a></div>
         </nav>
         <div class="container">
-            <h1 class="text-center errornumber animated fadeIn"><i class="fas fa-inbox"></i></h1>
-            <h3 class="text-center errormsg animated fadeInDown">You don't have chat</h3>
-            <h3 class="text-center errormsg animated fadeInDown">or not logged in to Jourlaney.</h3>
+            <h1 class="text-center nochat-icon animated fadeIn"><i class="fas fa-inbox"></i></h1>
+            <h3 class="text-center nochat-msg animated fadeInDown">You don't have chat</h3>
+            <h3 class="text-center nochat-msg animated fadeInDown">or not logged in to Jourlaney.</h3>
         </div>
     </body>
 </html>

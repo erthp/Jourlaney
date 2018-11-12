@@ -47,9 +47,10 @@
 <script>
 
 $(function() {
+    var a = '2018-09-11';
     $('.calendar').pignoseCalendar({
-        enabledDates: [ 
-            '2018-09-11',  '2018-09-15',  '2018-09-16', 
+        enabledDates: [
+            '11-09-2018'
          ]
     });
 });

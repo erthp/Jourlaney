@@ -51,7 +51,7 @@ class OrderController extends Controller
 
             //Recipients
             $mail->setFrom('jourlaney@gmail.com', 'Jourlaney');
-            $mail->addAddress('faii_ptw@hotmail.com', 'Faii');     // Add a recipient
+            $mail->addAddress('panot.1997@mail.kmutt.ac.th', $customerFirstName);     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
             //$mail->addCC('cc@example.com');
@@ -407,7 +407,7 @@ class OrderController extends Controller
 
             //Recipients
             $mail->setFrom('jourlaney@gmail.com', 'Jourlaney');
-            $mail->addAddress('faii_ptw@hotmail.com', 'Faii');     // Add a recipient
+            $mail->addAddress('panot.1997@mail.kmutt.ac.th', $guideFirstName);     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
             //$mail->addCC('cc@example.com');

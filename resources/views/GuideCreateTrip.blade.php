@@ -163,14 +163,13 @@
     }
 
     function checkDate() {
-        var dateString = document.getElementById('startdate').value;
-        var date = new Date(dateString);
-        var today = new Date();
-        if ( date < today ) { 
-            $('#startdate').after('<p>You cannot enter a date in past.</p>');
-            return false;
+        var startDateString = document.getElementById('startdate').value;
+        var startDate = new Date(startDateString);
+        var endDateString = document.getElementById('enddate').value;
+        var endDate = new Date(endDateString);
+        if ( endDate > startDate ) { 
+            alert('<p>Trip end date must be after start date.</p>');
         }
-        return true;
     }
 </script>
 @endsection

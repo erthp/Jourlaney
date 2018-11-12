@@ -22,12 +22,20 @@ class GuideTripController extends Controller
         $guideTripImage->move($imagePath, $input['filename']);
         $guideTripPicName = $input['filename'];
 
-        $tripName = $request->input('tripname');
-        $maxTraveller = $request->input('max-traveller');
-        $tripCost = $request->input('tripcost');
-        $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$request->input('guideid')]);
-        $queryLocation = DB::select("select tripLocation from Location order by locationId");
-        return view('GuideCreateTripDetails',['tripId' => $tripId])->with('queryLocation',$queryLocation);
+        $startDate = $request->input('startdate');
+        $endDate = $request->input('enddate');
+        if($startDate <= $endDate){
+            $tripName = $request->input('tripname');
+            $maxTraveller = $request->input('max-traveller');
+            $tripCost = $request->input('tripcost');
+            $queryGuideTrip = DB::insert("insert into GuideTrip(tripId,tripName,tripStart,tripEnd,tripPicture,tripTravellers,tripCost,guideId) values(?,?,?,?,?,?,?,?)",[$tripId,$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$request->input('guideid')]);
+            $queryLocation = DB::select("select tripLocation from Location order by locationId");
+            return view('GuideCreateTripDetails',['tripId' => $tripId])->with('queryLocation',$queryLocation);
+        }
+        else{
+            echo "<script>window.alert('Trip end date must be after start date!')</script>";
+            return view('guidecreatetrip');
+        }
     }
 
     public function GuideCreateTripDetails(Request $request){
@@ -135,44 +143,52 @@ class GuideTripController extends Controller
         $tripName = $request->input('tripname');
         $maxTraveller = $request->input('max-traveller');
         $tripCost = $request->input('tripcost');
-        $queryGuideTrip = DB::update("update GuideTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ?, tripTravellers = ?, tripCost = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$tripId]);
-        $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
-        $tripTransportation = DB::select("select t.tripTransportation from GuideTripTransportation t join GuideTrip g on g.tripId = t.tripId where t.tripId = " .$tripId);
-        $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
-        $queryLocation = DB::select("select tripLocation from Location order by locationId");
+
+        $startDate = $request->input('startdate');
+        $endDate = $request->input('enddate');
+        if($startDate <= $endDate){
+            $queryGuideTrip = DB::update("update GuideTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ?, tripTravellers = ?, tripCost = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$guideTripPicName,$maxTraveller,$tripCost,$tripId]);
+            $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
+            $tripTransportation = DB::select("select t.tripTransportation from GuideTripTransportation t join GuideTrip g on g.tripId = t.tripId where t.tripId = " .$tripId);
+            $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+            $queryLocation = DB::select("select tripLocation from Location order by locationId");
         
 
-        if(!empty($request->input('location'))){
-            $rmlocation = DB::delete("delete from GuideTripLocation where tripId = ?",[$tripId]);
-            $queryLocation1 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location')]);
-            if(!empty($request->input('location2'))){
-                $queryLocation2 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location2')]);
-                if(!empty($request->input('location3'))){
-                    $queryLocation3 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location3')]);
+            if(!empty($request->input('location'))){
+                $rmlocation = DB::delete("delete from GuideTripLocation where tripId = ?",[$tripId]);
+                $queryLocation1 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location')]);
+                if(!empty($request->input('location2'))){
+                    $queryLocation2 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location2')]);
+                    if(!empty($request->input('location3'))){
+                        $queryLocation3 = DB::insert("insert into GuideTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location3')]);
+                    }
                 }
             }
-        }
 
-        $rmTransportation = DB::delete("delete from GuideTripTransportation where tripId = ?",[$tripId]);
-        if(isset($_POST['transportation'])){
-            $transportation = $_POST['transportation'];
-            foreach($transportation as $value){
-                $queryTransportation = DB::insert("insert into GuideTripTransportation(tripId, tripTransportation) value(?,?)",[$tripId,$value]);
+            $rmTransportation = DB::delete("delete from GuideTripTransportation where tripId = ?",[$tripId]);
+            if(isset($_POST['transportation'])){
+                $transportation = $_POST['transportation'];
+                foreach($transportation as $value){
+                    $queryTransportation = DB::insert("insert into GuideTripTransportation(tripId, tripTransportation) value(?,?)",[$tripId,$value]);
+                }
             }
-        }
 
-        $rmCondition = DB::delete("delete from GuideTripCondition where tripId = ?",[$tripId]);
-        if(isset($_POST['trip-conditions'])){
-            $conditions = $_POST['trip-conditions'];
-            foreach($conditions as $value){
-                $queryTripConditions = DB::insert("insert into GuideTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
+            $rmCondition = DB::delete("delete from GuideTripCondition where tripId = ?",[$tripId]);
+            if(isset($_POST['trip-conditions'])){
+                $conditions = $_POST['trip-conditions'];
+                foreach($conditions as $value){
+                    $queryTripConditions = DB::insert("insert into GuideTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
+                }
             }
+            
+            $tripDay = 1;
+            $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
+            $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
+            return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+        }else{
+            echo "<script>window.alert('Trip end date must be after start date!')</script>";
+            return app('App\Http\Controllers\TripController')->GuideShowEditTrip($tripId);
         }
-        
-        $tripDay = 1;
-        $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
-        $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
-        return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
     }
 
     public function GuideEditTripTime(Request $request){

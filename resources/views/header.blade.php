@@ -21,6 +21,7 @@
     <script type="text/javascript" src="{{ URL::asset('js/jquery.mask.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/moment.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/parsley.js') }}"></script>
+    <script type="text/javascript" src="{{ URL::asset('js/Parsley.js-2.8.1/src/extra/plugin/bind.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('SweetAlert/sweetalert.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('pg-calendar/dist/js/pignose.calendar.min.js') }}"></script>
     <script type="text/javascript" src="{{ URL::asset('js/jourlaney.js') }}"></script>
