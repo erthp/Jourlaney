@@ -15,15 +15,23 @@ class TouristTripController extends Controller
         $tripIdObj = $lastTripId[0]->tripId;
         $tripId = $tripIdObj+1;
 
-        $touristTripImage = $request->file('trippic');
-        $input['filename'] = time().'.'.$touristTripImage->getClientOriginalExtension();
-        $imagePath = public_path('/images/trippic');
-        $touristTripImage->move($imagePath, $input['filename']);
-        $touristTripPicName = $input['filename'];
+        $startDate = $request->input('startdate');
+        $endDate = $request->input('enddate');
+        if($startDate <= $endDate){
+            $touristTripImage = $request->file('trippic');
+            $input['filename'] = time().'.'.$touristTripImage->getClientOriginalExtension();
+            $imagePath = public_path('/images/trippic');
+            $touristTripImage->move($imagePath, $input['filename']);
+            $touristTripPicName = $input['filename'];
 
-        $queryTouristTrip = DB::insert("insert into TouristTrip(tripId,tripName,tripStart,tripEnd,tripPicture,touristId) values(?,?,?,?,?,?)",[$tripId,$request->input('tripname'),$request->input('startdate'),$request->input('enddate'),$touristTripPicName,$request->input('touristid')]);
-        $queryLocation = DB::select("select tripLocation from Location order by locationId");
-        return view('TouristCreateTripDetails',['tripId' => $tripId])->with('queryLocation',$queryLocation);;
+            $queryTouristTrip = DB::insert("insert into TouristTrip(tripId,tripName,tripStart,tripEnd,tripPicture,touristId) values(?,?,?,?,?,?)",[$tripId,$request->input('tripname'),$request->input('startdate'),$request->input('enddate'),$touristTripPicName,$request->input('touristid')]);
+            $queryLocation = DB::select("select tripLocation from Location order by locationId");
+            return view('TouristCreateTripDetails',['tripId' => $tripId])->with('queryLocation',$queryLocation);
+        }
+        else{
+            echo "<script>window.alert('Trip end date must be after start date!')</script>";
+            return view('touristcreatetrip');
+        }
     }
 
     public function TouristCreateTripDetails(Request $request){
@@ -106,25 +114,34 @@ class TouristTripController extends Controller
         public function touristedittrip(Request $request){
             $tripId = $request->input('tripId');;
     
-            if($request->hasFile('trippic')){
-                $touristTripImage = $request->file('trippic');
-                $input['filename'] = time().'.'.$touristTripImage->getClientOriginalExtension();
-                $imagePath = public_path('/images/trippic');
-                $touristTripImage->move($imagePath, $input['filename']);
-                $touristTripPicName = $input['filename'];
+            $startDate = $request->input('startdate');
+            $endDate = $request->input('enddate');
+            if($startDate <= $endDate){
+
+                if($request->hasFile('trippic')){
+                    $touristTripImage = $request->file('trippic');
+                    $input['filename'] = time().'.'.$touristTripImage->getClientOriginalExtension();
+                    $imagePath = public_path('/images/trippic');
+                    $touristTripImage->move($imagePath, $input['filename']);
+                    $touristTripPicName = $input['filename'];
+                }else{
+                    $queryTouristTripPicName = DB::select("select tripPicture from TouristTrip where tripId =".$tripId);
+                    $touristTripPicName = $queryTouristTripPicName[0]->tripPicture;
+                }
+        
+                $tripCondition = array('','','','','');
+                $tripName = $request->input('tripname');
+                $tripCondition = DB::select("select c.tripCondition from TouristTripCondition c join TouristTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+                $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
+                $tripLocation = DB::select("select l.tripLocation from TouristTripLocation l join TouristTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
+                $queryLocation = DB::select("select tripLocation from Location order by locationId");
+                $queryTouristTrip = DB::update("update TouristTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$touristTripPicName,$tripId]);
+                return view('TouristEditTripDetails',['tripId' => $tripId],['creatorId' => $creatorId])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+        
             }else{
-                $queryTouristTripPicName = DB::select("select tripPicture from TouristTrip where tripId =".$tripId);
-                $touristTripPicName = $queryTouristTripPicName[0]->tripPicture;
+                echo "<script>window.alert('Trip end date must be after start date!')</script>";
+                return app('App\Http\Controllers\TripController')->TouristShowEditTrip($tripId);
             }
-    
-            $tripCondition = array('','','','','');
-            $tripName = $request->input('tripname');
-            $tripCondition = DB::select("select c.tripCondition from TouristTripCondition c join TouristTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
-            $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
-            $tripLocation = DB::select("select l.tripLocation from TouristTripLocation l join TouristTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
-            $queryLocation = DB::select("select tripLocation from Location order by locationId");
-            $queryTouristTrip = DB::update("update TouristTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$touristTripPicName,$tripId]);
-            return view('TouristEditTripDetails',['tripId' => $tripId],['creatorId' => $creatorId])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
         }
     
         public function TouristEditTripDetails(Request $request){

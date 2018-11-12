@@ -16,15 +16,14 @@ class GuideTripController extends Controller
         $tripIdObj = $lastTripId[0]->tripId;
         $tripId = $tripIdObj+1;
 
-        $guideTripImage = $request->file('trippic');
-        $input['filename'] = time().'.'.$guideTripImage->getClientOriginalExtension();
-        $imagePath = public_path('/images/trippic');
-        $guideTripImage->move($imagePath, $input['filename']);
-        $guideTripPicName = $input['filename'];
-
         $startDate = $request->input('startdate');
         $endDate = $request->input('enddate');
         if($startDate <= $endDate){
+            $input['filename'] = time().'.'.$guideTripImage->getClientOriginalExtension();
+            $imagePath = public_path('/images/trippic');
+            $guideTripImage->move($imagePath, $input['filename']);
+            $guideTripPicName = $input['filename'];
+
             $tripName = $request->input('tripname');
             $maxTraveller = $request->input('max-traveller');
             $tripCost = $request->input('tripcost');
