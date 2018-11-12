@@ -3,7 +3,7 @@
 <div class="container">
     
     <div class="row">
-        <div class="col-lg-5"></div>
+        <div class="col-lg-5"><h3>Preview Page</h3></div>
         <div class="col-lg-4">
             @if(!empty(Session::get('guideid')))
                 @if($trip -> guideId == (Session::get('guideid')))
