@@ -320,7 +320,7 @@
                                             <input type="hidden" name="tripId" value="{{ $trip -> tripId }}">
                                             <input type="hidden" name="guideId" value="{{ $creator -> guideId }}">
                                             <input type="hidden" name="touristId" value="{{Session::get('touristid')}}">
-                                            <p>Interested?</p><button type="submit" class="btn btn-info">Send Message</button>
+                                            <p>Interested?, You can reserve this trip with guide here.</p><button type="submit" class="btn btn-info">Send Message</button>
                                         </form>
                                     @endif
                                 </div>

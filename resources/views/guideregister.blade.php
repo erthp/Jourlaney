@@ -127,7 +127,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
                 <div class="col-lg-2">
                     <label class="trip-label" for="bankname">Bank name</label>
                 </div>
@@ -163,7 +163,7 @@
                         <input type="text" class="form-control" id="accountno "name="accountno" onsubmit="checkForm()" placeholder="ID card number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[10, 10]">
                     </div>
                 </div>
-            </div>
+            </div> -->
             <br>
             <div class="row text-center mb-4">
                 <div class="col-lg-7">
