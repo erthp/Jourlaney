@@ -160,10 +160,10 @@
             <h5>Tourist</h5>
             @endif
                     @if(!empty($guideRating))
-                        <img src = "../pic/star.png" height="24px" width = "24px"> <h5 class="profile-rating"> {{ $guideRating }}</h5>
+                        <img src = "../pic/star.png" height="24px" width = "24px"> <h5 class="profile-rating"> {{ $guideRating }}/5.00</h5>
                     @endif
                     @if(!empty($touristRating))
-                        <img src = "../pic/star.png" height="24px" width = "24px"> <h5 class="profile-rating"> {{ $touristRating }}</h5>
+                        <img src = "../pic/star.png" height="24px" width = "24px"> <h5 class="profile-rating"> {{ $touristRating }}/5.00</h5>
                     @endif
                 </table>
             <center>
