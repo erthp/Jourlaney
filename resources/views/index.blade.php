@@ -128,7 +128,7 @@
             </div>
         </div>
         <div class="container mt-5">   
-                <h3>Upcoming Trips from Tourist</h3> 
+                <h3>Trips from Tourist</h3> 
         </div>
         <div class="container">
             <div class="row mt-4 animated fadeIn">
