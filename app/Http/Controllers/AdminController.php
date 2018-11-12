@@ -57,7 +57,8 @@ class AdminController extends Controller
 
     public function guideverify(Request $req){
         $username = $req->get('username');
-        $queryVerify = DB::update('update Guide set guideVerification = ? where username = ?',[1,$username]);
+        $location = $req->get('location');
+        $queryVerify = DB::update('update Guide set guideVerification = ?, guideLocation = ? where username = ?',[1,$location,$username]);
 
         $queryGuide = DB::select('select * from Users where username = ?',[$username]);
         $guideFirstName = $queryGuide[0]->userFirstName;

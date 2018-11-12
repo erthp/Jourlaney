@@ -457,7 +457,6 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <div class="col-lg-8">
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -495,7 +494,8 @@
                                                     <th>Last Name</th>
                                                     <th>Email</th>
                                                     <th>Guide License</th>
-                                                    <th></th>
+                                                    <th>Guide Location</th>
+                                                    <th>Verify</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -506,7 +506,8 @@
                                                     <td>{{ $guidedata -> userLastName }}</td>
                                                     <td>{{ $guidedata -> userEmail }}</td>
                                                     <td><a href="../images/licensepic/{{ $guidedata -> guideLicensePic }}"><img src="../images/licensepic/{{ $guidedata -> guideLicensePic }}" height=100px></a></td>
-                                                    <td><form method="POST" id="verifyGuide" action="{{URL::to('/guideverify')}}">{{ csrf_field() }}<input type="hidden" name="username" value="{{ $guidedata -> username }}"><button type="submit" class="btn btn-success" id="verifyButton">Verify</button></form></td>
+                                                    <td><form method="POST" id="verifyGuide" action="{{URL::to('/guideverify')}}"><input type="text" name="location" required></td>
+                                                    <td>{{ csrf_field() }}<input type="hidden" name="username" value="{{ $guidedata -> username }}"><button type="submit" class="btn btn-success" id="verifyButton">Verify</button></form></td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
