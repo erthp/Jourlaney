@@ -48,7 +48,6 @@ Route::get('headerNav',function(){
 
 Route::get('Profile/{username}', 'ProfileController@showProfile')->name('Profile.showProfile');
 Route::get('Rating/{username}', 'ProfileController@showRating')->name('Profile.showRating');
-Route::get('FreeDay/{username}', 'ProfileController@showProfileFreeDay')->name('Profile.showProfileFreeDay');
 Route::get('EditFreeDay/{username}', 'ProfileController@showEditFreeDay')->name('Profile.showEditFreeDay');
 Route::get('GuideTrip/{tripId}', 'TripController@showGuideTrip')->name('GuideTrip.ShowTrip');
 Route::get('guideShowEditTrip/{tripId}', 'TripController@guideShowEditTrip')->name('GuideShowEditTrip.ShowEditTrip');
@@ -158,6 +157,9 @@ Route::get('Mail', function () {
 	return view ('Mail');
 });
 
+Route::get('ProfileOrder', function () {
+	return view ('ProfileOrder');
+});
 
 Route::post('/Mail','PhpMailerController@Mail');
 
@@ -166,6 +168,7 @@ Route::post('/transferOmise','OmiseTransferController@transfer');
 
 
 Route::get('adminGetData', 'AdminController@getdata');
+Route::get('orderHistory',"ProfileController@showOrderHistory");
 
 Route::get('/search', 'SearchController@getdata');
 

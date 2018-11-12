@@ -178,4 +178,15 @@ class ProfileController extends Controller
             return view('ProfileRatingReview')->withUser($check,$checkGuide,$checkTourist)->with('guide',$checkGuide)->with('tourist',$checkTourist)->with('guideLocation',$guideLocation)->with('guideRating',$guideRating)->with('touristRating',$touristRating)->with('allReview',$allReview);
         }
     }
+
+    public function showOrderHistory(){
+        $username = Session::get('username');
+        $check = DB::table('Users')->where(['username'=>$username])->first();
+        
+        $guideId = Session::get('guideid');
+
+        $query = DB::select("select distinct ord.*, u.userFirstName, gt.tripName from TripOrder ord join ChatRoom c on c.chatRoomId=ord.chatRoomId join GuideTrip gt on c.guideTripId=gt.tripId join Tourist t on c.touristId=t.touristId join Users u on t.username=u.username where c.guideId=".$guideId." and ord.status<>'Chat' order by c.chatTime desc");
+        // dd($query);
+        return view('ProfileOrder')->withUser($check)->with('query',$query);
+    }
 }
