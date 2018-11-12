@@ -2,23 +2,38 @@
 @section('page')
 <br>
 <div class="container profilemenu">
+@if((Session::get('username') == ($user -> username)))
+    <div class="row">
+        <div class="col-4">
+            <div align="center">
+                <a href="/Profile/{{ $user -> username }}"><p class="h3 profile-inactive-menu">Trips</p></a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div align="center">
+                <p class="h3 profile-active-menu">Rate & Review</p>
+            </div>
+        </div>
+        <div class="col-4">
+            <div align="center">
+                <a href="/orderHistory"><p class="h3 profile-inactive-menu">Order history</p></a>
+            </div>
+        </div>
+    </div>
+    @else
     <div class="row">
         <div class="col-6">
             <div align="center">
-            <a href="/Profile/{{ $user -> username }}"><p class="h3 profile-inactive-menu">Trips</p></a>
+                <a href="/Profile/{{ $user -> username }}"><p class="h3 profile-inactive-menu">Trips</p></a>
             </div>
         </div>
-        <!-- <div class="col-4">
-            <div align="center">
-                <a href="/FreeDay/{{ $user -> username }}"><p class="h3 profile-inactive-menu">Free Day</p></a>
-            </div>
-        </div> -->
         <div class="col-6">
             <div align="center">
                 <p class="h3 profile-active-menu">Rate & Review</p>
             </div>
         </div>
     </div>
+    @endif
 <br>
     <div class="row">
         <div class ="col-12 text-left">
