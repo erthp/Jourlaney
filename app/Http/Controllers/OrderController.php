@@ -26,12 +26,13 @@ class OrderController extends Controller
 
         $today = Carbon::today('Asia/Bangkok')->isoFormat('DD MMMM YYYY');
         $customer = DB::select("select u.userLastName, u.userFirstName, u.userEmail from TripOrder ord join ChatRoom c on ord.chatRoomId=c.chatRoomId join Tourist t on c.touristId=t.touristId join Users u on t.username=u.username where c.chatRoomId=".$chatRoomId);
-        $order = DB::select("select gt.tripName from GuideTrip gt join ChatRoom c on gt.tripId=c.guideTripId where c.chatRoomId=".$chatRoomId);
+        $order = DB::select("select gt.tripId, gt.tripName from GuideTrip gt join ChatRoom c on gt.tripId=c.guideTripId where c.chatRoomId=".$chatRoomId);
         
         $customerFirstName = $customer[0]->userFirstName;
         $customerLastName = $customer[0]->userLastName;
         $customerEmail = $customer[0]->userEmail;
         $orderTripName = $order[0]->tripName;
+        $orderTripId = $order[0]->tripId;
         $orderTripCost = $tripCost;
         
         //Load Composer's autoloader
@@ -260,6 +261,22 @@ class OrderController extends Controller
                                             <ul style="padding: 0; margin: 0; list-style-type: disc;">
                                                 <li style="margin:0 0 10px 20px;" class="list-item-first">Quotation No.: '.$chatRoomId.'</li>
                                                 <li style="margin:0 0 10px 20px;" class="list-item-last">Date: '.$today.'</li>
+                                            </ul>
+                                            <p style="margin: 0 0 10px;">Customer Information</p>
+                                            <ul style="padding: 0; margin: 0; list-style-type: disc;">
+                                                <li style="margin:0 0 10px 20px;" class="list-item-first">Customer Name: '.$customerLastName.', '.$customerFirstName.'</li>
+                                                <li style="margin:0 0 10px 20px;" class="list-item-last">Customer Email: '.$customerEmail.'</li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 20px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+                                            <h1 style="margin: 0 0 10px; font-size: 25px; line-height: 30px; color: #333333; font-weight: normal;text-align: center;">Quotation</h1>
+                                            <p style="margin: 0 0 10px;">Trip Information</p>
+                                            <ul style="padding: 0; margin: 0; list-style-type: disc;">
+                                                <li style="margin:0 0 10px 20px;" class="list-item-first">Trip: <a href="www.jourlaney.com/GuideTrip/'.$orderTripId.'">'.$orderTripName.'</a></li>
+                                                <li style="margin:0 0 10px 20px;">Details: '.$agreementDetails.'</li>
+                                                <li style="margin:0 0 10px 20px;" class="list-item-last">Trip Date: '.$tripStartDate.'</li>
                                             </ul>
                                             <p style="margin: 0 0 10px;">Customer Information</p>
                                             <ul style="padding: 0; margin: 0; list-style-type: disc;">
