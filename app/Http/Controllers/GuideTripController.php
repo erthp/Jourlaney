@@ -185,7 +185,24 @@ class GuideTripController extends Controller
             $tripDay = 1;
             $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
             $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
-            return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+            switch($request->submit){
+                case 'addDay':
+                    return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+                break;
+                case 'submit':
+                    $tripData = DB::table('GuideTrip')->where(['tripId'=>$tripId])->first();
+                        
+                    $tripCondition = DB::select("select c.tripCondition from GuideTripCondition c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+                    $tripTransportation = DB::select("select c.tripTransportation from GuideTripTransportation c join GuideTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
+
+                    $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
+                    $tripLocation = DB::select("select l.tripLocation from GuideTripLocation l join GuideTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
+                    $tripDetails = DB::select("select d.tripDay, d.tripTime, d.tripDescription from GuideTripDetails d join GuideTrip g on g.tripId = d.tripId where d.tripId = " .$tripId);
+                    $value = Current($creatorId);
+                    $creator = DB::select("select * from Users join Guide on Users.username = Guide.username join GuideTrip on Guide.guideId = GuideTrip.guideId where GuideTrip.tripId = ".$tripId);
+                    return view('createtripcompleted', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails)->with('tripTransportation',$tripTransportation);
+                break;
+            }
         }else{
             echo "<script>window.alert('Trip end date must be after start date!')</script>";
             return app('App\Http\Controllers\TripController')->GuideShowEditTrip($tripId);

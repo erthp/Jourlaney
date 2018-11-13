@@ -84,7 +84,8 @@
                     <input type="hidden" name="tripId" id="tripId" value="{{ $trip -> tripId}}">
                     <input type="hidden" name="touristid" id="touristid" value="{{Session::get('touristid')}}">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <button type="submit" class="btn btn-info btn-block">Edit details</button>
+                    <button type="submit" name="submit" value="addDay" class="btn btn-info btn-block">Edit time details</button>
+                    <button type="submit" name="submit" value="submit" class="btn btn-success btn-block">Finish and submit</button>
                 </div>
             </div>
         </form>
