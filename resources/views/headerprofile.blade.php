@@ -156,6 +156,9 @@
             <h1 style="text-align:center">{{ $user -> userFirstName}}</h1>
             @if(!empty($guideLocation))
             <h5>{{$guideLocation}} Guide</h5>
+                @if(isset($guideBankAccountNumber))
+                <h5><i class="fas fa-exclamation-circle"></i> Please insert your bank account at edit profile menu.</h5>
+                @endif
             @else
             <h5>Tourist</h5>
             @endif

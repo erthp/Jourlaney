@@ -38,7 +38,7 @@ class LoginController extends Controller
             if(isset($guideid[0])){
                 Session::put('guideid', $guideid[0]->guideId);
                 $guidelocation = DB::table('Guide')->select('guideLocation')->where('username',$username)->get();
-                Session::put('guidelocation', $guidelocation[0]->guideLocation);
+                Session::put('guideLocation', $guidelocation[0]->guideLocation);
                 $guideVerification = DB::table('Guide')->select('guideVerification')->where('username',$username)->get();
                 Session::put('guideVerification', $guideVerification[0]->guideVerification);
                 $guideBankAccountNumber = DB::table('GuideBankAccount')->select('bankAccountNumber')->where('guideid',$guideid[0]->guideId)->get();
@@ -47,6 +47,7 @@ class LoginController extends Controller
                 Session::put('guideBankAccountBank', $guideBankAccountBank[0]->bankAccountBank);
                 $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideid[0]->guideId);
                 Session::put('NotificationCount', $NotificationCount[0]->notiCount);
+                //dd($guideBankAccountNumber);
             }
             if(isset($touristid[0])){
                 Session::put('touristid', $touristid[0]->touristId);
