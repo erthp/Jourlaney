@@ -461,7 +461,7 @@
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Guide Verification Panel
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Guide Report Panel
                             <div class="pull-right">
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -490,25 +490,25 @@
                                         <table class="table table-bordered table-hover table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th>Username</th>
-                                                    <th>First Name</th>
-                                                    <th>Last Name</th>
-                                                    <th>Email</th>
-                                                    <th>Guide License</th>
-                                                    <th>Guide Location</th>
-                                                    <th>Verify</th>
+                                                    <th>#</th>
+                                                    <th>Cause</th>
+                                                    <th>Message</th>
+                                                    <th>Trip</th>
+                                                    <th>Cost</th>
+                                                    <th>Reporter</th>
+                                                    <th>Guide</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                @foreach($queryGuide as $guidedata)
+                                                @foreach($queryReport as $report)
                                                 <tr>
-                                                    <td>{{ $guidedata -> username }}</td>
-                                                    <td>{{ $guidedata -> userFirstName }}</td>
-                                                    <td>{{ $guidedata -> userLastName }}</td>
-                                                    <td>{{ $guidedata -> userEmail }}</td>
-                                                    <td><a href="../images/licensepic/{{ $guidedata -> guideLicensePic }}"><img src="../images/licensepic/{{ $guidedata -> guideLicensePic }}" height=100px></a></td>
-                                                    <td><form method="POST" id="verifyGuide" action="{{URL::to('/guideverify')}}"><input type="text" name="location" required></td>
-                                                    <td>{{ csrf_field() }}<input type="hidden" name="username" value="{{ $guidedata -> username }}"><button type="submit" class="btn btn-success" id="verifyButton">Verify</button></form></td>
+                                                    <td>{{ $report -> messageId }}</td>
+                                                    <td>{{ $report -> problem }}</td>
+                                                    <td>{{ $report -> messageText }}</td>
+                                                    <td>{{ $report -> tripName }}</td>
+                                                    <td>{{ $report -> tripCost }}</td>
+                                                    <td>{{ $report -> touristFirstName }}<br>{{ $report -> touristEmail }}</td>
+                                                    <td>{{ $report -> guideFirstName }}<br>{{ $report -> guideEmail }}</td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>

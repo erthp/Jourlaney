@@ -55,6 +55,22 @@ class AdminController extends Controller
         return view('Admin/index', ['queryGuide' => $queryGuide]);
     }
 
+    public function getdataReport(){
+        $countGuide = DB::table('Guide')->count();
+        Session::put('countGuide', $countGuide);
+        $countTourist = DB::table('Tourist')->count();
+        Session::put('countTourist', $countTourist);
+        $countUser = $countGuide + $countTourist;
+        Session::put('countUser', $countUser);
+        $countGuideTrip = DB::table('GuideTrip')->count();
+        $countTouristTrip = DB::table('TouristTrip')->count();
+        $countTrip = $countGuideTrip + $countTouristTrip;
+        Session::put('countTrip', $countTrip);
+        $queryReport = DB::select('select distinct msg.messageId, msg.problem, msg.messageText, gt.tripName, ord.tripCost, ut.userFirstName as touristFirstName, ut.userEmail as touristEmail, ug.userFirstName as guideFirstName, ug.userEmail as guideEmail from AdminMessage msg join ChatRoom c on msg.chatRoomId=c.chatRoomId join TripOrder ord on c.chatRoomId=ord.chatRoomId join GuideTrip gt on c.guideTripId=gt.tripId join Tourist t on c.touristId=t.touristId join Guide g on c.guideId=g.guideId join Users ut on t.username=ut.username join Users ug on g.username=ug.username');
+        //dd($queryReport);
+        return view('Admin/report', ['queryReport' => $queryReport]);
+    }
+
     public function guideverify(Request $req){
         $username = $req->get('username');
         $location = $req->get('location');

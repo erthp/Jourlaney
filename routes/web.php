@@ -139,6 +139,10 @@ Route::get('adminIndex',function(){
     return view('/Admin/index');
 });
 
+Route::get('adminReport',function(){
+    return view('/Admin/report');
+});
+
 Route::get('login', ['as' => 'login', 'uses' => 'LoginController@login']);
 
 Route::get('charge', function () {
@@ -168,6 +172,7 @@ Route::post('/transferOmise','OmiseTransferController@transfer');
 
 
 Route::get('adminGetData', 'AdminController@getdata');
+Route::get('adminGetDataReport', 'AdminController@getdataReport');
 Route::get('orderHistory',"ProfileController@showOrderHistory");
 
 Route::get('/search', 'SearchController@getdata');
