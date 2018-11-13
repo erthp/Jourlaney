@@ -58,7 +58,7 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
+                            <a href="/Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
                         </li>
                         <li>
                             <a href="{{ URL::to('/editprofile') }}" class="userDropdown">Edit Profile</a>
