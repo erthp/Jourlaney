@@ -154,7 +154,7 @@
         <div class ="col-12 text-center">
             <br><br>
             <h1 style="text-align:center">{{ $user -> userFirstName}}</h1>
-            @if(!empty($guideLocation))
+            @if(!empty($guideid))
             <h5>{{$guideLocation}} Guide</h5>
                 @if(isset($guideBankAccountNumber))
                 <h5><i class="fas fa-exclamation-circle"></i> Please insert your bank account at edit profile menu.</h5>
