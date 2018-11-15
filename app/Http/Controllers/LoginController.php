@@ -35,21 +35,26 @@ class LoginController extends Controller
             $guideid = DB::table('Guide')->select('guideId')->where('username',$username)->get();
             $touristid = DB::table('Tourist')->select('touristId')->where('username',$username)->get();
 
-            if(isset($guideid[0])){
+            if(!empty($guideid[0]->$guideid)){
                 Session::put('guideid', $guideid[0]->guideId);
                 $guidelocation = DB::table('Guide')->select('guideLocation')->where('username',$username)->get();
-                Session::put('guideLocation', $guidelocation[0]->guideLocation);
+                if(($guidelocation) != null){
+                    Session::put('guideLocation', $guidelocation[0]->guideLocation);
+                }
                 $guideVerification = DB::table('Guide')->select('guideVerification')->where('username',$username)->get();
                 Session::put('guideVerification', $guideVerification[0]->guideVerification);
+
                 $guideBankAccountNumber = DB::table('GuideBankAccount')->select('bankAccountNumber')->where('guideid',$guideid[0]->guideId)->get();
-                Session::put('guideBankAccountNumber', $guideBankAccountNumber[0]->bankAccountNumber);
                 $guideBankAccountBank = DB::table('GuideBankAccount')->select('bankAccountBank')->where('guideid',$guideid[0]->guideId)->get();
-                Session::put('guideBankAccountBank', $guideBankAccountBank[0]->bankAccountBank);
+                if(($guideBankAccountNumber) != null){
+                    Session::put('guideBankAccountNumber', $guideBankAccountNumber[0]->bankAccountNumber);
+                    Session::put('guideBankAccountBank', $guideBankAccountBank[0]->bankAccountBank);
+                }
                 $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideid[0]->guideId);
                 Session::put('NotificationCount', $NotificationCount[0]->notiCount);
                 //dd($guideBankAccountNumber);
             }
-            if(isset($touristid[0])){
+            if(!empty($touristid[0]->touristId)){
                 Session::put('touristid', $touristid[0]->touristId);
                 $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Guide' and touristId=".$touristid[0]->touristId);
                 Session::put('NotificationCount', $NotificationCount[0]->notiCount);
