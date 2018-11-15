@@ -88,9 +88,13 @@
                     @if(!empty(session::get('guideid')))
                         @if(($orderStatus[0] -> status) == "Chat")
                             <p class="center-div chat-status">Status: Chat</p>
+                            @if(!empty(Session::get('guideBankAccountNumber')))
                             <div class="center-div">
-                                    <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#createTrip">Create trip order</button>
+                                <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#createTrip">Create trip order</button>
                             </div>
+                            @else
+                                <p class="center-div"><i class="fas fa-exclamation-circle"></i> Please insert your bank account at edit profile menu before create new order.</p>
+                            @endif
                             <div class="modal fade" id="createTrip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
