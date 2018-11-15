@@ -52,7 +52,7 @@ class OrderController extends Controller
 
             //Recipients
             $mail->setFrom('jourlaney@gmail.com', 'Jourlaney');
-            $mail->addAddress('panot.1997@mail.kmutt.ac.th', $customerFirstName);     // Add a recipient
+            $mail->addAddress($customerEmail, $customerFirstName);     // Add a recipient
             //$mail->addAddress('ellen@example.com');               // Name is optional
             //$mail->addReplyTo('info@example.com', 'Information');
             //$mail->addCC('cc@example.com');

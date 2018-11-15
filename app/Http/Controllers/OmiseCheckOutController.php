@@ -67,7 +67,7 @@ use Carbon\Carbon;
         
                     //Recipients
                     $mail->setFrom('jourlaney@gmail.com', 'Jourlaney');
-                    $mail->addAddress('panot.1997@mail.kmutt.ac.th', $guideFirstName);     // Add a recipient
+                    $mail->addAddress($guideEmail, $guideFirstName);     // Add a recipient
                     //$mail->addAddress('ellen@example.com');               // Name is optional
                     //$mail->addReplyTo('info@example.com', 'Information');
                     //$mail->addCC('cc@example.com');
