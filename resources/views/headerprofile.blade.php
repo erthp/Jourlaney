@@ -156,7 +156,7 @@
             <h1 style="text-align:center">{{ $user -> userFirstName}}</h1>
             @if(!empty($guide))
             <h5>{{$guideLocation}} Guide</h5>
-                @if(isset($guideBankAccountNumber))
+                @if(empty(Session::get('guideBankAccountNumber')))
                 <h5><i class="fas fa-exclamation-circle"></i> Please insert your bank account at edit profile menu.</h5>
                 @endif
             @else
