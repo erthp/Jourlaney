@@ -77,7 +77,7 @@ class TripController extends Controller
         $tripData = DB::table('TouristTrip')->where(['tripId'=>$tripId])->first();
         $tripDay = 1;
         $queryTime = DB::select("select tripTime, tripDescription from TouristTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
-        $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
+        $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
         $touristId = $creatorId->touristId;
         
         return view('TouristEditTripTime', ['trip' => $tripData],['creatorId' => $creatorId])->with('tripDay',$tripDay)->with('queryTime',$queryTime)->with('touristId',$touristId);
