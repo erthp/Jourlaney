@@ -161,7 +161,7 @@
                 <div class="col-4"></div>
                 <div class="col-4">
                     <div class="center-div">
-                        <a href="/search?startdate={{ $today }}&enddate={{ $next6 }}"><input type="button" class="btn btn-lg btn-outline-light index-btn" value="See more trips"></a>
+                        <a href="/search?startdate={{ $today }}&enddate={{ $next6 }}&tourist=on"><input type="button" class="btn btn-lg btn-outline-light index-btn" value="See more trips"></a>
                     </div>
                 </div>
                 <div class="col-4"></div>
