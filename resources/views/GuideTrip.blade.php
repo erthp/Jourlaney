@@ -54,11 +54,11 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                                 <ul class="nav navbar-top-links navbar-right">
-                                    <li class="dropdown">
+                                    <!-- <li class="dropdown">
                     		            <a class="dropdown" data-toggle="dropdown" href="#">
                         	                <img src="../pic/bell.png"class="mr-3" >
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <ul class="dropdown-menu dropdown-alerts">
                                     <!-- <li>
                                         <a href="#">
