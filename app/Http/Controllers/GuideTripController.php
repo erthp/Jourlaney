@@ -187,7 +187,7 @@ class GuideTripController extends Controller
             $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
             switch($request->submit){
                 case 'addDay':
-                    return view('guideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+                    return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
                 break;
                 case 'submit':
                     $tripData = DB::table('GuideTrip')->where(['tripId'=>$tripId])->first();
