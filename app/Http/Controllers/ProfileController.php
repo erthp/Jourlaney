@@ -122,6 +122,8 @@ class ProfileController extends Controller
         $check = DB::table('Users')->where(['username'=>$username])->first();
         $checkGuide = DB::table('Guide')->where(['username'=>$username])->first();
         $guideId = Session::get('guideid');
+        $guideRating = 0.00;
+        $guideLocation = "";
 
         if(!empty($checkGuide)){
             $profileGuideLocation = DB::table('Guide')->select('guideLocation')->where(['username'=>$username])->get();
