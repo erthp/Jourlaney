@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-
+            @if(!empty(Session::get('guideid')))
             <div class="row">
                 <div class="col-8">
                     <h5 class="profileedit-menu">Bank Account</h5>
@@ -113,7 +113,7 @@
                 <div class="col-lg-4">
                     <div class="form-group">
                         <label class="register-label" for="bankAccount">Bank account number</label>
-                        <input type="text" class="form-control" id="bankAccount" name="bankAccount" placeholder="Bank account number" data-parsley-type="integer" data-parsley-required="true" data-parsley-length="[10, 10]" value="{{Session::get('guideBankAccountNumber')}}">
+                        <input type="text" class="form-control" id="bankAccount" name="bankAccount" placeholder="Bank account number" value="recp_test_5d13mw24wssbid89es0">
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
                     </div>
                 </div>
             </div>
-
+            @endif
             <div class="row text-center mb-4">
                 <div class="col-8">
                     <button type="submit" class="btn btn-success btn-block">Submit</button>

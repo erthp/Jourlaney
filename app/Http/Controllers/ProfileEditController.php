@@ -26,7 +26,11 @@ class ProfileEditController extends Controller
             }
             
             $queryUser = DB::update('update Users set userFirstName = ?, userLastName = ?, userEmail = ?, userGender = ?, userDOB = ?, userIdcard = ?, userProfileImage = ? where username = ?', [$request->input('firstname'), $request->input('lastname'), $userEmail, $request->input('gender'), $request->input('birthdate'), $request->input('idcard'), $profilePicName ,$username]);
-            $bankAccount = DB::update('update GuideBankAccount set bankAccountNumber = ?, bankAccountBank = ? where guideId = ?',[$request->input('bankAccount'),$request->input('bankName'),Session::get('guideid')]);
+            
+            $checkGuide = DB::table('Guide')->where(['username'=>$username])->first();
+            if(!empty($checkGuide)){
+                $bankAccount = DB::update('update GuideBankAccount set bankAccountNumber = ?, bankAccountBank = ? where guideId = ?',[$request->input('bankAccount'),$request->input('bankName'),Session::get('guideid')]);
+            }
             
             $firstname = DB::table('Users')->select('userFirstName')->where('username',$username)->get();
             Session::put('firstname', $firstname[0]->userFirstName);
