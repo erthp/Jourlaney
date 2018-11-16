@@ -121,10 +121,10 @@
                         </a>
                         <ul class="dropdown-menu dropdown-user">
                         <li>
-                            <a href="Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
+                            <a href="/Profile/{{Session::get('username')}}" class="userDropdown">Profile</a>
                         </li>
                         <li>
-                            <a href="editprofile" class="userDropdown">Edit Profile</a>
+                            <a href="/editprofile" class="userDropdown">Edit Profile</a>
                         </li>
                         <li class="divider"></li>
                         <li>

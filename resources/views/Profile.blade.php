@@ -2,7 +2,7 @@
 @section('page')
 <br>
 <div class="container profilemenu">
-    @if((Session::get('username') == ($user -> username)))
+    @if(((Session::get('username')) == ($user -> username)) && (!empty(Session::get('guideid'))))
     <div class="row">
         <div class="col-4">
             <div align="center">

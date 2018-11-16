@@ -53,7 +53,7 @@ class ProfileController extends Controller
             if($intPlus != 0){
                 $touristRating = number_format($intPlus/$i,2);
             }
-            $trip = DB::select('select * from TouristTrip join Tourist on TouristTrip.touristId=Tourist.touristId where Tourist.username="'.$username.'"');
+            $trip = DB::select('select * from TouristTrip join Tourist on TouristTrip.touristId=Tourist.touristId where Tourist.username="'.$username.'" order by TouristTrip.tripId desc');
         }
 
         if($check){
