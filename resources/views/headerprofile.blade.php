@@ -60,12 +60,16 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
-                                {{ csrf_field() }}
-                            <a onclick="document.getElementById('logout-form').submit()" class="userDropdown">Logout</a>
-                            </form>
-                        </li>
-                    </li>
+                        <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 
+                                        {{ csrf_field() }}
+                                    <a onclick="document.getElementById('logout-form').submit()" class="userDropdown">Logout</a>
+                                    </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
 
                 <!-- <a href="profile">{{Session::get('username')}}</a>
                 <form method="POST" name="logout-form" id="logout-form" action="{{ URL::to('/logout') }}"> 

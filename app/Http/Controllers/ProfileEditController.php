@@ -32,8 +32,16 @@ class ProfileEditController extends Controller
                 $queryBankAccount = DB::select("select bankAccountNumber from GuideBankAccount where guideId=".Session::get('guideid'));
                 if(!empty($queryBankAccount)){
                     $bankAccount = DB::update('update GuideBankAccount set bankAccountNumber = ?, bankAccountBank = ? where guideId = ?',[$request->input('bankAccount'),$request->input('bankName'),Session::get('guideid')]);
+                    $guideBankAccountNumber = DB::select("select bankAccountNumber from GuideBankAccount where guideId=".Session::get('guideid'));
+                    $guideBankAccountBank = DB::select("select bankAccountBank from GuideBankAccount where guideId=".Session::get('guideid'));
+                    Session::put('guideBankAccountNumber', $guideBankAccountNumber[0]->bankAccountNumber);
+                    Session::put('guideBankAccountBank', $guideBankAccountBank[0]->bankAccountBank);
                 }else{
                     $bankAccount = DB::insert('insert into GuideBankAccount(bankAccountNumber,bankAccountBank,guideId) values(?,?,?)',[$request->input('bankAccount'),$request->input('bankName'),Session::get('guideid')]);
+                    $guideBankAccountNumber = DB::select("select bankAccountNumber from GuideBankAccount where guideId=".Session::get('guideid'));
+                    $guideBankAccountBank = DB::select("select bankAccountBank from GuideBankAccount where guideId=".Session::get('guideid'));
+                    Session::put('guideBankAccountNumber', $guideBankAccountNumber[0]->bankAccountNumber);
+                    Session::put('guideBankAccountBank', $guideBankAccountBank[0]->bankAccountBank);
                 }
             }
             
