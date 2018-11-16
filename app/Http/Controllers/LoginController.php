@@ -36,7 +36,7 @@ class LoginController extends Controller
             $queryTouristid = DB::select("select touristId from Tourist where username='".$username."'");
 
             if(!empty($queryGuideid)){
-                //$guideid = $queryGuideid[0]->guideId;
+                $guideid = $queryGuideid[0]->guideId;
                 Session::put('guideid', $guideid);
                 $guidelocation = DB::select("select guideLocation from Guide where username='".$username."'");
                 if(($guidelocation) != null){
