@@ -32,31 +32,33 @@ class LoginController extends Controller
             Session::put('idCard', $idCard[0]->userIdcard);
             $profileImage = DB::table('Users')->select('userProfileImage')->where('username', $username)->get();
             Session::put('profileImage', $profileImage[0]->userProfileImage);
-            $guideid = DB::table('Guide')->select('guideId')->where('username',$username)->get();
-            $touristid = DB::table('Tourist')->select('touristId')->where('username',$username)->get();
+            $queryGuideid = DB::select("select guideId from Guide where username='".$username."'");
+            $queryTouristid = DB::select("select touristId from Tourist where username='".$username."'");
 
-            if(!empty($guideid[0]->$guideid)){
-                Session::put('guideid', $guideid[0]->guideId);
-                $guidelocation = DB::table('Guide')->select('guideLocation')->where('username',$username)->get();
+            if(!empty($queryGuideid)){
+                $guideid = $queryGuideid[0]->guideId;
+                Session::put('guideid', $guideid);
+                $guidelocation = DB::select("select guideLocation from Guide where username='".$username."'");
                 if(($guidelocation) != null){
                     Session::put('guideLocation', $guidelocation[0]->guideLocation);
                 }
-                $guideVerification = DB::table('Guide')->select('guideVerification')->where('username',$username)->get();
+                $guideVerification = DB::select("select guideVerification from Guide where username='".$username."'");
                 Session::put('guideVerification', $guideVerification[0]->guideVerification);
 
-                $guideBankAccountNumber = DB::table('GuideBankAccount')->select('bankAccountNumber')->where('guideid',$guideid[0]->guideId)->get();
-                $guideBankAccountBank = DB::table('GuideBankAccount')->select('bankAccountBank')->where('guideid',$guideid[0]->guideId)->get();
+                $guideBankAccountNumber = DB::select("select bankAccountNumber from GuideBankAccount where guideId=".$guideid);
+                $guideBankAccountBank = DB::select("select bankAccountBank from GuideBankAccount where guideId=".$guideid);
                 if(($guideBankAccountNumber) != null){
                     Session::put('guideBankAccountNumber', $guideBankAccountNumber[0]->bankAccountNumber);
                     Session::put('guideBankAccountBank', $guideBankAccountBank[0]->bankAccountBank);
                 }
-                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideid[0]->guideId);
+                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Tourist' and guideId=".$guideid);
                 Session::put('NotificationCount', $NotificationCount[0]->notiCount);
                 //dd($guideBankAccountNumber);
             }
-            if(!empty($touristid[0]->touristId)){
-                Session::put('touristid', $touristid[0]->touristId);
-                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Guide' and touristId=".$touristid[0]->touristId);
+            if(!empty($queryTouristid)){
+                $touristid = $queryTouristid[0]->touristId;
+                Session::put('touristid', $touristid);
+                $NotificationCount = DB::select("select count(distinct chatRoomId) as notiCount from ChatRoom where readStatus is null and sender = 'Guide' and touristId=".$touristid);
                 Session::put('NotificationCount', $NotificationCount[0]->notiCount);
             }
             return redirect('/');

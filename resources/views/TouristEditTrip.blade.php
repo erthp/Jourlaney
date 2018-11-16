@@ -77,6 +77,123 @@
                 </div>
             </div>
             <br>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label class="trip-label" for="location">Location</label>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group" id="location-form">
+                    <select name="location" id="location">
+                        @if(!empty($tripLocation))
+                            @foreach( $queryLocation as $location)
+                                @if($tripLocation[0]->tripLocation == $location->tripLocation)
+                                <option value="{{ $location -> tripLocation }}" selected>{{ $location -> tripLocation }}</option>
+                                @else
+                                <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>
+                                @endif
+                            @endforeach
+                        @else
+                            <option value="" selected>Select city</option>
+                            @foreach( $queryLocation as $location)
+                            <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>
+                            @endforeach
+                        @endif
+                    </select>
+                    @if(!empty($tripLocation[1]->tripLocation))
+                    <select name="location2" id="location2">
+                        @foreach( $queryLocation as $location)
+                        @if($tripLocation[1]->tripLocation == $location->tripLocation)
+                        <option value="{{ $location -> tripLocation }}" selected>{{ $location -> tripLocation }}</option>
+                        @else
+                        <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                    @endif
+                    @if(!empty($tripLocation[2]->tripLocation))
+                    <select name="location3" id="location3">
+                        @foreach( $queryLocation as $location)
+                        @if($tripLocation[2]->tripLocation == $location->tripLocation)
+                        <option value="{{ $location -> tripLocation }}" selected>{{ $location -> tripLocation }}</option>
+                        @else
+                        <option value="{{ $location -> tripLocation }}">{{ $location -> tripLocation }}</option>
+                        @endif
+                        @endforeach
+                    </select>
+                    @endif
+                    &nbsp;&nbsp; <a onclick="addLocation()"><img src="../pic/add.png" height="16px" width="16px"></a>
+                    <p name="addLocation" id="addLocation"></p>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label class="trip-label" for="trip-conditions">Trip conditions</label>
+                </div>
+                <div class="col-lg-8">
+                    @if(!empty($tripCondition))
+                        @php
+                            $smartCasual = "false";
+                            $noPets = "false";
+                            $flexiblePlan = "false";
+                            $seasonal = "false"
+                        @endphp
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                            @if($tripCondition[$i] -> tripCondition == "Smart casual")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" checked/> Smart Casual  &nbsp;&nbsp;&nbsp;
+                            @php
+                                $smartCasual = "true";
+                            @endphp
+                            @endif
+                        @endfor
+                        @if($smartCasual !== "true")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
+                        @endif
+
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                            @if($tripCondition[$i] -> tripCondition == "No pets")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" checked/> No Pets &nbsp;&nbsp;&nbsp;
+                            @php
+                                $noPets = "true";
+                            @endphp
+                            @endif
+                        @endfor
+                            @if($noPets !== "true")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets"/> No Pets &nbsp;&nbsp;&nbsp;
+                            @endif
+
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                            @if($tripCondition[$i] -> tripCondition == "Flexible plan")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" checked/> Flexible Plan &nbsp;&nbsp;&nbsp;
+                            @php
+                                $flexiblePlan = "true";
+                            @endphp
+                            @endif
+                        @endfor
+                            @if($flexiblePlan !== "true")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan"/> Flexible Plan &nbsp;&nbsp;&nbsp;
+                            @endif
+
+                        @for($i = 0; $i < count($tripCondition); $i++)
+                            @if($tripCondition[$i] -> tripCondition == "Seasonal activity")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" checked/> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                            @php
+                                $seasonal = "true";
+                            @endphp
+                            @endif
+                        @endfor
+                            @if($seasonal !== "true")
+                            <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity"/> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                            @endif
+                    @else
+                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Smart casual" /> Smart Casual  &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="No pets" /> No Pets &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Flexible plan" /> Flexible Plan &nbsp;&nbsp;&nbsp;
+                    <input type="checkbox" class="" name="trip-conditions[]" id="trip-conditions" value="Seasonal activity" /> Seasonal Activity &nbsp;&nbsp;&nbsp;
+                    @endif
+                </div>
+            </div>
             <div class="row text-center mb-4">
                 <div class="col-lg-2">
                 </div>

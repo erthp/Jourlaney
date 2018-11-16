@@ -187,7 +187,7 @@ class GuideTripController extends Controller
             $creatorId = DB::table('GuideTrip')->select('guideId')->where(['tripId'=>$tripId])->first();
             switch($request->submit){
                 case 'addDay':
-                    return view('GuideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+                    return view('guideEditTripTime',['tripId' => $tripId],['tripDay' => $tripDay],['creatorId' => $creatorId])->with('queryTime',$queryTime)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
                 break;
                 case 'submit':
                     $tripData = DB::table('GuideTrip')->where(['tripId'=>$tripId])->first();
@@ -213,10 +213,11 @@ class GuideTripController extends Controller
         $tripId = $request->input('tripId');
         $tripDay = $request->input('tripDay');
 
-        if(!empty($request->input('time1'))){
+        
             $rm = DB::delete("delete from GuideTripDetails where tripId = ".$tripId." and tripDay = ".$tripDay);
+            if(!empty($request->input('time1'))){
             $queryTime1 = DB::insert("insert into GuideTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time1'),$request->input('desc1')]);
-            if(!empty($request->input('time2'))){
+            }if(!empty($request->input('time2'))){
                 $queryTime2 = DB::insert("insert into GuideTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time2'),$request->input('desc2')]);
             }if(!empty($request->input('time3'))){
                 $queryTime3 = DB::insert("insert into GuideTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time3'),$request->input('desc3')]);
@@ -247,6 +248,7 @@ class GuideTripController extends Controller
             }
             
             $tripDay++;
+            
             $queryTime = DB::select("select tripTime, tripDescription from GuideTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
             switch($request->submit){
                 case 'addDay':
@@ -266,9 +268,10 @@ class GuideTripController extends Controller
                 $tripDetails = DB::select("select d.tripDay, d.tripTime, d.tripDescription from GuideTripDetails d join GuideTrip g on g.tripId = d.tripId where d.tripId = " .$tripId);
                 $value = Current($creatorId);
                 $creator = DB::select("select * from Users join Guide on Users.username = Guide.username join GuideTrip on Guide.guideId = GuideTrip.guideId where GuideTrip.tripId = ".$tripId);
+                
                 return view('createtripcompleted', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails)->with('tripTransportation',$tripTransportation);
                 break;
             }
-        }
+        
     }
 }

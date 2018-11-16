@@ -134,11 +134,34 @@ class TouristTripController extends Controller
                 $tripCondition = DB::select("select c.tripCondition from TouristTripCondition c join TouristTrip g on g.tripId = c.tripId where c.tripId = " .$tripId);
                 $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
                 $tripLocation = DB::select("select l.tripLocation from TouristTripLocation l join TouristTrip g on g.tripId = l.tripId where l.tripId = " .$tripId);
-                $queryLocation = DB::select("select tripLocation from Location order by locationId");
                 $queryTouristTrip = DB::update("update TouristTrip set tripName = ?, tripStart = ?, tripEnd = ?, tripPicture = ? where tripId = ?",[$tripName,$request->input('startdate'),$request->input('enddate'),$touristTripPicName,$tripId]);
+                
+                if(!empty($request->input('location'))){
+                    $rmlocation = DB::delete("delete from TouristTripLocation where tripId = ?",[$tripId]);
+                    $queryLocation1 = DB::insert("insert into TouristTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location')]);
+                    if(!empty($request->input('location2'))){
+                        $queryLocation2 = DB::insert("insert into TouristTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location2')]);
+                        if(!empty($request->input('location3'))){
+                            $queryLocation3 = DB::insert("insert into TouristTripLocation(tripId, tripLocation) value(?,?)",[$tripId,$request->input('location3')]);
+                        }
+                    }
+                }
+    
+                $rmCondition = DB::delete("delete from TouristTripCondition where tripId = ?",[$tripId]);
+                if(isset($_POST['trip-conditions'])){
+                $conditions = $_POST['trip-conditions'];
+                foreach($conditions as $value){
+                    $queryTripConditions = DB::insert("insert into TouristTripCondition(tripId, tripCondition) value(?,?)",[$tripId,$value]);
+                }
+            }
+                
+                $tripDay = 1;
+                $queryTime = DB::select("select tripTime, tripDescription from TouristTripDetails where tripId = ? and tripDay = ?",[$tripId,$tripDay]);
+                $creatorId = DB::table('TouristTrip')->select('touristId')->where(['tripId'=>$tripId])->first();
+                
                 switch($request->submit){
                     case 'addDay':
-                        return view('TouristEditTripDetails',['tripId' => $tripId],['creatorId' => $creatorId])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('queryLocation',$queryLocation);
+                        return view('TouristEditTripTime',['tripId' => $tripId],['creatorId' => $creatorId])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition);
                     break;
                         case 'submit':
                         $tripData = DB::table('TouristTrip')->where(['tripId'=>$tripId])->first();
@@ -193,10 +216,11 @@ class TouristTripController extends Controller
             $tripId = $request->input('tripId');
             $tripDay = $request->input('tripDay');
     
-            if(!empty($request->input('time1'))){
+            
                 $rm = DB::delete("delete from TouristTripDetails where tripId = ".$tripId." and tripDay = ".$tripDay);
+                if(!empty($request->input('time1'))){
                 $queryTime1 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time1'),$request->input('desc1')]);
-                if(!empty($request->input('time2'))){
+                }if(!empty($request->input('time2'))){
                     $queryTime2 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time2'),$request->input('desc2')]);
                 }if(!empty($request->input('time3'))){
                     $queryTime3 = DB::insert("insert into TouristTripDetails(tripId, tripDay, tripTime, tripDescription) value(?,?,?,?)",[$tripId,$tripDay,$request->input('time3'),$request->input('desc3')]);
@@ -248,7 +272,7 @@ class TouristTripController extends Controller
                     return view('createtripcompleted', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripLocation',$tripLocation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails)->with('tripTransportation',$tripTransportation);
                     break;
                 }
-            }
+            
         }
     
 }
