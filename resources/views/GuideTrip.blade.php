@@ -297,7 +297,7 @@
                                             <tr>
                                             @foreach($tripDetails as $details)
                                                     @if($minday < $details->tripDay)
-                                                    <td>Day {{ $details->tripDay }}</td>
+                                                    <td width="20%">Day {{ $details->tripDay }}</td>
                                                         @php
                                                             $minday++;
                                                         @endphp
