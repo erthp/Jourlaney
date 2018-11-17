@@ -87,6 +87,9 @@ class TripController extends Controller
 
     public function gdeletetrip(Request $request){
         $tripId = $request->input('tripId');
+        $queryOrder = DB::select("select distinct c.chatRoomId from TripOrder ord join ChatRoom c on ord.chatRoomId=c.chatRoomId where c.guideTripId=".$tripId);
+
+        if(!empty($queryOrder)){
         $deleteTrip = DB::delete("delete from GuideTrip where tripId = ".$tripId);
         $deleteTripCondition = DB::delete("delete from GuideTripCondition where tripId = ".$tripId);
         $deleteTripDetails = DB::delete("delete from GuideTripDetails where tripId = ".$tripId);
@@ -94,6 +97,10 @@ class TripController extends Controller
         $deleteTripTransportation = DB::delete("delete from GuideTripTransportation where tripId = ".$tripId);
         echo "<script>window.alert('Trip Deleted.')</script>";
         return redirect('/');
+        }else{
+            echo "<script>window.alert('Can't delete order opened trip.')</script>";
+            return redirect('/');
+        }
     }
 
     public function tdeletetrip(Request $request){
