@@ -90,7 +90,14 @@
                                             @endforeach
                                             @endif</td>
                                       </tr>
+                                      @if(!empty(Session::get('guideid')))
+                                      <tr>
+                                        <td>Trip cost :</td>
+                                         <td>{{ $tripCost->tripCost }} Baht/Person</td> 
+                                      </tr>
+                                      @endif
                                     </table> 
+                                    
                                     <br><br>
                                     <h5 clsss="tripTitle">Itinerary</h5>
                                     <br>
