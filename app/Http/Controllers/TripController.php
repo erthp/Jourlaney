@@ -21,7 +21,9 @@ class TripController extends Controller
         $value = Current($creatorId);
         $creator = DB::select("select * from Users join Guide on Users.username = Guide.username join GuideTrip on Guide.guideId = GuideTrip.guideId where GuideTrip.tripId = ".$tripId);
         $guideId = $creatorId->guideId;
-        return view('GuideTrip', ['creator' => $creator[0]], ['trip' => $tripData], ['tripCost' => $tripCost])->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails)->with('guideId',$guideId);
+
+        
+        return view('GuideTrip', ['creator' => $creator[0]], ['trip' => $tripData])->with('tripCost',$tripCost)->with('tripLocation',$tripLocation)->with('tripTransportation',$tripTransportation)->with('tripCondition',$tripCondition)->with('tripDetails',$tripDetails)->with('guideId',$guideId);
     }
 
     public function showTouristTrip($tripId){

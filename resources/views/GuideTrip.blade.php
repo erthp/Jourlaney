@@ -281,6 +281,10 @@
                                             @endforeach
                                             @endif</td>
                                       </tr>
+                                      <tr>
+                                        <td>Trip cost :</td>
+                                         <td>{{ $tripCost->tripCost }} Baht/Person</td> 
+                                      </tr>
                                     </table> 
                                     <br><br>
                                     <h5 clsss="tripTitle">Itinerary</h5>
