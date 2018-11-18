@@ -56,7 +56,7 @@ class IndexController extends Controller
         $queryUpcomingGuideTrips = DB::select("select * from GuideTrip t join Guide g on t.guideId=g.guideId join Users u on g.username = u.username where t.tripStart = '".$next7."' or t.tripStart = '".$next8."' or t.tripStart = '".$next9."' or t.tripStart = '".$next10."' or t.tripStart = '".$next11."' or t.tripStart = '".$next11."' or t.tripStart = '".$next12."'");
         shuffle($queryGuideTrips);
 
-        $queryTouristTrips = DB::select("select * from TouristTrip tt join Tourist t on tt.touristId=t.touristId join Users u on t.username = u.username where tt.tripStart = '".$today."' or tt.tripStart = '".$next1."' or tt.tripStart = '".$next2."' or tt.tripStart = '".$next3."' or tt.tripStart = '".$next4."' or tt.tripStart = '".$next5."' or tt.tripStart = '".$next6."'");
+        $queryTouristTrips = DB::select("select * from TouristTrip tt join Tourist t on tt.touristId=t.touristId join Users u on t.username = u.username");
         shuffle($queryTouristTrips);
 
         return view('th/index')->with('guideTrips',$queryGuideTrips)->with('upcomingGuideTrips',$queryUpcomingGuideTrips)->with('touristTrips',$queryTouristTrips)->with('today',$today)->with('next6',$next6)->with('next7',$next7)->with('next12',$next12);
