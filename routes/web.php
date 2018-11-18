@@ -63,6 +63,8 @@ Route::get('chat/{chatRoomId}', 'ChatController@ShowChat')->name('Chat.ShowChat'
 Route::get('ShowChatOnly/{chatRoomId}', 'ChatController@ShowChatOnly')->name('Chat.ShowChatOnly');
 Route::get('ShowChatPage', 'ChatController@ShowChatPage')->name('Chat.ShowChatPage');
 //Route::get('ShowChatOnly', 'ChatController@ShowChatOnly')->name('Chat.ShowChatOnly');
+
+Route::get('/vote',"AdminController@vote");
 Route::get('resetpassword',function(){
     return view('ResetPassword');
 });
@@ -225,8 +227,6 @@ Route::post('/createOrder',"OrderController@CreateOrder");
 Route::post('/confirmOrder',"OrderController@ConfirmOrder");
 Route::post('/cancelOrder',"OrderController@CancelOrder");
 Route::post('/rateReview',"OrderController@RateReview");
-
-Route::post('/vote',"AdminController@vote");
 
 //Route::post('/SendMail','PhpSendMailController@Sendmail');
 // Auth::routes();
