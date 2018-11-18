@@ -65,6 +65,7 @@ Route::get('ShowChatPage', 'ChatController@ShowChatPage')->name('Chat.ShowChatPa
 //Route::get('ShowChatOnly', 'ChatController@ShowChatOnly')->name('Chat.ShowChatOnly');
 
 Route::get('/vote',"AdminController@vote");
+Route::get('/DDay',"AdminController@DDay");
 Route::get('resetpassword',function(){
     return view('ResetPassword');
 });
@@ -143,6 +144,10 @@ Route::get('adminIndex',function(){
 
 Route::get('adminReport',function(){
     return view('/Admin/report');
+});
+
+Route::get('DDayVote',function(){
+    return view('/Admin/DDay');
 });
 
 Route::get('login', ['as' => 'login', 'uses' => 'LoginController@login']);

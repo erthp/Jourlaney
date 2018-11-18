@@ -326,6 +326,19 @@ class AdminController extends Controller
     }
 
     public function vote(){
+        $query = DB::select("select vote from DDay where DDay='DDay'");
+        $count = $query[0]->vote;
+        $newCount = $count+1;
+        $save = DB::update("update DDay set vote = ? where DDay='DDay'",[$newCount]);
+
         return redirect('https://seniorproject.sit.kmutt.ac.th/showproject/IT58-BU59');
+    }
+
+    public function DDay(){
+        $query = DB::select("select vote from DDay where DDay='DDay'");
+        $vote = $query[0]->vote;
+
+        //dd($vote);
+        return view('Admin/DDay')->with('vote',$vote);
     }
 }
