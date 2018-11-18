@@ -324,4 +324,8 @@ class AdminController extends Controller
 
 
     }
+
+    public function vote(){
+        return redirect('https://seniorproject.sit.kmutt.ac.th/showproject/IT58-BU59');
+    }
 }

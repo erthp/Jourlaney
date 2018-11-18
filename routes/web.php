@@ -226,5 +226,7 @@ Route::post('/confirmOrder',"OrderController@ConfirmOrder");
 Route::post('/cancelOrder',"OrderController@CancelOrder");
 Route::post('/rateReview',"OrderController@RateReview");
 
+Route::post('/vote',"AdminController@vote");
+
 //Route::post('/SendMail','PhpSendMailController@Sendmail');
 // Auth::routes();
