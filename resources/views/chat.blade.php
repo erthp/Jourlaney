@@ -289,6 +289,7 @@
                                 </form>
                             </div>
                             <p class="center-div">You must transfer trip cost to system to confirm this order</p>
+                            <p class="center-div">Details and quotation has sent to your email.</p>
                             <p class="center-div chat-order-status">Trip name: {{ $query -> tripName }}</p>
                             <p class="center-div">Details: {{ $orderStatus[0] -> agreementDetails }}</p>
                             <p class="center-div">Start date: {{ $orderStatus[0] -> tripStartDate }}</p>
