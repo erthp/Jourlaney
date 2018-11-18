@@ -108,7 +108,7 @@ class ProfileController extends Controller
                 $touristRating = number_format($intPlus/$i,2);
             }
 
-            $allReview = DB::select("select distinct ord.touristRating as touristRating, ord.touristReview as touristReview, ord.chatRoomId, c.guideId, u.username, u.userFirstName, u.userProfileImage from TripOrder ord join ChatRoom c on ord.chatRoomId = c.chatRoomId join Tourist t on c.touristId=t.touristId join Users u on t.username = u.username where c.touristId=".$touristId." and ord.touristRating is not null");
+            $allReview = DB::select("select distinct ord.touristRating as touristRating, ord.touristReview as touristReview, ord.chatRoomId, c.guideId, u.username, u.userFirstName, u.userProfileImage from TripOrder ord join ChatRoom c on ord.chatRoomId = c.chatRoomId join Guide g on c.guideId=g.guideId join Users u on g.username = u.username where c.touristId=".$touristId." and ord.touristRating is not null");
         }
 
         if($check){
