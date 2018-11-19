@@ -51,7 +51,7 @@ class AdminController extends Controller
         $countTouristTrip = DB::table('TouristTrip')->count();
         $countTrip = $countGuideTrip + $countTouristTrip;
         Session::put('countTrip', $countTrip);
-        $queryGuide = DB::select('select Users.username, Users.userFirstName, Users.userLastName, Users.userEmail, Guide.guideLicensePic from Users join Guide on Guide.username=Users.username where Guide.guideVerification is null');
+        $queryGuide = DB::select('select Users.username, Users.userFirstName, Users.userLastName, Users.userEmail, Guide.guideLicensePic from Users join Guide on Guide.username=Users.username where Guide.guideVerification is null order by Guide.guideId desc');
         return view('Admin/index', ['queryGuide' => $queryGuide]);
     }
 
